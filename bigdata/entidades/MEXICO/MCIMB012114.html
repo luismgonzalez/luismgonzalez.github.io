@@ -126,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
   var host = window.location.hostname;
   var SITE_ROOT = "";
 
-  /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
     var m = path.match(/(.*\/bigdata\/)/);
     if (!m) return;
@@ -136,11 +135,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   fetch(SITE_ROOT + "search_index.json")
-    .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; })
-    .catch(function (e) {
-      console.error("No se pudo cargar search_index.json", e);
-    });
+    .then(r => r.json())
+    .then(json => data = json);
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -153,9 +149,9 @@ document.addEventListener("DOMContentLoaded", function () {
     data
       .filter(function (d) {
         return (
-          d.clues.toLowerCase().indexOf(q) !== -1 ||
-          d.nombre.toLowerCase().indexOf(q) !== -1 ||
-          d.entidad.toLowerCase().indexOf(q) !== -1
+          d.clues.toLowerCase().includes(q) ||
+          d.nombre.toLowerCase().includes(q) ||
+          d.entidad.toLowerCase().includes(q)
         );
       })
       .slice(0, 20)
@@ -169,6 +165,16 @@ document.addEventListener("DOMContentLoaded", function () {
           '</a>';
         results.appendChild(li);
       });
+  });
+
+  /* 👉 ENTER abre el primer resultado */
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) {
+        window.location.href = first.href;
+      }
+    }
   });
 })();
 </script>
