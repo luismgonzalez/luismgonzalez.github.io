@@ -41,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
     // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
-    var m = path.match(/(.*\/build_md\/)(.*)/);
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/build_md/
+    SITE_ROOT = m[1];   // /~luis/bigdata/
     path = m[2];        // entidades/OAXACA/index.html
   } else {
     // GitHub Pages
