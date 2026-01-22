@@ -119,63 +119,44 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-  if (!input || !results) return;
-
-  var data = null;
-  var path = window.location.pathname;
-  var host = window.location.hostname;
-  var SITE_ROOT = "";
-
-  if (host === "localhost" || host === "127.0.0.1") {
-    var m = path.match(/(.*\/bigdata\/)/);
-    if (!m) return;
-    SITE_ROOT = m[1];
-  } else {
-    SITE_ROOT = "/bigdata/";
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
   }
 
-  fetch(SITE_ROOT + "search_index.json")
-    .then(r => r.json())
-    .then(json => data = json);
+  console.log("Buscador iniciado");
 
-  input.addEventListener("input", function () {
-    if (!data) return;
+  fetch("/bigdata/search_index.json")
+    .then(r => {
+      if (!r.ok) throw new Error("HTTP " + r.status);
+      return r.json();
+    })
+    .then(data => {
+      console.log("Índice cargado:", data.length);
 
-    var q = input.value.toLowerCase();
-    results.innerHTML = "";
+      input.addEventListener("input", function () {
+        var q = input.value.toLowerCase();
+        results.innerHTML = "";
 
-    if (q.length < 2) return;
+        if (q.length < 2) return;
 
-    data
-      .filter(function (d) {
-        return (
-          d.clues.toLowerCase().includes(q) ||
-          d.nombre.toLowerCase().includes(q) ||
-          d.entidad.toLowerCase().includes(q)
+        var hits = data.filter(d =>
+          d.clues.toLowerCase().includes(q)
         );
-      })
-      .slice(0, 20)
-      .forEach(function (d) {
-        var li = document.createElement("li");
-        li.innerHTML =
-          '<a href="' + SITE_ROOT + d.url + '">' +
-          '<strong>' + d.clues + '</strong><br>' +
-          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
-          '<span class="uk-text-meta">' + d.entidad + '</span>' +
-          '</a>';
-        results.appendChild(li);
-      });
-  });
 
-  /* 👉 ENTER abre el primer resultado */
-  input.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      var first = results.querySelector("a");
-      if (first) {
-        window.location.href = first.href;
-      }
-    }
-  });
+        console.log("Coincidencias:", hits.length);
+
+        hits.slice(0, 10).forEach(d => {
+          var li = document.createElement("li");
+          li.innerHTML =
+            '<a href="/bigdata/' + d.url + '">' +
+            d.clues + " – " + d.nombre +
+            "</a>";
+          results.appendChild(li);
+        });
+      });
+    })
+    .catch(e => console.error("ERROR cargando índice:", e));
 })();
 </script>
 
