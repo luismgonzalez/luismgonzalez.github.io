@@ -1,0 +1,3945 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <link href="https://vjs.zencdn.net/5.4.4/video-js.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                       
+    </head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
+    var m = path.match(/(.*\/build_md\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];   // /~luis/build_md/
+    path = m[2];        // entidades/OAXACA/index.html
+  } else {
+    // GitHub Pages
+    SITE_ROOT = "/bd_imb/";
+    path = path.replace("/bd_imb/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  /* -------- Mapeo lógico -------- */
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+        acc += "entidades/";
+        return; // saltar "entidades" en el breadcrumb
+    }
+
+
+    acc += p + "/";
+    var label = p.replace(/_/g, " ");
+
+    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+(function () {
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+
+  if (!input || !results) return;
+
+  var data = null;
+
+  fetch("/search_index.json")
+    .then(function (r) { return r.json(); })
+    .then(function (json) { data = json; });
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(function (d) {
+        return (
+          d.clues.toLowerCase().indexOf(q) !== -1 ||
+          d.nombre.toLowerCase().indexOf(q) !== -1 ||
+          d.entidad.toLowerCase().indexOf(q) !== -1
+        );
+      })
+      .slice(0, 20)
+      .forEach(function (d) {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+})();
+</script>
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a enero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >          
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#conteo-de-unidades">Conteo
+                                                        de unidades</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#unidades-de-segundo-y-tercer-nivel">Unidades
+                                                        de segundo y
+                                                        tercer nivel</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#nivel-de-atención">Nivel
+                                                        de
+                                                        atención</a></li>
+                                                        <li><a
+                                                        href="#nivel-de-atención-y-estatus">Nivel
+                                                        de atención y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#nivel-de-atención-tipología-y-estatus">Nivel
+                                                        de atención,
+                                                        tipología y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#nivel-tipología-subtipología-y-estatus">Nivel,
+                                                        tipología,
+                                                        subtipología y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#entidad-nivel-y-estatus">Entidad,
+                                                        nivel y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#entidad-nivel-tipologia-y-estatus">Entidad,
+                                                        nivel, tipologia
+                                                        y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#entidad-nivel-tipologia-y-estatus-1">Entidad,
+                                                        nivel, tipologia
+                                                        y
+                                                        estatus</a></li>
+                                                        <li><a
+                                                        href="#región-nivel-tipologia-subtipología-y-estatus">Región,
+                                                        nivel,
+                                                        tipologia,
+                                                        subtipología y
+                                                        estatus</a></li>
+                                                        </ul></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="conteo-de-unidades">Conteo de unidades</h1>
+<h2 id="unidades-de-segundo-y-tercer-nivel">Unidades de segundo y tercer
+nivel</h2>
+<p>Con base en <span class="citation" data-cites="dgis_clues">(<a
+href="#ref-dgis_clues" role="doc-biblioref">DGIS, 2025</a>)</span>.</p>
+<p>Quedan excluidas las siguientes <code>CLUES</code> Por no haber sido
+trasnsferidas al IMSS Bienestar:</p>
+<ul>
+<li><p><code>MCIMB012440</code>: <em>Hospital para el Niño
+IMIEM</em></p></li>
+<li><p><code>MCIMB012452</code>: <em>Centro de Especialidades
+Odontológicas IMIEM</em></p></li>
+<li><p><code>MCIMB012464</code>: <em>Hospital de Ginecología y
+Obstetricia IMIEM</em></p></li>
+</ul>
+<h3 id="nivel-de-atención">Nivel de atención</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: right;">626</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: right;">69</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nivel-de-atención-y-estatus">Nivel de atención y estatus</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">605</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">19</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nivel-de-atención-tipología-y-estatus">Nivel de atención,
+tipología y estatus</h3>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 41%" />
+<col style="width: 26%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Tipología</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">226</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">247</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nivel-tipología-subtipología-y-estatus">Nivel, tipología,
+subtipología y estatus</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 22%" />
+<col style="width: 46%" />
+<col style="width: 14%" />
+<col style="width: 6%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Tipologia</th>
+<th style="text-align: left;">Subtipologia</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE ATENCIÓN A
+LAS ADICCIONES, DESINTOXICACIONES Y TOXICOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+DERMATOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+GERIATRÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE LA MUJER</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+OFTALMOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE REDUCCIÓN DE
+RIESGOS SEXUALES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+REHABILITACIÓN FÍSICA Y ORTOPEDIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE SALUD
+MENTAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE OTRAS ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE VARIAS ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">226</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">247</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES CASA DE LA MUJER</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE DIAGNÓSTICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES OTRAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE LA MUJER</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE OTRAS ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE DIAGNÓSTICO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+</tbody>
+</table>
+<h3 id="entidad-nivel-y-estatus">Entidad, nivel y estatus</h3>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 34%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Entidad</th>
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guanajuato</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">43</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">17</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">75</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">51</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="entidad-nivel-tipologia-y-estatus">Entidad, nivel, tipologia y
+estatus</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 34%" />
+<col style="width: 22%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Entidad</th>
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Tipología</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guanajuato</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="entidad-nivel-tipologia-y-estatus-1">Entidad, nivel, tipologia y
+estatus</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 20%" />
+<col style="width: 41%" />
+<col style="width: 13%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Entidad</th>
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Tipología</th>
+<th style="text-align: left;">Subtipología</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Baja California Sur</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Campeche</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE LA MUJER</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE LA MUJER</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chiapas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+GERIATRÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">13</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ciudad de México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE ATENCIÓN A
+LAS ADICCIONES, DESINTOXICACIONES Y TOXICOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE OTRAS ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Colima</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guanajuato</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+OFTALMOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guerrero</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hidalgo</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE LA MUJER</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+REHABILITACIÓN FÍSICA Y ORTOPEDIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE DIAGNÓSTICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">México</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">15</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Michoacán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES OTRAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Morelos</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Nayarit</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES CASA DE LA MUJER</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Oaxaca</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE SALUD
+MENTAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">31</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE OTRAS ESPECIALIDADES</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL MOVIL</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Puebla</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Quintana Roo</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE CANCEROLOGÍA
+O DISPLASIAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">San Luis Potosí</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+DERMATOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE DIAGNÓSTICO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sinaloa</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE ATENCIÓN A
+LAS ADICCIONES, DESINTOXICACIONES Y TOXICOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE SALUD
+MENTAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sonora</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE VARIAS ESPECIALIDADES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE DIAGNÓSTICO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tabasco</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE ATENCIÓN A
+LAS ADICCIONES, DESINTOXICACIONES Y TOXICOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE REDUCCIÓN DE
+RIESGOS SEXUALES</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE SALUD
+MENTAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tamaulipas</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE CIRUGÍA AMBULATORIA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Tlaxcala</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Veracruz</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Yucatán</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE SALUD
+MENTAL</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL ESPECIALIZADO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL GENERAL</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL INTEGRAL (COMUNITARIO)</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+<td style="text-align: left;">NO ESPECIFICADO</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE HEMODIÁLISIS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DE ONCOLOGÍA</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES DEDICAM (CANCER DE MAMA)</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">UNIDAD DE ESPECIALIDADES MÉDICAS
+(UNEMES)</td>
+<td style="text-align: left;">UNEMES OTRAS</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Zacatecas</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES</td>
+<td style="text-align: left;">CLÍNICA DE ESPECIALIDADES DE
+ODONTOLOGÍA</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+<h3 id="región-nivel-tipologia-subtipología-y-estatus">Región, nivel,
+tipologia, subtipología y estatus</h3>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 29%" />
+<col style="width: 38%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Región</th>
+<th style="text-align: left;">Nivel de atención</th>
+<th style="text-align: left;">Estatus</th>
+<th style="text-align: right;">Cantidad</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Centro</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">116</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Centro</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">No aplica</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Noreste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">116</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Noreste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Noreste</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Noroeste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Noroeste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Noroeste</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sureste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">134</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sureste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sureste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sureste</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sureste</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Suroeste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">149</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Suroeste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">En proceso de construcción</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Suroeste</td>
+<td style="text-align: left;">Segundo nivel</td>
+<td style="text-align: left;">Fuera de operación</td>
+<td style="text-align: right;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Suroeste</td>
+<td style="text-align: left;">Tercer nivel</td>
+<td style="text-align: left;">En operación</td>
+<td style="text-align: right;">11</td>
+</tr>
+</tbody>
+</table>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-line-spacing="2" role="doc-bibliography">
+<div id="ref-dgis_clues" class="csl-entry" role="doc-biblioentry">
+DGIS. (2025). <em>Catálogo CLUES</em>. Web. <a
+href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+</div>
+</div>                    
+                </div>
+            </div>
+            <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
+        </div>
+    </body>
+</html>
