@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>SAN LUIS POTOSÍ</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -179,42 +195,44 @@ M. González</p>
 
                     
                 <h1 id="san-luis-potosí">SAN LUIS POTOSÍ</h1>
-<ul>
-<li><a href="./SPIMB000042.html">SPIMB000042 - HOSPITAL COMUNITARIO
-AQUISMON</a></li>
-<li><a href="./SPIMB000170.html">SPIMB000170 - HOSPITAL COMUNITARIO
-CIUDAD DEL MAÍZ</a></li>
-<li><a href="./SPIMB000240.html">SPIMB000240 - HOSPITAL GENERAL CD.
-VALLES</a></li>
-<li><a href="./SPIMB000585.html">SPIMB000585 - HOSPITAL GENERAL DE
-RÍOVERDE</a></li>
-<li><a href="./SPIMB000643.html">SPIMB000643 - HOSPITAL COMUNITARIO
-SALINAS DE HIDALGO</a></li>
-<li><a href="./SPIMB000976.html">SPIMB000976 - CLÍNICA PSIQUIÁTRICA DR.
-EVERARDO NEUMANN PEÑA</a></li>
-<li><a href="./SPIMB001063.html">SPIMB001063 - HOSPITAL COMUNITARIO
-TAMAZUNCHALE</a></li>
-<li><a href="./SPIMB001804.html">SPIMB001804 - HOSPITAL COMUNITARIO
-VILLA DE ARISTA</a></li>
-<li><a href="./SPIMB001920.html">SPIMB001920 - HOSPITAL COMUNITARIO
-EBANO</a></li>
-<li><a href="./SPIMB002125.html">SPIMB002125 - HOSPITAL GENERAL DE
-MATEHUALA</a></li>
-<li><a href="./SPIMB002294.html">SPIMB002294 - UNIDAD DE
-COLPOSCOPÍA</a></li>
-<li><a href="./SPIMB002574.html">SPIMB002574 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD DR.IGNACIO MORONES PRIETO</a></li>
-<li><a href="./SPIMB002796.html">SPIMB002796 - UNIDAD DE CIRUGÍA
-AMBULATORIA VALLES</a></li>
-<li><a href="./SPIMB002801.html">SPIMB002801 - HOSPITAL COMUNITARIO DE
-TAMUIN</a></li>
-<li><a href="./SPIMB002813.html">SPIMB002813 - HOSPITAL BASICO
-COMUNITARIO DE XILITLA</a></li>
-<li><a href="./SPIMB002965.html">SPIMB002965 - HOSPITAL DE LA NIÑEZ Y LA
-MUJER DR. ALBERTO LÓPEZ HERMOSA</a></li>
-<li><a href="./SPIMB002970.html">SPIMB002970 - HOSPITAL GENERAL DE
-SOLEDAD DE GRACIANO SÁNCHEZ</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./SPIMB000042.html">SPIMB000042 - HOSPITAL
+                COMUNITARIO AQUISMON</a></li>
+                <li><a href="./SPIMB000170.html">SPIMB000170 - HOSPITAL
+                COMUNITARIO CIUDAD DEL MAÍZ</a></li>
+                <li><a href="./SPIMB000240.html">SPIMB000240 - HOSPITAL
+                GENERAL CD. VALLES</a></li>
+                <li><a href="./SPIMB000585.html">SPIMB000585 - HOSPITAL
+                GENERAL DE RÍOVERDE</a></li>
+                <li><a href="./SPIMB000643.html">SPIMB000643 - HOSPITAL
+                COMUNITARIO SALINAS DE HIDALGO</a></li>
+                <li><a href="./SPIMB000976.html">SPIMB000976 - CLÍNICA
+                PSIQUIÁTRICA DR. EVERARDO NEUMANN PEÑA</a></li>
+                <li><a href="./SPIMB001063.html">SPIMB001063 - HOSPITAL
+                COMUNITARIO TAMAZUNCHALE</a></li>
+                <li><a href="./SPIMB001804.html">SPIMB001804 - HOSPITAL
+                COMUNITARIO VILLA DE ARISTA</a></li>
+                <li><a href="./SPIMB001920.html">SPIMB001920 - HOSPITAL
+                COMUNITARIO EBANO</a></li>
+                <li><a href="./SPIMB002125.html">SPIMB002125 - HOSPITAL
+                GENERAL DE MATEHUALA</a></li>
+                <li><a href="./SPIMB002294.html">SPIMB002294 - UNIDAD DE
+                COLPOSCOPÍA</a></li>
+                <li><a href="./SPIMB002574.html">SPIMB002574 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD DR.IGNACIO MORONES
+                PRIETO</a></li>
+                <li><a href="./SPIMB002796.html">SPIMB002796 - UNIDAD DE
+                CIRUGÍA AMBULATORIA VALLES</a></li>
+                <li><a href="./SPIMB002801.html">SPIMB002801 - HOSPITAL
+                COMUNITARIO DE TAMUIN</a></li>
+                <li><a href="./SPIMB002813.html">SPIMB002813 - HOSPITAL
+                BASICO COMUNITARIO DE XILITLA</a></li>
+                <li><a href="./SPIMB002965.html">SPIMB002965 - HOSPITAL
+                DE LA NIÑEZ Y LA MUJER DR. ALBERTO LÓPEZ
+                HERMOSA</a></li>
+                <li><a href="./SPIMB002970.html">SPIMB002970 - HOSPITAL
+                GENERAL DE SOLEDAD DE GRACIANO SÁNCHEZ</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

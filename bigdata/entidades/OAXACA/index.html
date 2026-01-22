@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>OAXACA</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,86 +193,99 @@ M. González</p>
 
                     
                 <h1 id="oaxaca">OAXACA</h1>
-<ul>
-<li><a href="./OCIMB000135.html">OCIMB000135 - HC NOCHIXTLAN</a></li>
-<li><a href="./OCIMB000350.html">OCIMB000350 - HC HOSPITAL INTEGRAL
-COMUNITARIO CHALCATONGO</a></li>
-<li><a href="./OCIMB000386.html">OCIMB000386 - HC TAMAZULAPAN</a></li>
-<li><a href="./OCIMB000490.html">OCIMB000490 - HG HUAJUAPAN ENF. MARÍA
-DEL PILAR SÁNCHEZ VILLAVICENCIO</a></li>
-<li><a href="./OCIMB000560.html">OCIMB000560 - HC IXTLAN DE
-JUÁREZ</a></li>
-<li><a href="./OCIMB000876.html">OCIMB000876 - CENTRO DE ONCOLOGÍA Y
-RADIOTERAPIA DE OAXACA, S.S.O.</a></li>
-<li><a href="./OCIMB000881.html">OCIMB000881 - HG OAXACA DR. AURELIO
-VALDIVIESO</a></li>
-<li><a href="./OCIMB001313.html">OCIMB001313 - HE DE LA NIÑEZ
-OAXAQUEÑA</a></li>
-<li><a href="./OCIMB001330.html">OCIMB001330 - H PSIQUIÁTRICO GRANJA
-CRUZ DEL SUR</a></li>
-<li><a href="./OCIMB001844.html">OCIMB001844 - HG CUICATLAN DR. ALBERTO
-VARGAS MERINO</a></li>
-<li><a href="./OCIMB001931.html">OCIMB001931 - HG TUXTEPEC</a></li>
-<li><a href="./OCIMB002100.html">OCIMB002100 - HG MARÍA LOMBARDO DE
-CASO</a></li>
-<li><a href="./OCIMB003133.html">OCIMB003133 - HG SAN PABLO HUIXTEPEC
-DR. MANUEL VELASCO SUÁREZ</a></li>
-<li><a href="./OCIMB003401.html">OCIMB003401 - HG POCHUTLA</a></li>
-<li><a href="./OCIMB003500.html">OCIMB003500 - HC SAN PEDRO
-TAPANATEPEC</a></li>
-<li><a href="./OCIMB003816.html">OCIMB003816 - HC SANTA CATARINA
-JUQUILA</a></li>
-<li><a href="./OCIMB004912.html">OCIMB004912 - HG PINOTEPA PEDRO
-ESPINOZA RUEDA</a></li>
-<li><a href="./OCIMB006650.html">OCIMB006650 - CLINICA DE LA
-MUJER</a></li>
-<li><a href="./OCIMB006826.html">OCIMB006826 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD DE OAXACA</a></li>
-<li><a href="./OCIMB007012.html">OCIMB007012 - HG JUCHITAN DR. MACEDONIO
-BENITEZ FUENTES</a></li>
-<li><a href="./OCIMB007181.html">OCIMB007181 - HOSPITAL ESPECIALIZADO DE
-30 CAMAS DE JUCHITAN</a></li>
-<li><a href="./OCIMB007193.html">OCIMB007193 - HOSPITAL MOVIL TEMPORAL
-COVID</a></li>
-<li><a href="./OCIMB007572.html">OCIMB007572 - HG CIUDAD
-IXTEPEC</a></li>
-<li><a href="./OCIMB007625.html">OCIMB007625 - HG TEHUANTEPEC</a></li>
-<li><a href="./OCIMB007864.html">OCIMB007864 - HC TLACOTEPEC</a></li>
-<li><a href="./OCIMB008016.html">OCIMB008016 - CLÍNICA DE ESPECIALIDADES
-ODONTOLOGICAS</a></li>
-<li><a href="./OCIMB008045.html">OCIMB008045 - HC LA PAZ
-TEOJOMULCO-TEXMELUCAN</a></li>
-<li><a href="./OCIMB008190.html">OCIMB008190 - HC TAMAZOLA</a></li>
-<li><a href="./OCIMB008634.html">OCIMB008634 - HC LOMA BONITA</a></li>
-<li><a href="./OCIMB008651.html">OCIMB008651 - HG SALINA CRUZ</a></li>
-<li><a href="./OCIMB008774.html">OCIMB008774 - HC NEJAPA DE
-MADERO</a></li>
-<li><a href="./OCIMB008803.html">OCIMB008803 - HC VALLE
-NACIONAL</a></li>
-<li><a href="./OCIMB008815.html">OCIMB008815 - HG PUERTO
-ESCONDIDO</a></li>
-<li><a href="./OCIMB008861.html">OCIMB008861 - HC TEMASCAL</a></li>
-<li><a href="./OCIMB008873.html">OCIMB008873 - HC SANTOS REYES
-NOPALA</a></li>
-<li><a href="./OCIMB009071.html">OCIMB009071 - HG PUTLA AMIGO DE LA
-NIÑEZ Y DE LA MADRE</a></li>
-<li><a href="./OCIMB009100.html">OCIMB009100 - HC RÍO GRANDE</a></li>
-<li><a href="./OCIMB009416.html">OCIMB009416 - HC TEOTITLÁN DE FLORES
-MAGÓN</a></li>
-<li><a href="./OCIMB009445.html">OCIMB009445 - HC VILLA SOLA
-VEGA</a></li>
-<li><a href="./OCIMB009462.html">OCIMB009462 - HC SANTA MARIA
-HUATULCO</a></li>
-<li><a href="./OCIMB009561.html">OCIMB009561 - HC SAN PEDRO
-HUAMELULA</a></li>
-<li><a href="./OCIMB009631.html">OCIMB009631 - HOSPITAL GENERAL DE LA
-MUJER Y LA NIÑEZ OAXAQUEÑA</a></li>
-<li><a href="./OCIMB009643.html">OCIMB009643 - IXTLÁN DE JUÁREZ</a></li>
-<li><a href="./OCIMB009660.html">OCIMB009660 - HOSPITAL GENERAL DE SAN
-JUAN BAUTISTA TUXTEPEC</a></li>
-<li><a href="./OCIMB009684.html">OCIMB009684 - HOSPITAL INTEGRAL DE SAN
-FELIPE JALAPA DE DIAZ</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./OCIMB000135.html">OCIMB000135 - HC
+                NOCHIXTLAN</a></li>
+                <li><a href="./OCIMB000350.html">OCIMB000350 - HC
+                HOSPITAL INTEGRAL COMUNITARIO CHALCATONGO</a></li>
+                <li><a href="./OCIMB000386.html">OCIMB000386 - HC
+                TAMAZULAPAN</a></li>
+                <li><a href="./OCIMB000490.html">OCIMB000490 - HG
+                HUAJUAPAN ENF. MARÍA DEL PILAR SÁNCHEZ
+                VILLAVICENCIO</a></li>
+                <li><a href="./OCIMB000560.html">OCIMB000560 - HC IXTLAN
+                DE JUÁREZ</a></li>
+                <li><a href="./OCIMB000876.html">OCIMB000876 - CENTRO DE
+                ONCOLOGÍA Y RADIOTERAPIA DE OAXACA, S.S.O.</a></li>
+                <li><a href="./OCIMB000881.html">OCIMB000881 - HG OAXACA
+                DR. AURELIO VALDIVIESO</a></li>
+                <li><a href="./OCIMB001313.html">OCIMB001313 - HE DE LA
+                NIÑEZ OAXAQUEÑA</a></li>
+                <li><a href="./OCIMB001330.html">OCIMB001330 - H
+                PSIQUIÁTRICO GRANJA CRUZ DEL SUR</a></li>
+                <li><a href="./OCIMB001844.html">OCIMB001844 - HG
+                CUICATLAN DR. ALBERTO VARGAS MERINO</a></li>
+                <li><a href="./OCIMB001931.html">OCIMB001931 - HG
+                TUXTEPEC</a></li>
+                <li><a href="./OCIMB002100.html">OCIMB002100 - HG MARÍA
+                LOMBARDO DE CASO</a></li>
+                <li><a href="./OCIMB003133.html">OCIMB003133 - HG SAN
+                PABLO HUIXTEPEC DR. MANUEL VELASCO SUÁREZ</a></li>
+                <li><a href="./OCIMB003401.html">OCIMB003401 - HG
+                POCHUTLA</a></li>
+                <li><a href="./OCIMB003500.html">OCIMB003500 - HC SAN
+                PEDRO TAPANATEPEC</a></li>
+                <li><a href="./OCIMB003816.html">OCIMB003816 - HC SANTA
+                CATARINA JUQUILA</a></li>
+                <li><a href="./OCIMB004912.html">OCIMB004912 - HG
+                PINOTEPA PEDRO ESPINOZA RUEDA</a></li>
+                <li><a href="./OCIMB006650.html">OCIMB006650 - CLINICA
+                DE LA MUJER</a></li>
+                <li><a href="./OCIMB006826.html">OCIMB006826 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD DE OAXACA</a></li>
+                <li><a href="./OCIMB007012.html">OCIMB007012 - HG
+                JUCHITAN DR. MACEDONIO BENITEZ FUENTES</a></li>
+                <li><a href="./OCIMB007181.html">OCIMB007181 - HOSPITAL
+                ESPECIALIZADO DE 30 CAMAS DE JUCHITAN</a></li>
+                <li><a href="./OCIMB007193.html">OCIMB007193 - HOSPITAL
+                MOVIL TEMPORAL COVID</a></li>
+                <li><a href="./OCIMB007572.html">OCIMB007572 - HG CIUDAD
+                IXTEPEC</a></li>
+                <li><a href="./OCIMB007625.html">OCIMB007625 - HG
+                TEHUANTEPEC</a></li>
+                <li><a href="./OCIMB007864.html">OCIMB007864 - HC
+                TLACOTEPEC</a></li>
+                <li><a href="./OCIMB008016.html">OCIMB008016 - CLÍNICA
+                DE ESPECIALIDADES ODONTOLOGICAS</a></li>
+                <li><a href="./OCIMB008045.html">OCIMB008045 - HC LA PAZ
+                TEOJOMULCO-TEXMELUCAN</a></li>
+                <li><a href="./OCIMB008190.html">OCIMB008190 - HC
+                TAMAZOLA</a></li>
+                <li><a href="./OCIMB008634.html">OCIMB008634 - HC LOMA
+                BONITA</a></li>
+                <li><a href="./OCIMB008651.html">OCIMB008651 - HG SALINA
+                CRUZ</a></li>
+                <li><a href="./OCIMB008774.html">OCIMB008774 - HC NEJAPA
+                DE MADERO</a></li>
+                <li><a href="./OCIMB008803.html">OCIMB008803 - HC VALLE
+                NACIONAL</a></li>
+                <li><a href="./OCIMB008815.html">OCIMB008815 - HG PUERTO
+                ESCONDIDO</a></li>
+                <li><a href="./OCIMB008861.html">OCIMB008861 - HC
+                TEMASCAL</a></li>
+                <li><a href="./OCIMB008873.html">OCIMB008873 - HC SANTOS
+                REYES NOPALA</a></li>
+                <li><a href="./OCIMB009071.html">OCIMB009071 - HG PUTLA
+                AMIGO DE LA NIÑEZ Y DE LA MADRE</a></li>
+                <li><a href="./OCIMB009100.html">OCIMB009100 - HC RÍO
+                GRANDE</a></li>
+                <li><a href="./OCIMB009416.html">OCIMB009416 - HC
+                TEOTITLÁN DE FLORES MAGÓN</a></li>
+                <li><a href="./OCIMB009445.html">OCIMB009445 - HC VILLA
+                SOLA VEGA</a></li>
+                <li><a href="./OCIMB009462.html">OCIMB009462 - HC SANTA
+                MARIA HUATULCO</a></li>
+                <li><a href="./OCIMB009561.html">OCIMB009561 - HC SAN
+                PEDRO HUAMELULA</a></li>
+                <li><a href="./OCIMB009631.html">OCIMB009631 - HOSPITAL
+                GENERAL DE LA MUJER Y LA NIÑEZ OAXAQUEÑA</a></li>
+                <li><a href="./OCIMB009643.html">OCIMB009643 - IXTLÁN DE
+                JUÁREZ</a></li>
+                <li><a href="./OCIMB009660.html">OCIMB009660 - HOSPITAL
+                GENERAL DE SAN JUAN BAUTISTA TUXTEPEC</a></li>
+                <li><a href="./OCIMB009684.html">OCIMB009684 - HOSPITAL
+                INTEGRAL DE SAN FELIPE JALAPA DE DIAZ</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

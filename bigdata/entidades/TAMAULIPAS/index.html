@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>TAMAULIPAS</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,70 +193,76 @@ M. González</p>
 
                     
                 <h1 id="tamaulipas">TAMAULIPAS</h1>
-<ul>
-<li><a href="./TSIMB000012.html">TSIMB000012 - HOSPITAL INTEGRAL
-ABASOLO</a></li>
-<li><a href="./TSIMB000082.html">TSIMB000082 - HOSPITAL INTEGRAL
-ALDAMA</a></li>
-<li><a href="./TSIMB000316.html">TSIMB000316 - HOSPITAL GENERAL CIVIL
-CIUDAD MADERO</a></li>
-<li><a href="./TSIMB000630.html">TSIMB000630 - CAIRRS MANTE</a></li>
-<li><a href="./TSIMB001091.html">TSIMB001091 - HOSPITAL GENERAL NUEVO
-LAREDO</a></li>
-<li><a href="./TSIMB001103.html">TSIMB001103 - HOSPITAL GENERAL CIVIL
-NUEVO LAREDO</a></li>
-<li><a href="./TSIMB001260.html">TSIMB001260 - HOSPITAL GENERAL REYNOSA
-DR. JOSÉ MARÍA CANTÚ GARZA</a></li>
-<li><a href="./TSIMB001535.html">TSIMB001535 - HOSPITAL GENERAL SAN
-FERNANDO</a></li>
-<li><a href="./TSIMB001704.html">TSIMB001704 - CAIRRS TAMPICO</a></li>
-<li><a href="./TSIMB001926.html">TSIMB001926 - CENTRO ONCOLÓGICO DE
-TAMAULIPAS</a></li>
-<li><a href="./TSIMB001931.html">TSIMB001931 - HOSPITAL INFANTIL DE
-TAMAULIPAS</a></li>
-<li><a href="./TSIMB001943.html">TSIMB001943 - HOSPITAL GENERAL CIVIL
-VICTORIA DR. JOSÉ MACÍAS HERNÁNDEZ</a></li>
-<li><a href="./TSIMB001955.html">TSIMB001955 - HOSPITAL GENERAL DR.
-NORBERTO TREVIÑO ZAPATA</a></li>
-<li><a href="./TSIMB002170.html">TSIMB002170 - CENTRO ESTATAL SALUD
-MENTAL LAS VILLAS DE LA ESPERANZA</a></li>
-<li><a href="./TSIMB002264.html">TSIMB002264 - UNEME DEDICAM
-TAMPICO</a></li>
-<li><a href="./TSIMB002363.html">TSIMB002363 - CAIRRS VALLE
-HERMOSO</a></li>
-<li><a href="./TSIMB002416.html">TSIMB002416 - HOSPITAL GENERAL DE
-MATAMOROS</a></li>
-<li><a href="./TSIMB002520.html">TSIMB002520 - HOSPITAL GENERAL DE
-TAMPICO DR. CARLOS CANSECO</a></li>
-<li><a href="./TSIMB002532.html">TSIMB002532 - HOSPITAL PSIQUIÁTRICO DE
-TAMPICO</a></li>
-<li><a href="./TSIMB002602.html">TSIMB002602 - UNIDAD DE CIRUGÍA
-AMBULATORIA DE TAMPICO</a></li>
-<li><a href="./TSIMB002614.html">TSIMB002614 - UNIDAD DE HEMODIÁLISIS
-TAMPICO</a></li>
-<li><a href="./TSIMB002626.html">TSIMB002626 - UNIDAD DE HEMODIÁLISIS
-MATAMOROS</a></li>
-<li><a href="./TSIMB002631.html">TSIMB002631 - UNIDAD DE HEMODIÁLISIS
-NUEVO LAREDO</a></li>
-<li><a href="./TSIMB002643.html">TSIMB002643 - HOSPITAL GENERAL DE CD.
-MANTE DR. EMILIO MARTÍNEZ MANAUTOU</a></li>
-<li><a href="./TSIMB002713.html">TSIMB002713 - HOSPITAL GENERAL MATERNO
-INFANTIL DE REYNOSA</a></li>
-<li><a href="./TSIMB002865.html">TSIMB002865 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD EN CD VICTORIA BICENTENARIO 2010</a></li>
-<li><a href="./TSIMB003075.html">TSIMB003075 - HOSPITAL GENERAL RÍO
-BRAVO</a></li>
-<li><a href="./TSIMB003466.html">TSIMB003466 - HOSPITAL GENERAL VALLE
-HERMOSO DR. RODOLFO TORRE CANTÙ</a></li>
-<li><a href="./TSIMB003483.html">TSIMB003483 - HOSPITAL INTEGRAL MIGUEL
-ALEMÁN</a></li>
-<li><a href="./TSIMB003536.html">TSIMB003536 - CENTRO DE INTERNAMIENTO Y
-REHABILITACIÓN RENACER</a></li>
-<li><a href="./TSIMB003582.html">TSIMB003582 - CENTRO ONCOLÓGICO NUEVO
-LAREDO DR. RODOLFO TORRE CANTÚ</a></li>
-<li><a href="./TSIMB003594.html">TSIMB003594 - UNIDAD MÉDICA
-ESPECIALIZADA PARA LA DETECCIÓN Y DIAGNÓSTICO DE CÁNCER DE MAMA</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./TSIMB000012.html">TSIMB000012 - HOSPITAL
+                INTEGRAL ABASOLO</a></li>
+                <li><a href="./TSIMB000082.html">TSIMB000082 - HOSPITAL
+                INTEGRAL ALDAMA</a></li>
+                <li><a href="./TSIMB000316.html">TSIMB000316 - HOSPITAL
+                GENERAL CIVIL CIUDAD MADERO</a></li>
+                <li><a href="./TSIMB000630.html">TSIMB000630 - CAIRRS
+                MANTE</a></li>
+                <li><a href="./TSIMB001091.html">TSIMB001091 - HOSPITAL
+                GENERAL NUEVO LAREDO</a></li>
+                <li><a href="./TSIMB001103.html">TSIMB001103 - HOSPITAL
+                GENERAL CIVIL NUEVO LAREDO</a></li>
+                <li><a href="./TSIMB001260.html">TSIMB001260 - HOSPITAL
+                GENERAL REYNOSA DR. JOSÉ MARÍA CANTÚ GARZA</a></li>
+                <li><a href="./TSIMB001535.html">TSIMB001535 - HOSPITAL
+                GENERAL SAN FERNANDO</a></li>
+                <li><a href="./TSIMB001704.html">TSIMB001704 - CAIRRS
+                TAMPICO</a></li>
+                <li><a href="./TSIMB001926.html">TSIMB001926 - CENTRO
+                ONCOLÓGICO DE TAMAULIPAS</a></li>
+                <li><a href="./TSIMB001931.html">TSIMB001931 - HOSPITAL
+                INFANTIL DE TAMAULIPAS</a></li>
+                <li><a href="./TSIMB001943.html">TSIMB001943 - HOSPITAL
+                GENERAL CIVIL VICTORIA DR. JOSÉ MACÍAS
+                HERNÁNDEZ</a></li>
+                <li><a href="./TSIMB001955.html">TSIMB001955 - HOSPITAL
+                GENERAL DR. NORBERTO TREVIÑO ZAPATA</a></li>
+                <li><a href="./TSIMB002170.html">TSIMB002170 - CENTRO
+                ESTATAL SALUD MENTAL LAS VILLAS DE LA ESPERANZA</a></li>
+                <li><a href="./TSIMB002264.html">TSIMB002264 - UNEME
+                DEDICAM TAMPICO</a></li>
+                <li><a href="./TSIMB002363.html">TSIMB002363 - CAIRRS
+                VALLE HERMOSO</a></li>
+                <li><a href="./TSIMB002416.html">TSIMB002416 - HOSPITAL
+                GENERAL DE MATAMOROS</a></li>
+                <li><a href="./TSIMB002520.html">TSIMB002520 - HOSPITAL
+                GENERAL DE TAMPICO DR. CARLOS CANSECO</a></li>
+                <li><a href="./TSIMB002532.html">TSIMB002532 - HOSPITAL
+                PSIQUIÁTRICO DE TAMPICO</a></li>
+                <li><a href="./TSIMB002602.html">TSIMB002602 - UNIDAD DE
+                CIRUGÍA AMBULATORIA DE TAMPICO</a></li>
+                <li><a href="./TSIMB002614.html">TSIMB002614 - UNIDAD DE
+                HEMODIÁLISIS TAMPICO</a></li>
+                <li><a href="./TSIMB002626.html">TSIMB002626 - UNIDAD DE
+                HEMODIÁLISIS MATAMOROS</a></li>
+                <li><a href="./TSIMB002631.html">TSIMB002631 - UNIDAD DE
+                HEMODIÁLISIS NUEVO LAREDO</a></li>
+                <li><a href="./TSIMB002643.html">TSIMB002643 - HOSPITAL
+                GENERAL DE CD. MANTE DR. EMILIO MARTÍNEZ
+                MANAUTOU</a></li>
+                <li><a href="./TSIMB002713.html">TSIMB002713 - HOSPITAL
+                GENERAL MATERNO INFANTIL DE REYNOSA</a></li>
+                <li><a href="./TSIMB002865.html">TSIMB002865 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD EN CD VICTORIA
+                BICENTENARIO 2010</a></li>
+                <li><a href="./TSIMB003075.html">TSIMB003075 - HOSPITAL
+                GENERAL RÍO BRAVO</a></li>
+                <li><a href="./TSIMB003466.html">TSIMB003466 - HOSPITAL
+                GENERAL VALLE HERMOSO DR. RODOLFO TORRE CANTÙ</a></li>
+                <li><a href="./TSIMB003483.html">TSIMB003483 - HOSPITAL
+                INTEGRAL MIGUEL ALEMÁN</a></li>
+                <li><a href="./TSIMB003536.html">TSIMB003536 - CENTRO DE
+                INTERNAMIENTO Y REHABILITACIÓN RENACER</a></li>
+                <li><a href="./TSIMB003582.html">TSIMB003582 - CENTRO
+                ONCOLÓGICO NUEVO LAREDO DR. RODOLFO TORRE CANTÚ</a></li>
+                <li><a href="./TSIMB003594.html">TSIMB003594 - UNIDAD
+                MÉDICA ESPECIALIZADA PARA LA DETECCIÓN Y DIAGNÓSTICO DE
+                CÁNCER DE MAMA</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

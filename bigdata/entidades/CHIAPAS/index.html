@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>CHIAPAS</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,109 +193,112 @@ M. González</p>
 
                     
                 <h1 id="chiapas">CHIAPAS</h1>
-<ul>
-<li><a href="./CSIMB000023.html">CSIMB000023 - H. B. C. MANUEL VELASCO
-SUAREZ ACALA</a></li>
-<li><a href="./CSIMB000151.html">CSIMB000151 - H. B. C. DE ÁNGEL ALBINO
-CORZO</a></li>
-<li><a href="./CSIMB000175.html">CSIMB000175 - HOSPITAL GENERAL JUÁREZ
-ARRIAGA</a></li>
-<li><a href="./CSIMB000373.html">CSIMB000373 - H. B. C. DE CINTALAPA DE
-FIGUEROA</a></li>
-<li><a href="./CSIMB000460.html">CSIMB000460 - HOSPITAL GENERAL MARÍA
-IGNACIA GANDULFO COMITAN</a></li>
-<li><a href="./CSIMB001073.html">CSIMB001073 - HOSPITAL GENERAL
-HUIXTLA</a></li>
-<li><a href="./CSIMB001300.html">CSIMB001300 - H. B. C. DE LAS
-MARGARITAS</a></li>
-<li><a href="./CSIMB001732.html">CSIMB001732 - HOSPITAL GENERAL
-PALENQUE</a></li>
-<li><a href="./CSIMB001884.html">CSIMB001884 - HOSPITAL GENERAL
-PICHUCALCO</a></li>
-<li><a href="./CSIMB002152.html">CSIMB002152 - HOSPITAL BÁSICO
-COMUNITARIO SALTO DE AGUA</a></li>
-<li><a href="./CSIMB002234.html">CSIMB002234 - HOSPITAL DE LA MUJER SAN
-CRISTÓBAL DE LAS CASAS</a></li>
-<li><a href="./CSIMB002683.html">CSIMB002683 - H. B. C. DE TILA</a></li>
-<li><a href="./CSIMB002753.html">CSIMB002753 - HOSPITAL GENERAL DR. JUAN
-C. CORZO TONALÁ</a></li>
-<li><a href="./CSIMB002980.html">CSIMB002980 - HOSPITAL REGIONAL DR.
-RAFAEL PASCASIO GAMBOA TUXTLA</a></li>
-<li><a href="./CSIMB003506.html">CSIMB003506 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD CIUDAD SALUD</a></li>
-<li><a href="./CSIMB003511.html">CSIMB003511 - HOSPITAL DE
-ESPECIALIDADES PEDIÁTRICAS</a></li>
-<li><a href="./CSIMB003605.html">CSIMB003605 - UNIDAD DE ATENCIÓN A LA
-SALUD MENTAL SAN AGUSTÍN</a></li>
-<li><a href="./CSIMB003622.html">CSIMB003622 - HOSPITAL GENERAL DE
-REFORMA</a></li>
-<li><a href="./CSIMB003646.html">CSIMB003646 - HOSPITAL BÁSICO
-COMUNITARIO 12 CAMAS BERRIOZABAL</a></li>
-<li><a href="./CSIMB003675.html">CSIMB003675 - HOSPITAL GENERAL YAJALÓN
-DR. JOSE MANUEL VELASCO SILES</a></li>
-<li><a href="./CSIMB003680.html">CSIMB003680 - HOSPITAL GENERAL
-TAPACHULA</a></li>
-<li><a href="./CSIMB003692.html">CSIMB003692 - HOSPITAL BASICO
-COMUNITARIO SIMOJOVEL</a></li>
-<li><a href="./CSIMB003704.html">CSIMB003704 - HOSPITAL BÁSICO
-COMUNITARIO LAS ROSAS</a></li>
-<li><a href="./CSIMB003716.html">CSIMB003716 - HOSPITAL BASICO
-COMUNITARIO DE CHIAPA DE CORZO</a></li>
-<li><a href="./CSIMB003890.html">CSIMB003890 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO PICHUCALCO</a></li>
-<li><a href="./CSIMB003902.html">CSIMB003902 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO SAN CRISTOBAL DE LAS CASAS</a></li>
-<li><a href="./CSIMB003926.html">CSIMB003926 - HOSPITAL BÁSICO
-COMUNITARIO DE AMATÁN</a></li>
-<li><a href="./CSIMB003943.html">CSIMB003943 - CLÍNICA PARA LA ATENCIÓN
-DE PARTO HUMANIZADO</a></li>
-<li><a href="./CSIMB003955.html">CSIMB003955 - CLINICA DE LA MUJER Y
-PARTO HUMANIZADO</a></li>
-<li><a href="./CSIMB003972.html">CSIMB003972 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO BOCHIL</a></li>
-<li><a href="./CSIMB003984.html">CSIMB003984 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO COMITAN DE DOMINGUEZ</a></li>
-<li><a href="./CSIMB003996.html">CSIMB003996 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO TONALA</a></li>
-<li><a href="./CSIMB004001.html">CSIMB004001 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO TAPACHULA</a></li>
-<li><a href="./CSIMB004626.html">CSIMB004626 - H. B. C. DEL
-PORVENIR</a></li>
-<li><a href="./CSIMB004631.html">CSIMB004631 - H. B. C. DE REVOLUCIÓN
-MEXICANA</a></li>
-<li><a href="./CSIMB004643.html">CSIMB004643 - HOSPITAL BÁSICO
-COMUNITARIO, TAPILULA</a></li>
-<li><a href="./CSIMB004713.html">CSIMB004713 - H. B. C. DE
-LARRAINZAR</a></li>
-<li><a href="./CSIMB004725.html">CSIMB004725 - H. B. C. DE SANTO
-DOMINGO</a></li>
-<li><a href="./CSIMB005483.html">CSIMB005483 - H. B. C. DR. RAFAEL
-ALFARO GONZÁLEZ PIJIJIAPAN</a></li>
-<li><a href="./CSIMB005495.html">CSIMB005495 - H. B. C. DE
-TEOPISCA</a></li>
-<li><a href="./CSIMB005500.html">CSIMB005500 - HOSPITAL DE LAS CULTURAS
-SAN CRISTOBAL DE LAS CASAS</a></li>
-<li><a href="./CSIMB005512.html">CSIMB005512 - HOSPITAL DE LA MUJER
-COMITÁN</a></li>
-<li><a href="./CSIMB005524.html">CSIMB005524 - H. B. C. DE FRONTERA
-COMALAPA</a></li>
-<li><a href="./CSIMB005536.html">CSIMB005536 - H. B. C. DE
-CHALCHIHUITÁN</a></li>
-<li><a href="./CSIMB005582.html">CSIMB005582 - HOSPITAL GENERAL
-BICENTENARIO VILLAFLORES</a></li>
-<li><a href="./CSIMB005891.html">CSIMB005891 - HOSPITAL BÁSICO
-COMUNITARIO OSTUACAN, CHIAPAS</a></li>
-<li><a href="./CSIMB006113.html">CSIMB006113 - HOSPITAL BÁSICO
-COMUNITARIO DE OXCHUC</a></li>
-<li><a href="./CSIMB006125.html">CSIMB006125 - H. B. C. DE SAN JUAN
-CHAMULA</a></li>
-<li><a href="./CSIMB006142.html">CSIMB006142 - CLINICA PARA LA ATENCION
-DE PARTO HUMANIZADO PALENQUE</a></li>
-<li><a href="./CSIMB006241.html">CSIMB006241 - H. B. C. DE
-OCOSINGO</a></li>
-<li><a href="./CSIMB006533.html">CSIMB006533 - HOSPITAL CHIAPAS NOS UNE
-DR. JESUS GILBERTO GOMEZ MAZA</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./CSIMB000023.html">CSIMB000023 - H. B. C.
+                MANUEL VELASCO SUAREZ ACALA</a></li>
+                <li><a href="./CSIMB000151.html">CSIMB000151 - H. B. C.
+                DE ÁNGEL ALBINO CORZO</a></li>
+                <li><a href="./CSIMB000175.html">CSIMB000175 - HOSPITAL
+                GENERAL JUÁREZ ARRIAGA</a></li>
+                <li><a href="./CSIMB000373.html">CSIMB000373 - H. B. C.
+                DE CINTALAPA DE FIGUEROA</a></li>
+                <li><a href="./CSIMB000460.html">CSIMB000460 - HOSPITAL
+                GENERAL MARÍA IGNACIA GANDULFO COMITAN</a></li>
+                <li><a href="./CSIMB001073.html">CSIMB001073 - HOSPITAL
+                GENERAL HUIXTLA</a></li>
+                <li><a href="./CSIMB001300.html">CSIMB001300 - H. B. C.
+                DE LAS MARGARITAS</a></li>
+                <li><a href="./CSIMB001732.html">CSIMB001732 - HOSPITAL
+                GENERAL PALENQUE</a></li>
+                <li><a href="./CSIMB001884.html">CSIMB001884 - HOSPITAL
+                GENERAL PICHUCALCO</a></li>
+                <li><a href="./CSIMB002152.html">CSIMB002152 - HOSPITAL
+                BÁSICO COMUNITARIO SALTO DE AGUA</a></li>
+                <li><a href="./CSIMB002234.html">CSIMB002234 - HOSPITAL
+                DE LA MUJER SAN CRISTÓBAL DE LAS CASAS</a></li>
+                <li><a href="./CSIMB002683.html">CSIMB002683 - H. B. C.
+                DE TILA</a></li>
+                <li><a href="./CSIMB002753.html">CSIMB002753 - HOSPITAL
+                GENERAL DR. JUAN C. CORZO TONALÁ</a></li>
+                <li><a href="./CSIMB002980.html">CSIMB002980 - HOSPITAL
+                REGIONAL DR. RAFAEL PASCASIO GAMBOA TUXTLA</a></li>
+                <li><a href="./CSIMB003506.html">CSIMB003506 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD CIUDAD SALUD</a></li>
+                <li><a href="./CSIMB003511.html">CSIMB003511 - HOSPITAL
+                DE ESPECIALIDADES PEDIÁTRICAS</a></li>
+                <li><a href="./CSIMB003605.html">CSIMB003605 - UNIDAD DE
+                ATENCIÓN A LA SALUD MENTAL SAN AGUSTÍN</a></li>
+                <li><a href="./CSIMB003622.html">CSIMB003622 - HOSPITAL
+                GENERAL DE REFORMA</a></li>
+                <li><a href="./CSIMB003646.html">CSIMB003646 - HOSPITAL
+                BÁSICO COMUNITARIO 12 CAMAS BERRIOZABAL</a></li>
+                <li><a href="./CSIMB003675.html">CSIMB003675 - HOSPITAL
+                GENERAL YAJALÓN DR. JOSE MANUEL VELASCO SILES</a></li>
+                <li><a href="./CSIMB003680.html">CSIMB003680 - HOSPITAL
+                GENERAL TAPACHULA</a></li>
+                <li><a href="./CSIMB003692.html">CSIMB003692 - HOSPITAL
+                BASICO COMUNITARIO SIMOJOVEL</a></li>
+                <li><a href="./CSIMB003704.html">CSIMB003704 - HOSPITAL
+                BÁSICO COMUNITARIO LAS ROSAS</a></li>
+                <li><a href="./CSIMB003716.html">CSIMB003716 - HOSPITAL
+                BASICO COMUNITARIO DE CHIAPA DE CORZO</a></li>
+                <li><a href="./CSIMB003890.html">CSIMB003890 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO PICHUCALCO</a></li>
+                <li><a href="./CSIMB003902.html">CSIMB003902 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO SAN CRISTOBAL DE
+                LAS CASAS</a></li>
+                <li><a href="./CSIMB003926.html">CSIMB003926 - HOSPITAL
+                BÁSICO COMUNITARIO DE AMATÁN</a></li>
+                <li><a href="./CSIMB003943.html">CSIMB003943 - CLÍNICA
+                PARA LA ATENCIÓN DE PARTO HUMANIZADO</a></li>
+                <li><a href="./CSIMB003955.html">CSIMB003955 - CLINICA
+                DE LA MUJER Y PARTO HUMANIZADO</a></li>
+                <li><a href="./CSIMB003972.html">CSIMB003972 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO BOCHIL</a></li>
+                <li><a href="./CSIMB003984.html">CSIMB003984 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO COMITAN DE
+                DOMINGUEZ</a></li>
+                <li><a href="./CSIMB003996.html">CSIMB003996 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO TONALA</a></li>
+                <li><a href="./CSIMB004001.html">CSIMB004001 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO TAPACHULA</a></li>
+                <li><a href="./CSIMB004626.html">CSIMB004626 - H. B. C.
+                DEL PORVENIR</a></li>
+                <li><a href="./CSIMB004631.html">CSIMB004631 - H. B. C.
+                DE REVOLUCIÓN MEXICANA</a></li>
+                <li><a href="./CSIMB004643.html">CSIMB004643 - HOSPITAL
+                BÁSICO COMUNITARIO, TAPILULA</a></li>
+                <li><a href="./CSIMB004713.html">CSIMB004713 - H. B. C.
+                DE LARRAINZAR</a></li>
+                <li><a href="./CSIMB004725.html">CSIMB004725 - H. B. C.
+                DE SANTO DOMINGO</a></li>
+                <li><a href="./CSIMB005483.html">CSIMB005483 - H. B. C.
+                DR. RAFAEL ALFARO GONZÁLEZ PIJIJIAPAN</a></li>
+                <li><a href="./CSIMB005495.html">CSIMB005495 - H. B. C.
+                DE TEOPISCA</a></li>
+                <li><a href="./CSIMB005500.html">CSIMB005500 - HOSPITAL
+                DE LAS CULTURAS SAN CRISTOBAL DE LAS CASAS</a></li>
+                <li><a href="./CSIMB005512.html">CSIMB005512 - HOSPITAL
+                DE LA MUJER COMITÁN</a></li>
+                <li><a href="./CSIMB005524.html">CSIMB005524 - H. B. C.
+                DE FRONTERA COMALAPA</a></li>
+                <li><a href="./CSIMB005536.html">CSIMB005536 - H. B. C.
+                DE CHALCHIHUITÁN</a></li>
+                <li><a href="./CSIMB005582.html">CSIMB005582 - HOSPITAL
+                GENERAL BICENTENARIO VILLAFLORES</a></li>
+                <li><a href="./CSIMB005891.html">CSIMB005891 - HOSPITAL
+                BÁSICO COMUNITARIO OSTUACAN, CHIAPAS</a></li>
+                <li><a href="./CSIMB006113.html">CSIMB006113 - HOSPITAL
+                BÁSICO COMUNITARIO DE OXCHUC</a></li>
+                <li><a href="./CSIMB006125.html">CSIMB006125 - H. B. C.
+                DE SAN JUAN CHAMULA</a></li>
+                <li><a href="./CSIMB006142.html">CSIMB006142 - CLINICA
+                PARA LA ATENCION DE PARTO HUMANIZADO PALENQUE</a></li>
+                <li><a href="./CSIMB006241.html">CSIMB006241 - H. B. C.
+                DE OCOSINGO</a></li>
+                <li><a href="./CSIMB006533.html">CSIMB006533 - HOSPITAL
+                CHIAPAS NOS UNE DR. JESUS GILBERTO GOMEZ MAZA</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

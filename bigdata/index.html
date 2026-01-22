@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>Unidades de Salud IMSS Bienestar</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -145,7 +161,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -185,43 +201,69 @@ M. González</p>
 
                     
                 <h1 id="inicio">Inicio</h1>
-<h2 id="entidades">Entidades</h2>
-<ul>
-<li><a href="./entidades/BAJA_CALIFORNIA/index.html">BAJA
-CALIFORNIA</a></li>
-<li><a href="./entidades/BAJA_CALIFORNIA_SUR/index.html">BAJA CALIFORNIA
-SUR</a></li>
-<li><a href="./entidades/CAMPECHE/index.html">CAMPECHE</a></li>
-<li><a href="./entidades/CHIAPAS/index.html">CHIAPAS</a></li>
-<li><a href="./entidades/CIUDAD_DE_MEXICO/index.html">CIUDAD DE
-MÉXICO</a></li>
-<li><a href="./entidades/COLIMA/index.html">COLIMA</a></li>
-<li><a href="./entidades/GUANAJUATO/index.html">GUANAJUATO</a></li>
-<li><a href="./entidades/GUERRERO/index.html">GUERRERO</a></li>
-<li><a href="./entidades/HIDALGO/index.html">HIDALGO</a></li>
-<li><a href="./entidades/MICHOACAN/index.html">MICHOACÁN</a></li>
-<li><a href="./entidades/MORELOS/index.html">MORELOS</a></li>
-<li><a href="./entidades/MEXICO/index.html">MÉXICO</a></li>
-<li><a href="./entidades/NAYARIT/index.html">NAYARIT</a></li>
-<li><a href="./entidades/OAXACA/index.html">OAXACA</a></li>
-<li><a href="./entidades/PUEBLA/index.html">PUEBLA</a></li>
-<li><a href="./entidades/QUINTANA_ROO/index.html">QUINTANA ROO</a></li>
-<li><a href="./entidades/SAN_LUIS_POTOSI/index.html">SAN LUIS
-POTOSÍ</a></li>
-<li><a href="./entidades/SINALOA/index.html">SINALOA</a></li>
-<li><a href="./entidades/SONORA/index.html">SONORA</a></li>
-<li><a href="./entidades/TABASCO/index.html">TABASCO</a></li>
-<li><a href="./entidades/TAMAULIPAS/index.html">TAMAULIPAS</a></li>
-<li><a href="./entidades/TLAXCALA/index.html">TLAXCALA</a></li>
-<li><a href="./entidades/VERACRUZ/index.html">VERACRUZ</a></li>
-<li><a href="./entidades/YUCATAN/index.html">YUCATÁN</a></li>
-<li><a href="./entidades/ZACATECAS/index.html">ZACATECAS</a></li>
-</ul>
-<hr />
-<h2 id="información-global">Información global</h2>
-<ul>
-<li><a href="./conteos.html">Conteos de unidades</a></li>
-</ul>                    
+                <h2 id="entidades">Entidades</h2>
+                <ul>
+                <li><a
+                href="./entidades/BAJA_CALIFORNIA/index.html">BAJA
+                CALIFORNIA</a></li>
+                <li><a
+                href="./entidades/BAJA_CALIFORNIA_SUR/index.html">BAJA
+                CALIFORNIA SUR</a></li>
+                <li><a
+                href="./entidades/CAMPECHE/index.html">CAMPECHE</a></li>
+                <li><a
+                href="./entidades/CHIAPAS/index.html">CHIAPAS</a></li>
+                <li><a
+                href="./entidades/CIUDAD_DE_MEXICO/index.html">CIUDAD DE
+                MÉXICO</a></li>
+                <li><a
+                href="./entidades/COLIMA/index.html">COLIMA</a></li>
+                <li><a
+                href="./entidades/GUANAJUATO/index.html">GUANAJUATO</a></li>
+                <li><a
+                href="./entidades/GUERRERO/index.html">GUERRERO</a></li>
+                <li><a
+                href="./entidades/HIDALGO/index.html">HIDALGO</a></li>
+                <li><a
+                href="./entidades/MICHOACAN/index.html">MICHOACÁN</a></li>
+                <li><a
+                href="./entidades/MORELOS/index.html">MORELOS</a></li>
+                <li><a
+                href="./entidades/MEXICO/index.html">MÉXICO</a></li>
+                <li><a
+                href="./entidades/NAYARIT/index.html">NAYARIT</a></li>
+                <li><a
+                href="./entidades/OAXACA/index.html">OAXACA</a></li>
+                <li><a
+                href="./entidades/PUEBLA/index.html">PUEBLA</a></li>
+                <li><a
+                href="./entidades/QUINTANA_ROO/index.html">QUINTANA
+                ROO</a></li>
+                <li><a href="./entidades/SAN_LUIS_POTOSI/index.html">SAN
+                LUIS POTOSÍ</a></li>
+                <li><a
+                href="./entidades/SINALOA/index.html">SINALOA</a></li>
+                <li><a
+                href="./entidades/SONORA/index.html">SONORA</a></li>
+                <li><a
+                href="./entidades/TABASCO/index.html">TABASCO</a></li>
+                <li><a
+                href="./entidades/TAMAULIPAS/index.html">TAMAULIPAS</a></li>
+                <li><a
+                href="./entidades/TLAXCALA/index.html">TLAXCALA</a></li>
+                <li><a
+                href="./entidades/VERACRUZ/index.html">VERACRUZ</a></li>
+                <li><a
+                href="./entidades/YUCATAN/index.html">YUCATÁN</a></li>
+                <li><a
+                href="./entidades/ZACATECAS/index.html">ZACATECAS</a></li>
+                </ul>
+                <hr />
+                <h2 id="información-global">Información global</h2>
+                <ul>
+                <li><a href="./conteos.html">Conteos de
+                unidades</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

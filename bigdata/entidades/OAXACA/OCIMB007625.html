@@ -4,7 +4,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
         <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
 
@@ -23,10 +24,10 @@
 
         <meta name="generator" content="pandoc-uikit" />
                 <meta name="author" content="Luis M. González" />
-                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +41,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +60,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +91,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -129,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
 })();
 </script>
 
+
     <body>
 
 
@@ -137,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <div class="uk-grid" data-uk-grid-margin>
                 <div class="uk-width-1-1">
                     <h1 class="uk-heading-large">Datos de unidades de
-salud del IMSS Bienestar</h1>
+segundo y tercer nivel del IMSS Bienestar</h1>
                                         <h3 class="uk-heading-large">Actualizada
 a enero de 2026</p></h3>
                                                             <p class="uk-text-large">Luis
@@ -145,7 +162,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -208,537 +225,600 @@ M. González</p>
 
                     
                 <h1 id="oaxaca">OAXACA</h1>
-<h2 id="ocimb007625">OCIMB007625</h2>
-<h3 id="hg-tehuantepec">HG TEHUANTEPEC</h3>
-<h4 id="datos-generales-del-catálogo-de-clues-dgis_clues">Datos
-generales del catálogo de CLUES <span class="citation"
-data-cites="dgis_clues">(<a href="#ref-dgis_clues"
-role="doc-biblioref">DGIS, 2025a</a>)</span></h4>
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Nivel de atención:</em></td>
-<td><strong>SEGUNDO NIVEL</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Tipología:</em></td>
-<td>HOSPITAL GENERAL</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Subtipología:</em></td>
-<td>NO ESPECIFICADO</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Tipo de establecimiento:</em></td>
-<td>HOSPITALIZACIÓN</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Estrato:</em></td>
-<td>URBANO</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Estatus:</em></td>
-<td><strong>EN OPERACIÓN</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Región:</em></td>
-<td>SURESTE</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Entidad:</em></td>
-<td>OAXACA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Municipio:</em></td>
-<td>SANTO DOMINGO TEHUANTEPEC</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Localidad:</em></td>
-<td>SANTO DOMINGO TEHUANTEPEC</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Coordenadas:</em></td>
-<td>16.2907818, -95.2329182</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Domicilio:</em></td>
-<td>CIRCUITO UNIVERSITARIO No. SIN NUMERO</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>BARRIO SANTA CRUZ</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>SANTO DOMINGO TEHUANTEPEC, OAX</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>CP 70760</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Fecha de nicio de
-operación:</em></td>
-<td>2006-06-13</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Propiedad del inmueble:</em></td>
-<td>None</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Último movimiento:</em></td>
-<td>ALTA</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Fecha del último
-movimiento:</em></td>
-<td><code>2024-07-18</code></td>
-</tr>
-</tbody>
-</table>
-<h4 id="sinerhias">SINERHIAS</h4>
-<p>Fecha de última actualización en SINERHIAS: <code>2025-04-30</code>
-<span class="citation" data-cites="dgis_sinerhias">(<a
-href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
-2025b</a>)</span></p>
-<h5 id="datos-generales-sinerhias">Datos generales SINERHIAS</h5>
-<ul>
-<li><em>Agua</em>
-<ul>
-<li>Servicio de agua potable: <strong>NO</strong></li>
-<li>Red municipal de abastecimiento de agua: <strong>NO</strong></li>
-<li>Pozo de agua: <strong>SI</strong></li>
-<li>Almacenamiento de agua por cisterna: <strong>SI</strong></li>
-<li>Otra fuente de abastecimiento de agua: <strong>NO</strong><br />
-</li>
-</ul></li>
-<li><em>Energía eléctrica</em>
-<ul>
-<li>Servicio de energía eléctrica: <strong>SI</strong></li>
-<li>Instalación de energía eléctrica: <strong>SI</strong></li>
-<li>Sistema de paneles solares: <strong>NO</strong></li>
-<li>Tierra física: <strong>SI</strong></li>
-<li>Pararayos: <strong>NO</strong><br />
-</li>
-</ul></li>
-<li><em>Drenaje</em>
-<ul>
-<li>Sistema de drenaje: <strong>NO</strong></li>
-<li>Fosa séptica: <strong>SI</strong><br />
-</li>
-</ul></li>
-<li><em>Gas</em>
-<ul>
-<li>Servicio de gas (tanque estacionario, natural, otro):
-<strong>SI</strong><br />
-</li>
-</ul></li>
-<li><em>Baños</em>
-<ul>
-<li>Baños públicos (inodoros y mingitorios): <strong>19</strong></li>
-<li>Baños para el personal (inodoros y mingitorio):
-<strong>15</strong></li>
-<li>Baños para pacientes (inodoros y mingitorio):
-<strong>19</strong></li>
-<li>Baños para discapacitados (inodoro): <strong>0</strong><br />
-</li>
-</ul></li>
-<li><em>Radio CB</em>
-<ul>
-<li>Radio de banda civil: <strong>NO</strong><br />
-</li>
-</ul></li>
-<li><em>Telesalud</em>
-<ul>
-<li>Área específica de telesalud: <strong>NO</strong></li>
-<li>Estación para telemedicina-telesalud: <strong>NO</strong></li>
-<li>Ancho de banda disponible para servicio de telesalud: <strong>NO
-TIENE</strong></li>
-<li>Equipo de videoconferencia: <strong>SI</strong></li>
-<li>Equipo de cómputo específico para telesalud:
-<strong>SI</strong></li>
-<li>Software para telemedicna-telesalud: <strong>NO</strong><br />
-</li>
-</ul></li>
-<li><em>Expediente clínico electrónico</em>
-<ul>
-<li>Expediente clínico electrónico: <strong>NO</strong></li>
-<li>Nombre del expediente clínico electrónico: __ Corregir
-codificacion…__<br />
-</li>
-</ul></li>
-<li><em>Infraestructura</em>
-<ul>
-<li>Metros cuadrados de terreno: <strong>50000</strong></li>
-<li>Metros cuadrados de construcción: <strong>4200</strong></li>
-<li>Metros cuadrados de superficie exterior: <strong>0</strong></li>
-<li>Metros cuadrados de superficie jardinada: <strong>0</strong></li>
-<li>Número de edificios que conforman el establecimiento:
-<strong>1</strong></li>
-<li>Número de Niveles que tiene el establecimiento:
-<strong>1</strong></li>
-</ul></li>
-<li><em>Computadoras</em>
-<ul>
-<li>Computadoras funcionales (laptops y PC): <strong>50</strong></li>
-<li>Consultorios con computadora funcional: <strong>8</strong></li>
-<li>Computadoras funcionales en la dirección: <strong>1</strong></li>
-<li>Computadoras funcionales en la farmacia: <strong>1</strong></li>
-<li>Computadoras funcionales en el área de estadística:
-<strong>7</strong></li>
-<li>Computadoras funcionales en el área de informática:
-<strong>0</strong></li>
-</ul></li>
-<li><em>Internet</em>
-<ul>
-<li>Tipo de conexión a internet: <strong>INTERNET DE CABLE (FIBRA OPTICA
-, CABLE COAXIAL)</strong></li>
-<li>Ancho de banda: <strong>1 A 50 MB</strong></li>
-<li>Número de usuarios por conexión de internet:
-<strong>47</strong></li>
-<li>Internet pagado por: <strong>SECRETARIA DE SALUD
-ESTATAL</strong></li>
-<li>Internet en la dirección: <strong>SI</strong></li>
-<li>Internet en la farmacia: <strong>NO</strong></li>
-<li>Internet en el área de estadística: <strong>SI</strong></li>
-<li>Internet en el área de informática: <strong>NO</strong></li>
-<li>Número de consultorios con internet: <strong>3</strong></li>
-</ul></li>
-</ul>
-<h5 id="recursos-humanos">Recursos humanos</h5>
-<table>
-<caption>Plazas para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Médicos:</em></td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Médicos en adiestramiento:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Enfermeras:</em></td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">66</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Otro personal profesional:</em></td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Personal técnico:</em></td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Otro personal:</em></td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><strong>Total recursos
-humanos:</strong></td>
-<td style="text-align: right;"><strong>175</strong></td>
-<td style="text-align: right;"><strong>175</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="médicos">Médicos</h6>
-<table>
-<caption>Plazas de médicos para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Médicos generales:</em></td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Pediatras:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Ginecoobstretas:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Cirujanos:</em></td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Traumatólogos:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Anestesiólogos:</em></td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Odontólogos:</em></td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>Total médicos:</strong></td>
-<td style="text-align: right;"><strong>43</strong></td>
-<td style="text-align: right;"><strong>43</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="médicos-en-adiestramiento">Médicos en adiestramiento</h6>
-<table>
-<caption>Plazas de médicos en adiestramiento para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Médicos internos de
-pregrado:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>Médicos en
-adiestramiento:</strong></td>
-<td style="text-align: right;"><strong>1</strong></td>
-<td style="text-align: right;"><strong>1</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="enfermeras">Enfermeras</h6>
-<table>
-<caption>Plazas de enfermeras para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Enfermeras generales:</em></td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Enfermeras especialistas:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Enfermeras auxiliares:</em></td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>Total enfermeras:</strong></td>
-<td style="text-align: right;"><strong>66</strong></td>
-<td style="text-align: right;"><strong>66</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="otro-personal-profesional">Otro personal profesional</h6>
-<table>
-<caption>Plazas de otro personal profesional para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Químicos:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Trabajo social:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Nutriólogos:</em></td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>Total otro personal
-profesional:</strong></td>
-<td style="text-align: right;"><strong>6</strong></td>
-<td style="text-align: right;"><strong>6</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="personal-técnico">Personal técnico</h6>
-<table>
-<caption>Plazas de personal técnico para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Trabajo social:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Laboratorio:</em></td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Radiología:</em></td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Otro personal técnico:</em></td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><strong>Total personal
-técnico:</strong></td>
-<td style="text-align: right;"><strong>6</strong></td>
-<td style="text-align: right;"><strong>6</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<h6 id="otro-personal">Otro personal</h6>
-<table>
-<caption>Plazas de otro personal para OCIMB007625</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Plazas</th>
-<th style="text-align: right;">Totales</th>
-<th style="text-align: right;">Ocupadas</th>
-<th style="text-align: right;">Desocupadas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;"><em>Personal administrativo:</em></td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Archivo clínico:</em></td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Conservación y
-mantenimiento:</em></td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><em>Intendencia:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><em>Otro personal:</em></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"><strong>Total otro
-personal:</strong></td>
-<td style="text-align: right;"><strong>53</strong></td>
-<td style="text-align: right;"><strong>53</strong></td>
-<td style="text-align: right;"><strong>0</strong></td>
-</tr>
-</tbody>
-</table>
-<div id="refs" class="references csl-bib-body hanging-indent"
-data-line-spacing="2" role="doc-bibliography">
-<div id="ref-dgis_clues" class="csl-entry" role="doc-biblioentry">
-DGIS. (2025a). <em>Catálogo CLUES</em>. Web. <a
-href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
-</div>
-<div id="ref-dgis_sinerhias" class="csl-entry" role="doc-biblioentry">
-DGIS. (2025b). <em>Subsistema de información de equipamiento, recursos
-humanos e infraestructura para la atención de la salud (SINERHIAS)</em>.
-Web. <a
-href="http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html">http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html</a>
-</div>
-</div>                    
+                <h2 id="ocimb007625">OCIMB007625</h2>
+                <h3 id="hg-tehuantepec">HG TEHUANTEPEC</h3>
+                <h4
+                id="datos-generales-del-catálogo-de-clues-dgis_clues">Datos
+                generales del catálogo de CLUES <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">DGIS, 2025a</a>)</span></h4>
+                <table>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Nivel de
+                atención:</em></td>
+                <td><strong>SEGUNDO NIVEL</strong></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipología:</em></td>
+                <td>HOSPITAL GENERAL</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Subtipología:</em></td>
+                <td>NO ESPECIFICADO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipo de
+                establecimiento:</em></td>
+                <td>HOSPITALIZACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Estrato:</em></td>
+                <td>URBANO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Estatus:</em></td>
+                <td><strong>EN OPERACIÓN</strong></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Región:</em></td>
+                <td>SURESTE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Entidad:</em></td>
+                <td>OAXACA</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Municipio:</em></td>
+                <td>SANTO DOMINGO TEHUANTEPEC</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Localidad:</em></td>
+                <td>SANTO DOMINGO TEHUANTEPEC</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Coordenadas:</em></td>
+                <td>16.2907818, -95.2329182</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Domicilio:</em></td>
+                <td>CIRCUITO UNIVERSITARIO No. SIN NUMERO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>BARRIO SANTA CRUZ</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"></td>
+                <td>SANTO DOMINGO TEHUANTEPEC, OAX</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CP 70760</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha de nicio de
+                operación:</em></td>
+                <td>2006-06-13</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Propiedad del
+                inmueble:</em></td>
+                <td>None</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Último
+                movimiento:</em></td>
+                <td>ALTA</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha del último
+                movimiento:</em></td>
+                <td><code>2024-07-18</code></td>
+                </tr>
+                </tbody>
+                </table>
+                <h4 id="sinerhias">SINERHIAS</h4>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-04-30</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2025b</a>)</span></p>
+                <h5 id="datos-generales-sinerhias">Datos generales
+                SINERHIAS</h5>
+                <ul>
+                <li><em>Agua</em>
+                <ul>
+                <li>Servicio de agua potable: <strong>NO</strong></li>
+                <li>Red municipal de abastecimiento de agua:
+                <strong>NO</strong></li>
+                <li>Pozo de agua: <strong>SI</strong></li>
+                <li>Almacenamiento de agua por cisterna:
+                <strong>SI</strong></li>
+                <li>Otra fuente de abastecimiento de agua:
+                <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Energía eléctrica</em>
+                <ul>
+                <li>Servicio de energía eléctrica:
+                <strong>SI</strong></li>
+                <li>Instalación de energía eléctrica:
+                <strong>SI</strong></li>
+                <li>Sistema de paneles solares: <strong>NO</strong></li>
+                <li>Tierra física: <strong>SI</strong></li>
+                <li>Pararayos: <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Drenaje</em>
+                <ul>
+                <li>Sistema de drenaje: <strong>NO</strong></li>
+                <li>Fosa séptica: <strong>SI</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Gas</em>
+                <ul>
+                <li>Servicio de gas (tanque estacionario, natural,
+                otro): <strong>SI</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Baños</em>
+                <ul>
+                <li>Baños públicos (inodoros y mingitorios):
+                <strong>19</strong></li>
+                <li>Baños para el personal (inodoros y mingitorio):
+                <strong>15</strong></li>
+                <li>Baños para pacientes (inodoros y mingitorio):
+                <strong>19</strong></li>
+                <li>Baños para discapacitados (inodoro):
+                <strong>0</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Radio CB</em>
+                <ul>
+                <li>Radio de banda civil: <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Telesalud</em>
+                <ul>
+                <li>Área específica de telesalud:
+                <strong>NO</strong></li>
+                <li>Estación para telemedicina-telesalud:
+                <strong>NO</strong></li>
+                <li>Ancho de banda disponible para servicio de
+                telesalud: <strong>NO TIENE</strong></li>
+                <li>Equipo de videoconferencia: <strong>SI</strong></li>
+                <li>Equipo de cómputo específico para telesalud:
+                <strong>SI</strong></li>
+                <li>Software para telemedicna-telesalud:
+                <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Expediente clínico electrónico</em>
+                <ul>
+                <li>Expediente clínico electrónico:
+                <strong>NO</strong></li>
+                <li>Nombre del expediente clínico electrónico: __
+                Corregir codificacion…__<br />
+                </li>
+                </ul></li>
+                <li><em>Infraestructura</em>
+                <ul>
+                <li>Metros cuadrados de terreno:
+                <strong>50000</strong></li>
+                <li>Metros cuadrados de construcción:
+                <strong>4200</strong></li>
+                <li>Metros cuadrados de superficie exterior:
+                <strong>0</strong></li>
+                <li>Metros cuadrados de superficie jardinada:
+                <strong>0</strong></li>
+                <li>Número de edificios que conforman el
+                establecimiento: <strong>1</strong></li>
+                <li>Número de Niveles que tiene el establecimiento:
+                <strong>1</strong></li>
+                </ul></li>
+                <li><em>Computadoras</em>
+                <ul>
+                <li>Computadoras funcionales (laptops y PC):
+                <strong>50</strong></li>
+                <li>Consultorios con computadora funcional:
+                <strong>8</strong></li>
+                <li>Computadoras funcionales en la dirección:
+                <strong>1</strong></li>
+                <li>Computadoras funcionales en la farmacia:
+                <strong>1</strong></li>
+                <li>Computadoras funcionales en el área de estadística:
+                <strong>7</strong></li>
+                <li>Computadoras funcionales en el área de informática:
+                <strong>0</strong></li>
+                </ul></li>
+                <li><em>Internet</em>
+                <ul>
+                <li>Tipo de conexión a internet: <strong>INTERNET DE
+                CABLE (FIBRA OPTICA , CABLE COAXIAL)</strong></li>
+                <li>Ancho de banda: <strong>1 A 50 MB</strong></li>
+                <li>Número de usuarios por conexión de internet:
+                <strong>47</strong></li>
+                <li>Internet pagado por: <strong>SECRETARIA DE SALUD
+                ESTATAL</strong></li>
+                <li>Internet en la dirección: <strong>SI</strong></li>
+                <li>Internet en la farmacia: <strong>NO</strong></li>
+                <li>Internet en el área de estadística:
+                <strong>SI</strong></li>
+                <li>Internet en el área de informática:
+                <strong>NO</strong></li>
+                <li>Número de consultorios con internet:
+                <strong>3</strong></li>
+                </ul></li>
+                </ul>
+                <h5 id="recursos-humanos">Recursos humanos</h5>
+                <table>
+                <caption>Plazas para OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Médicos:</em></td>
+                <td style="text-align: right;">43</td>
+                <td style="text-align: right;">43</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Médicos en
+                adiestramiento:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Enfermeras:</em></td>
+                <td style="text-align: right;">66</td>
+                <td style="text-align: right;">66</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Otro personal
+                profesional:</em></td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Personal
+                técnico:</em></td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Otro
+                personal:</em></td>
+                <td style="text-align: right;">53</td>
+                <td style="text-align: right;">53</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><strong>Total recursos
+                humanos:</strong></td>
+                <td style="text-align: right;"><strong>175</strong></td>
+                <td style="text-align: right;"><strong>175</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="médicos">Médicos</h6>
+                <table>
+                <caption>Plazas de médicos para OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Médicos
+                generales:</em></td>
+                <td style="text-align: right;">23</td>
+                <td style="text-align: right;">23</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Pediatras:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Ginecoobstretas:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Cirujanos:</em></td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Traumatólogos:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: right;"><em>Anestesiólogos:</em></td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Odontólogos:</em></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total
+                médicos:</strong></td>
+                <td style="text-align: right;"><strong>43</strong></td>
+                <td style="text-align: right;"><strong>43</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="médicos-en-adiestramiento">Médicos en
+                adiestramiento</h6>
+                <table>
+                <caption>Plazas de médicos en adiestramiento para
+                OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Médicos internos de
+                pregrado:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Médicos en
+                adiestramiento:</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="enfermeras">Enfermeras</h6>
+                <table>
+                <caption>Plazas de enfermeras para OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Enfermeras
+                generales:</em></td>
+                <td style="text-align: right;">58</td>
+                <td style="text-align: right;">58</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Enfermeras
+                especialistas:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Enfermeras
+                auxiliares:</em></td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total
+                enfermeras:</strong></td>
+                <td style="text-align: right;"><strong>66</strong></td>
+                <td style="text-align: right;"><strong>66</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="otro-personal-profesional">Otro personal
+                profesional</h6>
+                <table>
+                <caption>Plazas de otro personal profesional para
+                OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Químicos:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Trabajo
+                social:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Nutriólogos:</em></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total otro
+                personal profesional:</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="personal-técnico">Personal técnico</h6>
+                <table>
+                <caption>Plazas de personal técnico para
+                OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Trabajo
+                social:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: right;"><em>Laboratorio:</em></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Radiología:</em></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Otro personal
+                técnico:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><strong>Total personal
+                técnico:</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h6 id="otro-personal">Otro personal</h6>
+                <table>
+                <caption>Plazas de otro personal para
+                OCIMB007625</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Personal
+                administrativo:</em></td>
+                <td style="text-align: right;">33</td>
+                <td style="text-align: right;">33</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Archivo
+                clínico:</em></td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Conservación y
+                mantenimiento:</em></td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: right;"><em>Intendencia:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Otro
+                personal:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total otro
+                personal:</strong></td>
+                <td style="text-align: right;"><strong>53</strong></td>
+                <td style="text-align: right;"><strong>53</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2025a). <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_sinerhias" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2025b). <em>Subsistema de información de
+                equipamiento, recursos humanos e infraestructura para la
+                atención de la salud (SINERHIAS)</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html">http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html</a>
+                </div>
+                </div>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

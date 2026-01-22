@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>MORELOS</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,35 +193,36 @@ M. González</p>
 
                     
                 <h1 id="morelos">MORELOS</h1>
-<ul>
-<li><a href="./MSIMB000292.html">MSIMB000292 - HOSPITAL GENERAL DE
-CUAUTLA</a></li>
-<li><a href="./MSIMB000386.html">MSIMB000386 - HG DE CUERNAVACA DR. JOSE
-G. PARRES</a></li>
-<li><a href="./MSIMB000806.html">MSIMB000806 - HG DE JOJUTLA DR. ERNESTO
-MEANA SAN ROMÁN</a></li>
-<li><a href="./MSIMB001243.html">MSIMB001243 - HG DE TETECALA DR.
-RODOLFO BECERRIL DE LA PAZ</a></li>
-<li><a href="./MSIMB001820.html">MSIMB001820 - HC PUENTE DE IXTLA DR.
-FERNANDO R. VIZCARRA</a></li>
-<li><a href="./MSIMB001844.html">MSIMB001844 - HOSPITAL DE LA
-MUJER</a></li>
-<li><a href="./MSIMB001856.html">MSIMB001856 - HOSPITAL GENERAL DE
-TEMIXCO</a></li>
-<li><a href="./MSIMB001861.html">MSIMB001861 - HC DE OCUITUCO</a></li>
-<li><a href="./MSIMB002112.html">MSIMB002112 - HC DE
-JONACATEPEC</a></li>
-<li><a href="./MSIMB002124.html">MSIMB002124 - UNIDAD DE ESPECIALIDADES
-MEDICAS DE CIRUGIA AMBULATORIA</a></li>
-<li><a href="./MSIMB002235.html">MSIMB002235 - HOSPITAL DEL NIÑO
-MORELENSE</a></li>
-<li><a href="./MSIMB002346.html">MSIMB002346 - UNEME DE HEMODIALISIS
-CUERNAVACA</a></li>
-<li><a href="./MSIMB002351.html">MSIMB002351 - HOSPITAL GENERAL DE
-AXOCHIAPAN</a></li>
-<li><a href="./MSIMB002416.html">MSIMB002416 - UNIDAD DE EVALUACIÓN Y
-DIAGNÓSTICO DE OBESIDAD INFANTIL</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./MSIMB000292.html">MSIMB000292 - HOSPITAL
+                GENERAL DE CUAUTLA</a></li>
+                <li><a href="./MSIMB000386.html">MSIMB000386 - HG DE
+                CUERNAVACA DR. JOSE G. PARRES</a></li>
+                <li><a href="./MSIMB000806.html">MSIMB000806 - HG DE
+                JOJUTLA DR. ERNESTO MEANA SAN ROMÁN</a></li>
+                <li><a href="./MSIMB001243.html">MSIMB001243 - HG DE
+                TETECALA DR. RODOLFO BECERRIL DE LA PAZ</a></li>
+                <li><a href="./MSIMB001820.html">MSIMB001820 - HC PUENTE
+                DE IXTLA DR. FERNANDO R. VIZCARRA</a></li>
+                <li><a href="./MSIMB001844.html">MSIMB001844 - HOSPITAL
+                DE LA MUJER</a></li>
+                <li><a href="./MSIMB001856.html">MSIMB001856 - HOSPITAL
+                GENERAL DE TEMIXCO</a></li>
+                <li><a href="./MSIMB001861.html">MSIMB001861 - HC DE
+                OCUITUCO</a></li>
+                <li><a href="./MSIMB002112.html">MSIMB002112 - HC DE
+                JONACATEPEC</a></li>
+                <li><a href="./MSIMB002124.html">MSIMB002124 - UNIDAD DE
+                ESPECIALIDADES MEDICAS DE CIRUGIA AMBULATORIA</a></li>
+                <li><a href="./MSIMB002235.html">MSIMB002235 - HOSPITAL
+                DEL NIÑO MORELENSE</a></li>
+                <li><a href="./MSIMB002346.html">MSIMB002346 - UNEME DE
+                HEMODIALISIS CUERNAVACA</a></li>
+                <li><a href="./MSIMB002351.html">MSIMB002351 - HOSPITAL
+                GENERAL DE AXOCHIAPAN</a></li>
+                <li><a href="./MSIMB002416.html">MSIMB002416 - UNIDAD DE
+                EVALUACIÓN Y DIAGNÓSTICO DE OBESIDAD INFANTIL</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

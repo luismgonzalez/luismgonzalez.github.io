@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>BAJA CALIFORNIA</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -178,34 +194,35 @@ M. González</p>
 
                     
                 <h1 id="baja-california">BAJA CALIFORNIA</h1>
-<ul>
-<li><a href="./BCIMB000010.html">BCIMB000010 - HOSPITAL GENERAL DE
-ENSENADA</a></li>
-<li><a href="./BCIMB000355.html">BCIMB000355 - HOSPITAL GENERAL DE
-MEXICALI</a></li>
-<li><a href="./BCIMB000623.html">BCIMB000623 - HOSPITAL COMUNITARIO SAN
-FELIPE</a></li>
-<li><a href="./BCIMB000676.html">BCIMB000676 - HOSPITAL GENERAL DE
-TECATE</a></li>
-<li><a href="./BCIMB000734.html">BCIMB000734 - HOSPITAL GENERAL
-TIJUANA</a></li>
-<li><a href="./BCIMB001282.html">BCIMB001282 - CLINICA DE ESPECIALIDADES
-DENTALES EL FLORIDO</a></li>
-<li><a href="./BCIMB001352.html">BCIMB001352 - HOSPITAL MATERNO INFANTIL
-DE TIJUANA</a></li>
-<li><a href="./BCIMB001422.html">BCIMB001422 - HOSPITAL GENERAL PLAYAS
-DE ROSARITO</a></li>
-<li><a href="./BCIMB001574.html">BCIMB001574 - UNIDAD DE ESPECIALIDADES
-MEDICAS DE BC ENSENADA (UNEME - CIRUGÍA AMBULATORIA)</a></li>
-<li><a href="./BCIMB001702.html">BCIMB001702 - HOSPITAL MATERNO
-INFANTIL</a></li>
-<li><a href="./BCIMB001726.html">BCIMB001726 - UNEME DE
-ONCOLOGÍA</a></li>
-<li><a href="./BCIMB001784.html">BCIMB001784 - UNIDAD QUIRURGICA
-AMBULATORIA DE MEXICALI</a></li>
-<li><a href="./BCIMB001796.html">BCIMB001796 - HOSPITAL GENERAL TIJUANA
-ZONA ESTE</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./BCIMB000010.html">BCIMB000010 - HOSPITAL
+                GENERAL DE ENSENADA</a></li>
+                <li><a href="./BCIMB000355.html">BCIMB000355 - HOSPITAL
+                GENERAL DE MEXICALI</a></li>
+                <li><a href="./BCIMB000623.html">BCIMB000623 - HOSPITAL
+                COMUNITARIO SAN FELIPE</a></li>
+                <li><a href="./BCIMB000676.html">BCIMB000676 - HOSPITAL
+                GENERAL DE TECATE</a></li>
+                <li><a href="./BCIMB000734.html">BCIMB000734 - HOSPITAL
+                GENERAL TIJUANA</a></li>
+                <li><a href="./BCIMB001282.html">BCIMB001282 - CLINICA
+                DE ESPECIALIDADES DENTALES EL FLORIDO</a></li>
+                <li><a href="./BCIMB001352.html">BCIMB001352 - HOSPITAL
+                MATERNO INFANTIL DE TIJUANA</a></li>
+                <li><a href="./BCIMB001422.html">BCIMB001422 - HOSPITAL
+                GENERAL PLAYAS DE ROSARITO</a></li>
+                <li><a href="./BCIMB001574.html">BCIMB001574 - UNIDAD DE
+                ESPECIALIDADES MEDICAS DE BC ENSENADA (UNEME - CIRUGÍA
+                AMBULATORIA)</a></li>
+                <li><a href="./BCIMB001702.html">BCIMB001702 - HOSPITAL
+                MATERNO INFANTIL</a></li>
+                <li><a href="./BCIMB001726.html">BCIMB001726 - UNEME DE
+                ONCOLOGÍA</a></li>
+                <li><a href="./BCIMB001784.html">BCIMB001784 - UNIDAD
+                QUIRURGICA AMBULATORIA DE MEXICALI</a></li>
+                <li><a href="./BCIMB001796.html">BCIMB001796 - HOSPITAL
+                GENERAL TIJUANA ZONA ESTE</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>MÉXICO</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,172 +193,189 @@ M. González</p>
 
                     
                 <h1 id="méxico">MÉXICO</h1>
-<ul>
-<li><a href="./MCIMB000226.html">MCIMB000226 - TEPEXPAN DR. GUSTAVO BAZ
-PRADA</a></li>
-<li><a href="./MCIMB000231.html">MCIMB000231 - HOSPITAL PSIQUIÁTRICO DR.
-ADOLFO M. NIETO TEPEXPAN</a></li>
-<li><a href="./MCIMB000243.html">MCIMB000243 - HOSPITAL PSIQUIÁTRICO
-JOSÉ SAYAGO</a></li>
-<li><a href="./MCIMB000890.html">MCIMB000890 - HOSPITAL MUNICIPAL SANTA
-CRUZ ATIZAPÁN BICENTENARIO</a></li>
-<li><a href="./MCIMB000914.html">MCIMB000914 - H.G. DR.SALVADOR GONZÁLEZ
-HERREJON</a></li>
-<li><a href="./MCIMB001013.html">MCIMB001013 - CENTRO DE ATENCIÓN
-ESTOMATOLÓGICA ATLACOMULCO</a></li>
-<li><a href="./MCIMB001351.html">MCIMB001351 - HOSPITAL RAMÓN LÓPEZ
-RAYÓN BICENTENARIO COATEPEC HARINAS</a></li>
-<li><a href="./MCIMB001486.html">MCIMB001486 - H.G. JOSÉ VICENTE
-VILLADA</a></li>
-<li><a href="./MCIMB001491.html">MCIMB001491 - CENTRO DE ATENCIÓN
-ESTOMATOLÓGICA CUAUTITLÁN</a></li>
-<li><a href="./MCIMB001515.html">MCIMB001515 - HOSPITAL GENERAL DE
-CHALCO</a></li>
-<li><a href="./MCIMB001841.html">MCIMB001841 - H.G.
-CHIMALHUACÁN</a></li>
-<li><a href="./MCIMB002005.html">MCIMB002005 - H.G. DR. JOSÉ MARÍA
-RODRÍGUEZ</a></li>
-<li><a href="./MCIMB002244.html">MCIMB002244 - HOSPITAL MUNICIPAL
-HUEHUETOCA</a></li>
-<li><a href="./MCIMB002331.html">MCIMB002331 - HOSPITAL SANTOS DEGOLLADO
-BICENTENARIO</a></li>
-<li><a href="./MCIMB002565.html">MCIMB002565 - ZOQUIAPAN DR. PEDRO
-LÓPEZ</a></li>
-<li><a href="./MCIMB002570.html">MCIMB002570 - H. ZOQUIAPAN GRANJA LA
-SALUD</a></li>
-<li><a href="./MCIMB002640.html">MCIMB002640 - HOSPITAL GENERAL
-IXTLAHUACA VALENTIN GÓMEZ FARÍAS</a></li>
-<li><a href="./MCIMB002874.html">MCIMB002874 - HOSPITAL MUNICIPAL
-XALATLACO MARIANO MATAMOROS</a></li>
-<li><a href="./MCIMB003731.html">MCIMB003731 - SAN RAFAEL CHAMAPA MODULO
-ODONTOPEDIATRICO</a></li>
-<li><a href="./MCIMB003743.html">MCIMB003743 - H.G. DR. MAXIMILIANO RUÍZ
-CASTAÑEDA</a></li>
-<li><a href="./MCIMB003895.html">MCIMB003895 - H.G. DR. GUSTAVO BAZ
-PRADA</a></li>
-<li><a href="./MCIMB004344.html">MCIMB004344 - HOSPITAL IGNACIO LÓPEZ
-RAYÓN BICENTENARIO</a></li>
-<li><a href="./MCIMB004443.html">MCIMB004443 - HOSPITAL MUNICIPAL OTUMBA
-BICENTENARIO</a></li>
-<li><a href="./MCIMB004694.html">MCIMB004694 - HOSPITAL GENERAL SAN
-FELIPE DEL PROGRESO</a></li>
-<li><a href="./MCIMB005102.html">MCIMB005102 - HOSPITAL JOSÉ MARÍA COSS
-BICENTENARIO</a></li>
-<li><a href="./MCIMB005225.html">MCIMB005225 - HOSPITAL GENERAL MIGUEL
-HIDALGO Y COSTILLA BICENTENARIO</a></li>
-<li><a href="./MCIMB005860.html">MCIMB005860 - H.G. TENANCINGO</a></li>
-<li><a href="./MCIMB005942.html">MCIMB005942 - HOSPITAL MUNICIPAL
-MARIANO MATAMOROS BICENTENARIO TENANGO DEL VALLE</a></li>
-<li><a href="./MCIMB006181.html">MCIMB006181 - HM TEPETLIXPA
-HERMENEGILDO GALEANA, BICENTENARIO</a></li>
-<li><a href="./MCIMB006275.html">MCIMB006275 - HOSPITAL JUAN ALDAMA
-BICENTENARIO</a></li>
-<li><a href="./MCIMB006893.html">MCIMB006893 - HOSPITAL MUNICIPAL SAN
-PEDRO LIMÓN</a></li>
-<li><a href="./MCIMB006946.html">MCIMB006946 - H.G. DR. NICOLÁS SAN
-JUAN</a></li>
-<li><a href="./MCIMB006951.html">MCIMB006951 - HOSPITAL MATERNO
-PERINATAL MÓNICA PRETELINI SÁENZ</a></li>
-<li><a href="./MCIMB007231.html">MCIMB007231 - HOSPITAL GENERAL VALLE DE
-BRAVO</a></li>
-<li><a href="./MCIMB007465.html">MCIMB007465 - HOSPITAL MUNICIPAL
-BICENTENARIO HERMENEGILDO GALEANA VILLA GUERRERO</a></li>
-<li><a href="./MCIMB007540.html">MCIMB007540 - HOSPITAL GUADALUPE
-VICTORIA BICENTENARIO</a></li>
-<li><a href="./MCIMB007960.html">MCIMB007960 - HOSPITAL MUNICIPAL SAN
-JUAN ZITLALTEPEC</a></li>
-<li><a href="./MCIMB008042.html">MCIMB008042 - H.G. DR. FERNANDO QUIROZ
-GUTIÉRREZ</a></li>
-<li><a href="./MCIMB008556.html">MCIMB008556 - HOSPITAL VALERIO TRUJANO
-BICENTENARIO</a></li>
-<li><a href="./MCIMB008824.html">MCIMB008824 - HOSPITAL MUNICIPAL
-TECAMAC LIC. CÉSAR CAMACHO QUIROZ</a></li>
-<li><a href="./MCIMB009022.html">MCIMB009022 - H.G. JILOTEPEC</a></li>
-<li><a href="./MCIMB009051.html">MCIMB009051 - HOSPITAL MUNICIPAL
-ACAMBAY IGNACIO ALLENDE BICENTENARIO</a></li>
-<li><a href="./MCIMB009063.html">MCIMB009063 - HOSPITAL GENERAL
-ATLACOMULCO</a></li>
-<li><a href="./MCIMB009145.html">MCIMB009145 - CENTRO MÉDICO LIC. ADOLFO
-LÓPEZ MATEOS</a></li>
-<li><a href="./MCIMB009162.html">MCIMB009162 - HOSPITAL MUNICIPAL
-TEMOAYA</a></li>
-<li><a href="./MCIMB009174.html">MCIMB009174 - HOSPITAL GENERAL IXTAPAN
-DE LA SAL</a></li>
-<li><a href="./MCIMB009186.html">MCIMB009186 - HOSPITAL MUNICIPAL
-ZACUALPAN</a></li>
-<li><a href="./MCIMB009203.html">MCIMB009203 - HOSPITAL GENERAL LAS
-AMÉRICAS</a></li>
-<li><a href="./MCIMB009215.html">MCIMB009215 - HOSPITAL GENERAL LA PERLA
-NEZAHUALCOYOTL</a></li>
-<li><a href="./MCIMB009261.html">MCIMB009261 - HOSPITAL GENERAL
-TULTITLAN SAN PABLO DE LAS SALINAS</a></li>
-<li><a href="./MCIMB009302.html">MCIMB009302 - UNIDAD DE ESPECIALIDAD
-MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA HUIXQUILUCAN</a></li>
-<li><a href="./MCIMB009425.html">MCIMB009425 - HOSPITAL MUNICIPAL
-LERMA</a></li>
-<li><a href="./MCIMB009536.html">MCIMB009536 - HOSPITAL GENERAL
-CHIMALHUACÁN SAN AGUSTÍN</a></li>
-<li><a href="./MCIMB009606.html">MCIMB009606 - MATERNIDAD
-HUIXQUILUCAN</a></li>
-<li><a href="./MCIMB009676.html">MCIMB009676 - HOSPITAL MATERNO DE
-TEXCOCO</a></li>
-<li><a href="./MCIMB009734.html">MCIMB009734 - HOSPITAL MUNICIPAL VILLA
-DEL CARBON</a></li>
-<li><a href="./MCIMB009775.html">MCIMB009775 - HOSPITAL GENERAL DE
-AXAPUSCO</a></li>
-<li><a href="./MCIMB009932.html">MCIMB009932 - MATERNIDAD
-CUAUTITLÁN</a></li>
-<li><a href="./MCIMB009944.html">MCIMB009944 - UNIDAD DE ESPECIALIDAD
-MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA CUAUTITLÁN</a></li>
-<li><a href="./MCIMB010212.html">MCIMB010212 - CENTRO ESTATAL DE
-REHABILITACIÓN Y EDUCACIÓN ESPECIAL DE TOLUCA</a></li>
-<li><a href="./MCIMB010224.html">MCIMB010224 - HOSPITAL MUNICIPAL DE
-CHICONCUAC</a></li>
-<li><a href="./MCIMB010236.html">MCIMB010236 - CENTRO ESPECIALIZADO DE
-ATENCIÓN A PERSONAS CON DISCAPACIDAD VISUAL</a></li>
-<li><a href="./MCIMB010294.html">MCIMB010294 - HOSPITAL MUNICIPAL
-MALINALCO PEDRO ASCENCIO DE ALQUISIRAS</a></li>
-<li><a href="./MCIMB010825.html">MCIMB010825 - HOSPITAL MUNICIPAL
-IXTAPALUCA LEONA VICARIO BICENTENARIO</a></li>
-<li><a href="./MCIMB010842.html">MCIMB010842 - SANTA MARÍA
-TETITLA</a></li>
-<li><a href="./MCIMB011694.html">MCIMB011694 - HOSPITAL MUNICIPAL
-XONACATLÁN VICENTE GUERRERO BICENTENARIO</a></li>
-<li><a href="./MCIMB011904.html">MCIMB011904 - MATERNIDAD
-ATLACOMULCO</a></li>
-<li><a href="./MCIMB011945.html">MCIMB011945 - H.G. TEXCOCO GUADALUPE
-VICTORIA BICENTENARIO</a></li>
-<li><a href="./MCIMB011986.html">MCIMB011986 - HOSPITAL MATERNO INFANTIL
-CHALCO JOSÉFA ORTÍZ DE DOMÍNGUEZ</a></li>
-<li><a href="./MCIMB012073.html">MCIMB012073 - HOSPITAL GENERAL
-HUEYPOXTLA HERMENEGILDO GALEANA BICENTENARIO</a></li>
-<li><a href="./MCIMB012085.html">MCIMB012085 - HOSPITAL MATERNO INFANTIL
-JOSÉ MARÍA MORELOS Y PAVÓN BICENTENARIO SAN JOSÉ DEL RINCÓN</a></li>
-<li><a href="./MCIMB012114.html">MCIMB012114 - HOSPITAL MUNICIPAL
-TEMASCALTEPEC</a></li>
-<li><a href="./MCIMB012131.html">MCIMB012131 - HOSPITAL MUNICIPAL
-HERMENEGILDO GALEANA JIQUIPILCO</a></li>
-<li><a href="./MCIMB012143.html">MCIMB012143 - HOSPITAL MATERNO INFANTIL
-MIGUEL HIDALGO Y COSTILLA LOS REYES LA PAZ</a></li>
-<li><a href="./MCIMB012196.html">MCIMB012196 - HOSPITAL MUNICIPAL JUAN
-ALDAMA VILLA NICOLÁS ROMERO</a></li>
-<li><a href="./MCIMB012201.html">MCIMB012201 - HOSPITAL MATERNO INFANTIL
-VICENTE GUERRERO CHIMALHUACÁN</a></li>
-<li><a href="./MCIMB012254.html">MCIMB012254 - HOSPITAL MATERNO INFANTIL
-GUADALUPE VICTORIA ATIZAPÁN DE ZARAGOZA</a></li>
-<li><a href="./MCIMB012271.html">MCIMB012271 - H.G. VALENTÍN GÓMEZ
-FARÍAS (SAN FRANCISCO ZENTLALPAN)</a></li>
-<li><a href="./MCIMB012283.html">MCIMB012283 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD DE ZUMPANGO</a></li>
-<li><a href="./MCIMB012295.html">MCIMB012295 - HOSPITAL REGIONAL DE ALTA
-ESPECIALIDAD IXTAPALUCA</a></li>
-<li><a href="./MCIMB012341.html">MCIMB012341 - MÓDULO ODONTOPEDIÁTRICO
-LAS ALAMEDAS</a></li>
-<li><a href="./MCIMB012411.html">MCIMB012411 - UNIDAD DE ESPECIALIDAD
-MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA TOLUCA</a></li>
-<li><a href="./MCIMB012476.html">MCIMB012476 - HOSPITAL GENERAL ATENCO
-“FRANCISCO ALTAMIRANO NÚÑEZ”</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./MCIMB000226.html">MCIMB000226 - TEPEXPAN
+                DR. GUSTAVO BAZ PRADA</a></li>
+                <li><a href="./MCIMB000231.html">MCIMB000231 - HOSPITAL
+                PSIQUIÁTRICO DR. ADOLFO M. NIETO TEPEXPAN</a></li>
+                <li><a href="./MCIMB000243.html">MCIMB000243 - HOSPITAL
+                PSIQUIÁTRICO JOSÉ SAYAGO</a></li>
+                <li><a href="./MCIMB000890.html">MCIMB000890 - HOSPITAL
+                MUNICIPAL SANTA CRUZ ATIZAPÁN BICENTENARIO</a></li>
+                <li><a href="./MCIMB000914.html">MCIMB000914 - H.G.
+                DR.SALVADOR GONZÁLEZ HERREJON</a></li>
+                <li><a href="./MCIMB001013.html">MCIMB001013 - CENTRO DE
+                ATENCIÓN ESTOMATOLÓGICA ATLACOMULCO</a></li>
+                <li><a href="./MCIMB001351.html">MCIMB001351 - HOSPITAL
+                RAMÓN LÓPEZ RAYÓN BICENTENARIO COATEPEC HARINAS</a></li>
+                <li><a href="./MCIMB001486.html">MCIMB001486 - H.G. JOSÉ
+                VICENTE VILLADA</a></li>
+                <li><a href="./MCIMB001491.html">MCIMB001491 - CENTRO DE
+                ATENCIÓN ESTOMATOLÓGICA CUAUTITLÁN</a></li>
+                <li><a href="./MCIMB001515.html">MCIMB001515 - HOSPITAL
+                GENERAL DE CHALCO</a></li>
+                <li><a href="./MCIMB001841.html">MCIMB001841 - H.G.
+                CHIMALHUACÁN</a></li>
+                <li><a href="./MCIMB002005.html">MCIMB002005 - H.G. DR.
+                JOSÉ MARÍA RODRÍGUEZ</a></li>
+                <li><a href="./MCIMB002244.html">MCIMB002244 - HOSPITAL
+                MUNICIPAL HUEHUETOCA</a></li>
+                <li><a href="./MCIMB002331.html">MCIMB002331 - HOSPITAL
+                SANTOS DEGOLLADO BICENTENARIO</a></li>
+                <li><a href="./MCIMB002565.html">MCIMB002565 - ZOQUIAPAN
+                DR. PEDRO LÓPEZ</a></li>
+                <li><a href="./MCIMB002570.html">MCIMB002570 - H.
+                ZOQUIAPAN GRANJA LA SALUD</a></li>
+                <li><a href="./MCIMB002640.html">MCIMB002640 - HOSPITAL
+                GENERAL IXTLAHUACA VALENTIN GÓMEZ FARÍAS</a></li>
+                <li><a href="./MCIMB002874.html">MCIMB002874 - HOSPITAL
+                MUNICIPAL XALATLACO MARIANO MATAMOROS</a></li>
+                <li><a href="./MCIMB003731.html">MCIMB003731 - SAN
+                RAFAEL CHAMAPA MODULO ODONTOPEDIATRICO</a></li>
+                <li><a href="./MCIMB003743.html">MCIMB003743 - H.G. DR.
+                MAXIMILIANO RUÍZ CASTAÑEDA</a></li>
+                <li><a href="./MCIMB003895.html">MCIMB003895 - H.G. DR.
+                GUSTAVO BAZ PRADA</a></li>
+                <li><a href="./MCIMB004344.html">MCIMB004344 - HOSPITAL
+                IGNACIO LÓPEZ RAYÓN BICENTENARIO</a></li>
+                <li><a href="./MCIMB004443.html">MCIMB004443 - HOSPITAL
+                MUNICIPAL OTUMBA BICENTENARIO</a></li>
+                <li><a href="./MCIMB004694.html">MCIMB004694 - HOSPITAL
+                GENERAL SAN FELIPE DEL PROGRESO</a></li>
+                <li><a href="./MCIMB005102.html">MCIMB005102 - HOSPITAL
+                JOSÉ MARÍA COSS BICENTENARIO</a></li>
+                <li><a href="./MCIMB005225.html">MCIMB005225 - HOSPITAL
+                GENERAL MIGUEL HIDALGO Y COSTILLA BICENTENARIO</a></li>
+                <li><a href="./MCIMB005860.html">MCIMB005860 - H.G.
+                TENANCINGO</a></li>
+                <li><a href="./MCIMB005942.html">MCIMB005942 - HOSPITAL
+                MUNICIPAL MARIANO MATAMOROS BICENTENARIO TENANGO DEL
+                VALLE</a></li>
+                <li><a href="./MCIMB006181.html">MCIMB006181 - HM
+                TEPETLIXPA HERMENEGILDO GALEANA, BICENTENARIO</a></li>
+                <li><a href="./MCIMB006275.html">MCIMB006275 - HOSPITAL
+                JUAN ALDAMA BICENTENARIO</a></li>
+                <li><a href="./MCIMB006893.html">MCIMB006893 - HOSPITAL
+                MUNICIPAL SAN PEDRO LIMÓN</a></li>
+                <li><a href="./MCIMB006946.html">MCIMB006946 - H.G. DR.
+                NICOLÁS SAN JUAN</a></li>
+                <li><a href="./MCIMB006951.html">MCIMB006951 - HOSPITAL
+                MATERNO PERINATAL MÓNICA PRETELINI SÁENZ</a></li>
+                <li><a href="./MCIMB007231.html">MCIMB007231 - HOSPITAL
+                GENERAL VALLE DE BRAVO</a></li>
+                <li><a href="./MCIMB007465.html">MCIMB007465 - HOSPITAL
+                MUNICIPAL BICENTENARIO HERMENEGILDO GALEANA VILLA
+                GUERRERO</a></li>
+                <li><a href="./MCIMB007540.html">MCIMB007540 - HOSPITAL
+                GUADALUPE VICTORIA BICENTENARIO</a></li>
+                <li><a href="./MCIMB007960.html">MCIMB007960 - HOSPITAL
+                MUNICIPAL SAN JUAN ZITLALTEPEC</a></li>
+                <li><a href="./MCIMB008042.html">MCIMB008042 - H.G. DR.
+                FERNANDO QUIROZ GUTIÉRREZ</a></li>
+                <li><a href="./MCIMB008556.html">MCIMB008556 - HOSPITAL
+                VALERIO TRUJANO BICENTENARIO</a></li>
+                <li><a href="./MCIMB008824.html">MCIMB008824 - HOSPITAL
+                MUNICIPAL TECAMAC LIC. CÉSAR CAMACHO QUIROZ</a></li>
+                <li><a href="./MCIMB009022.html">MCIMB009022 - H.G.
+                JILOTEPEC</a></li>
+                <li><a href="./MCIMB009051.html">MCIMB009051 - HOSPITAL
+                MUNICIPAL ACAMBAY IGNACIO ALLENDE BICENTENARIO</a></li>
+                <li><a href="./MCIMB009063.html">MCIMB009063 - HOSPITAL
+                GENERAL ATLACOMULCO</a></li>
+                <li><a href="./MCIMB009145.html">MCIMB009145 - CENTRO
+                MÉDICO LIC. ADOLFO LÓPEZ MATEOS</a></li>
+                <li><a href="./MCIMB009162.html">MCIMB009162 - HOSPITAL
+                MUNICIPAL TEMOAYA</a></li>
+                <li><a href="./MCIMB009174.html">MCIMB009174 - HOSPITAL
+                GENERAL IXTAPAN DE LA SAL</a></li>
+                <li><a href="./MCIMB009186.html">MCIMB009186 - HOSPITAL
+                MUNICIPAL ZACUALPAN</a></li>
+                <li><a href="./MCIMB009203.html">MCIMB009203 - HOSPITAL
+                GENERAL LAS AMÉRICAS</a></li>
+                <li><a href="./MCIMB009215.html">MCIMB009215 - HOSPITAL
+                GENERAL LA PERLA NEZAHUALCOYOTL</a></li>
+                <li><a href="./MCIMB009261.html">MCIMB009261 - HOSPITAL
+                GENERAL TULTITLAN SAN PABLO DE LAS SALINAS</a></li>
+                <li><a href="./MCIMB009302.html">MCIMB009302 - UNIDAD DE
+                ESPECIALIDAD MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER
+                DE MAMA HUIXQUILUCAN</a></li>
+                <li><a href="./MCIMB009425.html">MCIMB009425 - HOSPITAL
+                MUNICIPAL LERMA</a></li>
+                <li><a href="./MCIMB009536.html">MCIMB009536 - HOSPITAL
+                GENERAL CHIMALHUACÁN SAN AGUSTÍN</a></li>
+                <li><a href="./MCIMB009606.html">MCIMB009606 -
+                MATERNIDAD HUIXQUILUCAN</a></li>
+                <li><a href="./MCIMB009676.html">MCIMB009676 - HOSPITAL
+                MATERNO DE TEXCOCO</a></li>
+                <li><a href="./MCIMB009734.html">MCIMB009734 - HOSPITAL
+                MUNICIPAL VILLA DEL CARBON</a></li>
+                <li><a href="./MCIMB009775.html">MCIMB009775 - HOSPITAL
+                GENERAL DE AXAPUSCO</a></li>
+                <li><a href="./MCIMB009932.html">MCIMB009932 -
+                MATERNIDAD CUAUTITLÁN</a></li>
+                <li><a href="./MCIMB009944.html">MCIMB009944 - UNIDAD DE
+                ESPECIALIDAD MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER
+                DE MAMA CUAUTITLÁN</a></li>
+                <li><a href="./MCIMB010212.html">MCIMB010212 - CENTRO
+                ESTATAL DE REHABILITACIÓN Y EDUCACIÓN ESPECIAL DE
+                TOLUCA</a></li>
+                <li><a href="./MCIMB010224.html">MCIMB010224 - HOSPITAL
+                MUNICIPAL DE CHICONCUAC</a></li>
+                <li><a href="./MCIMB010236.html">MCIMB010236 - CENTRO
+                ESPECIALIZADO DE ATENCIÓN A PERSONAS CON DISCAPACIDAD
+                VISUAL</a></li>
+                <li><a href="./MCIMB010294.html">MCIMB010294 - HOSPITAL
+                MUNICIPAL MALINALCO PEDRO ASCENCIO DE
+                ALQUISIRAS</a></li>
+                <li><a href="./MCIMB010825.html">MCIMB010825 - HOSPITAL
+                MUNICIPAL IXTAPALUCA LEONA VICARIO BICENTENARIO</a></li>
+                <li><a href="./MCIMB010842.html">MCIMB010842 - SANTA
+                MARÍA TETITLA</a></li>
+                <li><a href="./MCIMB011694.html">MCIMB011694 - HOSPITAL
+                MUNICIPAL XONACATLÁN VICENTE GUERRERO
+                BICENTENARIO</a></li>
+                <li><a href="./MCIMB011904.html">MCIMB011904 -
+                MATERNIDAD ATLACOMULCO</a></li>
+                <li><a href="./MCIMB011945.html">MCIMB011945 - H.G.
+                TEXCOCO GUADALUPE VICTORIA BICENTENARIO</a></li>
+                <li><a href="./MCIMB011986.html">MCIMB011986 - HOSPITAL
+                MATERNO INFANTIL CHALCO JOSÉFA ORTÍZ DE
+                DOMÍNGUEZ</a></li>
+                <li><a href="./MCIMB012073.html">MCIMB012073 - HOSPITAL
+                GENERAL HUEYPOXTLA HERMENEGILDO GALEANA
+                BICENTENARIO</a></li>
+                <li><a href="./MCIMB012085.html">MCIMB012085 - HOSPITAL
+                MATERNO INFANTIL JOSÉ MARÍA MORELOS Y PAVÓN BICENTENARIO
+                SAN JOSÉ DEL RINCÓN</a></li>
+                <li><a href="./MCIMB012114.html">MCIMB012114 - HOSPITAL
+                MUNICIPAL TEMASCALTEPEC</a></li>
+                <li><a href="./MCIMB012131.html">MCIMB012131 - HOSPITAL
+                MUNICIPAL HERMENEGILDO GALEANA JIQUIPILCO</a></li>
+                <li><a href="./MCIMB012143.html">MCIMB012143 - HOSPITAL
+                MATERNO INFANTIL MIGUEL HIDALGO Y COSTILLA LOS REYES LA
+                PAZ</a></li>
+                <li><a href="./MCIMB012196.html">MCIMB012196 - HOSPITAL
+                MUNICIPAL JUAN ALDAMA VILLA NICOLÁS ROMERO</a></li>
+                <li><a href="./MCIMB012201.html">MCIMB012201 - HOSPITAL
+                MATERNO INFANTIL VICENTE GUERRERO CHIMALHUACÁN</a></li>
+                <li><a href="./MCIMB012254.html">MCIMB012254 - HOSPITAL
+                MATERNO INFANTIL GUADALUPE VICTORIA ATIZAPÁN DE
+                ZARAGOZA</a></li>
+                <li><a href="./MCIMB012271.html">MCIMB012271 - H.G.
+                VALENTÍN GÓMEZ FARÍAS (SAN FRANCISCO
+                ZENTLALPAN)</a></li>
+                <li><a href="./MCIMB012283.html">MCIMB012283 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD DE ZUMPANGO</a></li>
+                <li><a href="./MCIMB012295.html">MCIMB012295 - HOSPITAL
+                REGIONAL DE ALTA ESPECIALIDAD IXTAPALUCA</a></li>
+                <li><a href="./MCIMB012341.html">MCIMB012341 - MÓDULO
+                ODONTOPEDIÁTRICO LAS ALAMEDAS</a></li>
+                <li><a href="./MCIMB012411.html">MCIMB012411 - UNIDAD DE
+                ESPECIALIDAD MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER
+                DE MAMA TOLUCA</a></li>
+                <li><a href="./MCIMB012476.html">MCIMB012476 - HOSPITAL
+                GENERAL ATENCO “FRANCISCO ALTAMIRANO NÚÑEZ”</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>

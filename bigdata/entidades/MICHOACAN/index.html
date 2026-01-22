@@ -25,8 +25,8 @@
                 <meta name="author" content="Luis M. González" />
                         <title>MICHOACÁN</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                       
-    </head>
+                                                        </head>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   var el = document.getElementById("breadcrumbs");
@@ -40,14 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* -------- Detectar entorno -------- */
   if (host === "localhost" || host === "127.0.0.1") {
-    // Ejemplo: /~luis/build_md/entidades/OAXACA/index.html
     var m = path.match(/(.*\/bigdata\/)(.*)/);
     if (!m) return;
 
-    SITE_ROOT = m[1];   // /~luis/bigdata/
-    path = m[2];        // entidades/OAXACA/index.html
+    SITE_ROOT = m[1];
+    path = m[2];
   } else {
-    // GitHub Pages
     SITE_ROOT = "/bigdata/";
     path = path.replace("/bigdata/", "");
   }
@@ -61,20 +59,23 @@ document.addEventListener("DOMContentLoaded", function () {
     '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
   );
 
-  /* -------- Mapeo lógico -------- */
   parts.forEach(function (p) {
     if (p === "index.html") return;
 
     if (p === "entidades") {
-        acc += "entidades/";
-        return; // saltar "entidades" en el breadcrumb
+      acc += "entidades/";
+      return;
     }
 
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
 
-    acc += p + "/";
-    var label = p.replace(/_/g, " ");
-
-    crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
   });
 
   if (crumbs.length > 1) {
@@ -89,14 +90,28 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
   var input = document.getElementById("search");
   var results = document.getElementById("results");
-
   if (!input || !results) return;
 
   var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
 
-  fetch("/search_index.json")
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
     .then(function (r) { return r.json(); })
-    .then(function (json) { data = json; });
+    .then(function (json) { data = json; })
+    .catch(function (e) {
+      console.error("No se pudo cargar search_index.json", e);
+    });
 
   input.addEventListener("input", function () {
     if (!data) return;
@@ -118,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .forEach(function (d) {
         var li = document.createElement("li");
         li.innerHTML =
-          '<a href="' + d.url + '">' +
+          '<a href="' + SITE_ROOT + d.url + '">' +
           '<strong>' + d.clues + '</strong><br>' +
           '<span class="uk-text-small">' + d.nombre + '</span><br>' +
           '<span class="uk-text-meta">' + d.entidad + '</span>' +
@@ -128,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 })();
 </script>
+
 
     <body>
 
@@ -144,7 +160,7 @@ M. González</p>
                                     </div>
             </div>
             
-            <div class="uk-grid" data-uk-grid-margin >          
+            <div class="uk-grid" data-uk-grid-margin >
                 <div class="uk-width-medium-1-4">
                     <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
                         <div class="uk-panel uk-panel-box menu-begin" >
@@ -177,67 +193,68 @@ M. González</p>
 
                     
                 <h1 id="michoacán">MICHOACÁN</h1>
-<ul>
-<li><a href="./MNIMB000230.html">MNIMB000230 - HOSPITAL INTEGRAL
-ARTEAGA</a></li>
-<li><a href="./MNIMB000353.html">MNIMB000353 - HOSPITAL INTEGRAL
-COAHUAYANA</a></li>
-<li><a href="./MNIMB000650.html">MNIMB000650 - HOSPITAL GENERAL DE
-CHERÁN</a></li>
-<li><a href="./MNIMB001292.html">MNIMB001292 - HOSPITAL GENERAL DE
-LÁZARO CÁRDENAS DRA. ELENA AVILÉS</a></li>
-<li><a href="./MNIMB001403.html">MNIMB001403 - HOSPITAL DE LA
-MUJER</a></li>
-<li><a href="./MNIMB001415.html">MNIMB001415 - CENTRO ESTATAL DE
-ATENCION ONCOLOGICA</a></li>
-<li><a href="./MNIMB001420.html">MNIMB001420 - HOSPITAL PSIQUIATRICO DR.
-JOSÉ TORRES OROZCO</a></li>
-<li><a href="./MNIMB001601.html">MNIMB001601 - HOSPITAL INTEGRAL NUEVA
-ITALIA</a></li>
-<li><a href="./MNIMB002091.html">MNIMB002091 - HOSPITAL GENERAL
-SAHUAYO</a></li>
-<li><a href="./MNIMB002190.html">MNIMB002190 - HOSPITAL GENERAL DE
-TACAMBARO MARIA ZENDEJAS</a></li>
-<li><a href="./MNIMB002774.html">MNIMB002774 - HOSPITAL GENERAL DR.
-PEDRO DANIEL MARTÍNEZ</a></li>
-<li><a href="./MNIMB002931.html">MNIMB002931 - HOSPITAL GENERAL
-ZAMORA</a></li>
-<li><a href="./MNIMB003013.html">MNIMB003013 - HOSPITAL GENERAL
-ZITACUARO</a></li>
-<li><a href="./MNIMB003532.html">MNIMB003532 - HOSPITAL GENERAL
-ZACAPU</a></li>
-<li><a href="./MNIMB003544.html">MNIMB003544 - HOSPITAL GENERAL
-PATZCUARO</a></li>
-<li><a href="./MNIMB003590.html">MNIMB003590 - HOSPITAL GENERAL DR
-MIGUEL SILVA</a></li>
-<li><a href="./MNIMB003660.html">MNIMB003660 - HOSPITAL INFANTIL DE
-MORELIA EVA SAMANO DE LÓPEZ MATEOS</a></li>
-<li><a href="./MNIMB003725.html">MNIMB003725 - UNEME DEDICAM</a></li>
-<li><a href="./MNIMB003911.html">MNIMB003911 - HOSPITAL GENERAL
-MARAVATIO</a></li>
-<li><a href="./MNIMB003923.html">MNIMB003923 - HOSPITAL GENERAL
-PURUANDIRO</a></li>
-<li><a href="./MNIMB003935.html">MNIMB003935 - HOSPITAL GENERAL CIUDAD
-HIDALGO</a></li>
-<li><a href="./MNIMB003940.html">MNIMB003940 - HOSPITAL COMUNITARIO
-TUZANTLA</a></li>
-<li><a href="./MNIMB003952.html">MNIMB003952 - HOSPITAL COMUNITARIO
-CARACUARO-NOCUPETARO</a></li>
-<li><a href="./MNIMB003964.html">MNIMB003964 - HOSPITAL GENERAL LOS
-REYES</a></li>
-<li><a href="./MNIMB003976.html">MNIMB003976 - HOSPITAL GENERAL LA
-PIEDAD</a></li>
-<li><a href="./MNIMB003981.html">MNIMB003981 - HOSPITAL COMUNITARIO LA
-HUACANA</a></li>
-<li><a href="./MNIMB003993.html">MNIMB003993 - HOSPITAL COMUNITARIO
-MARUATA</a></li>
-<li><a href="./MNIMB004734.html">MNIMB004734 - HOSPITAL GENERAL
-APATZINGAN</a></li>
-<li><a href="./MNIMB004746.html">MNIMB004746 - HOSPITAL COMUNITARIO
-ARANTEPACUA</a></li>
-<li><a href="./MNIMB004751.html">MNIMB004751 - HOSPITAL COMUNITARIO
-MARUATA</a></li>
-</ul>                    
+                <ul>
+                <li><a href="./MNIMB000230.html">MNIMB000230 - HOSPITAL
+                INTEGRAL ARTEAGA</a></li>
+                <li><a href="./MNIMB000353.html">MNIMB000353 - HOSPITAL
+                INTEGRAL COAHUAYANA</a></li>
+                <li><a href="./MNIMB000650.html">MNIMB000650 - HOSPITAL
+                GENERAL DE CHERÁN</a></li>
+                <li><a href="./MNIMB001292.html">MNIMB001292 - HOSPITAL
+                GENERAL DE LÁZARO CÁRDENAS DRA. ELENA AVILÉS</a></li>
+                <li><a href="./MNIMB001403.html">MNIMB001403 - HOSPITAL
+                DE LA MUJER</a></li>
+                <li><a href="./MNIMB001415.html">MNIMB001415 - CENTRO
+                ESTATAL DE ATENCION ONCOLOGICA</a></li>
+                <li><a href="./MNIMB001420.html">MNIMB001420 - HOSPITAL
+                PSIQUIATRICO DR. JOSÉ TORRES OROZCO</a></li>
+                <li><a href="./MNIMB001601.html">MNIMB001601 - HOSPITAL
+                INTEGRAL NUEVA ITALIA</a></li>
+                <li><a href="./MNIMB002091.html">MNIMB002091 - HOSPITAL
+                GENERAL SAHUAYO</a></li>
+                <li><a href="./MNIMB002190.html">MNIMB002190 - HOSPITAL
+                GENERAL DE TACAMBARO MARIA ZENDEJAS</a></li>
+                <li><a href="./MNIMB002774.html">MNIMB002774 - HOSPITAL
+                GENERAL DR. PEDRO DANIEL MARTÍNEZ</a></li>
+                <li><a href="./MNIMB002931.html">MNIMB002931 - HOSPITAL
+                GENERAL ZAMORA</a></li>
+                <li><a href="./MNIMB003013.html">MNIMB003013 - HOSPITAL
+                GENERAL ZITACUARO</a></li>
+                <li><a href="./MNIMB003532.html">MNIMB003532 - HOSPITAL
+                GENERAL ZACAPU</a></li>
+                <li><a href="./MNIMB003544.html">MNIMB003544 - HOSPITAL
+                GENERAL PATZCUARO</a></li>
+                <li><a href="./MNIMB003590.html">MNIMB003590 - HOSPITAL
+                GENERAL DR MIGUEL SILVA</a></li>
+                <li><a href="./MNIMB003660.html">MNIMB003660 - HOSPITAL
+                INFANTIL DE MORELIA EVA SAMANO DE LÓPEZ MATEOS</a></li>
+                <li><a href="./MNIMB003725.html">MNIMB003725 - UNEME
+                DEDICAM</a></li>
+                <li><a href="./MNIMB003911.html">MNIMB003911 - HOSPITAL
+                GENERAL MARAVATIO</a></li>
+                <li><a href="./MNIMB003923.html">MNIMB003923 - HOSPITAL
+                GENERAL PURUANDIRO</a></li>
+                <li><a href="./MNIMB003935.html">MNIMB003935 - HOSPITAL
+                GENERAL CIUDAD HIDALGO</a></li>
+                <li><a href="./MNIMB003940.html">MNIMB003940 - HOSPITAL
+                COMUNITARIO TUZANTLA</a></li>
+                <li><a href="./MNIMB003952.html">MNIMB003952 - HOSPITAL
+                COMUNITARIO CARACUARO-NOCUPETARO</a></li>
+                <li><a href="./MNIMB003964.html">MNIMB003964 - HOSPITAL
+                GENERAL LOS REYES</a></li>
+                <li><a href="./MNIMB003976.html">MNIMB003976 - HOSPITAL
+                GENERAL LA PIEDAD</a></li>
+                <li><a href="./MNIMB003981.html">MNIMB003981 - HOSPITAL
+                COMUNITARIO LA HUACANA</a></li>
+                <li><a href="./MNIMB003993.html">MNIMB003993 - HOSPITAL
+                COMUNITARIO MARUATA</a></li>
+                <li><a href="./MNIMB004734.html">MNIMB004734 - HOSPITAL
+                GENERAL APATZINGAN</a></li>
+                <li><a href="./MNIMB004746.html">MNIMB004746 - HOSPITAL
+                COMUNITARIO ARANTEPACUA</a></li>
+                <li><a href="./MNIMB004751.html">MNIMB004751 - HOSPITAL
+                COMUNITARIO MARUATA</a></li>
+                </ul>
                 </div>
             </div>
             <script src="https://vjs.zencdn.net/5.4.4/video.js"></script>
