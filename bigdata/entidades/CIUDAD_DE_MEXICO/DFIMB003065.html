@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a febrero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#dfimb003065">DFIMB003065</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#uneme-e.c.-david-fragoso">UNEME
+                                                        E.C. DAVID
+                                                        FRAGOSO</a></li>
+                                                        <li><a
+                                                        href="#datos-generales-del-catálogo-de-clues">Datos
+                                                        generales del
+                                                        catálogo de
+                                                        CLUES</a></li>
+                                                        <li><a
+                                                        href="#recursos-humanos">Recursos
+                                                        humanos</a></li>
+                                                        <li><a
+                                                        href="#área-de-servicios-médicos">Área
+                                                        de servicios
+                                                        médicos</a></li>
+                                                        <li><a
+                                                        href="#área-de-servicios-de-apoyo">Área
+                                                        de servicios de
+                                                        apoyo</a></li>
+                                                        <li><a
+                                                        href="#área-de-servicios-generales">Área
+                                                        de servicios
+                                                        generales</a></li>
+                                                        <li><a
+                                                        href="#datos-generales-sinerhias">Datos
+                                                        generales
+                                                        SINERHIAS</a></li>
+                                                        <li><a
+                                                        href="#descargas">Descargas</a></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="dfimb003065">DFIMB003065</h1>
+                <h2 id="uneme-e.c.-david-fragoso">UNEME E.C. DAVID
+                FRAGOSO</h2>
+                <h2 id="datos-generales-del-catálogo-de-clues">Datos
+                generales del catálogo de CLUES</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">DGIS, 2026a</a>)</span></p>
+                <table>
+                <colgroup>
+                <col style="width: 54%" />
+                <col style="width: 45%" />
+                </colgroup>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Nivel de
+                atención:</em></td>
+                <td><strong>PRIMER NIVEL</strong></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipología:</em></td>
+                <td>UNIDAD DE ESPECIALIDADES MÉDICAS (UNEMES)</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Subtipología:</em></td>
+                <td>UNEMES PADECIMIENTOS CARDIOVASCULARES, SORID</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipo de
+                establecimiento:</em></td>
+                <td>CONSULTA EXTERNA</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Estrato:</em></td>
+                <td>URBANO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Estatus:</em></td>
+                <td><strong>EN OPERACIÓN</strong></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Región:</em></td>
+                <td>None</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Entidad:</em></td>
+                <td>CIUDAD DE MÉXICO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Municipio:</em></td>
+                <td>TLALPAN</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Localidad:</em></td>
+                <td>TLALPAN</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Coordenadas:</em></td>
+                <td><a
+                href="https://www.google.com/maps?q=19.2655,-99.1612">19.2655,
+                -99.1612</a></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Domicilio:</em></td>
+                <td>CALLE CEDRAL Y DR. DAVID FRAGOSO LIZALDE No. SIN
+                NUMERO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>COLONIA SAN PEDRO MARTIR</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"></td>
+                <td>TLALPAN, CMX</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CP 14650</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha de
+                construcción:</em></td>
+                <td>2009-04-01</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha de inicio de
+                operación:</em></td>
+                <td>2011-04-01</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Propiedad del
+                inmueble:</em></td>
+                <td>PROPIO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Último
+                movimiento:</em></td>
+                <td>ALTA</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha del último
+                movimiento:</em></td>
+                <td><code>2024-07-18</code></td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="recursos-humanos">Recursos humanos</h2>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-12-08</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2026b</a>)</span></p>
+                <h3 id="totales">Totales</h3>
+                <table>
+                <caption>Plazas para DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Médicos:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Enfermeras:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Otro personal
+                profesional:</em></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Otro
+                personal:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><strong>Total recursos
+                humanos:</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>6</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="médicos">Médicos</h3>
+                <table>
+                <caption>Plazas de médicos para DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Otros
+                médicos:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total
+                médicos:</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="enfermeras">Enfermeras</h3>
+                <table>
+                <caption>Plazas de enfermeras para DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Enfermeras
+                generales:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total
+                enfermeras:</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="otro-personal-profesional">Otro personal
+                profesional</h3>
+                <table>
+                <caption>Plazas de otro personal profesional para
+                DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Trabajo
+                social:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: right;"><em>Nutriólogos:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Psicólogos:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total otro
+                personal profesional:</strong></td>
+                <td style="text-align: right;"><strong>3</strong></td>
+                <td style="text-align: right;"><strong>3</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="otro-personal">Otro personal</h3>
+                <table>
+                <caption>Plazas de otro personal para
+                DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Plazas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Ocupadas</th>
+                <th style="text-align: right;">Desocupadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Personal
+                administrativo:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total otro
+                personal:</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="área-de-servicios-médicos">Área de servicios
+                médicos</h2>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-12-08</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2026b</a>)</span></p>
+                <h3 id="área-de-consulta-externa-básica">Área de
+                consulta externa básica</h3>
+                <ul>
+                <li>Consulta externa básica: <strong>SI</strong></li>
+                </ul>
+                <table>
+                <caption>Consultorios de consulta externa básica para
+                DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Consultorios</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Habilitados</th>
+                <th style="text-align: right;">Deshabilitados</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Medicina
+                general:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total consulta
+                externa básica:</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>1</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="servicio-de-medicina-preventiva-y-terapia-de-hidratación-oral">Servicio
+                de medicina preventiva y terapia de hidratación
+                oral</h3>
+                <ul>
+                <li>Servicio de medicina preventiva y terapia de
+                hidratación oral: <strong>NO</strong></li>
+                <li>Salas de espera (familiares - pacientes):
+                <strong>1</strong></li>
+                <li>Capacidad en número de personas de las salas de
+                espera: <strong>16</strong></li>
+                <li>Laboratorio dental: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-consulta-externa-especialidades">Área de
+                consulta externa especialidades</h3>
+                <ul>
+                <li>Consulta externa especialidades:
+                <strong>SI</strong></li>
+                </ul>
+                <table>
+                <caption>Consultorios de consulta externa especialidades
+                para DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Consultorios</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Habilitados</th>
+                <th style="text-align: right;">Deshabilitados</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Medicina
+                interna:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Nutrición:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Psicología:</em></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><strong>Total
+                consultorios de especialidad:</strong></td>
+                <td style="text-align: right;"><strong>3</strong></td>
+                <td style="text-align: right;"><strong>3</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="área-de-urgencias">Área de urgencias</h3>
+                <ul>
+                <li>Área de urgencias: <strong>NO</strong></li>
+                <li>Área de curaciones: <strong>SI</strong></li>
+                </ul>
+                <h3 id="área-de-tocología-y-tococirugía">Área de
+                tocología y tococirugía</h3>
+                <ul>
+                <li>Área de tocología y tococirugía:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-neonatologia-y-cuneros">Área de
+                neonatologia y cuneros</h3>
+                <ul>
+                <li>Área de neonatología y cuneros:
+                <strong>NO</strong></li>
+                <li>Banco de leche: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-hospitalización">Área de
+                hospitalización</h3>
+                <ul>
+                <li>Área de hospitalización: <strong>NO</strong></li>
+                <li>Área de trabajo de enfermería:
+                <strong>NO</strong></li>
+                <li>Salas de espera (familiares - pacientes) :
+                <strong>0</strong></li>
+                <li>Capacidad en número de personas de las salas de
+                espera: <strong>0</strong></li>
+                </ul>
+                <table>
+                <caption>Área de hospitalización para
+                DFIMB003065</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Camas</th>
+                <th style="text-align: right;">Totales</th>
+                <th style="text-align: right;">Habilitados</th>
+                <th style="text-align: right;">Deshabilitados</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><strong>Total camas
+                censables:</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                <td style="text-align: right;"><strong>0</strong></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="área-de-unidad-quirúrgica">Área de unidad
+                quirúrgica</h3>
+                <ul>
+                <li>Área de unidad quirúrgica: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-recuperación-postquirúrgica">Área de
+                recuperación postquirúrgica</h3>
+                <ul>
+                <li>Área de recuperación postquirúrgica:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-unidad-de-cuidados-intensivos">Área de
+                unidad de cuidados intensivos</h3>
+                <ul>
+                <li>Área de unidad de cuidados intensivos:
+                <strong>NO</strong></li>
+                <li>Área de unidad de cuidados intensivos neonatales:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-unidad-de-cuidados-intermedios">Área de
+                unidad de cuidados intermedios</h3>
+                <ul>
+                <li>Área de unidad de cuidados intermedios:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-cuidados-coronarios">Área de cuidados
+                coronarios</h3>
+                <ul>
+                <li>Área de cuidados coronarios:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="áreas-de-terapias">Áreas de terapias</h3>
+                <ul>
+                <li>Área de inhaloterapia: <strong>NO</strong></li>
+                <li>Área de medicina física y rehabilitación:
+                <strong>NO</strong></li>
+                <li>Área de hidroterapia: <strong>NO</strong></li>
+                <li>Área de electroterapia: <strong>NO</strong></li>
+                <li>Área de mecanoterapia: <strong>NO</strong></li>
+                <li>Área de termoterapia: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-unidad-de-cirugía-ambulatoria">Área de
+                unidad de cirugía ambulatoria</h3>
+                <ul>
+                <li>Área de unidad de cirugía ambulatoria:
+                <strong>NO</strong></li>
+                <li>Área de recuperación de cirugía ambulatoria:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-hemodiálisis">Área de hemodiálisis</h3>
+                <ul>
+                <li>Área de hemodiálisis: <strong>NO</strong></li>
+                </ul>
+                <h3 id="centrales-de-enfermería">Centrales de
+                enfermería</h3>
+                <ul>
+                <li>Centrales de enfermería: <strong>NO</strong></li>
+                </ul>
+                <h3 id="planta-de-tratamiento-de-agua">Planta de
+                tratamiento de agua</h3>
+                <ul>
+                <li>Planta de tratamiento de agua:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="unidad-de-terapia-oncológica">Unidad de terapia
+                oncológica</h3>
+                <ul>
+                <li>Unidad de terapia oncológica: <strong>NO</strong>
+                <ul>
+                <li>Área de radioterapia externa:
+                <strong>NO</strong></li>
+                <li>Área de braquiterapia_alta tasa:
+                <strong>NO</strong></li>
+                <li>Área de braquiterapia baja tasa:
+                <strong>NO</strong></li>
+                <li>Área de quimioterapia: <strong>NO</strong></li>
+                <li>Cuarto caliente: <strong>NO</strong></li>
+                <li><em>Bunker</em>: <strong>NO</strong></li>
+                <li>Cuarto de revelado: <strong>NO</strong></li>
+                <li>Área de preparación de medicamentos:
+                <strong>NO</strong></li>
+                <li>Área de trabajo de enfermería:
+                <strong>NO</strong></li>
+                <li>Área de guarda de medicamentos:
+                <strong>NO</strong></li>
+                </ul></li>
+                </ul>
+                <h3 id="área-de-unidad-de-quemados">Área de unidad de
+                quemados</h3>
+                <ul>
+                <li>Área de unidad de quemados: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-unidad-transplante-de-médula-ósea">Área
+                de unidad transplante de médula ósea</h3>
+                <ul>
+                <li>Área de unidad de transplante de médula ósea:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="otros-servicios-médicos">Otros servicios
+                médicos</h3>
+                <ul>
+                <li>Área de hematologíaa: <strong>NO</strong></li>
+                <li>Sistema de flujo laminar: <strong>NO</strong></li>
+                <li>Área de preparación de alimentos:
+                <strong>NO</strong></li>
+                <li>Sistema de intercomunicación:
+                <strong>NO</strong></li>
+                <li>Área de clínica de medicina hiperbárica,:
+                <strong>NO</strong></li>
+                <li>Área de imagenología,: <strong>NO</strong></li>
+                <li>Área de urodinámia: <strong>NO</strong></li>
+                <li>Área de hemodinámia: <strong>NO</strong></li>
+                <li>Área de medicina nuclear: <strong>NO</strong></li>
+                <li>Área de laboratorio clínico:
+                <strong>NO</strong></li>
+                <li>Área de laboratorio de microbiología:
+                <strong>NO</strong></li>
+                <li>Área de laboratorio de radioinmunoensayo:
+                <strong>NO</strong></li>
+                <li>Área de anatomía patológica:
+                <strong>NO</strong></li>
+                </ul>
+                <h2 id="área-de-servicios-de-apoyo">Área de servicios de
+                apoyo</h2>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-12-08</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2026b</a>)</span></p>
+                <h3 id="ambulancias">Ambulancias</h3>
+                <ul>
+                <li>Ambulancias: <strong>NO</strong></li>
+                </ul>
+                <h3 id="área-de-banco-de-sangre">Área de banco de
+                sangre</h3>
+                <ul>
+                <li>Área de banco de sangre: <strong>NO</strong>
+                <ul>
+                <li>Capacidad de almacenamiento: <strong>0</strong></li>
+                </ul></li>
+                <li>Laboratorio de banco sangre:
+                <strong>NO</strong></li>
+                </ul>
+                <h3 id="otros-servicios-de-apoyo">Otros servicios de
+                apoyo</h3>
+                <ul>
+                <li>Área CEyE: <strong>NO</strong></li>
+                <li>Área centro de mezclas: <strong>NO</strong>
+                <ul>
+                <li>Número de centros de mezclas:
+                <strong>0</strong></li>
+                </ul></li>
+                <li>Área de farmacia: <strong>SI</strong></li>
+                <li>Área de ingeniería biomédica:
+                <strong>NO</strong></li>
+                </ul>
+                <h2 id="área-de-servicios-generales">Área de servicios
+                generales</h2>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-12-08</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2026b</a>)</span></p>
+                <ul>
+                <li>Almacén general: <strong>NO</strong></li>
+                <li>Casa de máquinas: <strong>NO</strong></li>
+                <li>Calderas: <strong>NO</strong></li>
+                <li>Subestación: <strong>NO</strong></li>
+                <li>Planta de emergencia: <strong>NO</strong></li>
+                <li>Talleres de reparación: <strong>NO</strong></li>
+                <li>Cocina: <strong>NO</strong></li>
+                <li>Comedor: <strong>NO</strong></li>
+                <li>Central de gases medicinales:
+                <strong>NO</strong></li>
+                <li>Compresoras: <strong>NO</strong></li>
+                <li>Aire acondicionado: <strong>NO</strong></li>
+                <li>Servicios de intendencia: <strong>SI</strong></li>
+                <li>Roperia: <strong>NO</strong></li>
+                <li>Lavandería: <strong>NO</strong></li>
+                <li>Servicio de mensajería: <strong>NO</strong></li>
+                <li>Servicio de vigilancia: <strong>NO</strong></li>
+                <li>Servicio de fotocopiado: <strong>NO</strong></li>
+                <li>Tratamiento de residuos sólidos:
+                <strong>NO</strong></li>
+                <li>Tratamiento de aguas residuales:
+                <strong>NO</strong></li>
+                <li>Almacénn temporal de residuos peigrosos, biólogicos
+                o infecciosos: <strong>NO</strong></li>
+                <li>Almacén de productos <em>CRETI</em>:<a href="#fn1"
+                class="footnote-ref" id="fnref1"
+                role="doc-noteref"><sup>1</sup></a>
+                <strong>NO</strong></li>
+                <li>Incinerador: <strong>NO</strong></li>
+                <li>Sistema de desechos líquidos:
+                <strong>NO</strong></li>
+                <li>Almacén de medicamentos: <strong>NO</strong></li>
+                <li>Cámara fría para resguardo de insumos para la salud:
+                <strong>NO</strong></li>
+                <li>Cámaras frías fabricadas con paneles:
+                <strong>0</strong></li>
+                <li>Cámaras frias de concreto: <strong>0</strong></li>
+                </ul>
+                <h2 id="datos-generales-sinerhias">Datos generales
+                SINERHIAS</h2>
+                <p>Fecha de última actualización en SINERHIAS:
+                <code>2025-12-08</code> <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias" role="doc-biblioref">DGIS,
+                2026b</a>)</span></p>
+                <ul>
+                <li><em>Agua</em>
+                <ul>
+                <li>Servicio de agua potable: <strong>SI</strong></li>
+                <li>Red municipal de abastecimiento de agua:
+                <strong>SI</strong></li>
+                <li>Pozo de agua: <strong>NO</strong></li>
+                <li>Almacenamiento de agua por cisterna:
+                <strong>NO</strong></li>
+                <li>Otra fuente de abastecimiento de agua:
+                <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Energía eléctrica</em>
+                <ul>
+                <li>Servicio de energía eléctrica:
+                <strong>SI</strong></li>
+                <li>Instalación de energía eléctrica:
+                <strong>SI</strong></li>
+                <li>Sistema de paneles solares: <strong>NO</strong></li>
+                <li>Tierra física: <strong>SI</strong></li>
+                <li>Pararayos: <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Drenaje</em>
+                <ul>
+                <li>Sistema de drenaje: <strong>SI</strong></li>
+                <li>Fosa séptica: <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Gas</em>
+                <ul>
+                <li>Servicio de gas (tanque estacionario, natural,
+                otro): <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Baños</em>
+                <ul>
+                <li>Baños públicos (inodoros y mingitorios):
+                <strong>0</strong></li>
+                <li>Baños para el personal (inodoros y mingitorio):
+                <strong>2</strong></li>
+                <li>Baños para pacientes (inodoros y mingitorio):
+                <strong>2</strong></li>
+                <li>Baños para discapacitados (inodoro):
+                <strong>0</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Radio CB</em>
+                <ul>
+                <li>Radio de banda civil: <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Telesalud</em>
+                <ul>
+                <li>Área específica de telesalud:
+                <strong>NO</strong></li>
+                <li>Estación para telemedicina-telesalud:
+                <strong>NO</strong></li>
+                <li>Ancho de banda disponible para servicio de
+                telesalud: <strong>MENOS DE 1MB</strong></li>
+                <li>Equipo de videoconferencia: <strong>NO</strong></li>
+                <li>Equipo de cómputo específico para telesalud:
+                <strong>NO</strong></li>
+                <li>Software para telemedicna-telesalud:
+                <strong>NO</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Expediente clínico electrónico</em>
+                <ul>
+                <li>Expediente clínico electrónico:
+                <strong>SI</strong></li>
+                <li>Nombre del expediente clínico electrónico:
+                <strong>NO TIENE NOMBRE</strong><br />
+                </li>
+                </ul></li>
+                <li><em>Infraestructura</em>
+                <ul>
+                <li>Metros cuadrados de terreno:
+                <strong>261</strong></li>
+                <li>Metros cuadrados de construcción:
+                <strong>169</strong></li>
+                <li>Metros cuadrados de superficie exterior:
+                <strong>99</strong></li>
+                <li>Metros cuadrados de superficie jardinada:
+                <strong>0</strong></li>
+                <li>Número de edificios que conforman el
+                establecimiento: <strong>1</strong></li>
+                <li>Número de Niveles que tiene el establecimiento:
+                <strong>1</strong></li>
+                </ul></li>
+                <li><em>Computadoras</em>
+                <ul>
+                <li>Computadoras funcionales (laptops y PC):
+                <strong>9</strong></li>
+                <li>Consultorios con computadora funcional:
+                <strong>5</strong></li>
+                <li>Computadoras funcionales en la dirección:
+                <strong>0</strong></li>
+                <li>Computadoras funcionales en la farmacia:
+                <strong>2</strong></li>
+                <li>Computadoras funcionales en el área de estadística:
+                <strong>0</strong></li>
+                <li>Computadoras funcionales en el área de informática:
+                <strong>0</strong></li>
+                </ul></li>
+                <li><em>Internet</em>
+                <ul>
+                <li>Tipo de conexión a internet: <strong>INTERNET DE
+                CABLE (FIBRA OPTICA , CABLE COAXIAL)</strong></li>
+                <li>Ancho de banda: <strong>MAS DE 1GB A
+                2GB</strong></li>
+                <li>Número de usuarios por conexión de internet:
+                <strong>7</strong></li>
+                <li>Internet pagado por: <strong>SECRETARIA DE SALUD
+                ESTATAL</strong></li>
+                <li>Internet en la dirección: <strong>NO</strong></li>
+                <li>Internet en la farmacia: <strong>SI</strong></li>
+                <li>Internet en el área de estadística:
+                <strong>NO</strong></li>
+                <li>Internet en el área de informática:
+                <strong>NO</strong></li>
+                <li>Número de consultorios con internet:
+                <strong>5</strong></li>
+                </ul></li>
+                </ul>
+                <h2 id="descargas">Descargas</h2>
+                <p>Descargar <a
+                href="DFIMB003065.pdf">DFIMB003065.pdf</a></p>
+                <h2 class="unnumbered" id="referencias">Referencias</h2>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026a). <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_sinerhias" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026b). <em>Subsistema de
+                <span>I</span>nformación de <span>E</span>quipamiento,
+                <span>R</span>ecursos <span>H</span>umanos e
+                <span>I</span>nfraestructura para la
+                <span>A</span>tención de la <span>S</span>alud
+                (SINERHIAS)</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html">http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html</a>
+                </div>
+                </div>
+                <section class="footnotes footnotes-end-of-document"
+                role="doc-endnotes">
+                <hr />
+                <ol>
+                <li id="fn1"
+                role="doc-endnote"><p><strong>CRETI</strong>, acrónimo
+                de Corrosivo, Reactivo, Explosivo, Tóxico, e
+                Inflamable<a href="#fnref1" class="footnote-back"
+                role="doc-backlink">↩︎</a></p></li>
+                </ol>
+                </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
