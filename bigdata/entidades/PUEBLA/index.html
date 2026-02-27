@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a febrero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#puebla">PUEBLA</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="puebla">PUEBLA</h1>
+                <ul>
+                <li><a href="./PLIMB000100.html">PLIMB000100 - HOSPITAL
+                COMUNITARIO AHUACATLÁN</a></li>
+                <li><a href="./PLIMB000351.html">PLIMB000351 - HOSPITAL
+                COMUNITARIO DE AYOTOXCO</a></li>
+                <li><a href="./PLIMB000433.html">PLIMB000433 - HOSPITAL
+                COMUNITARIO COXCATLAN</a></li>
+                <li><a href="./PLIMB000602.html">PLIMB000602 - HOSPITAL
+                COMUNITARIO CUYOACO</a></li>
+                <li><a href="./PLIMB000626.html">PLIMB000626 - HOSPITAL
+                GENERAL CIUDAD SERDÁN</a></li>
+                <li><a href="./PLIMB001121.html">PLIMB001121 - HOSPITAL
+                COMUNITARIO HUEHUETLA</a></li>
+                <li><a href="./PLIMB001285.html">PLIMB001285 - HOSPITAL
+                COMUNITARIO IXTACAMAXTITLAN</a></li>
+                <li><a href="./PLIMB001536.html">PLIMB001536 - HOSPITAL
+                GENERAL DE LIBRES</a></li>
+                <li><a href="./PLIMB001710.html">PLIMB001710 - HOSPITAL
+                COMUNITARIO CUACNOPALAN</a></li>
+                <li><a href="./PLIMB001780.html">PLIMB001780 - HOSPITAL
+                GENERAL DR EDUARDO VAZQUEZ N</a></li>
+                <li><a href="./PLIMB001792.html">PLIMB001792 - HOSPITAL
+                PSIQUIÁTRICO DR. RAFAEL SERRANO</a></li>
+                <li><a href="./PLIMB002154.html">PLIMB002154 - HOSPITAL
+                COMUNITARIO SAN MARTÍN TEXMELUCAN (EL MORAL)</a></li>
+                <li><a href="./PLIMB002492.html">PLIMB002492 - HOSPITAL
+                COMUNITARIO TECOMATLAN</a></li>
+                <li><a href="./PLIMB002516.html">PLIMB002516 - HOSPITAL
+                GENERAL TEHUACAN</a></li>
+                <li><a href="./PLIMB003093.html">PLIMB003093 - HOSPITAL
+                COMUNITARIO TULCINGO DE VALLE</a></li>
+                <li><a href="./PLIMB003571.html">PLIMB003571 - HOSPITAL
+                INTEGRAL ZAPOTITLAN DE MENDEZ</a></li>
+                <li><a href="./PLIMB003706.html">PLIMB003706 - HOSPITAL
+                COMUNITARIO ZOQUITLAN</a></li>
+                <li><a href="./PLIMB004020.html">PLIMB004020 - HOSPITAL
+                COMUNITARIO TLAOLA</a></li>
+                <li><a href="./PLIMB004056.html">PLIMB004056 - HOSPITAL
+                COMUNITARIO ACATZINGO</a></li>
+                <li><a href="./PLIMB004073.html">PLIMB004073 - HOSPITAL
+                COMUNITARIO AJALPAN</a></li>
+                <li><a href="./PLIMB004085.html">PLIMB004085 - HOSPITAL
+                COMUNITARIO TLACOTEPEC DE BENITO JUÁREZ</a></li>
+                <li><a href="./PLIMB004102.html">PLIMB004102 - HOSPITAL
+                COMUNITARIO MECAPALAPA</a></li>
+                <li><a href="./PLIMB004126.html">PLIMB004126 - HOSPITAL
+                DE LA MUJER</a></li>
+                <li><a href="./PLIMB004131.html">PLIMB004131 - HOSPITAL
+                COMUNITARIO VICENTE GUERRERO</a></li>
+                <li><a href="./PLIMB004143.html">PLIMB004143 - HOSPITAL
+                COMUNITARIO TLACOTEPEC DE PORFIRÍO DÍAZ</a></li>
+                <li><a href="./PLIMB004160.html">PLIMB004160 - CENTRO
+                ESTATAL DE SALUD MENTAL</a></li>
+                <li><a href="./PLIMB004172.html">PLIMB004172 - UNIDAD DE
+                ONCOLOGÍA</a></li>
+                <li><a href="./PLIMB004242.html">PLIMB004242 - HOSPITAL
+                INTEGRAL GUADALUPE VICTORIA</a></li>
+                <li><a href="./PLIMB004703.html">PLIMB004703 - HOSPITAL
+                DE CAMPAÑA MÓVIL</a></li>
+                <li><a href="./PLIMB004720.html">PLIMB004720 - HOSPITAL
+                DE LA MUJER Y NEONATOLOGÍA</a></li>
+                <li><a href="./PLIMB004732.html">PLIMB004732 - HOSPITAL
+                INTEGRAL ZACAPOAXTLA</a></li>
+                <li><a href="./PLIMB004860.html">PLIMB004860 - HOSPITAL
+                GENERAL DE CHOLULA</a></li>
+                <li><a href="./PLIMB004925.html">PLIMB004925 - HOSPITAL
+                GENERAL DE TEZIUTLÁN</a></li>
+                <li><a href="./PLIMB004954.html">PLIMB004954 - HOSPITAL
+                INTEGRAL SAN JOSÉ CHIAPA</a></li>
+                <li><a href="./PLIMB005012.html">PLIMB005012 - HOSPITAL
+                GENERAL DE ACATLÁN DE OSORIO</a></li>
+                <li><a href="./PLIMB005070.html">PLIMB005070 - HOSPITAL
+                GENERAL TLATLAUQUITEPEC</a></li>
+                <li><a href="./PLIMB005205.html">PLIMB005205 - HOSPITAL
+                DE LA NIÑEZ POBLANA</a></li>
+                <li><a href="./PLIMB005263.html">PLIMB005263 - HOSPITAL
+                INTEGRAL ACAJETE-TEPETZALA</a></li>
+                <li><a href="./PLIMB005321.html">PLIMB005321 - HOSPITAL
+                GENERAL DE HUEJOTZINGO</a></li>
+                <li><a href="./PLIMB005555.html">PLIMB005555 - HOSPITAL
+                INTEGRAL PALMAR DE BRAVO</a></li>
+                <li><a href="./PLIMB005601.html">PLIMB005601 - HOSPITAL
+                INTEGRAL DE XICOTEPEC</a></li>
+                <li><a href="./PLIMB005613.html">PLIMB005613 - HOSPITAL
+                GENERAL DE ATLIXCO GONZALO RÍO ARRONTE</a></li>
+                <li><a href="./PLIMB005700.html">PLIMB005700 - HOSPITAL
+                DE TRAUMATOLOGÍA Y ORTOPEDIA DOCTOR Y GENERAL RAFAEL
+                MORENO VALLE</a></li>
+                <li><a href="./PLIMB005794.html">PLIMB005794 - HOSPITAL
+                COMUNITARIO QUIMIXTLAN</a></li>
+                <li><a href="./PLIMB005910.html">PLIMB005910 - HOSPITAL
+                GENERAL DE LA ZONA NORTE BICENTENARIO DE LA
+                INDEPENDENCIA</a></li>
+                <li><a href="./PLIMB006004.html">PLIMB006004 - HOSPITAL
+                COMUNITARIO DR. MIGUEL ANGEL COBOS MARIN</a></li>
+                <li><a href="./PLIMB006016.html">PLIMB006016 - HOSPITAL
+                GENERAL DE TEPEACA</a></li>
+                <li><a href="./PLIMB006091.html">PLIMB006091 - UNIDAD DE
+                QUEMADOS (ANEXO AL HOSPITAL DEL NIÑO POBLANO)</a></li>
+                <li><a href="./PLIMB006103.html">PLIMB006103 - HOSPITAL
+                GENERAL DE ZACATLÁN</a></li>
+                <li><a href="./PLIMB006885.html">PLIMB006885 - HOSPITAL
+                GENERAL HUAUCHINANGO</a></li>
+                <li><a href="./PLIMB007083.html">PLIMB007083 - HOSPITAL
+                GENERAL DE IZUCAR DE MATAMOROS</a></li>
+                <li><a href="./PLIMB007095.html">PLIMB007095 - HOSPITAL
+                COMUNITARIO ZACAPALA</a></li>
+                <li><a href="./PLIMB007112.html">PLIMB007112 - HOSPITAL
+                GENERAL DE CUETZALAN</a></li>
+                <li><a href="./PLIMB007136.html">PLIMB007136 - HOSPITAL
+                COMUNITARIO DE TETELA DE OCAMPO</a></li>
+                <li><a href="./PLIMB007170.html">PLIMB007170 - HOSPITAL
+                GENERAL TECAMACHALCO</a></li>
+                <li><a href="./PLIMB007305.html">PLIMB007305 - HOSPITAL
+                COMUNITARIO PAHUATLÁN DE VALLE</a></li>
+                <li><a href="./PLIMB007416.html">PLIMB007416 - HOSPITAL
+                INTEGRAL VENUSTIANO CARRANZA</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

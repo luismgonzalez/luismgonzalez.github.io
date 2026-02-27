@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a febrero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#slimb002930">SLIMB002930</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#hospital-general-de-guamuchil">HOSPITAL
+                                                        GENERAL DE
+                                                        GUAMUCHIL</a></li>
+                                                        <li><a
+                                                        href="#datos-generales-del-catálogo-de-clues">Datos
+                                                        generales del
+                                                        catálogo de
+                                                        CLUES</a></li>
+                                                        <li><a
+                                                        href="#egresos-hospitalarios">Egresos
+                                                        hospitalarios</a></li>
+                                                        <li><a
+                                                        href="#procedimientos">Procedimientos</a></li>
+                                                        <li><a
+                                                        href="#descargas">Descargas</a></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="slimb002930">SLIMB002930</h1>
+                <h2 id="hospital-general-de-guamuchil">HOSPITAL GENERAL
+                DE GUAMUCHIL</h2>
+                <h2 id="datos-generales-del-catálogo-de-clues">Datos
+                generales del catálogo de CLUES</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">DGIS, 2026-02-24</a>)</span></p>
+                <table>
+                <colgroup>
+                <col style="width: 54%" />
+                <col style="width: 45%" />
+                </colgroup>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Nivel de
+                atención:</em></td>
+                <td><strong>SEGUNDO NIVEL</strong></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipología:</em></td>
+                <td>HOSPITAL GENERAL</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Subtipología:</em></td>
+                <td>NO ESPECIFICADO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipo de
+                establecimiento:</em></td>
+                <td>HOSPITALIZACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Estrato:</em></td>
+                <td>URBANO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Estatus:</em></td>
+                <td><strong>FUERA DE OPERACIÓN</strong></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Región:</em></td>
+                <td>NOROESTE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Entidad:</em></td>
+                <td>SINALOA</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Municipio:</em></td>
+                <td>SALVADOR ALVARADO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Localidad:</em></td>
+                <td>GUAMÚCHIL</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Coordenadas:</em></td>
+                <td><a
+                href="https://www.google.com/maps?q=25.455796,-108.064143">25.455796,
+                -108.064143</a></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Domicilio:</em></td>
+                <td>CALLE JOSÉ MARÍA MORELOS ENTRE JOSÉ MARÍA VIGIL Y
+                CARRETERA A MOCORITO No. SIN NUMERO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CHUTAMONA</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"></td>
+                <td>GUAMÚCHIL, SIN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CP 82910</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha de inicio de
+                operación:</em></td>
+                <td>2009-02-01</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Propiedad del
+                inmueble:</em></td>
+                <td>None</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Último
+                movimiento:</em></td>
+                <td>BAJA</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha del último
+                movimiento:</em></td>
+                <td><code>2025-09-30</code></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Motivo de
+                baja:</em></td>
+                <td>SE SUSTITUYE</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha efectiva de
+                baja:</em></td>
+                <td>2025-08-25</td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="egresos-hospitalarios">Egresos
+                hospitalarios</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_eh">(<a href="#ref-dgis_eh"
+                role="doc-biblioref">DGIS, 2026-02-11</a>)</span></p>
+                <h3 id="número-de-egresos-por-año">Número de egresos por
+                año</h3>
+                <table>
+                <caption>Egresos por año para SLIMB002930</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: right;">Año</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: right;">2025</td>
+                <td style="text-align: right;">1016</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: right;">2024</td>
+                <td style="text-align: right;">2094</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: right;">2023</td>
+                <td style="text-align: right;">2092</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: right;">2022</td>
+                <td style="text-align: right;">1920</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: right;">2021</td>
+                <td style="text-align: right;">1727</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/egresos_anno_SLIMB002930.svg"
+                id="fig:egresos-SLIMB002930"
+                alt="Figura 1: Egresos por año" />
+                <figcaption aria-hidden="true">Figura 1: Egresos por
+                año</figcaption>
+                </figure>
+                <h3 id="afecciones-principales-2025">Afecciones
+                principales (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 10%" />
+                <col style="width: 11%" />
+                <col style="width: 68%" />
+                <col style="width: 9%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Afección principal</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">FIEBRE, NO
+                ESPECIFICADA</td>
+                <td style="text-align: right;">42</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">PARTO ÚNICO ESPONTÁNEO,
+                SIN OTRA ESPECIFICACIÓN</td>
+                <td style="text-align: right;">37</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">PARTO POR CESÁREA, SIN
+                OTRA ESPECIFICACIÓN</td>
+                <td style="text-align: right;">33</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTROS DOLORES ABDOMINALES
+                Y LOS NO ESPECIFICADOS</td>
+                <td style="text-align: right;">29</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">HERNIA INGUINAL UNILATERAL
+                O NO ESPECIFICADA, SIN OBSTRUCCIÓN NI GANGRENA</td>
+                <td style="text-align: right;">18</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">QUISTE FOLICULAR DE LA
+                PIEL Y DEL TEJIDO SUBCUTÁNEO, SIN OTRA
+                ESPECIFICACIÓN</td>
+                <td style="text-align: right;">17</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">HIPERTENSIÓN ESENCIAL
+                (PRIMARIA)</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">HIPERPLASIA DE LA
+                PRÓSTATA</td>
+                <td style="text-align: right;">14</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">INFECCIÓN AGUDA NO
+                ESPECIFICADA DE LAS VÍAS RESPIRATORIAS INFERIORES</td>
+                <td style="text-align: right;">14</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">NEUMONÍA, NO
+                ESPECIFICADA</td>
+                <td style="text-align: right;">12</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">784</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/afecciones_SLIMB002930.svg"
+                id="fig:afecciones-SLIMB002930"
+                alt="Figura 2: Afecciones principales" />
+                <figcaption aria-hidden="true">Figura 2: Afecciones
+                principales</figcaption>
+                </figure>
+                <h3 id="servicios-de-ingreso-2025">Servicios de ingreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Servicio de ingreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">MEDICINA INTERNA</td>
+                <td style="text-align: right;">285</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL</td>
+                <td style="text-align: right;">181</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">NO APLICA</td>
+                <td style="text-align: right;">133</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">TRAUMATOLOGÍA</td>
+                <td style="text-align: right;">128</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">PEDIATRÍA</td>
+                <td style="text-align: right;">85</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OBSTETRICIA</td>
+                <td style="text-align: right;">72</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">UROLOGÍA</td>
+                <td style="text-align: right;">49</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">GINECOLOGÍA</td>
+                <td style="text-align: right;">42</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">GINECO OBSTETRICIA</td>
+                <td style="text-align: right;">25</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL
+                PEDIÁTRICA</td>
+                <td style="text-align: right;">15</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/servicios_ingreso_SLIMB002930.svg"
+                id="fig:servicios-ingreso-SLIMB002930"
+                alt="Figura 3: Servicios de ingreso" />
+                <figcaption aria-hidden="true">Figura 3: Servicios de
+                ingreso</figcaption>
+                </figure>
+                <h3 id="servicios-de-egreso-2025">Servicios de egreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Servicio de egreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">MEDICINA INTERNA</td>
+                <td style="text-align: right;">295</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL</td>
+                <td style="text-align: right;">244</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">TRAUMATOLOGÍA</td>
+                <td style="text-align: right;">134</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">PEDIATRÍA</td>
+                <td style="text-align: right;">95</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OBSTETRICIA</td>
+                <td style="text-align: right;">85</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">UROLOGÍA</td>
+                <td style="text-align: right;">59</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">GINECOLOGÍA</td>
+                <td style="text-align: right;">49</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">GINECO OBSTETRICIA</td>
+                <td style="text-align: right;">29</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL
+                PEDIÁTRICA</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">ANGIOLOGÍA</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/servicios_egreso_SLIMB002930.svg"
+                id="fig:servicios-egreso-SLIMB002930"
+                alt="Figura 4: Servicios de egreso" />
+                <figcaption aria-hidden="true">Figura 4: Servicios de
+                egreso</figcaption>
+                </figure>
+                <h3 id="procedencia-2025">Procedencia (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedencia</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">URGENCIAS</td>
+                <td style="text-align: right;">994</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRO</td>
+                <td style="text-align: right;">19</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">REFERIDO</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CUNERO PATOLÓGICO</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/procedencia_SLIMB002930.svg"
+                id="fig:procedencia-SLIMB002930"
+                alt="Figura 5: Procedencias" />
+                <figcaption aria-hidden="true">Figura 5:
+                Procedencias</figcaption>
+                </figure>
+                <h3 id="motivo-de-egreso-2025">Motivo de egreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Motivo de egreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">MEJORÍA</td>
+                <td style="text-align: right;">888</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">TRASLADO A OTRA
+                UNIDAD</td>
+                <td style="text-align: right;">49</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">VOLUNTARIO</td>
+                <td style="text-align: right;">38</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">DEFUNCIÓN</td>
+                <td style="text-align: right;">31</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRO</td>
+                <td style="text-align: right;">7</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">FUGA</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/motivo_egreso_SLIMB002930.svg"
+                id="fig:motivo-egreso-SLIMB002930"
+                alt="Figura 6: Motivo de egreso" />
+                <figcaption aria-hidden="true">Figura 6: Motivo de
+                egreso</figcaption>
+                </figure>
+                <h2 id="procedimientos">Procedimientos</h2>
+                <h3 id="procedimientos-quirúrgicos-2025">Procedimientos
+                quirúrgicos (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 9%" />
+                <col style="width: 10%" />
+                <col style="width: 70%" />
+                <col style="width: 9%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento
+                quirúrgico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA DESTRUCCIÓN U
+                OCLUSIÓN BILATERAL DE LAS TROMPAS DE FALOPIO</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">COLECISTECTOMÍA</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA APENDICECTOMÍA</td>
+                <td style="text-align: right;">27</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CESÁREA CLÁSICA</td>
+                <td style="text-align: right;">22</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">REDUCCIÓN ABIERTA DE
+                FRACTURA CON FIJACIÓN INTERNA. TIBIA Y PERONÉ</td>
+                <td style="text-align: right;">21</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA EXCISIÓN DE TEJIDO
+                BLANDO</td>
+                <td style="text-align: right;">20</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA EXTIRPACIÓN LOCAL O
+                DESTRUCCIÓN DE LESIÓN O TEJIDO DE PIEL Y TEJIDO
+                SUBCUTÁNEO</td>
+                <td style="text-align: right;">18</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">REDUCCIÓN ABIERTA DE
+                FRACTURA CON FIJACIÓN INTERNA. RADIO Y CÚBITO</td>
+                <td style="text-align: right;">18</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA DILATACIÓN Y
+                LEGRADO</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">LAPAROTOMÍA
+                EXPLORADORA</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">319</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/procedimientos_q_SLIMB002930.svg"
+                id="fig:procedimientos-quirurgicos-SLIMB002930"
+                alt="Figura 7: Procedimientos quirúrgico" />
+                <figcaption aria-hidden="true">Figura 7: Procedimientos
+                quirúrgico</figcaption>
+                </figure>
+                <h3 id="procedimientos-terapéuticos-2025">Procedimientos
+                terapéuticos (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 12%" />
+                <col style="width: 13%" />
+                <col style="width: 63%" />
+                <col style="width: 11%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento
+                terapéutico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRA TRANSFUSIÓN DE SANGRE
+                ENTERA</td>
+                <td style="text-align: right;">51</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">INSERCIÓN DE DISPOSITIVO
+                ANTICONCEPTIVO INTRAUTERINO</td>
+                <td style="text-align: right;">34</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRO ULTRASONIDO
+                TERAPÉUTICO</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">CURACIÓN DE HERIDA</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">LAVADO GÁSTRICO</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">EXTRACCIÓN DE TUBO DE
+                URETEROSTOMÍA Y DE CATÉTER URETERAL</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">EXTRACCIÓN DE CUERPO
+                EXTRAÑO, NO ESPECIFICADO DE OTRA MANERA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">EXTRACCIÓN DE DISPOSITIVO
+                ANTICONCEPTIVO INTRAUTERINO</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">ULTRASONIDO
+                TERAPEÚTICO</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/procedimientos_t_SLIMB002930.svg"
+                id="fig:procedimientos-terapeutico-SLIMB002930"
+                alt="Figura 8: Procedimiento terapéutico" />
+                <figcaption aria-hidden="true">Figura 8: Procedimiento
+                terapéutico</figcaption>
+                </figure>
+                <h3
+                id="procedimientos-de-diagnóstico-2025">Procedimientos
+                de diagnóstico (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 6%" />
+                <col style="width: 7%" />
+                <col style="width: 80%" />
+                <col style="width: 6%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento de
+                diagnóstico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">EXAMEN MICROSCÓPICO DE
+                SANGRE. OTRO EXAMEN MICROSCÓPICO</td>
+                <td style="text-align: right;">467</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">RADIOGRAFÍA TORÁCICA
+                RUTINARIA, DESCRITA COMO TAL</td>
+                <td style="text-align: right;">180</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">TOMOGRAFÍA AXIAL
+                COMPUTARIZADA DEL TÓRAX</td>
+                <td style="text-align: right;">70</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTRAS RADIOGRAFÍAS DE
+                ABDOMEN</td>
+                <td style="text-align: right;">36</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">ULTRASONOGRAFÍA
+                DIAGNÓSTICA DEL APARATO URINARIO</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">EXAMEN MICROSCÓPICO DE
+                MUESTRA DE VEJIGA, URETRA, PRÓSTATA, VESÍCULA SEMINAL,
+                TEJIDO PERIVESICAL Y DE ORINA Y DE SEMEN. OTRO EXAMEN
+                MICROSCÓPICO</td>
+                <td style="text-align: right;">27</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">RADIOGRAFÍA ÓSEA DEL
+                MUSLO, LA RODILLA Y LA PIERNA INFERIOR</td>
+                <td style="text-align: right;">26</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">TOMOGRAFÍA AXIAL
+                COMPUTARIZADA DE CABEZA</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">RADIOGRAFÍA ÓSEA DEL CODO
+                Y EL ANTEBRAZO</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">ULTRASONOGRAFIA
+                DIAGNÓSTICA DEL ABDOMEN Y EL RETROPERITONEO</td>
+                <td style="text-align: right;">13</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">64</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="../figures/procedimientos_d_SLIMB002930.svg"
+                id="fig:procedimientos-diagnostico-SLIMB002930"
+                alt="Figura 9: Procedimiento de diagnóstico" />
+                <figcaption aria-hidden="true">Figura 9: Procedimiento
+                de diagnóstico</figcaption>
+                </figure>
+                <h2 id="descargas">Descargas</h2>
+                <p>Descargar <a
+                href="SLIMB002930.pdf">SLIMB002930.pdf</a></p>
+                <h2 class="unnumbered" id="referencias">Referencias</h2>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_eh" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026-02-11). <em>Datos abiertos -
+                <span>E</span>gresos hospitalarios</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026-02-24). <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html.">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html.</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

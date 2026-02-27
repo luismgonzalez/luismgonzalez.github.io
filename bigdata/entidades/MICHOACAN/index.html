@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a febrero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#michoacán">MICHOACÁN</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="michoacán">MICHOACÁN</h1>
+                <ul>
+                <li><a href="./MNIMB000230.html">MNIMB000230 - HOSPITAL
+                INTEGRAL ARTEAGA</a></li>
+                <li><a href="./MNIMB000353.html">MNIMB000353 - HOSPITAL
+                INTEGRAL COAHUAYANA</a></li>
+                <li><a href="./MNIMB000650.html">MNIMB000650 - HOSPITAL
+                GENERAL DE CHERÁN</a></li>
+                <li><a href="./MNIMB001292.html">MNIMB001292 - HOSPITAL
+                GENERAL DE LÁZARO CÁRDENAS DRA. ELENA AVILÉS</a></li>
+                <li><a href="./MNIMB001403.html">MNIMB001403 - HOSPITAL
+                DE LA MUJER</a></li>
+                <li><a href="./MNIMB001415.html">MNIMB001415 - CENTRO
+                ESTATAL DE ATENCION ONCOLOGICA</a></li>
+                <li><a href="./MNIMB001420.html">MNIMB001420 - HOSPITAL
+                PSIQUIATRICO DR. JOSÉ TORRES OROZCO</a></li>
+                <li><a href="./MNIMB001601.html">MNIMB001601 - HOSPITAL
+                INTEGRAL NUEVA ITALIA</a></li>
+                <li><a href="./MNIMB002091.html">MNIMB002091 - HOSPITAL
+                GENERAL SAHUAYO</a></li>
+                <li><a href="./MNIMB002190.html">MNIMB002190 - HOSPITAL
+                GENERAL DE TACAMBARO MARIA ZENDEJAS</a></li>
+                <li><a href="./MNIMB002774.html">MNIMB002774 - HOSPITAL
+                GENERAL DR. PEDRO DANIEL MARTÍNEZ</a></li>
+                <li><a href="./MNIMB002931.html">MNIMB002931 - HOSPITAL
+                GENERAL ZAMORA</a></li>
+                <li><a href="./MNIMB003013.html">MNIMB003013 - HOSPITAL
+                GENERAL ZITACUARO</a></li>
+                <li><a href="./MNIMB003532.html">MNIMB003532 - HOSPITAL
+                GENERAL ZACAPU</a></li>
+                <li><a href="./MNIMB003544.html">MNIMB003544 - HOSPITAL
+                GENERAL PATZCUARO</a></li>
+                <li><a href="./MNIMB003590.html">MNIMB003590 - HOSPITAL
+                GENERAL DR MIGUEL SILVA</a></li>
+                <li><a href="./MNIMB003660.html">MNIMB003660 - HOSPITAL
+                INFANTIL DE MORELIA EVA SAMANO DE LÓPEZ MATEOS</a></li>
+                <li><a href="./MNIMB003725.html">MNIMB003725 - UNEME
+                DEDICAM</a></li>
+                <li><a href="./MNIMB003911.html">MNIMB003911 - HOSPITAL
+                GENERAL MARAVATIO</a></li>
+                <li><a href="./MNIMB003923.html">MNIMB003923 - HOSPITAL
+                GENERAL PURUANDIRO</a></li>
+                <li><a href="./MNIMB003935.html">MNIMB003935 - HOSPITAL
+                GENERAL CIUDAD HIDALGO</a></li>
+                <li><a href="./MNIMB003940.html">MNIMB003940 - HOSPITAL
+                COMUNITARIO TUZANTLA</a></li>
+                <li><a href="./MNIMB003952.html">MNIMB003952 - HOSPITAL
+                COMUNITARIO CARACUARO-NOCUPETARO</a></li>
+                <li><a href="./MNIMB003964.html">MNIMB003964 - HOSPITAL
+                GENERAL LOS REYES</a></li>
+                <li><a href="./MNIMB003976.html">MNIMB003976 - HOSPITAL
+                GENERAL LA PIEDAD</a></li>
+                <li><a href="./MNIMB003981.html">MNIMB003981 - HOSPITAL
+                COMUNITARIO LA HUACANA</a></li>
+                <li><a href="./MNIMB003993.html">MNIMB003993 - HOSPITAL
+                COMUNITARIO MARUATA</a></li>
+                <li><a href="./MNIMB004734.html">MNIMB004734 - HOSPITAL
+                GENERAL APATZINGAN</a></li>
+                <li><a href="./MNIMB004746.html">MNIMB004746 - HOSPITAL
+                COMUNITARIO ARANTEPACUA</a></li>
+                <li><a href="./MNIMB004751.html">MNIMB004751 - HOSPITAL
+                COMUNITARIO MARUATA</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

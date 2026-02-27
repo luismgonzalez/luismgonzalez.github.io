@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a febrero de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#ntimb001485">NTIMB001485</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#hospital-integral-tuxpan">HOSPITAL
+                                                        INTEGRAL
+                                                        TUXPAN</a></li>
+                                                        <li><a
+                                                        href="#datos-generales-del-catálogo-de-clues">Datos
+                                                        generales del
+                                                        catálogo de
+                                                        CLUES</a></li>
+                                                        <li><a
+                                                        href="#descargas">Descargas</a></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="ntimb001485">NTIMB001485</h1>
+                <h2 id="hospital-integral-tuxpan">HOSPITAL INTEGRAL
+                TUXPAN</h2>
+                <h2 id="datos-generales-del-catálogo-de-clues">Datos
+                generales del catálogo de CLUES</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">DGIS, 2026-02-24</a>)</span></p>
+                <table>
+                <colgroup>
+                <col style="width: 54%" />
+                <col style="width: 45%" />
+                </colgroup>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Nivel de
+                atención:</em></td>
+                <td><strong>SEGUNDO NIVEL</strong></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipología:</em></td>
+                <td>HOSPITAL INTEGRAL (COMUNITARIO)</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Subtipología:</em></td>
+                <td>NO ESPECIFICADO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipo de
+                establecimiento:</em></td>
+                <td>HOSPITALIZACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Estrato:</em></td>
+                <td>URBANO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Estatus:</em></td>
+                <td><strong>FUERA DE OPERACIÓN</strong></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Región:</em></td>
+                <td>NOROESTE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Entidad:</em></td>
+                <td>NAYARIT</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Municipio:</em></td>
+                <td>TUXPAN</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Localidad:</em></td>
+                <td>TUXPAN</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Coordenadas:</em></td>
+                <td><a
+                href="https://www.google.com/maps?q=21.9414209,-105.2873263">21.9414209,
+                -105.2873263</a></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Domicilio:</em></td>
+                <td>CALLE MIGUEL HIDALGO No. 425</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>COLONIA EL BEIS</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"></td>
+                <td>TUXPAN, NAY</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CP 63202</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha de
+                construcción:</em></td>
+                <td>1949-01-01</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha de inicio de
+                operación:</em></td>
+                <td>1951-01-01</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Propiedad del
+                inmueble:</em></td>
+                <td>None</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Último
+                movimiento:</em></td>
+                <td>ALTA</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha del último
+                movimiento:</em></td>
+                <td><code>2024-07-18</code></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Motivo de
+                baja:</em></td>
+                <td>POR DAÑO ESTRUCTURAL</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha efectiva de
+                baja:</em></td>
+                <td>2023-10-11</td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="descargas">Descargas</h2>
+                <p>Descargar <a
+                href="NTIMB001485.pdf">NTIMB001485.pdf</a></p>
+                <h2 class="unnumbered" id="referencias">Referencias</h2>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026-02-24). <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html.">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html.</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
