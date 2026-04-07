@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+        <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González" />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    
+
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self';
+                    img-src
+                      'self'
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Actualizada
+a marzo de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González</p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#ynssa001224">YNSSA001224</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#hospital-general-san-carlos">HOSPITAL
+                                                        GENERAL SAN
+                                                        CARLOS</a></li>
+                                                        <li><a
+                                                        href="#datos-generales-del-catálogo-de-clues">Datos
+                                                        generales del
+                                                        catálogo de
+                                                        CLUES</a></li>
+                                                        <li><a
+                                                        href="#mapa">Mapa</a></li>
+                                                        <li><a
+                                                        href="#egresos-hospitalarios">Egresos
+                                                        hospitalarios</a></li>
+                                                        <li><a
+                                                        href="#procedimientos">Procedimientos</a></li>
+                                                        <li><a
+                                                        href="#descargas">Descargas</a></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="ynssa001224">YNSSA001224</h1>
+                <h2 id="hospital-general-san-carlos">HOSPITAL GENERAL
+                SAN CARLOS</h2>
+                <h2 id="datos-generales-del-catálogo-de-clues">Datos
+                generales del catálogo de CLUES</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">DGIS, 2026-03-18</a>)</span></p>
+                <table>
+                <colgroup>
+                <col style="width: 54%" />
+                <col style="width: 45%" />
+                </colgroup>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Nivel de
+                atención:</em></td>
+                <td><strong>SEGUNDO NIVEL</strong></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipología:</em></td>
+                <td>HOSPITAL GENERAL</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Subtipología:</em></td>
+                <td>NO ESPECIFICADO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Tipo de
+                establecimiento:</em></td>
+                <td>HOSPITALIZACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Estrato:</em></td>
+                <td>URBANO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Estatus:</em></td>
+                <td><strong>EN OPERACIÓN</strong></td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Región:</em></td>
+                <td>None</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Entidad:</em></td>
+                <td>YUCATÁN</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Municipio:</em></td>
+                <td>TIZIMÍN</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Localidad:</em></td>
+                <td>TIZIMÍN</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: right;"><em>Coordenadas:</em></td>
+                <td><a
+                href="https://www.google.com/maps?q=21.1340346,-88.1506375">21.1340346,
+                -88.1506375</a></td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Domicilio:</em></td>
+                <td>CALLE 46 No. 461</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>COLONIA LÁZARO CÁRDENAS</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"></td>
+                <td>TIZIMÍN, YUC</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"></td>
+                <td>CP 97700</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha de
+                construcción:</em></td>
+                <td>1986-12-28</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Fecha de inicio de
+                operación:</em></td>
+                <td>1998-09-25</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Propiedad del
+                inmueble:</em></td>
+                <td>PROPIO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;"><em>Último
+                movimiento:</em></td>
+                <td>MODIFICACION</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;"><em>Fecha del último
+                movimiento:</em></td>
+                <td><code>2019-07-14</code></td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="mapa">Mapa</h2>
+                <figure>
+                <img src="../figures/mapas/mapa_YNSSA001224.png"
+                id="fig:mapa-YNSSA001224"
+                alt="Figura 1: Localización" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localización</figcaption>
+                </figure>
+                <h2 id="egresos-hospitalarios">Egresos
+                hospitalarios</h2>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_eh">(<a href="#ref-dgis_eh"
+                role="doc-biblioref">DGIS, 2026-02-11</a>)</span></p>
+                <h3 id="número-de-egresos-por-año">Número de egresos por
+                año</h3>
+                <table>
+                <caption>Egresos por año para YNSSA001224</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: right;">Año</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2026</td>
+                <td style="text-align: right;">1010</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2025</td>
+                <td style="text-align: right;">5595</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2024</td>
+                <td style="text-align: right;">5651</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2023</td>
+                <td style="text-align: right;">5941</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2022</td>
+                <td style="text-align: right;">5141</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: right;">2021</td>
+                <td style="text-align: right;">4391</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/egresos_anno/egresos_anno_YNSSA001224.svg"
+                id="fig:egresos-YNSSA001224"
+                alt="Figura 2: Egresos por año" />
+                <figcaption aria-hidden="true">Figura 2: Egresos por
+                año</figcaption>
+                </figure>
+                <h3 id="afecciones-principales-2025">Afecciones
+                principales (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 10%" />
+                <col style="width: 10%" />
+                <col style="width: 69%" />
+                <col style="width: 9%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Afección principal</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ENFERMEDAD RENAL CRÓNICA,
+                ETAPA 5</td>
+                <td style="text-align: right;">631</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">PARTO POR CESÁREA, SIN
+                OTRA ESPECIFICACIÓN</td>
+                <td style="text-align: right;">242</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">PARTO ÚNICO ESPONTÁNEO,
+                SIN OTRA ESPECIFICACIÓN</td>
+                <td style="text-align: right;">232</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">PARTO ÚNICO ESPONTÁNEO,
+                PRESENTACIÓN CEFÁLICA DE VÉRTICE</td>
+                <td style="text-align: right;">209</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">INFECCIÓN DE VÍAS
+                URINARIAS, SITIO NO ESPECIFICADO</td>
+                <td style="text-align: right;">161</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">GASTROENTERITIS Y COLITIS
+                DE ORIGEN NO ESPECIFICADO</td>
+                <td style="text-align: right;">156</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">TRAUMATISMO INTRACRANEAL,
+                NO ESPECIFICADO</td>
+                <td style="text-align: right;">137</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ENFERMEDAD RENAL CRÓNICA,
+                NO ESPECIFICADA</td>
+                <td style="text-align: right;">126</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CÁLCULO DE LA VESÍCULA
+                BILIAR SIN COLECISTITIS</td>
+                <td style="text-align: right;">125</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ACCIDENTE VASCULAR
+                ENCEFÁLICO AGUDO, NO ESPECIFICADO COMO HEMORRÁGICO O
+                ISQUÉMICO</td>
+                <td style="text-align: right;">119</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">4467</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/afecciones/afecciones_YNSSA001224.svg"
+                id="fig:afecciones-YNSSA001224"
+                alt="Figura 3: Afecciones principales" />
+                <figcaption aria-hidden="true">Figura 3: Afecciones
+                principales</figcaption>
+                </figure>
+                <h3 id="servicios-de-ingreso-2025">Servicios de ingreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Servicio de ingreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">MEDICINA INTERNA</td>
+                <td style="text-align: right;">2842</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL</td>
+                <td style="text-align: right;">1483</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">GINECO OBSTETRICIA</td>
+                <td style="text-align: right;">1483</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">PEDIATRÍA</td>
+                <td style="text-align: right;">656</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">GINECOLOGÍA</td>
+                <td style="text-align: right;">132</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CIRUGÍA ONCOLÓGICA</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ANGIOLOGÍA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ALERGOLOGÍA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">MEDICINA INTERNA
+                PEDIÁTRICA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">NO APLICA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/servicios_ingreso/servicios_ingreso_YNSSA001224.svg"
+                id="fig:servicios-ingreso-YNSSA001224"
+                alt="Figura 4: Servicios de ingreso" />
+                <figcaption aria-hidden="true">Figura 4: Servicios de
+                ingreso</figcaption>
+                </figure>
+                <h3 id="servicios-de-egreso-2025">Servicios de egreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Servicio de egreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">MEDICINA INTERNA</td>
+                <td style="text-align: right;">2839</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CIRUGÍA GENERAL</td>
+                <td style="text-align: right;">1486</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">GINECO OBSTETRICIA</td>
+                <td style="text-align: right;">1483</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">PEDIATRÍA</td>
+                <td style="text-align: right;">657</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">GINECOLOGÍA</td>
+                <td style="text-align: right;">131</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ANGIOLOGÍA</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ALERGOLOGÍA</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CIRUGÍA ONCOLÓGICA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/servicios_egreso/servicios_egreso_YNSSA001224.svg"
+                id="fig:servicios-egreso-YNSSA001224"
+                alt="Figura 5: Servicios de egreso" />
+                <figcaption aria-hidden="true">Figura 5: Servicios de
+                egreso</figcaption>
+                </figure>
+                <h3 id="procedencia-2025">Procedencia (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedencia</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">URGENCIAS</td>
+                <td style="text-align: right;">5763</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CONSULTA EXTERNA</td>
+                <td style="text-align: right;">692</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CUNERO PATOLÓGICO</td>
+                <td style="text-align: right;">139</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">REFERIDO</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRO</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/procedencia/procedencia_YNSSA001224.svg"
+                id="fig:procedencia-YNSSA001224"
+                alt="Figura 6: Procedencias" />
+                <figcaption aria-hidden="true">Figura 6:
+                Procedencias</figcaption>
+                </figure>
+                <h3 id="motivo-de-egreso-2025">Motivo de egreso
+                (2025)</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Motivo de egreso</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">MEJORÍA</td>
+                <td style="text-align: right;">5502</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">TRASLADO A OTRA
+                UNIDAD</td>
+                <td style="text-align: right;">555</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">VOLUNTARIO</td>
+                <td style="text-align: right;">287</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CURACIÓN</td>
+                <td style="text-align: right;">121</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">DEFUNCIÓN</td>
+                <td style="text-align: right;">113</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRO</td>
+                <td style="text-align: right;">27</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/motivo_egreso/motivo_egreso_YNSSA001224.svg"
+                id="fig:motivo-egreso-YNSSA001224"
+                alt="Figura 7: Motivo de egreso" />
+                <figcaption aria-hidden="true">Figura 7: Motivo de
+                egreso</figcaption>
+                </figure>
+                <h2 id="procedimientos">Procedimientos</h2>
+                <h3 id="procedimientos-quirúrgicos-2025">Procedimientos
+                quirúrgicos (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 10%" />
+                <col style="width: 11%" />
+                <col style="width: 67%" />
+                <col style="width: 9%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento
+                quirúrgico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CESÁREA CLÁSICA BAJA</td>
+                <td style="text-align: right;">414</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRA DESTRUCCIÓN U
+                OCLUSIÓN BILATERAL DE LAS TROMPAS DE FALOPIO</td>
+                <td style="text-align: right;">194</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">REDUCCIÓN ABIERTA DE
+                FRACTURA SIN FIJACIÓN INTERNA. SITIO NO
+                ESPECIFICADO</td>
+                <td style="text-align: right;">159</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">COLECISTECTOMÍA
+                LAPAROSCÓPICA</td>
+                <td style="text-align: right;">125</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRA APENDICECTOMÍA</td>
+                <td style="text-align: right;">64</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">DILATACIÓN Y LEGRADO
+                DESPUÉS DE PARTO O ABORTO</td>
+                <td style="text-align: right;">56</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRA EXCISIÓN DE TEJIDO
+                BLANDO</td>
+                <td style="text-align: right;">46</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">LAPAROTOMÍA
+                EXPLORADORA</td>
+                <td style="text-align: right;">42</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">AMPUTACIÓN DE DEDO DE
+                PIE</td>
+                <td style="text-align: right;">38</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">REPARACIÓN UNILATERAL DE
+                HERNIA INGUINAL, NO ESPECIFICADA DE OTRA MANERA</td>
+                <td style="text-align: right;">37</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">310</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/procedimientos_q/procedimientos_q_YNSSA001224.svg"
+                id="fig:procedimientos-quirurgicos-YNSSA001224"
+                alt="Figura 8: Procedimientos quirúrgico" />
+                <figcaption aria-hidden="true">Figura 8: Procedimientos
+                quirúrgico</figcaption>
+                </figure>
+                <h3 id="procedimientos-terapéuticos-2025">Procedimientos
+                terapéuticos (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 12%" />
+                <col style="width: 13%" />
+                <col style="width: 63%" />
+                <col style="width: 11%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento
+                terapéutico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRO PARTO ASISTIDO
+                MANUALMENTE</td>
+                <td style="text-align: right;">442</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRA TRANSFUSIÓN DE SANGRE
+                ENTERA</td>
+                <td style="text-align: right;">92</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CURACIÓN DE HERIDA</td>
+                <td style="text-align: right;">61</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CATETERISMO VENOSO PARA
+                DIÁLISIS RENAL</td>
+                <td style="text-align: right;">41</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CATETERISMO VENOSO, NO
+                CLASIFICADO BAJO OTRO CONCEPTO</td>
+                <td style="text-align: right;">35</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">EXTRACCIÓN DE DISPOSITIVO
+                DE DRENAJE PERITONEAL</td>
+                <td style="text-align: right;">32</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRA IRRIGACIÓN DE
+                HERIDA</td>
+                <td style="text-align: right;">30</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">INSERCIÓN DE TUBO
+                ENDOTRAQUEAL</td>
+                <td style="text-align: right;">22</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">RESUSCITACIÓN
+                CARDIOPULMONAR, NO ESPECIFICADA DE OTRA MANERA</td>
+                <td style="text-align: right;">11</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">MEDICACIÓN RESPIRATORIA
+                ADMINISTRADA MEDIANTE NEBULIZADOR</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">11</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTROS</td>
+                <td style="text-align: right;">34</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/procedimientos_t/procedimientos_t_YNSSA001224.svg"
+                id="fig:procedimientos-terapeutico-YNSSA001224"
+                alt="Figura 9: Procedimiento terapéutico" />
+                <figcaption aria-hidden="true">Figura 9: Procedimiento
+                terapéutico</figcaption>
+                </figure>
+                <h3
+                id="procedimientos-de-diagnóstico-2025">Procedimientos
+                de diagnóstico (2025)</h3>
+                <table>
+                <colgroup>
+                <col style="width: 12%" />
+                <col style="width: 13%" />
+                <col style="width: 62%" />
+                <col style="width: 11%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: right;">Posición</th>
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: left;">Procedimiento de
+                diagnóstico</th>
+                <th style="text-align: right;">Egresos</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: right;">1</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">LABORATORIO DE
+                ISOCINÉTICOS</td>
+                <td style="text-align: right;">5713</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">2</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRAS RADIOGRAFÍAS, NO
+                ESPECIFICADAS</td>
+                <td style="text-align: right;">645</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">3</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">DIÁLISIS PERITONEAL</td>
+                <td style="text-align: right;">628</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">4</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ELECTROCARDIOGRAMA</td>
+                <td style="text-align: right;">112</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">5</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">RADIOGRAFÍA TORÁCICA
+                RUTINARIA, DESCRITA COMO TAL</td>
+                <td style="text-align: right;">42</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">6</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ULTRASONOGRAFIA
+                DIAGNÓSTICA DEL ABDOMEN Y EL RETROPERITONEO</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">7</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ARTERIOGRAFÍA DE OTRAS
+                ÁREAS ESPECIFICADAS</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">8</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">OTRAS MEDICIONES CARDIACAS
+                Y VASCULARES NO OPERATORIAS</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: right;">9</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">CAROTIDOGRAMA CON
+                DERIVACIÓN DE ECG</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: right;">10</td>
+                <td style="text-align: left;">YNSSA001224</td>
+                <td style="text-align: left;">ANGIOGRAFÍA VASCULAR
+                FLUORESCENTE INTRA-OPERATORIA</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="../figures/procedimientos_d/procedimientos_d_YNSSA001224.svg"
+                id="fig:procedimientos-diagnostico-YNSSA001224"
+                alt="Figura 10: Procedimiento de diagnóstico" />
+                <figcaption aria-hidden="true">Figura 10: Procedimiento
+                de diagnóstico</figcaption>
+                </figure>
+                <h2 id="descargas">Descargas</h2>
+                <p>Descargar <a
+                href="YNSSA001224.pdf">YNSSA001224.pdf</a></p>
+                <h2 class="unnumbered" id="referencias">Referencias</h2>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_eh" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026-02-11). <em>Datos abiertos -
+                <span>E</span>gresos hospitalarios</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                DGIS. (2026-03-18). <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
