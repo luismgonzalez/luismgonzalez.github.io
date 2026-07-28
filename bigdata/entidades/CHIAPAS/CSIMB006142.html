@@ -25,7 +25,10 @@ Bienestar</title>
                 <meta name="author" content="Luis M. González" />
                         <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
         <style type="text/css">code{white-space: pre;}</style>
-                                                    
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
 
             <meta http-equiv="Content-Security-Policy"
                   content="
@@ -1303,6 +1306,289 @@ M. González</p>
                 <figcaption aria-hidden="true">Figura 8: Procedimiento
                 terapéutico</figcaption>
                 </figure>
+                <h3
+                id="indicador-77.-promedio-de-estancia-hospitalaria">Indicador
+                77. Promedio de estancia hospitalaria</h3>
+                <p>ATN-09</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 15 de julio de 2026a</a>)</span></li>
+                <li><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 15 de
+                julio de 2026b</a>)</span></li>
+                </ul>
+                <h4 id="descripción">Descripción</h4>
+                <p>Exhibe número promedio de días que un paciente
+                permanece internado en el hospital.</p>
+                <p>Proporciona una visión sobre la duración de las
+                estancias hospitalarias y puede reflejar la eficiencia
+                del cuidado médico y la complejidad de los casos
+                atendidos, en hospitales del IMSS Biienestar.</p>
+                <h4 id="cálculo">Cálculo</h4>
+                <p><span class="math display">\[
+                Indicador_{77} = \frac{d_{e}}{e_{h}}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(d_{e} =\)</span> Total de
+                días estancia de egresos hospitalarios durante periodo
+                de análisis</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(e_{h} =\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <h4 id="calificaciones">Calificaciones</h4>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>3.96 - 5.85</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>5.86 - 6.42</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>&gt; 6.42</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 3.96</td>
+                </tr>
+                </tbody>
+                </table>
+                <h4 id="resultado">Resultado</h4>
+                <table>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 23%" />
+                <col style="width: 15%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: right;">Dias estancia</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 77</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CSIMB006142</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">226</td>
+                <td style="text-align: right;">0.00</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="indicador-79.-índice-de-rotación">Indicador 79.
+                Índice de rotación</h3>
+                <p>ATN-11</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 15 de julio de 2026a</a>)</span></li>
+                <li><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 15 de
+                julio de 2026b</a>)</span></li>
+                </ul>
+                <h4 id="descripción-1">Descripción</h4>
+                <p>Mide la Proporción de pacientes hospitalizados por
+                cama disponible por mes.</p>
+                <p>Proporciona una visión sobre la utilización de la
+                capacidad hospitalaria, en unidades de salud del IMSS
+                Bienestar.</p>
+                <h4 id="cálculo-1">Cálculo</h4>
+                <p><span class="math display">\[
+                Indicador_{79} = \frac{e_{h}}{c_{c} \cdot \Delta t}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(e_{h}=\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(c_{c} =\)</span> Total de
+                camas censables</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(\Delta t =\)</span>
+                Número de días del periodo de análisis</p>
+                </blockquote>
+                <h4 id="calificaciones-1">Calificaciones</h4>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>3.91 - 5.1</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>3.0 - 3.90 o 5.11 - 6.0</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>2.0 - 2.9</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 2.0</td>
+                </tr>
+                </tbody>
+                </table>
+                <h4 id="resultado-1">Resultado</h4>
+                <table>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 14%" />
+                <col style="width: 25%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: left;">Indicador 79</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CSIMB006142</td>
+                <td style="text-align: right;">226</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: left;"></td>
+                <td style="text-align: left;"></td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="indicador-80.-proporción-de-egresos-por-mejoría">Indicador
+                80. Proporción de egresos por mejoría</h3>
+                <p>ATN-12</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 15 de julio de 2026a</a>)</span></li>
+                </ul>
+                <h4 id="descripción-2">Descripción</h4>
+                <p>Estima Porcentaje de egresos hospitalarios por motivo
+                de curación o mejoría en unidades médicas del IMSS
+                Bienestar dentro un periodo determinado.</p>
+                <p>Se relaciona con la eficacia en los tratamientos y la
+                calidad de la atención.</p>
+                <h4 id="cálculo-2">Cálculo</h4>
+                <p><span class="math display">\[
+                Indicador_{80} = \frac{e_{h_{m}}}{e_{h}} \times 100
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(e_{h}=\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(e_{h_{m}} =\)</span>
+                Número de egresos hospitalarios por motivo de curación o
+                mejoría</p>
+                </blockquote>
+                <h4 id="calificaciones-2">Calificaciones</h4>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>95 - 100</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>90 - 94.9</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>80 - 89.9</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 80</td>
+                </tr>
+                </tbody>
+                </table>
+                <h4 id="resultado-2">Resultado</h4>
+                <table>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 26%" />
+                <col style="width: 14%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">clues</th>
+                <th style="text-align: right;">curacion_mejoria</th>
+                <th style="text-align: right;">egresos</th>
+                <th style="text-align: right;">Indicador 80</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CSIMB006142</td>
+                <td style="text-align: right;">226</td>
+                <td style="text-align: right;">226</td>
+                <td style="text-align: right;">100.00</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                </tbody>
+                </table>
                 <h2 id="descargas">Descargas</h2>
                 <p>Descargar <a
                 href="CSIMB006142.pdf">CSIMB006142.pdf</a></p>
