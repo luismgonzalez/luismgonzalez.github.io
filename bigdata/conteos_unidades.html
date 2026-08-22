@@ -1,0 +1,3676 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Agosto
+de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#conteo-de-unidades-de-segundo-nivel">Conteo
+                                                        de unidades de
+                                                        segundo
+                                                        nivel</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#tipologías-segundo-nivel">Tipologías
+                                                        segundo
+                                                        nivel</a></li>
+                                                        <li><a
+                                                        href="#unidades-de-segundo-nivel-fuera-de-operación">Unidades
+                                                        de segundo nivel
+                                                        fuera de
+                                                        operación</a></li>
+                                                        <li><a
+                                                        href="#tipologías-por-entidad">Tipologías
+                                                        por
+                                                        entidad</a></li>
+                                                        </ul></li>
+                                                        <li><a
+                                                        href="#conteo-de-unidades-de-tercer-nivel">Conteo
+                                                        de unidades de
+                                                        tercer nivel</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#tipologías-tercer-nivel">Tipologías
+                                                        tercer
+                                                        nivel</a></li>
+                                                        <li><a
+                                                        href="#tipologías-por-entidad-1">Tipologías
+                                                        por
+                                                        entidad</a></li>
+                                                        </ul></li>
+                                                        <li><a
+                                                        href="#descargas">Descargas</a></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="conteo-de-unidades-de-segundo-nivel">Conteo de
+                unidades de segundo nivel</h1>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span>.</p>
+                <p>Quedan excluidas las siguientes <code>CLUES</code>
+                Por no haber sido transferidas al IMSS Bienestar:</p>
+                <ul>
+                <li><code>MCIMB012440</code>: <em>Hospital para el Niño
+                IMIEM</em></li>
+                <li><code>MCIMB012452</code>: <em>Centro de
+                Especialidades Odontológicas IMIEM</em></li>
+                <li><code>MCIMB012464</code>: <em>Hospital de
+                Ginecología y Obstetricia IMIEM</em></li>
+                </ul>
+                <h2 id="tipologías-segundo-nivel">Tipologías segundo
+                nivel</h2>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">46</td>
+                <td style="text-align: right;">50</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">28</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">227</td>
+                <td style="text-align: right;">233</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">247</td>
+                <td style="text-align: right;">254</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL MOVIL</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">18</td>
+                <td style="text-align: right;">19</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">NO ESPECIFICADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">42</td>
+                <td style="text-align: right;">45</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">22</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">609</td>
+                <td style="text-align: right;">633</td>
+                </tr>
+                </tbody>
+                </table>
+                <h2
+                id="unidades-de-segundo-nivel-fuera-de-operación">Unidades
+                de segundo nivel fuera de operación</h2>
+                <table>
+                <caption>Unidades de segundo nivel fuera de
+                operación</caption>
+                <colgroup>
+                <col style="width: 15%" />
+                <col style="width: 9%" />
+                <col style="width: 47%" />
+                <col style="width: 27%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: left;">CLUES</th>
+                <th style="text-align: left;">Unidad</th>
+                <th style="text-align: left;">Motivo de Baja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">BAJA CALIFORNIA SUR</td>
+                <td style="text-align: left;">BSIMB000795</td>
+                <td style="text-align: left;">HOSPITAL MODULAR MÓVIL DE
+                BAJA CALIFORNIA SUR</td>
+                <td style="text-align: left;">NO TIENE PERSONAL</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">CHIAPAS</td>
+                <td style="text-align: left;">CSIMB003890</td>
+                <td style="text-align: left;">CLINICA PARA LA ATENCION
+                DE PARTO HUMANIZADO PICHUCALCO</td>
+                <td style="text-align: left;">NO TIENE PERSONAL</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">CHIAPAS</td>
+                <td style="text-align: left;">CSIMB006142</td>
+                <td style="text-align: left;">CLINICA PARA LA ATENCION
+                DE PARTO HUMANIZADO PALENQUE</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: left;">GRIMB000012</td>
+                <td style="text-align: left;">HG. COL. PROGRESO
+                (CAAPS)</td>
+                <td style="text-align: left;">POR DAÑO ESTRUCTURAL</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: left;">GRIMB001680</td>
+                <td style="text-align: left;">HOSPITAL GENERAL DE
+                AYUTLA</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: left;">GRIMB005052</td>
+                <td style="text-align: left;">HOSPITAL BÁSICO
+                COMUNITARIO OLINALA</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: left;">GRIMB005653</td>
+                <td style="text-align: left;">HOSPITAL BÁSICO
+                COMUNITARIO SAN LUIS ACATLÁN</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: left;">GRIMB007292</td>
+                <td style="text-align: left;">HOSPITAL DE TLAPA</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">MICHOACÁN</td>
+                <td style="text-align: left;">MNIMB003993</td>
+                <td style="text-align: left;">HOSPITAL COMUNITARIO
+                MARUATA</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">NAYARIT</td>
+                <td style="text-align: left;">NTIMB001485</td>
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                TUXPAN</td>
+                <td style="text-align: left;">POR DAÑO ESTRUCTURAL</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">OAXACA</td>
+                <td style="text-align: left;">OCIMB000560</td>
+                <td style="text-align: left;">HC IXTLAN DE JUÁREZ</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">OAXACA</td>
+                <td style="text-align: left;">OCIMB001931</td>
+                <td style="text-align: left;">HG TUXTEPEC</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">OAXACA</td>
+                <td style="text-align: left;">OCIMB007193</td>
+                <td style="text-align: left;">HOSPITAL MOVIL TEMPORAL
+                COVID</td>
+                <td style="text-align: left;">POR DAÑO ESTRUCTURAL</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">PUEBLA</td>
+                <td style="text-align: left;">PLIMB004703</td>
+                <td style="text-align: left;">HOSPITAL DE CAMPAÑA
+                MÓVIL</td>
+                <td style="text-align: left;">NO TIENE PERSONAL</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">PUEBLA</td>
+                <td style="text-align: left;">PLIMB006091</td>
+                <td style="text-align: left;">UNIDAD DE QUEMADOS (ANEXO
+                AL HOSPITAL DEL NIÑO POBLANO)</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">SINALOA</td>
+                <td style="text-align: left;">SLIMB002411</td>
+                <td style="text-align: left;">UNIDAD MÉDICA
+                ESPECIALIZADA DE HEMODIÁLISIS CULIACÁN</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SINALOA</td>
+                <td style="text-align: left;">SLIMB002423</td>
+                <td style="text-align: left;">UNIDAD MÉDICA
+                ESPECIALIZADA DE IMAGENOLOGIA</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">SINALOA</td>
+                <td style="text-align: left;">SLIMB002505</td>
+                <td style="text-align: left;">UNIDAD MÉDICA
+                ESPECIALIZADA HEMODIALISIS MAZATLÁN</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SINALOA</td>
+                <td style="text-align: left;">SLIMB002930</td>
+                <td style="text-align: left;">HOSPITAL GENERAL DE
+                GUAMUCHIL</td>
+                <td style="text-align: left;">SE SUSTITUYE</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">TABASCO</td>
+                <td style="text-align: left;">TCIMB004875</td>
+                <td style="text-align: left;">DOMOS HOSPITALARIOS
+                TEMPORALES COVID-19</td>
+                <td style="text-align: left;">NO TIENE PERSONAL</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">VERACRUZ</td>
+                <td style="text-align: left;">VZIMB003240</td>
+                <td style="text-align: left;">HOSPITAL DE SALUD MENTAL
+                ORIZABA, DR VÍCTOR M. CONCHA VÁSQUEZ</td>
+                <td style="text-align: left;">POR TRASLADO A OTRO
+                ESTABLECIMIENTO</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">ZACATECAS</td>
+                <td style="text-align: left;">ZSIMB001875</td>
+                <td style="text-align: left;">UNIDAD DE SALUD BUCAL</td>
+                <td style="text-align: left;">NO TIENE PERSONAL</td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="tipologías-por-entidad">Tipologías por
+                entidad</h2>
+                <h3 id="baja-california">Baja California</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Baja
+                California</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">13</td>
+                <td style="text-align: right;">13</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_baja%20california.png"
+                id="fig:mapa-bajacaliforniaii"
+                alt="Figura 1: Localización de unidades de II nivel en Baja California" />
+                <figcaption aria-hidden="true">Figura 1: Localización de
+                unidades de II nivel en Baja California</figcaption>
+                </figure>
+                <h3 id="baja-california-sur">Baja California Sur</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Baja California
+                Sur</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL MOVIL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_baja%20california%20sur.png"
+                id="fig:mapa-bajacaliforniasurii"
+                alt="Figura 2: Localización de unidades de II nivel en Baja California Sur" />
+                <figcaption aria-hidden="true">Figura 2: Localización de
+                unidades de II nivel en Baja California Sur</figcaption>
+                </figure>
+                <h3 id="campeche">Campeche</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Campeche</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">7</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">13</td>
+                <td style="text-align: right;">13</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_campeche.png"
+                id="fig:mapa-campecheii"
+                alt="Figura 3: Localización de unidades de II nivel en Campeche" />
+                <figcaption aria-hidden="true">Figura 3: Localización de
+                unidades de II nivel en Campeche</figcaption>
+                </figure>
+                <h3 id="colima">Colima</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Colima</caption>
+                <colgroup>
+                <col style="width: 27%" />
+                <col style="width: 22%" />
+                <col style="width: 19%" />
+                <col style="width: 20%" />
+                <col style="width: 9%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_colima.png"
+                id="fig:mapa-colimaii"
+                alt="Figura 4: Localización de unidades de II nivel en Colima" />
+                <figcaption aria-hidden="true">Figura 4: Localización de
+                unidades de II nivel en Colima</figcaption>
+                </figure>
+                <h3 id="chiapas">Chiapas</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Chiapas</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">14</td>
+                <td style="text-align: right;">14</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">46</td>
+                <td style="text-align: right;">48</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_chiapas.png"
+                id="fig:mapa-chiapasii"
+                alt="Figura 5: Localización de unidades de II nivel en Chiapas" />
+                <figcaption aria-hidden="true">Figura 5: Localización de
+                unidades de II nivel en Chiapas</figcaption>
+                </figure>
+                <h3 id="ciudad-de-méxico">Ciudad de México</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Ciudad de
+                México</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">13</td>
+                <td style="text-align: right;">13</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_distrito%20federal.png"
+                id="fig:mapa-distritofederalii"
+                alt="Figura 6: Localización de unidades de II nivel en Ciudad de México" />
+                <figcaption aria-hidden="true">Figura 6: Localización de
+                unidades de II nivel en Ciudad de México</figcaption>
+                </figure>
+                <h3 id="guerrero">Guerrero</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Guerrero</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">12</td>
+                <td style="text-align: right;">15</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">25</td>
+                <td style="text-align: right;">27</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">NO ESPECIFICADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">44</td>
+                <td style="text-align: right;">49</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_guerrero.png"
+                id="fig:mapa-guerreroii"
+                alt="Figura 7: Localización de unidades de II nivel en Guerrero" />
+                <figcaption aria-hidden="true">Figura 7: Localización de
+                unidades de II nivel en Guerrero</figcaption>
+                </figure>
+                <h3 id="hidalgo">Hidalgo</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Hidalgo</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">7</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">18</td>
+                <td style="text-align: right;">18</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_hidalgo.png"
+                id="fig:mapa-hidalgoii"
+                alt="Figura 8: Localización de unidades de II nivel en Hidalgo" />
+                <figcaption aria-hidden="true">Figura 8: Localización de
+                unidades de II nivel en Hidalgo</figcaption>
+                </figure>
+                <h3 id="méxico">México</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en México</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">30</td>
+                <td style="text-align: right;">30</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">74</td>
+                <td style="text-align: right;">74</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_mexico.png"
+                id="fig:mapa-mexicoii"
+                alt="Figura 9: Localización de unidades de II nivel en México" />
+                <figcaption aria-hidden="true">Figura 9: Localización de
+                unidades de II nivel en México</figcaption>
+                </figure>
+                <h3 id="michoacán">Michoacán</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en
+                Michoacán</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">15</td>
+                <td style="text-align: right;">15</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">26</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_michoacan.png"
+                id="fig:mapa-michoacanii"
+                alt="Figura 10: Localización de unidades de II nivel en Michoacán" />
+                <figcaption aria-hidden="true">Figura 10: Localización
+                de unidades de II nivel en Michoacán</figcaption>
+                </figure>
+                <h3 id="morelos">Morelos</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Morelos</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">7</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">14</td>
+                <td style="text-align: right;">14</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_morelos.png"
+                id="fig:mapa-morelosii"
+                alt="Figura 11: Localización de unidades de II nivel en Morelos" />
+                <figcaption aria-hidden="true">Figura 11: Localización
+                de unidades de II nivel en Morelos</figcaption>
+                </figure>
+                <h3 id="nayarit">Nayarit</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Nayarit</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">9</td>
+                <td style="text-align: right;">10</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">16</td>
+                <td style="text-align: right;">17</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_nayarit.png"
+                id="fig:mapa-nayaritii"
+                alt="Figura 12: Localización de unidades de II nivel en Nayarit" />
+                <figcaption aria-hidden="true">Figura 12: Localización
+                de unidades de II nivel en Nayarit</figcaption>
+                </figure>
+                <h3 id="oaxaca">Oaxaca</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Oaxaca</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">16</td>
+                <td style="text-align: right;">17</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">19</td>
+                <td style="text-align: right;">21</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL MOVIL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">39</td>
+                <td style="text-align: right;">43</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_oaxaca.png"
+                id="fig:mapa-oaxacaii"
+                alt="Figura 13: Localización de unidades de II nivel en Oaxaca" />
+                <figcaption aria-hidden="true">Figura 13: Localización
+                de unidades de II nivel en Oaxaca</figcaption>
+                </figure>
+                <h3 id="puebla">Puebla</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Puebla</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">16</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">31</td>
+                <td style="text-align: right;">31</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL MOVIL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">51</td>
+                <td style="text-align: right;">53</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_puebla.png"
+                id="fig:mapa-pueblaii"
+                alt="Figura 14: Localización de unidades de II nivel en Puebla" />
+                <figcaption aria-hidden="true">Figura 14: Localización
+                de unidades de II nivel en Puebla</figcaption>
+                </figure>
+                <h3 id="quintana-roo">Quintana Roo</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Quintana
+                Roo</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">13</td>
+                <td style="text-align: right;">13</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_quintana%20roo.png"
+                id="fig:mapa-quintanarooii"
+                alt="Figura 15: Localización de unidades de II nivel en Quintana Roo" />
+                <figcaption aria-hidden="true">Figura 15: Localización
+                de unidades de II nivel en Quintana Roo</figcaption>
+                </figure>
+                <h3 id="san-luis-potosí">San Luis Potosí</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en San Luis
+                Potosí</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">14</td>
+                <td style="text-align: right;">14</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_san%20luis%20potosi.png"
+                id="fig:mapa-sanluispotosiii"
+                alt="Figura 16: Localización de unidades de II nivel en San Luis Potosí" />
+                <figcaption aria-hidden="true">Figura 16: Localización
+                de unidades de II nivel en San Luis Potosí</figcaption>
+                </figure>
+                <h3 id="sinaloa">Sinaloa</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Sinaloa</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">12</td>
+                <td style="text-align: right;">12</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_sinaloa.png"
+                id="fig:mapa-sinaloaii"
+                alt="Figura 17: Localización de unidades de II nivel en Sinaloa" />
+                <figcaption aria-hidden="true">Figura 17: Localización
+                de unidades de II nivel en Sinaloa</figcaption>
+                </figure>
+                <h3 id="sonora">Sonora</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Sonora</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">9</td>
+                <td style="text-align: right;">9</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">6</td>
+                <td style="text-align: right;">6</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">24</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_sonora.png"
+                id="fig:mapa-sonoraii"
+                alt="Figura 18: Localización de unidades de II nivel en Sonora" />
+                <figcaption aria-hidden="true">Figura 18: Localización
+                de unidades de II nivel en Sonora</figcaption>
+                </figure>
+                <h3 id="tabasco">Tabasco</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Tabasco</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">11</td>
+                <td style="text-align: right;">12</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">7</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">20</td>
+                <td style="text-align: right;">21</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_tabasco.png"
+                id="fig:mapa-tabascoii"
+                alt="Figura 19: Localización de unidades de II nivel en Tabasco" />
+                <figcaption aria-hidden="true">Figura 19: Localización
+                de unidades de II nivel en Tabasco</figcaption>
+                </figure>
+                <h3 id="tamaulipas">Tamaulipas</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en
+                Tamaulipas</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">11</td>
+                <td style="text-align: right;">11</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">28</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_tamaulipas.png"
+                id="fig:mapa-tamaulipasii"
+                alt="Figura 20: Localización de unidades de II nivel en Tamaulipas" />
+                <figcaption aria-hidden="true">Figura 20: Localización
+                de unidades de II nivel en Tamaulipas</figcaption>
+                </figure>
+                <h3 id="tlaxcala">Tlaxcala</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Tlaxcala</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">16</td>
+                <td style="text-align: right;">16</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_tlaxcala.png"
+                id="fig:mapa-tlaxcalaii"
+                alt="Figura 21: Localización de unidades de II nivel en Tlaxcala" />
+                <figcaption aria-hidden="true">Figura 21: Localización
+                de unidades de II nivel en Tlaxcala</figcaption>
+                </figure>
+                <h3 id="veracruz">Veracruz</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en Veracruz</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">28</td>
+                <td style="text-align: right;">28</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">25</td>
+                <td style="text-align: right;">25</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">55</td>
+                <td style="text-align: right;">56</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_veracruz.png"
+                id="fig:mapa-veracruzii"
+                alt="Figura 22: Localización de unidades de II nivel en Veracruz" />
+                <figcaption aria-hidden="true">Figura 22: Localización
+                de unidades de II nivel en Veracruz</figcaption>
+                </figure>
+                <h3 id="yucatán">Yucatán</h3>
+                <table>
+                <caption>Unidades de segundo nivel en Yucatán</caption>
+                <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 25%" />
+                <col style="width: 21%" />
+                <col style="width: 22%" />
+                <col style="width: 10%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_yucatan.png"
+                id="fig:mapa-yucatanii"
+                alt="Figura 23: Localización de unidades de II nivel en Yucatán" />
+                <figcaption aria-hidden="true">Figura 23: Localización
+                de unidades de II nivel en Yucatán</figcaption>
+                </figure>
+                <h3 id="zacatecas">Zacatecas</h3>
+                <table style="width:100%;">
+                <caption>Unidades de segundo nivel en
+                Zacatecas</caption>
+                <colgroup>
+                <col style="width: 30%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">CLÍNICA DE
+                ESPECIALIDADES</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL INTEGRAL
+                COMUNITARIO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">11</td>
+                <td style="text-align: right;">11</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">UNEMES</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">22</td>
+                <td style="text-align: right;">23</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_ii_nivel_zacatecas.png"
+                id="fig:mapa-zacatecasii"
+                alt="Figura 24: Localización de unidades de II nivel en Zacatecas" />
+                <figcaption aria-hidden="true">Figura 24: Localización
+                de unidades de II nivel en Zacatecas</figcaption>
+                </figure>
+                <h1 id="conteo-de-unidades-de-tercer-nivel">Conteo de
+                unidades de tercer nivel</h1>
+                <p>Con base en <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span>.</p>
+                <p>Queda excluida la siguiente <code>CLUES</code> Por no
+                haber sido transferidas al IMSS Bienestar:</p>
+                <ul>
+                <li><code>MCIMB012283</code>: <em>Hospital Regional de
+                alta Especialidad de Zumpango</em></li>
+                </ul>
+                <h2 id="tipologías-tercer-nivel">Tipologías tercer
+                nivel</h2>
+                <table>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">47</td>
+                <td style="text-align: right;">47</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">19</td>
+                <td style="text-align: right;">20</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Totales</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">67</td>
+                <td style="text-align: right;">68</td>
+                </tr>
+                </tbody>
+                </table>
+                <h2 id="tipologías-por-entidad-1">Tipologías por
+                entidad</h2>
+                <h3 id="baja-california-sur-1">Baja California Sur</h3>
+                <table style="width:100%;">
+                <caption>Unidades de tercer nivel en Baja California
+                Sur</caption>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 12%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_baja%20california%20sur.png"
+                id="fig:mapa-bajacaliforniasuriii"
+                alt="Figura 25: Localización de unidades de tercer nivel en Baja California Sur" />
+                <figcaption aria-hidden="true">Figura 25: Localización
+                de unidades de tercer nivel en Baja California
+                Sur</figcaption>
+                </figure>
+                <h3 id="campeche-1">Campeche</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Campeche</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_campeche.png"
+                id="fig:mapa-campecheiii"
+                alt="Figura 26: Localización de unidades de tercer nivel en Campeche" />
+                <figcaption aria-hidden="true">Figura 26: Localización
+                de unidades de tercer nivel en Campeche</figcaption>
+                </figure>
+                <h3 id="colima-1">Colima</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Colima</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_colima.png"
+                id="fig:mapa-colimaiii"
+                alt="Figura 27: Localización de unidades de tercer nivel en Colima" />
+                <figcaption aria-hidden="true">Figura 27: Localización
+                de unidades de tercer nivel en Colima</figcaption>
+                </figure>
+                <h3 id="chiapas-1">Chiapas</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Chiapas</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_chiapas.png"
+                id="fig:mapa-chiapasiii"
+                alt="Figura 28: Localización de unidades de tercer nivel en Chiapas" />
+                <figcaption aria-hidden="true">Figura 28: Localización
+                de unidades de tercer nivel en Chiapas</figcaption>
+                </figure>
+                <h3 id="ciudad-de-méxico-1">Ciudad de México</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Ciudad de
+                México</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">11</td>
+                <td style="text-align: right;">11</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">12</td>
+                <td style="text-align: right;">12</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_distrito%20federal.png"
+                id="fig:mapa-distritofederaliii"
+                alt="Figura 29: Localización de unidades de tercer nivel en Ciudad de México" />
+                <figcaption aria-hidden="true">Figura 29: Localización
+                de unidades de tercer nivel en Ciudad de
+                México</figcaption>
+                </figure>
+                <h3 id="guanajuato">Guanajuato</h3>
+                <table>
+                <caption>Unidades de tercer nivel en
+                Guanajuato</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_guanajuato.png"
+                id="fig:mapa-guanajuatoiii"
+                alt="Figura 30: Localización de unidades de tercer nivel en Guanajuato" />
+                <figcaption aria-hidden="true">Figura 30: Localización
+                de unidades de tercer nivel en Guanajuato</figcaption>
+                </figure>
+                <h3 id="guerrero-1">Guerrero</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Guerrero</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_guerrero.png"
+                id="fig:mapa-guerreroiii"
+                alt="Figura 31: Localización de unidades de tercer nivel en Guerrero" />
+                <figcaption aria-hidden="true">Figura 31: Localización
+                de unidades de tercer nivel en Guerrero</figcaption>
+                </figure>
+                <h3 id="hidalgo-1">Hidalgo</h3>
+                <table style="width:100%;">
+                <caption>Unidades de tercer nivel en Hidalgo</caption>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 12%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_hidalgo.png"
+                id="fig:mapa-hidalgoiii"
+                alt="Figura 32: Localización de unidades de tercer nivel en Hidalgo" />
+                <figcaption aria-hidden="true">Figura 32: Localización
+                de unidades de tercer nivel en Hidalgo</figcaption>
+                </figure>
+                <h3 id="méxico-1">México</h3>
+                <table>
+                <caption>Unidades de tercer nivel en México</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">8</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_mexico.png"
+                id="fig:mapa-mexicoiii"
+                alt="Figura 33: Localización de unidades de tercer nivel en México" />
+                <figcaption aria-hidden="true">Figura 33: Localización
+                de unidades de tercer nivel en México</figcaption>
+                </figure>
+                <h3 id="michoacán-1">Michoacán</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Michoacán</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_michoacan.png"
+                id="fig:mapa-michoacaniii"
+                alt="Figura 34: Localización de unidades de tercer nivel en Michoacán" />
+                <figcaption aria-hidden="true">Figura 34: Localización
+                de unidades de tercer nivel en Michoacán</figcaption>
+                </figure>
+                <h3 id="morelos-1">Morelos</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Morelos</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_morelos.png"
+                id="fig:mapa-morelosiii"
+                alt="Figura 35: Localización de unidades de tercer nivel en Morelos" />
+                <figcaption aria-hidden="true">Figura 35: Localización
+                de unidades de tercer nivel en Morelos</figcaption>
+                </figure>
+                <h3 id="nayarit-1">Nayarit</h3>
+                <table style="width:100%;">
+                <caption>Unidades de tercer nivel en Nayarit</caption>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 21%" />
+                <col style="width: 18%" />
+                <col style="width: 12%" />
+                <col style="width: 19%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_nayarit.png"
+                id="fig:mapa-nayaritiii"
+                alt="Figura 36: Localización de unidades de tercer nivel en Nayarit" />
+                <figcaption aria-hidden="true">Figura 36: Localización
+                de unidades de tercer nivel en Nayarit</figcaption>
+                </figure>
+                <h3 id="oaxaca-1">Oaxaca</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Oaxaca</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_oaxaca.png"
+                id="fig:mapa-oaxacaiii"
+                alt="Figura 37: Localización de unidades de tercer nivel en Oaxaca" />
+                <figcaption aria-hidden="true">Figura 37: Localización
+                de unidades de tercer nivel en Oaxaca</figcaption>
+                </figure>
+                <h3 id="puebla-1">Puebla</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Puebla</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_puebla.png"
+                id="fig:mapa-pueblaiii"
+                alt="Figura 38: Localización de unidades de tercer nivel en Puebla" />
+                <figcaption aria-hidden="true">Figura 38: Localización
+                de unidades de tercer nivel en Puebla</figcaption>
+                </figure>
+                <h3 id="san-luis-potosí-1">San Luis Potosí</h3>
+                <table>
+                <caption>Unidades de tercer nivel en San Luis
+                Potosí</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_san%20luis%20potosi.png"
+                id="fig:mapa-sanluispotosiiii"
+                alt="Figura 39: Localización de unidades de tercer nivel en San Luis Potosí" />
+                <figcaption aria-hidden="true">Figura 39: Localización
+                de unidades de tercer nivel en San Luis
+                Potosí</figcaption>
+                </figure>
+                <h3 id="sinaloa-1">Sinaloa</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Sinaloa</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_sinaloa.png"
+                id="fig:mapa-sinaloaiii"
+                alt="Figura 40: Localización de unidades de tercer nivel en Sinaloa" />
+                <figcaption aria-hidden="true">Figura 40: Localización
+                de unidades de tercer nivel en Sinaloa</figcaption>
+                </figure>
+                <h3 id="sonora-1">Sonora</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Sonora</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_sonora.png"
+                id="fig:mapa-sonoraiii"
+                alt="Figura 41: Localización de unidades de tercer nivel en Sonora" />
+                <figcaption aria-hidden="true">Figura 41: Localización
+                de unidades de tercer nivel en Sonora</figcaption>
+                </figure>
+                <h3 id="tabasco-1">Tabasco</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Tabasco</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL PSIQUIÁTRICO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">5</td>
+                <td style="text-align: right;">5</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_tabasco.png"
+                id="fig:mapa-tabascoiii"
+                alt="Figura 42: Localización de unidades de tercer nivel en Tabasco" />
+                <figcaption aria-hidden="true">Figura 42: Localización
+                de unidades de tercer nivel en Tabasco</figcaption>
+                </figure>
+                <h3 id="tamaulipas-1">Tamaulipas</h3>
+                <table>
+                <caption>Unidades de tercer nivel en
+                Tamaulipas</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">4</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_tamaulipas.png"
+                id="fig:mapa-tamaulipasiii"
+                alt="Figura 43: Localización de unidades de tercer nivel en Tamaulipas" />
+                <figcaption aria-hidden="true">Figura 43: Localización
+                de unidades de tercer nivel en Tamaulipas</figcaption>
+                </figure>
+                <h3 id="tlaxcala-1">Tlaxcala</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Tlaxcala</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">HOSPITAL GENERAL</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">1</td>
+                <td style="text-align: right;">1</td>
+                </tr>
+                <tr class="odd">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_tlaxcala.png"
+                id="fig:mapa-tlaxcalaiii"
+                alt="Figura 44: Localización de unidades de tercer nivel en Tlaxcala" />
+                <figcaption aria-hidden="true">Figura 44: Localización
+                de unidades de tercer nivel en Tlaxcala</figcaption>
+                </figure>
+                <h3 id="veracruz-1">Veracruz</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Veracruz</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">3</td>
+                <td style="text-align: right;">3</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_veracruz.png"
+                id="fig:mapa-veracruziii"
+                alt="Figura 45: Localización de unidades de tercer nivel en Veracruz" />
+                <figcaption aria-hidden="true">Figura 45: Localización
+                de unidades de tercer nivel en Veracruz</figcaption>
+                </figure>
+                <h3 id="yucatán-1">Yucatán</h3>
+                <table>
+                <caption>Unidades de tercer nivel en Yucatán</caption>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 8%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Tipología</th>
+                <th style="text-align: right;">Fuera de operación</th>
+                <th style="text-align: right;">En construcción</th>
+                <th style="text-align: right;">Pendiente</th>
+                <th style="text-align: right;"><strong>En
+                operación</strong></th>
+                <th style="text-align: right;">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">HOSPITAL
+                ESPECIALIZADO</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                <tr class="even">
+                <td
+                style="text-align: left;"><strong>Totales</strong></td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">0</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">2</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="./entidades/figures/mapas2/mapa_iii_nivel_yucatan.png"
+                id="fig:mapa-yucataniii"
+                alt="Figura 46: Localización de unidades de tercer nivel en Yucatán" />
+                <figcaption aria-hidden="true">Figura 46: Localización
+                de unidades de tercer nivel en Yucatán</figcaption>
+                </figure>
+                <h1 id="descargas">Descargas</h1>
+                <p>Descargar <a href="conteos_unidades.pdf">Archivo
+                <code>PDF</code></a></p>
+                <h1 class="unnumbered" id="referencias">Referencias</h1>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                Secretaría de Salud - DGIS. (16 de julio de 2026).
+                <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

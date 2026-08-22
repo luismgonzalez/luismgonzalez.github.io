@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de segundo y tercer nivel del IMSS
+Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de segundo y tercer nivel del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+segundo y tercer nivel del IMSS Bienestar</h1>
+                                        <h3 class="uk-heading-large">Agosto
+de 2026</p></h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#indicadores-de-atención-a-la-salud">Indicadores
+                                                        de atención a la
+                                                        salud</a>
+                                                        <ul>
+                                                        <li><a
+                                                        href="#indicador-75.-razón-de-personal-médico-por-cama">Indicador
+                                                        75. Razón de
+                                                        personal médico
+                                                        por
+                                                        cama</a></li>
+                                                        <li><a
+                                                        href="#indicador-76.-ocupación-hospitalaria">Indicador
+                                                        76. Ocupación
+                                                        hospitalaria</a></li>
+                                                        <li><a
+                                                        href="#indicador-77.-promedio-de-estancia-hospitalaria">Indicador
+                                                        77. Promedio de
+                                                        estancia
+                                                        hospitalaria</a></li>
+                                                        <li><a
+                                                        href="#indicador-78.-consulta-de-urgencias-por-consultorio">Indicador
+                                                        78. Consulta de
+                                                        urgencias por
+                                                        consultorio</a></li>
+                                                        <li><a
+                                                        href="#indicador-79.-índice-de-rotación">Indicador
+                                                        79. Índice de
+                                                        rotación</a></li>
+                                                        <li><a
+                                                        href="#indicador-80.-proporción-de-egresos-por-mejoría">Indicador
+                                                        80. Proporción
+                                                        de egresos por
+                                                        mejoría</a></li>
+                                                        <li><a
+                                                        href="#indicador-81.-promedio-diarios-de-eventos-quirúrgicos-por-quirófano">Indicador
+                                                        81. Promedio
+                                                        diarios de
+                                                        eventos
+                                                        quirúrgicos por
+                                                        quirófano</a></li>
+                                                        <li><a
+                                                        href="#indicador-84.-mortalidad-hospitalaria">Indicador
+                                                        84. Mortalidad
+                                                        Hospitalaria</a></li>
+                                                        </ul></li>
+                                                        <li><a
+                                                        href="#referencias">Referencias</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="indicadores-de-atención-a-la-salud">Indicadores
+                de atención a la salud</h1>
+                <p>El cálculo de los indicadores estratégicos para
+                evaluar el componente de atención en unidades de salud,
+                fueron propuestos por <span class="citation"
+                data-cites="imb_uas">(<a href="#ref-imb_uas"
+                role="doc-biblioref">Servicios de Salud IMBB Bienestar,
+                2025</a>)</span>.</p>
+                <p>Con las bases de datos compartidas por
+                <code>DGIS</code>, podemos calcular únicamente los
+                indicadores del 75 al 81 y el 84</p>
+                <p>El cálculo de los indicadores fue realizado para el
+                siguiete rango de fechas:</p>
+                <ul>
+                <li><p>Fecha inicial:
+                <strong>2026-01-01</strong></p></li>
+                <li><p>Fecha final: <strong>2026-07-31</strong></p></li>
+                </ul>
+                <dl>
+                <dt><strong>Nota</strong>.-</dt>
+                <dd>
+                Quedan excluidas las siguientes <code>CLUES</code> por
+                no haber sido transferidas al IMSS Bienestar:
+                </dd>
+                </dl>
+                <ul>
+                <li><code>MCIMB012440</code>: <em>Hospital para el Niño
+                IMIEM</em></li>
+                <li><code>MCIMB012452</code>: <em>Centro de
+                Especialidades Odontológicas IMIEM</em></li>
+                <li><code>MCIMB012464</code>: <em>Hospital de
+                Ginecología y Obstetricia IMIEM</em></li>
+                <li><code>MCIMB012283</code>: <em>Hospital Regional de
+                alta Especialidad de Zumpango</em></li>
+                </ul>
+                <h2
+                id="indicador-75.-razón-de-personal-médico-por-cama">Indicador
+                75. Razón de personal médico por cama</h2>
+                <p>ATN-07</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></li>
+                </ul>
+                <h3 id="descripción">Descripción</h3>
+                <p>Estima el número de camas disponibles por médicos
+                activos.</p>
+                <p>Proporciona una visión sobre la disponibilidad de
+                médicos en relación al número de camas censables, en
+                unidades hospitalarias del IMSS Bienestar.</p>
+                <h3 id="cálculo">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{75} = \frac{m_{e}}{c_{c}}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(m_{e} =\)</span> Total de
+                médicos especialistas registrados en unidades del
+                IMB</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(c_{c}=\)</span> Total de
+                camas censables</p>
+                </blockquote>
+                <h3 id="calificaciones">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>0.6 – 0.8</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>0.4 – 0.59</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>0.2 – 0.39</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 0.2</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar">Resultado del IMSS
+                Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 27%" />
+                <col style="width: 20%" />
+                <col style="width: 17%" />
+                <col style="width: 17%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Médicos
+                especialistas</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 75</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">25,484</td>
+                <td style="text-align: right;">26,183</td>
+                <td style="text-align: right;">0.97</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades">Resultados por
+                entidades</h3>
+                <table style="width:100%;">
+                <colgroup>
+                <col style="width: 21%" />
+                <col style="width: 25%" />
+                <col style="width: 19%" />
+                <col style="width: 16%" />
+                <col style="width: 16%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Médicos
+                especialistas</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 75</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">744</td>
+                <td style="text-align: right;">723</td>
+                <td style="text-align: right;">1.03</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">248</td>
+                <td style="text-align: right;">286</td>
+                <td style="text-align: right;">0.87</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">471</td>
+                <td style="text-align: right;">449</td>
+                <td style="text-align: right;">1.05</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">1,372</td>
+                <td style="text-align: right;">1,293</td>
+                <td style="text-align: right;">1.06</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">2,875</td>
+                <td style="text-align: right;">2,235</td>
+                <td style="text-align: right;">1.29</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">357</td>
+                <td style="text-align: right;">290</td>
+                <td style="text-align: right;">1.23</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">238</td>
+                <td style="text-align: right;">184</td>
+                <td style="text-align: right;">1.29</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">1,086</td>
+                <td style="text-align: right;">1,217</td>
+                <td style="text-align: right;">0.89</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">775</td>
+                <td style="text-align: right;">663</td>
+                <td style="text-align: right;">1.17</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">3,049</td>
+                <td style="text-align: right;">4,110</td>
+                <td style="text-align: right;">0.74</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">1,437</td>
+                <td style="text-align: right;">1,395</td>
+                <td style="text-align: right;">1.03</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">546</td>
+                <td style="text-align: right;">567</td>
+                <td style="text-align: right;">0.96</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">388</td>
+                <td style="text-align: right;">360</td>
+                <td style="text-align: right;">1.08</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">1,026</td>
+                <td style="text-align: right;">1,141</td>
+                <td style="text-align: right;">0.90</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">1,628</td>
+                <td style="text-align: right;">2,063</td>
+                <td style="text-align: right;">0.79</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">489</td>
+                <td style="text-align: right;">510</td>
+                <td style="text-align: right;">0.96</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">601</td>
+                <td style="text-align: right;">871</td>
+                <td style="text-align: right;">0.69</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">1,263</td>
+                <td style="text-align: right;">887</td>
+                <td style="text-align: right;">1.42</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">935</td>
+                <td style="text-align: right;">1,002</td>
+                <td style="text-align: right;">0.93</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">1,029</td>
+                <td style="text-align: right;">1,054</td>
+                <td style="text-align: right;">0.98</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">1,409</td>
+                <td style="text-align: right;">1,183</td>
+                <td style="text-align: right;">1.19</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">703</td>
+                <td style="text-align: right;">421</td>
+                <td style="text-align: right;">1.67</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">1,916</td>
+                <td style="text-align: right;">2,595</td>
+                <td style="text-align: right;">0.74</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">301</td>
+                <td style="text-align: right;">168</td>
+                <td style="text-align: right;">1.79</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">598</td>
+                <td style="text-align: right;">516</td>
+                <td style="text-align: right;">1.16</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_75.svg"
+                id="fig:ind-75"
+                alt="Figura 1: Médicos especialistas vs. Camas censables por CLUES" />
+                <figcaption aria-hidden="true">Figura 1: Médicos
+                especialistas vs. Camas censables por CLUES</figcaption>
+                </figure>
+                <h2 id="indicador-76.-ocupación-hospitalaria">Indicador
+                76. Ocupación hospitalaria</h2>
+                <p>ATN-08</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><p><em>Catálogo de CLUES</em>, <span
+                class="citation" data-cites="dgis_clues">(<a
+                href="#ref-dgis_clues" role="doc-biblioref">Secretaría
+                de Salud - DGIS, 16 de julio de
+                2026</a>)</span></p></li>
+                <li><p><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></p></li>
+                <li><p><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></p></li>
+                </ul>
+                <h3 id="descripción-1">Descripción</h3>
+                <p>Mide el grado de utilización de cama censables por
+                día, a partir de los días estancia de los pacientes
+                internados.</p>
+                <p>Proporciona una visión sobre la utilización de la
+                capacidad hospitalaria, en unidades de salud del IMSS
+                Bienestar.</p>
+                <h3 id="cálculo-1">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{76} = \frac{d_{e}}{c_{c} \cdot \Delta t}
+                \times 100
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(d_{e} =\)</span> Total de
+                días estancia de egresos hospitalarios durante periodo
+                de análisis</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(c_{c} =\)</span> Total de
+                camas censables</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(\Delta t =\)</span>
+                Número de días del periodo de análisis</p>
+                </blockquote>
+                <h3 id="calificaciones-1">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>80.0 – 90.0</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>70.0 – 79.9</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>50.0 – 69.9 o &gt; 90.0</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 50.0</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-1">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 18%" />
+                <col style="width: 20%" />
+                <col style="width: 22%" />
+                <col style="width: 19%" />
+                <col style="width: 19%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Días estancia</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 76</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">3,378,055</td>
+                <td style="text-align: right;">26,183</td>
+                <td style="text-align: right;">60.9</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-1">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 23%" />
+                <col style="width: 19%" />
+                <col style="width: 21%" />
+                <col style="width: 17%" />
+                <col style="width: 17%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Días estancia</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 76</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">101,125</td>
+                <td style="text-align: right;">723</td>
+                <td style="text-align: right;">66.0</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">35,924</td>
+                <td style="text-align: right;">286</td>
+                <td style="text-align: right;">59.2</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">48,413</td>
+                <td style="text-align: right;">449</td>
+                <td style="text-align: right;">50.9</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">216,244</td>
+                <td style="text-align: right;">1,293</td>
+                <td style="text-align: right;">78.9</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">273,775</td>
+                <td style="text-align: right;">2,235</td>
+                <td style="text-align: right;">57.8</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">29,251</td>
+                <td style="text-align: right;">290</td>
+                <td style="text-align: right;">47.6</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">16,691</td>
+                <td style="text-align: right;">184</td>
+                <td style="text-align: right;">42.8</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">130,976</td>
+                <td style="text-align: right;">1,217</td>
+                <td style="text-align: right;">50.8</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">90,605</td>
+                <td style="text-align: right;">663</td>
+                <td style="text-align: right;">64.5</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">541,339</td>
+                <td style="text-align: right;">4,110</td>
+                <td style="text-align: right;">62.1</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">133,656</td>
+                <td style="text-align: right;">1,395</td>
+                <td style="text-align: right;">45.2</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">67,806</td>
+                <td style="text-align: right;">567</td>
+                <td style="text-align: right;">56.4</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">43,093</td>
+                <td style="text-align: right;">360</td>
+                <td style="text-align: right;">56.5</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">108,296</td>
+                <td style="text-align: right;">1,141</td>
+                <td style="text-align: right;">44.8</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">320,587</td>
+                <td style="text-align: right;">2,063</td>
+                <td style="text-align: right;">73.3</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">82,070</td>
+                <td style="text-align: right;">510</td>
+                <td style="text-align: right;">75.9</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">129,358</td>
+                <td style="text-align: right;">871</td>
+                <td style="text-align: right;">70.1</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">115,166</td>
+                <td style="text-align: right;">887</td>
+                <td style="text-align: right;">61.2</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">128,554</td>
+                <td style="text-align: right;">1,002</td>
+                <td style="text-align: right;">60.5</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">150,477</td>
+                <td style="text-align: right;">1,054</td>
+                <td style="text-align: right;">67.3</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">136,878</td>
+                <td style="text-align: right;">1,183</td>
+                <td style="text-align: right;">54.6</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">62,112</td>
+                <td style="text-align: right;">421</td>
+                <td style="text-align: right;">69.6</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">332,242</td>
+                <td style="text-align: right;">2,595</td>
+                <td style="text-align: right;">60.4</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">21,820</td>
+                <td style="text-align: right;">168</td>
+                <td style="text-align: right;">61.3</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">61,597</td>
+                <td style="text-align: right;">516</td>
+                <td style="text-align: right;">56.3</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-1">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_76.svg"
+                id="fig:ind-76"
+                alt="Figura 2: Camas censables vs. Días de estancia por CLUES" />
+                <figcaption aria-hidden="true">Figura 2: Camas censables
+                vs. Días de estancia por CLUES</figcaption>
+                </figure>
+                <h2
+                id="indicador-77.-promedio-de-estancia-hospitalaria">Indicador
+                77. Promedio de estancia hospitalaria</h2>
+                <p>ATN-09</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><p><em>Catálogo de CLUES</em>, <span
+                class="citation" data-cites="dgis_clues">(<a
+                href="#ref-dgis_clues" role="doc-biblioref">Secretaría
+                de Salud - DGIS, 16 de julio de
+                2026</a>)</span></p></li>
+                <li><p><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></p></li>
+                <li><p><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></p></li>
+                </ul>
+                <h3 id="descripción-2">Descripción</h3>
+                <p>Exhibe número promedio de días que un paciente
+                permanece internado en el hospital.</p>
+                <p>Proporciona una visión sobre la duración de las
+                estancias hospitalarias y puede reflejar la eficiencia
+                del cuidado médico y la complejidad de los casos
+                atendidos, en hospitales del IMSS Biienestar.</p>
+                <h3 id="cálculo-2">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{77} = \frac{d_{e}}{e_{h}}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(d_{e} =\)</span> Total de
+                días estancia de egresos hospitalarios durante periodo
+                de análisis</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(e_{h} =\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <h3 id="calificaciones-2">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>3.96 – 5.85</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>5.86 – 6.42</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>&gt; 6.42</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 3.96</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-2">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 22%" />
+                <col style="width: 14%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Dias estancia</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 77</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">3,379,023</td>
+                <td style="text-align: right;">906,850</td>
+                <td style="text-align: right;">3.73</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-2">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 25%" />
+                <col style="width: 20%" />
+                <col style="width: 13%" />
+                <col style="width: 19%" />
+                <col style="width: 19%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Dias estancia</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 77</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">101,125</td>
+                <td style="text-align: right;">22,841</td>
+                <td style="text-align: right;">4.43</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">35,924</td>
+                <td style="text-align: right;">16,342</td>
+                <td style="text-align: right;">2.20</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">48,413</td>
+                <td style="text-align: right;">12,659</td>
+                <td style="text-align: right;">3.82</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">216,244</td>
+                <td style="text-align: right;">72,831</td>
+                <td style="text-align: right;">2.97</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">273,775</td>
+                <td style="text-align: right;">57,245</td>
+                <td style="text-align: right;">4.78</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">29,251</td>
+                <td style="text-align: right;">6,937</td>
+                <td style="text-align: right;">4.22</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">16,691</td>
+                <td style="text-align: right;">3,349</td>
+                <td style="text-align: right;">4.98</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">130,976</td>
+                <td style="text-align: right;">41,763</td>
+                <td style="text-align: right;">3.14</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">90,605</td>
+                <td style="text-align: right;">23,490</td>
+                <td style="text-align: right;">3.86</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">541,339</td>
+                <td style="text-align: right;">96,228</td>
+                <td style="text-align: right;">5.63</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">133,656</td>
+                <td style="text-align: right;">59,374</td>
+                <td style="text-align: right;">2.25</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">67,806</td>
+                <td style="text-align: right;">26,241</td>
+                <td style="text-align: right;">2.58</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">43,093</td>
+                <td style="text-align: right;">14,524</td>
+                <td style="text-align: right;">2.97</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">108,414</td>
+                <td style="text-align: right;">28,896</td>
+                <td style="text-align: right;">3.75</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">320,587</td>
+                <td style="text-align: right;">63,232</td>
+                <td style="text-align: right;">5.07</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">82,070</td>
+                <td style="text-align: right;">19,541</td>
+                <td style="text-align: right;">4.20</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">129,358</td>
+                <td style="text-align: right;">24,278</td>
+                <td style="text-align: right;">5.33</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">115,166</td>
+                <td style="text-align: right;">27,479</td>
+                <td style="text-align: right;">4.19</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">128,554</td>
+                <td style="text-align: right;">45,236</td>
+                <td style="text-align: right;">2.84</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">150,477</td>
+                <td style="text-align: right;">78,650</td>
+                <td style="text-align: right;">1.91</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">136,878</td>
+                <td style="text-align: right;">32,543</td>
+                <td style="text-align: right;">4.21</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">62,112</td>
+                <td style="text-align: right;">32,151</td>
+                <td style="text-align: right;">1.93</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">333,092</td>
+                <td style="text-align: right;">81,036</td>
+                <td style="text-align: right;">4.11</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">21,820</td>
+                <td style="text-align: right;">4,907</td>
+                <td style="text-align: right;">4.45</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">61,597</td>
+                <td style="text-align: right;">15,077</td>
+                <td style="text-align: right;">4.09</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-2">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_77.svg"
+                id="fig:ind-77"
+                alt="Figura 3: Días de estancia vs. Egresos hospitalarios por CLUES" />
+                <figcaption aria-hidden="true">Figura 3: Días de
+                estancia vs. Egresos hospitalarios por
+                CLUES</figcaption>
+                </figure>
+                <h2
+                id="indicador-78.-consulta-de-urgencias-por-consultorio">Indicador
+                78. Consulta de urgencias por consultorio</h2>
+                <p>ATN-10</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><p><em>Catálogo de CLUES</em>, <span
+                class="citation" data-cites="dgis_clues">(<a
+                href="#ref-dgis_clues" role="doc-biblioref">Secretaría
+                de Salud - DGIS, 16 de julio de
+                2026</a>)</span></p></li>
+                <li><p><em>Urgencias</em>, <span class="citation"
+                data-cites="dgis_urg">(<a href="#ref-dgis_urg"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 4 de
+                agosto de 2026b</a>)</span></p></li>
+                <li><p><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></p></li>
+                </ul>
+                <h3 id="descripción-3">Descripción</h3>
+                <p>Muestra el número de atenciones (consultas) de
+                urgencia médica en promedio por consultorio disponible,
+                de manera mensual en hospitales del IMSS Bienestar.</p>
+                <h3 id="cálculo-3">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{78} = \frac{u_{m}}{c_{u} \cdot \Delta t}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(u_{m} =\)</span> Total de
+                atenciones en servicio de urgencias médicas</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(c_{u} =\)</span> Total de
+                consultorios registrados para el servicio de urgencia
+                médica</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(\Delta t =\)</span>
+                Número de días del periodo de análisis</p>
+                </blockquote>
+                <h3 id="calificaciones-3">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>15 – 25</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>10 – 14 o 26 – 30</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>5 - 9 o &gt; 30</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 5</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-3">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 17%" />
+                <col style="width: 15%" />
+                <col style="width: 30%" />
+                <col style="width: 18%" />
+                <col style="width: 18%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Urgencias</th>
+                <th style="text-align: right;">Consultorios
+                urgencias</th>
+                <th style="text-align: right;">Indicador 78</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">2,786,591</td>
+                <td style="text-align: right;">1,065</td>
+                <td style="text-align: right;">12.3</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-3">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 22%" />
+                <col style="width: 14%" />
+                <col style="width: 28%" />
+                <col style="width: 17%" />
+                <col style="width: 17%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Urgencias</th>
+                <th style="text-align: right;">Consultorios
+                urgencias</th>
+                <th style="text-align: right;">Indicador 78</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">92,347</td>
+                <td style="text-align: right;">14</td>
+                <td style="text-align: right;">31.1</td>
+                <td style="text-align: left;">Regular *</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">26,909</td>
+                <td style="text-align: right;">13</td>
+                <td style="text-align: right;">9.8</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">50,464</td>
+                <td style="text-align: right;">19</td>
+                <td style="text-align: right;">12.5</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">202,142</td>
+                <td style="text-align: right;">65</td>
+                <td style="text-align: right;">14.7</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">273,638</td>
+                <td style="text-align: right;">84</td>
+                <td style="text-align: right;">15.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">45,627</td>
+                <td style="text-align: right;">12</td>
+                <td style="text-align: right;">17.9</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">3,533</td>
+                <td style="text-align: right;">2</td>
+                <td style="text-align: right;">8.3</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">119,830</td>
+                <td style="text-align: right;">70</td>
+                <td style="text-align: right;">8.1</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">77,951</td>
+                <td style="text-align: right;">46</td>
+                <td style="text-align: right;">8.0</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">440,902</td>
+                <td style="text-align: right;">119</td>
+                <td style="text-align: right;">17.5</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">88,518</td>
+                <td style="text-align: right;">55</td>
+                <td style="text-align: right;">7.6</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">93,282</td>
+                <td style="text-align: right;">30</td>
+                <td style="text-align: right;">14.7</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">42,271</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">8.3</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">84,937</td>
+                <td style="text-align: right;">53</td>
+                <td style="text-align: right;">7.6</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">177,455</td>
+                <td style="text-align: right;">107</td>
+                <td style="text-align: right;">7.8</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">62,169</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">12.2</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">68,524</td>
+                <td style="text-align: right;">30</td>
+                <td style="text-align: right;">10.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">99,907</td>
+                <td style="text-align: right;">40</td>
+                <td style="text-align: right;">11.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">107,722</td>
+                <td style="text-align: right;">41</td>
+                <td style="text-align: right;">12.4</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">159,459</td>
+                <td style="text-align: right;">46</td>
+                <td style="text-align: right;">16.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">93,525</td>
+                <td style="text-align: right;">38</td>
+                <td style="text-align: right;">11.6</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">50,565</td>
+                <td style="text-align: right;">16</td>
+                <td style="text-align: right;">14.9</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">228,701</td>
+                <td style="text-align: right;">88</td>
+                <td style="text-align: right;">12.3</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">10,819</td>
+                <td style="text-align: right;">4</td>
+                <td style="text-align: right;">12.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">85,394</td>
+                <td style="text-align: right;">25</td>
+                <td style="text-align: right;">16.1</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-3">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_78.svg"
+                id="fig:ind-78"
+                alt="Figura 4: Consultorios de urgencias vs. Urgencias por CLUES" />
+                <figcaption aria-hidden="true">Figura 4: Consultorios de
+                urgencias vs. Urgencias por CLUES</figcaption>
+                </figure>
+                <h2 id="indicador-79.-índice-de-rotación">Indicador 79.
+                Índice de rotación</h2>
+                <p>ATN-11</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><p><em>Catálogo de CLUES</em>, <span
+                class="citation" data-cites="dgis_clues">(<a
+                href="#ref-dgis_clues" role="doc-biblioref">Secretaría
+                de Salud - DGIS, 16 de julio de
+                2026</a>)</span></p></li>
+                <li><p><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></p></li>
+                <li><p><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></p></li>
+                </ul>
+                <h3 id="descripción-4">Descripción</h3>
+                <p>Mide la Proporción de pacientes hospitalizados por
+                cama disponible por mes.</p>
+                <p>Proporciona una visión sobre la utilización de la
+                capacidad hospitalaria, en unidades de salud del IMSS
+                Bienestar.</p>
+                <h3 id="cálculo-4">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{79} = \frac{e_{h}}{c_{c} \cdot \Delta t}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(e_{h}=\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(c_{c} =\)</span> Total de
+                camas censables</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(\Delta t =\)</span>
+                Número de días del periodo de análisis</p>
+                </blockquote>
+                <h3 id="calificaciones-4">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>3.91 – 5.1</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>3.0 – 3.90 o 5.11 – 6.0</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>2.0 – 2.9</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 2.0</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-4">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 19%" />
+                <col style="width: 14%" />
+                <col style="width: 24%" />
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 79</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">906,164</td>
+                <td style="text-align: right;">26,183</td>
+                <td style="text-align: right;">0.16</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-4">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 25%" />
+                <col style="width: 13%" />
+                <col style="width: 22%" />
+                <col style="width: 19%" />
+                <col style="width: 19%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Camas censables</th>
+                <th style="text-align: right;">Indicador 79</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">22,841</td>
+                <td style="text-align: right;">723</td>
+                <td style="text-align: right;">0.15</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">16,342</td>
+                <td style="text-align: right;">286</td>
+                <td style="text-align: right;">0.27</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">12,659</td>
+                <td style="text-align: right;">449</td>
+                <td style="text-align: right;">0.13</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">72,605</td>
+                <td style="text-align: right;">1,293</td>
+                <td style="text-align: right;">0.26</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">57,245</td>
+                <td style="text-align: right;">2,235</td>
+                <td style="text-align: right;">0.12</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">6,937</td>
+                <td style="text-align: right;">290</td>
+                <td style="text-align: right;">0.11</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">3,349</td>
+                <td style="text-align: right;">184</td>
+                <td style="text-align: right;">0.09</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">41,763</td>
+                <td style="text-align: right;">1,217</td>
+                <td style="text-align: right;">0.16</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">23,490</td>
+                <td style="text-align: right;">663</td>
+                <td style="text-align: right;">0.17</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">96,228</td>
+                <td style="text-align: right;">4,110</td>
+                <td style="text-align: right;">0.11</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">59,374</td>
+                <td style="text-align: right;">1,395</td>
+                <td style="text-align: right;">0.20</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">26,241</td>
+                <td style="text-align: right;">567</td>
+                <td style="text-align: right;">0.22</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">14,524</td>
+                <td style="text-align: right;">360</td>
+                <td style="text-align: right;">0.19</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">28,841</td>
+                <td style="text-align: right;">1,141</td>
+                <td style="text-align: right;">0.12</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">63,232</td>
+                <td style="text-align: right;">2,063</td>
+                <td style="text-align: right;">0.14</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">19,541</td>
+                <td style="text-align: right;">510</td>
+                <td style="text-align: right;">0.18</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">24,278</td>
+                <td style="text-align: right;">871</td>
+                <td style="text-align: right;">0.13</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">27,479</td>
+                <td style="text-align: right;">887</td>
+                <td style="text-align: right;">0.15</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">45,236</td>
+                <td style="text-align: right;">1,002</td>
+                <td style="text-align: right;">0.21</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">78,650</td>
+                <td style="text-align: right;">1,054</td>
+                <td style="text-align: right;">0.35</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">32,543</td>
+                <td style="text-align: right;">1,183</td>
+                <td style="text-align: right;">0.13</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">32,151</td>
+                <td style="text-align: right;">421</td>
+                <td style="text-align: right;">0.36</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">80,631</td>
+                <td style="text-align: right;">2,595</td>
+                <td style="text-align: right;">0.15</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">4,907</td>
+                <td style="text-align: right;">168</td>
+                <td style="text-align: right;">0.14</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">15,077</td>
+                <td style="text-align: right;">516</td>
+                <td style="text-align: right;">0.14</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-4">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_79.svg"
+                id="fig:ind-79"
+                alt="Figura 5: Camas censables vs. Egresos por CLUES" />
+                <figcaption aria-hidden="true">Figura 5: Camas censables
+                vs. Egresos por CLUES</figcaption>
+                </figure>
+                <h2
+                id="indicador-80.-proporción-de-egresos-por-mejoría">Indicador
+                80. Proporción de egresos por mejoría</h2>
+                <p>ATN-12</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></li>
+                </ul>
+                <h3 id="descripción-5">Descripción</h3>
+                <p>Estima Porcentaje de egresos hospitalarios por motivo
+                de curación o mejoría en unidades médicas del IMSS
+                Bienestar dentro un periodo determinado.</p>
+                <p>Se relaciona con la eficacia en los tratamientos y la
+                calidad de la atención.</p>
+                <h3 id="cálculo-5">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{80} = \frac{e_{h_{m}}}{e_{h}} \times 100
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(e_{h}=\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(e_{h_{m}} =\)</span>
+                Número de egresos hospitalarios por motivo de curación o
+                mejoría</p>
+                </blockquote>
+                <h3 id="calificaciones-5">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>95 – 100</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>90 – 94.9</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>80 – 89.9</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 80</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-5">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 18%" />
+                <col style="width: 27%" />
+                <col style="width: 13%" />
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Curación o mejoría</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 80</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">821,896</td>
+                <td style="text-align: right;">906,850</td>
+                <td style="text-align: right;">90.63</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-5">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 24%" />
+                <col style="width: 25%" />
+                <col style="width: 12%" />
+                <col style="width: 18%" />
+                <col style="width: 18%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Curación o mejoría</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 80</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">20,948</td>
+                <td style="text-align: right;">22,841</td>
+                <td style="text-align: right;">91.71</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">12,390</td>
+                <td style="text-align: right;">16,342</td>
+                <td style="text-align: right;">75.82</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">11,607</td>
+                <td style="text-align: right;">12,659</td>
+                <td style="text-align: right;">91.69</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">66,046</td>
+                <td style="text-align: right;">72,831</td>
+                <td style="text-align: right;">90.68</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">52,548</td>
+                <td style="text-align: right;">57,245</td>
+                <td style="text-align: right;">91.79</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">6,586</td>
+                <td style="text-align: right;">6,937</td>
+                <td style="text-align: right;">94.94</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">3,070</td>
+                <td style="text-align: right;">3,349</td>
+                <td style="text-align: right;">91.67</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">39,250</td>
+                <td style="text-align: right;">41,763</td>
+                <td style="text-align: right;">93.98</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">21,226</td>
+                <td style="text-align: right;">23,490</td>
+                <td style="text-align: right;">90.36</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">90,064</td>
+                <td style="text-align: right;">96,228</td>
+                <td style="text-align: right;">93.59</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">56,078</td>
+                <td style="text-align: right;">59,374</td>
+                <td style="text-align: right;">94.45</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">17,669</td>
+                <td style="text-align: right;">26,241</td>
+                <td style="text-align: right;">67.33</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">13,589</td>
+                <td style="text-align: right;">14,524</td>
+                <td style="text-align: right;">93.56</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">26,474</td>
+                <td style="text-align: right;">28,896</td>
+                <td style="text-align: right;">91.62</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">58,536</td>
+                <td style="text-align: right;">63,232</td>
+                <td style="text-align: right;">92.57</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">18,047</td>
+                <td style="text-align: right;">19,541</td>
+                <td style="text-align: right;">92.35</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">22,327</td>
+                <td style="text-align: right;">24,278</td>
+                <td style="text-align: right;">91.96</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">24,900</td>
+                <td style="text-align: right;">27,479</td>
+                <td style="text-align: right;">90.61</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">34,177</td>
+                <td style="text-align: right;">45,236</td>
+                <td style="text-align: right;">75.55</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">73,640</td>
+                <td style="text-align: right;">78,650</td>
+                <td style="text-align: right;">93.63</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">29,916</td>
+                <td style="text-align: right;">32,543</td>
+                <td style="text-align: right;">91.93</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">30,895</td>
+                <td style="text-align: right;">32,151</td>
+                <td style="text-align: right;">96.09</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">74,774</td>
+                <td style="text-align: right;">81,036</td>
+                <td style="text-align: right;">92.27</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">3,175</td>
+                <td style="text-align: right;">4,907</td>
+                <td style="text-align: right;">64.70</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">13,964</td>
+                <td style="text-align: right;">15,077</td>
+                <td style="text-align: right;">92.62</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-5">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_80.svg"
+                id="fig:ind-80"
+                alt="Figura 6: Egresos vs. Egresos por curación o mejoría por CLUES" />
+                <figcaption aria-hidden="true">Figura 6: Egresos
+                vs. Egresos por curación o mejoría por
+                CLUES</figcaption>
+                </figure>
+                <h2
+                id="indicador-81.-promedio-diarios-de-eventos-quirúrgicos-por-quirófano">Indicador
+                81. Promedio diarios de eventos quirúrgicos por
+                quirófano</h2>
+                <p>ATN-13</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><p><em>Catálogo de CLUES</em>, <span
+                class="citation" data-cites="dgis_clues">(<a
+                href="#ref-dgis_clues" role="doc-biblioref">Secretaría
+                de Salud - DGIS, 16 de julio de
+                2026</a>)</span></p></li>
+                <li><p><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></p></li>
+                <li><p><em>SINERHIAS</em>, <span class="citation"
+                data-cites="dgis_sinerhias">(<a
+                href="#ref-dgis_sinerhias"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 30 de
+                julio de 2026</a>)</span></p></li>
+                </ul>
+                <h3 id="descripción-6">Descripción</h3>
+                <p>Expresa el número promedio de cirugías realizadas por
+                quirófanos habilitados durante un mes en hospitales del
+                IMSS Bienestar.</p>
+                <p>Mide el grado de utilización de quirófanos en
+                cirugías.</p>
+                <h3 id="cálculo-6">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{81} = \frac{i_{q}}{s_{o} \cdot \Delta t}
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(i_{q} =\)</span> Número
+                de cirugías realizadas por mes calendario</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(s_{o} =\)</span> Número
+                de quirófanos habilitados en unidades del IMB</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(\Delta t =\)</span>
+                Número de días del periodo de análisis</p>
+                </blockquote>
+                <h3 id="calificaciones-6">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td>2.0 – 3.5</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>1.0 – 1.9 o 3.6 – 4.0</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>0.5 – 0.9 o &gt; 4.0</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td>&lt; 0.5</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-6">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 16%" />
+                <col style="width: 19%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Cirugías</th>
+                <th style="text-align: right;">Quirófanos</th>
+                <th style="text-align: right;">Indicador 81</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">399,882</td>
+                <td style="text-align: right;">925</td>
+                <td style="text-align: right;">2.0</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-6">Resultados por
+                entidades</h3>
+                <table>
+                <colgroup>
+                <col style="width: 26%" />
+                <col style="width: 15%" />
+                <col style="width: 17%" />
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Cirugías</th>
+                <th style="text-align: right;">Quirófanos</th>
+                <th style="text-align: right;">Indicador 81</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">12,322</td>
+                <td style="text-align: right;">24</td>
+                <td style="text-align: right;">2.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">3,656</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">2.2</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">6,175</td>
+                <td style="text-align: right;">14</td>
+                <td style="text-align: right;">2.1</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">30,706</td>
+                <td style="text-align: right;">53</td>
+                <td style="text-align: right;">2.7</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">30,436</td>
+                <td style="text-align: right;">80</td>
+                <td style="text-align: right;">1.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">6,906</td>
+                <td style="text-align: right;">10</td>
+                <td style="text-align: right;">3.3</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">1,548</td>
+                <td style="text-align: right;">7</td>
+                <td style="text-align: right;">1.0</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">22,868</td>
+                <td style="text-align: right;">35</td>
+                <td style="text-align: right;">3.1</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">14,169</td>
+                <td style="text-align: right;">28</td>
+                <td style="text-align: right;">2.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">51,016</td>
+                <td style="text-align: right;">99</td>
+                <td style="text-align: right;">2.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">18,423</td>
+                <td style="text-align: right;">53</td>
+                <td style="text-align: right;">1.6</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">10,100</td>
+                <td style="text-align: right;">23</td>
+                <td style="text-align: right;">2.1</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">6,929</td>
+                <td style="text-align: right;">18</td>
+                <td style="text-align: right;">1.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">12,516</td>
+                <td style="text-align: right;">47</td>
+                <td style="text-align: right;">1.3</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">36,320</td>
+                <td style="text-align: right;">93</td>
+                <td style="text-align: right;">1.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">8,209</td>
+                <td style="text-align: right;">15</td>
+                <td style="text-align: right;">2.6</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">13,342</td>
+                <td style="text-align: right;">26</td>
+                <td style="text-align: right;">2.4</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">13,020</td>
+                <td style="text-align: right;">32</td>
+                <td style="text-align: right;">1.9</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">11,670</td>
+                <td style="text-align: right;">33</td>
+                <td style="text-align: right;">1.7</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">18,120</td>
+                <td style="text-align: right;">42</td>
+                <td style="text-align: right;">2.0</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">17,286</td>
+                <td style="text-align: right;">39</td>
+                <td style="text-align: right;">2.1</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">9,387</td>
+                <td style="text-align: right;">20</td>
+                <td style="text-align: right;">2.2</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">34,760</td>
+                <td style="text-align: right;">93</td>
+                <td style="text-align: right;">1.8</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">1,322</td>
+                <td style="text-align: right;">8</td>
+                <td style="text-align: right;">0.8</td>
+                <td style="text-align: left;">Regular</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">8,676</td>
+                <td style="text-align: right;">25</td>
+                <td style="text-align: right;">1.6</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-6">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_81.svg"
+                id="fig:ind-81"
+                alt="Figura 7: Quirófanos vs. Cirugías por CLUES" />
+                <figcaption aria-hidden="true">Figura 7: Quirófanos
+                vs. Cirugías por CLUES</figcaption>
+                </figure>
+                <h2 id="indicador-84.-mortalidad-hospitalaria">Indicador
+                84. Mortalidad Hospitalaria</h2>
+                <p>ATN-16</p>
+                <p>Fuente de datos:</p>
+                <ul>
+                <li><em>Catálogo de CLUES</em>, <span class="citation"
+                data-cites="dgis_clues">(<a href="#ref-dgis_clues"
+                role="doc-biblioref">Secretaría de Salud - DGIS, 16 de
+                julio de 2026</a>)</span></li>
+                <li><em>Egresos hospitalarios</em>, <span
+                class="citation" data-cites="dgis_eh">(<a
+                href="#ref-dgis_eh" role="doc-biblioref">Secretaría de
+                Salud - DGIS, 4 de agosto de 2026a</a>)</span></li>
+                </ul>
+                <h3 id="descripción-7">Descripción</h3>
+                <p>Muestra la relación entre el número de egresos por
+                defunción y el total de egresos hospitalarios,
+                excluyendo los egresos relacionados con la atención
+                obstétrica</p>
+                <h3 id="cálculo-7">Cálculo</h3>
+                <p><span class="math display">\[
+                Indicador_{84} = \frac{e_{h_{d}}}{e_{h}} \cdot 1000
+                \]</span></p>
+                <p>Donde:</p>
+                <blockquote>
+                <p><span class="math inline">\(e_{h_{d}} =\)</span>
+                Número de egresos por defunción ocurridos de manera
+                intrahospitalaria</p>
+                </blockquote>
+                <blockquote>
+                <p><span class="math inline">\(e_{h}=\)</span> Total de
+                egresos hospitalarios</p>
+                </blockquote>
+                <blockquote>
+                <p>En ambas variables, se excluyen los egresos
+                relacionados con la atención obstétrica</p>
+                </blockquote>
+                <h3 id="calificaciones-7">Calificaciones</h3>
+                <table>
+                <thead>
+                <tr class="header">
+                <th>Calificación</th>
+                <th>Rango</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td>Óptimo</td>
+                <td><span class="math inline">\(\leq\)</span> 16.9</td>
+                </tr>
+                <tr class="even">
+                <td>Esperado</td>
+                <td>17.0 – 23.9</td>
+                </tr>
+                <tr class="odd">
+                <td>Regular</td>
+                <td>24.0 – 30.9</td>
+                </tr>
+                <tr class="even">
+                <td>Crítico</td>
+                <td><span class="math inline">\(\geq\)</span> 31.0</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultado-del-imss-bienestar-7">Resultado del
+                IMSS Bienestar</h3>
+                <table>
+                <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                <col style="width: 15%" />
+                <col style="width: 21%" />
+                <col style="width: 21%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Institución</th>
+                <th style="text-align: right;">Defunciones</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 84</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">IMB</td>
+                <td style="text-align: right;">23,579</td>
+                <td style="text-align: right;">663,110</td>
+                <td style="text-align: right;">35.6</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3 id="resultados-por-entidades-7">Resultados por
+                entidades</h3>
+                <table style="width:100%;">
+                <colgroup>
+                <col style="width: 26%" />
+                <col style="width: 18%" />
+                <col style="width: 13%" />
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">Entidad</th>
+                <th style="text-align: right;">Defunciones</th>
+                <th style="text-align: right;">Egresos</th>
+                <th style="text-align: right;">Indicador 84</th>
+                <th style="text-align: left;">Calificación</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">Baja California</td>
+                <td style="text-align: right;">990</td>
+                <td style="text-align: right;">15,666</td>
+                <td style="text-align: right;">63.2</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Baja California Sur</td>
+                <td style="text-align: right;">233</td>
+                <td style="text-align: right;">14,300</td>
+                <td style="text-align: right;">16.3</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Campeche</td>
+                <td style="text-align: right;">317</td>
+                <td style="text-align: right;">9,145</td>
+                <td style="text-align: right;">34.7</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Chiapas</td>
+                <td style="text-align: right;">1,590</td>
+                <td style="text-align: right;">48,313</td>
+                <td style="text-align: right;">32.9</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Ciudad de México</td>
+                <td style="text-align: right;">2,016</td>
+                <td style="text-align: right;">40,774</td>
+                <td style="text-align: right;">49.4</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Colima</td>
+                <td style="text-align: right;">222</td>
+                <td style="text-align: right;">4,715</td>
+                <td style="text-align: right;">47.1</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Guanajuato</td>
+                <td style="text-align: right;">130</td>
+                <td style="text-align: right;">3,349</td>
+                <td style="text-align: right;">38.8</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Guerrero</td>
+                <td style="text-align: right;">583</td>
+                <td style="text-align: right;">25,215</td>
+                <td style="text-align: right;">23.1</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Hidalgo</td>
+                <td style="text-align: right;">809</td>
+                <td style="text-align: right;">16,655</td>
+                <td style="text-align: right;">48.6</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">México</td>
+                <td style="text-align: right;">3,243</td>
+                <td style="text-align: right;">62,716</td>
+                <td style="text-align: right;">51.7</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Michoacán</td>
+                <td style="text-align: right;">1,002</td>
+                <td style="text-align: right;">48,427</td>
+                <td style="text-align: right;">20.7</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Morelos</td>
+                <td style="text-align: right;">410</td>
+                <td style="text-align: right;">20,147</td>
+                <td style="text-align: right;">20.4</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Nayarit</td>
+                <td style="text-align: right;">337</td>
+                <td style="text-align: right;">10,762</td>
+                <td style="text-align: right;">31.3</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Oaxaca</td>
+                <td style="text-align: right;">776</td>
+                <td style="text-align: right;">20,806</td>
+                <td style="text-align: right;">37.3</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Puebla</td>
+                <td style="text-align: right;">1,661</td>
+                <td style="text-align: right;">42,604</td>
+                <td style="text-align: right;">39.0</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Quintana Roo</td>
+                <td style="text-align: right;">450</td>
+                <td style="text-align: right;">12,827</td>
+                <td style="text-align: right;">35.1</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">San Luis Potosí</td>
+                <td style="text-align: right;">901</td>
+                <td style="text-align: right;">16,511</td>
+                <td style="text-align: right;">54.6</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Sinaloa</td>
+                <td style="text-align: right;">876</td>
+                <td style="text-align: right;">20,638</td>
+                <td style="text-align: right;">42.4</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Sonora</td>
+                <td style="text-align: right;">898</td>
+                <td style="text-align: right;">38,550</td>
+                <td style="text-align: right;">23.3</td>
+                <td style="text-align: left;">Esperado</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tabasco</td>
+                <td style="text-align: right;">1,103</td>
+                <td style="text-align: right;">67,037</td>
+                <td style="text-align: right;">16.5</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Tamaulipas</td>
+                <td style="text-align: right;">1,371</td>
+                <td style="text-align: right;">23,402</td>
+                <td style="text-align: right;">58.6</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Tlaxcala</td>
+                <td style="text-align: right;">440</td>
+                <td style="text-align: right;">26,312</td>
+                <td style="text-align: right;">16.7</td>
+                <td style="text-align: left;">Óptimo</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Veracruz</td>
+                <td style="text-align: right;">2,539</td>
+                <td style="text-align: right;">59,935</td>
+                <td style="text-align: right;">42.4</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">Yucatán</td>
+                <td style="text-align: right;">268</td>
+                <td style="text-align: right;">4,887</td>
+                <td style="text-align: right;">54.8</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">Zacatecas</td>
+                <td style="text-align: right;">414</td>
+                <td style="text-align: right;">9,417</td>
+                <td style="text-align: right;">44.0</td>
+                <td style="text-align: left;">Crítico</td>
+                </tr>
+                </tbody>
+                </table>
+                <h3
+                id="gráfica-de-dispersión-con-línea-de-regresión-7">Gráfica
+                de dispersión con línea de regresión</h3>
+                <figure>
+                <img
+                src="./entidades/figures/indicadores/indicador_84.svg"
+                id="fig:ind-84"
+                alt="Figura 8: Egresos vs. Egresos por defunción por CLUES" />
+                <figcaption aria-hidden="true">Figura 8: Egresos
+                vs. Egresos por defunción por CLUES</figcaption>
+                </figure>
+                <h1 class="unnumbered" id="referencias">Referencias</h1>
+                <div id="refs"
+                class="references csl-bib-body hanging-indent"
+                data-line-spacing="2" role="doc-bibliography">
+                <div id="ref-dgis_clues" class="csl-entry"
+                role="doc-biblioentry">
+                Secretaría de Salud - DGIS. (16 de julio de 2026).
+                <em>Catálogo CLUES</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/intercambio/clues_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_sinerhias" class="csl-entry"
+                role="doc-biblioentry">
+                Secretaría de Salud - DGIS. (30 de julio de 2026).
+                <em>Subsistema de <span>I</span>nformación de
+                <span>E</span>quipamiento, <span>R</span>ecursos
+                <span>H</span>umanos e <span>I</span>nfraestructura para
+                la <span>A</span>tención de la <span>S</span>alud
+                (SINERHIAS)</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html">http://www.dgis.salud.gob.mx/contenidos/sinais/subsistema_sinerhias.html</a>
+                </div>
+                <div id="ref-dgis_eh" class="csl-entry"
+                role="doc-biblioentry">
+                Secretaría de Salud - DGIS. (4 de agosto de 2026a).
+                <em>Datos abiertos - <span>E</span>gresos
+                hospitalarios</em>. Web. <a
+                href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_egresoshosp_gobmx.html</a>
+                </div>
+                <div id="ref-dgis_urg" class="csl-entry"
+                role="doc-biblioentry">
+                Secretaría de Salud - DGIS. (4 de agosto de 2026b).
+                <em>Datos abiertos - <span>U</span>rgencias</em>. Web.
+                <a
+                href="http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_urgencias_gobmx.html">http://www.dgis.salud.gob.mx/contenidos/basesdedatos/da_urgencias_gobmx.html</a>
+                </div>
+                <div id="ref-imb_uas" class="csl-entry"
+                role="doc-biblioentry">
+                Servicios de Salud IMBB Bienestar. (2025). <em>Manual
+                metodológico de indicadores médicos</em>. Unidad de
+                Atención a la Salud.
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
