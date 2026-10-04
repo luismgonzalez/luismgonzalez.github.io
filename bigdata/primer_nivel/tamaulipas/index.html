@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#tamaulipas">TAMAULIPAS</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="tamaulipas">TAMAULIPAS</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="TSIMB000024.html">TSIMB000024</a></td>
+                <td><a href="TSIMB000024.html">CENTRO DE SALUD NUEVO
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000036.html">TSIMB000036</a></td>
+                <td><a href="TSIMB000036.html">CENTRO DE SALUD GUÍA DEL
+                PORVENIR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000041.html">TSIMB000041</a></td>
+                <td><a href="TSIMB000041.html">CENTRO DE SALUD NICOLÁS
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000065.html">TSIMB000065</a></td>
+                <td><a href="TSIMB000065.html">CENTRO DE SALUD GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000070.html">TSIMB000070</a></td>
+                <td><a href="TSIMB000070.html">CENTRO DE SALUD NUEVO
+                DOLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000094.html">TSIMB000094</a></td>
+                <td><a href="TSIMB000094.html">CENTRO DE SALUD BARRA DEL
+                TORDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000106.html">TSIMB000106</a></td>
+                <td><a href="TSIMB000106.html">CENTRO DE SALUD BUENA
+                VISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000111.html">TSIMB000111</a></td>
+                <td><a href="TSIMB000111.html">CENTRO DE SALUD BARRA DE
+                MORÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000123.html">TSIMB000123</a></td>
+                <td><a href="TSIMB000123.html">CENTRO DE SALUD COL.
+                UNIDAD SATÉLITE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000135.html">TSIMB000135</a></td>
+                <td><a href="TSIMB000135.html">CENTRO DE SALUD MONTE
+                ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000140.html">TSIMB000140</a></td>
+                <td><a href="TSIMB000140.html">CENTRO DE SALUD COL.
+                EMILIO PORTES GIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000152.html">TSIMB000152</a></td>
+                <td><a href="TSIMB000152.html">CENTRO DE SALUD ESTACIÓN
+                COLONIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000164.html">TSIMB000164</a></td>
+                <td><a href="TSIMB000164.html">CENTRO DE SALUD ESTACIÓN
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000176.html">TSIMB000176</a></td>
+                <td><a href="TSIMB000176.html">CENTRO DE SALUD LOMAS DEL
+                REAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000181.html">TSIMB000181</a></td>
+                <td><a href="TSIMB000181.html">CENTRO DE SALUD
+                MIRAMAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000193.html">TSIMB000193</a></td>
+                <td><a href="TSIMB000193.html">CENTRO DE SALUD RÍO
+                TAMIAHUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000205.html">TSIMB000205</a></td>
+                <td><a href="TSIMB000205.html">CENTRO DE SALUD ANTIGÜO
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000210.html">TSIMB000210</a></td>
+                <td><a href="TSIMB000210.html">CENTRO DE SALUD
+                FORTINES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000222.html">TSIMB000222</a></td>
+                <td><a href="TSIMB000222.html">CENTRO DE SALUD
+                BUSTAMANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000246.html">TSIMB000246</a></td>
+                <td><a href="TSIMB000246.html">CENTRO DE SALUD LAS
+                ANTONIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000251.html">TSIMB000251</a></td>
+                <td><a href="TSIMB000251.html">CENTRO DE SALUD GABINO
+                VÁZQUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000263.html">TSIMB000263</a></td>
+                <td><a href="TSIMB000263.html">CENTRO DE SALUD LOS
+                COMALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000275.html">TSIMB000275</a></td>
+                <td><a href="TSIMB000275.html">CENTRO DE SALUD SAN
+                FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000280.html">TSIMB000280</a></td>
+                <td><a href="TSIMB000280.html">CENTRO DE SALUD
+                CASAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000292.html">TSIMB000292</a></td>
+                <td><a href="TSIMB000292.html">CENTRO DE SALUD NUEVO SAN
+                FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000304.html">TSIMB000304</a></td>
+                <td><a href="TSIMB000304.html">CENTRO DE SALUD LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000321.html">TSIMB000321</a></td>
+                <td><a href="TSIMB000321.html">CENTRO DE SALUD
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000333.html">TSIMB000333</a></td>
+                <td><a href="TSIMB000333.html">CENTRO DE SALUD
+                CRUILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000345.html">TSIMB000345</a></td>
+                <td><a href="TSIMB000345.html">CENTRO DE SALUD LOMA
+                ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000350.html">TSIMB000350</a></td>
+                <td><a href="TSIMB000350.html">CENTRO DE SALUD GÓMEZ
+                FARÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000362.html">TSIMB000362</a></td>
+                <td><a href="TSIMB000362.html">CENTRO DE SALUD GRACIANO
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000374.html">TSIMB000374</a></td>
+                <td><a href="TSIMB000374.html">CENTRO DE SALUD SAN
+                ANTONIO RAYÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000386.html">TSIMB000386</a></td>
+                <td><a href="TSIMB000386.html">CENTRO DE SALUD ESTACIÓN
+                MANUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000391.html">TSIMB000391</a></td>
+                <td><a href="TSIMB000391.html">CENTRO DE SALUD LÓPEZ
+                RAYÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000403.html">TSIMB000403</a></td>
+                <td><a href="TSIMB000403.html">CENTRO DE SALUD FRANCISCO
+                I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000415.html">TSIMB000415</a></td>
+                <td><a href="TSIMB000415.html">CENTRO DE SALUD
+                GÜEMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000420.html">TSIMB000420</a></td>
+                <td><a href="TSIMB000420.html">CENTRO DE SALUD GUSTAVO
+                DÍAZ ORDAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000432.html">TSIMB000432</a></td>
+                <td><a href="TSIMB000432.html">CENTRO DE SALUD
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000444.html">TSIMB000444</a></td>
+                <td><a href="TSIMB000444.html">CENTRO DE SALUD CRUZ Y
+                CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000456.html">TSIMB000456</a></td>
+                <td><a href="TSIMB000456.html">CENTRO DE SALUD SANTA
+                ENGRACIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000461.html">TSIMB000461</a></td>
+                <td><a href="TSIMB000461.html">CENTRO DE SALUD GUILLERMO
+                ZÚÑIGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000473.html">TSIMB000473</a></td>
+                <td><a href="TSIMB000473.html">CENTRO DE SALUD
+                JAUMAVE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000485.html">TSIMB000485</a></td>
+                <td><a href="TSIMB000485.html">CENTRO DE SALUD ÁVILA Y
+                URBINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000490.html">TSIMB000490</a></td>
+                <td><a href="TSIMB000490.html">CENTRO DE SALUD EL
+                HIGUERÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000502.html">TSIMB000502</a></td>
+                <td><a href="TSIMB000502.html">CENTRO DE SALUD
+                INDEPENDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000514.html">TSIMB000514</a></td>
+                <td><a href="TSIMB000514.html">CENTRO DE SALUD RANCHO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000526.html">TSIMB000526</a></td>
+                <td><a href="TSIMB000526.html">CENTRO DE SALUD
+                JIMÉNEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000531.html">TSIMB000531</a></td>
+                <td><a href="TSIMB000531.html">CENTRO DE SALUD IGNACIO
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000543.html">TSIMB000543</a></td>
+                <td><a href="TSIMB000543.html">CENTRO DE SALUD
+                LLERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000555.html">TSIMB000555</a></td>
+                <td><a href="TSIMB000555.html">CENTRO DE SALUD LA
+                ALBERCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000560.html">TSIMB000560</a></td>
+                <td><a href="TSIMB000560.html">CENTRO DE SALUD EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000572.html">TSIMB000572</a></td>
+                <td><a href="TSIMB000572.html">CENTRO DE SALUD IGNACIO
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000584.html">TSIMB000584</a></td>
+                <td><a href="TSIMB000584.html">CENTRO DE SALUD MARIANO
+                ESCOBEDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000596.html">TSIMB000596</a></td>
+                <td><a href="TSIMB000596.html">CENTRO DE SALUD EL
+                ENCINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000601.html">TSIMB000601</a></td>
+                <td><a href="TSIMB000601.html">CENTRO DE SALUD PEDRO
+                JOSÉ MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000613.html">TSIMB000613</a></td>
+                <td><a href="TSIMB000613.html">CENTRO DE SALUD LA
+                MORITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000625.html">TSIMB000625</a></td>
+                <td><a href="TSIMB000625.html">CENTRO DE SALUD
+                MAINERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000642.html">TSIMB000642</a></td>
+                <td><a href="TSIMB000642.html">CENTRO DE SALUD COL.
+                AQUILES SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000654.html">TSIMB000654</a></td>
+                <td><a href="TSIMB000654.html">CENTRO DE SALUD COL. RÍO
+                MANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000666.html">TSIMB000666</a></td>
+                <td><a href="TSIMB000666.html">CENTRO DE SALUD COL.
+                FOMENTO NACIONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000671.html">TSIMB000671</a></td>
+                <td><a href="TSIMB000671.html">CENTRO DE SALUD COL.
+                ENRIQUE CÁRDENAS GONZÁLEZ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000683.html">TSIMB000683</a></td>
+                <td><a href="TSIMB000683.html">CENTRO DE SALUD COL.
+                PROGRESO SOCIAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000695.html">TSIMB000695</a></td>
+                <td><a href="TSIMB000695.html">CENTRO DE SALUD COL. LAS
+                BRISAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000700.html">TSIMB000700</a></td>
+                <td><a href="TSIMB000700.html">CENTRO DE SALUD EL
+                ABRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000712.html">TSIMB000712</a></td>
+                <td><a href="TSIMB000712.html">CENTRO DE SALUD LOS
+                AZTECAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000724.html">TSIMB000724</a></td>
+                <td><a href="TSIMB000724.html">CENTRO DE SALUD CAMOTERO
+                DOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000736.html">TSIMB000736</a></td>
+                <td><a href="TSIMB000736.html">CENTRO DE SALUD
+                CELAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000741.html">TSIMB000741</a></td>
+                <td><a href="TSIMB000741.html">CENTRO DE SALUD SAN
+                MIGUEL DE LA MORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000753.html">TSIMB000753</a></td>
+                <td><a href="TSIMB000753.html">CENTRO DE SALUD COL.
+                CHAPULTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000765.html">TSIMB000765</a></td>
+                <td><a href="TSIMB000765.html">CENTRO DE SALUD COL.
+                ENRIQUE CÁRDENAS GONZÁLEZ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000770.html">TSIMB000770</a></td>
+                <td><a href="TSIMB000770.html">CENTRO DE SALUD COL.
+                ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000782.html">TSIMB000782</a></td>
+                <td><a href="TSIMB000782.html">CENTRO DE SALUD COL.
+                INDEPENDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000794.html">TSIMB000794</a></td>
+                <td><a href="TSIMB000794.html">CENTRO DE SALUD COL. JOSÉ
+                LÓPEZ PORTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000806.html">TSIMB000806</a></td>
+                <td><a href="TSIMB000806.html">CENTRO DE SALUD COL.
+                LAURO VILLAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000811.html">TSIMB000811</a></td>
+                <td><a href="TSIMB000811.html">CENTRO DE SALUD COL.
+                LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000823.html">TSIMB000823</a></td>
+                <td><a href="TSIMB000823.html">CENTRO DE SALUD COL.
+                MARIANO MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000835.html">TSIMB000835</a></td>
+                <td><a href="TSIMB000835.html">CENTRO DE SALUD COL.
+                OBRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000840.html">TSIMB000840</a></td>
+                <td><a href="TSIMB000840.html">CENTRO DE SALUD COL.
+                PARAISO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000852.html">TSIMB000852</a></td>
+                <td><a href="TSIMB000852.html">CENTRO DE SALUD COL.
+                PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000864.html">TSIMB000864</a></td>
+                <td><a href="TSIMB000864.html">CENTRO DE SALUD COL.
+                TECNOLÓGICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000876.html">TSIMB000876</a></td>
+                <td><a href="TSIMB000876.html">CENTRO DE SALUD COL.
+                CHULAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000881.html">TSIMB000881</a></td>
+                <td><a href="TSIMB000881.html">CENTRO DE SALUD COL. SAN
+                RAFAEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000893.html">TSIMB000893</a></td>
+                <td><a href="TSIMB000893.html">CENTRO DE SALUD COL.
+                EUSKADI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000905.html">TSIMB000905</a></td>
+                <td><a href="TSIMB000905.html">CENTRO DE SALUD LAS
+                BLANCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000910.html">TSIMB000910</a></td>
+                <td><a href="TSIMB000910.html">CENTRO DE SALUD EL
+                CONTROL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000922.html">TSIMB000922</a></td>
+                <td><a href="TSIMB000922.html">CENTRO DE SALUD EL
+                GALANEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000934.html">TSIMB000934</a></td>
+                <td><a href="TSIMB000934.html">CENTRO DE SALUD LA
+                GLORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000946.html">TSIMB000946</a></td>
+                <td><a href="TSIMB000946.html">CENTRO DE SALUD EL
+                LONGOREÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000951.html">TSIMB000951</a></td>
+                <td><a href="TSIMB000951.html">CENTRO DE SALUD EL
+                MOQUETITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000963.html">TSIMB000963</a></td>
+                <td><a href="TSIMB000963.html">CENTRO DE SALUD ESTACIÓN
+                RAMÍREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000975.html">TSIMB000975</a></td>
+                <td><a href="TSIMB000975.html">CENTRO DE SALUD
+                SANDOVAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000980.html">TSIMB000980</a></td>
+                <td><a href="TSIMB000980.html">CENTRO DE SALUD SAN
+                LUISITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000992.html">TSIMB000992</a></td>
+                <td><a href="TSIMB000992.html">CENTRO DE SALUD SANTA
+                ADELAIDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001004.html">TSIMB001004</a></td>
+                <td><a href="TSIMB001004.html">CENTRO DE SALUD EL
+                REFUGIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001016.html">TSIMB001016</a></td>
+                <td><a href="TSIMB001016.html">CENTRO DE SALUD
+                MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001021.html">TSIMB001021</a></td>
+                <td><a href="TSIMB001021.html">CENTRO DE SALUD PEDRO
+                JOSÉ MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001033.html">TSIMB001033</a></td>
+                <td><a href="TSIMB001033.html">CENTRO DE SALUD
+                MIER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001045.html">TSIMB001045</a></td>
+                <td><a href="TSIMB001045.html">CENTRO DE SALUD MIGUEL
+                ALEMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001050.html">TSIMB001050</a></td>
+                <td><a href="TSIMB001050.html">CENTRO DE SALUD LOS
+                GUERRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001062.html">TSIMB001062</a></td>
+                <td><a href="TSIMB001062.html">CENTRO DE SALUD
+                MIQUIHUANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001074.html">TSIMB001074</a></td>
+                <td><a href="TSIMB001074.html">CENTRO DE SALUD
+                ASERRADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001086.html">TSIMB001086</a></td>
+                <td><a href="TSIMB001086.html">CENTRO DE SALUD ESTANQUE
+                DE LOS WALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001115.html">TSIMB001115</a></td>
+                <td><a href="TSIMB001115.html">CENTRO DE SALUD COL.
+                ENRIQUE CÁRDENAS GONZÁLEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001120.html">TSIMB001120</a></td>
+                <td><a href="TSIMB001120.html">CENTRO DE SALUD COL. LAS
+                TORRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001132.html">TSIMB001132</a></td>
+                <td><a href="TSIMB001132.html">CENTRO DE SALUD COL.
+                MANUEL CAVAZOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001144.html">TSIMB001144</a></td>
+                <td><a href="TSIMB001144.html">CENTRO DE SALUD UNIDAD
+                HABITACIONAL MACLOVIO HERRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001156.html">TSIMB001156</a></td>
+                <td><a href="TSIMB001156.html">CENTRO DE SALUD COL. EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001161.html">TSIMB001161</a></td>
+                <td><a href="TSIMB001161.html">CENTRO DE SALUD COL.
+                SOLIDARIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001173.html">TSIMB001173</a></td>
+                <td><a href="TSIMB001173.html">CENTRO DE SALUD COL.
+                VOLUNTAD Y TRABAJO III</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001185.html">TSIMB001185</a></td>
+                <td><a href="TSIMB001185.html">CENTRO DE SALUD COL.
+                AMÉRICO VILLARREAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001190.html">TSIMB001190</a></td>
+                <td><a href="TSIMB001190.html">CENTRO DE SALUD COL.
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001202.html">TSIMB001202</a></td>
+                <td><a href="TSIMB001202.html">CENTRO DE SALUD NUEVO
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001214.html">TSIMB001214</a></td>
+                <td><a href="TSIMB001214.html">CENTRO DE SALUD SANTA
+                CRUZ DEL TORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001226.html">TSIMB001226</a></td>
+                <td><a href="TSIMB001226.html">CENTRO DE SALUD
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001231.html">TSIMB001231</a></td>
+                <td><a href="TSIMB001231.html">CENTRO DE SALUD
+                PADILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001243.html">TSIMB001243</a></td>
+                <td><a href="TSIMB001243.html">CENTRO DE SALUD
+                BARRETAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001255.html">TSIMB001255</a></td>
+                <td><a href="TSIMB001255.html">CENTRO DE SALUD
+                PALMILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001272.html">TSIMB001272</a></td>
+                <td><a href="TSIMB001272.html">CENTRO DE SALUD COL.
+                AQUILES SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001284.html">TSIMB001284</a></td>
+                <td><a href="TSIMB001284.html">CENTRO DE SALUD COL. LA
+                CURVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001296.html">TSIMB001296</a></td>
+                <td><a href="TSIMB001296.html">CENTRO DE SALUD COL.
+                VALLE VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001301.html">TSIMB001301</a></td>
+                <td><a href="TSIMB001301.html">CENTRO DE SALUD COL.
+                GRANJAS ECONÓMICAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001313.html">TSIMB001313</a></td>
+                <td><a href="TSIMB001313.html">CENTRO DE SALUD COL.
+                NARCISO MENDOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001325.html">TSIMB001325</a></td>
+                <td><a href="TSIMB001325.html">CENTRO DE SALUD COL. ARCO
+                IRIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001330.html">TSIMB001330</a></td>
+                <td><a href="TSIMB001330.html">CENTRO DE SALUD COL.
+                ALMAGUER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001342.html">TSIMB001342</a></td>
+                <td><a href="TSIMB001342.html">CENTRO DE SALUD COL.
+                SATÉLITE II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001354.html">TSIMB001354</a></td>
+                <td><a href="TSIMB001354.html">CENTRO DE SALUD COL.
+                JACINTO LÓPEZ II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001366.html">TSIMB001366</a></td>
+                <td><a href="TSIMB001366.html">CENTRO DE SALUD COL.
+                AMPLIACIÓN RANCHO GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001371.html">TSIMB001371</a></td>
+                <td><a href="TSIMB001371.html">CENTRO DE SALUD ESTACIÓN
+                ARGUELLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001383.html">TSIMB001383</a></td>
+                <td><a href="TSIMB001383.html">CENTRO DE SALUD MARTÍN
+                ROCHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001395.html">TSIMB001395</a></td>
+                <td><a href="TSIMB001395.html">CENTRO DE SALUD SANTO
+                NIÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001400.html">TSIMB001400</a></td>
+                <td><a href="TSIMB001400.html">CENTRO DE SALUD ALFREDO
+                V. BONFIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001412.html">TSIMB001412</a></td>
+                <td><a href="TSIMB001412.html">CENTRO DE SALUD MANUEL
+                CAVAZOS LERMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001424.html">TSIMB001424</a></td>
+                <td><a href="TSIMB001424.html">CENTRO DE SALUD HIJOS DE
+                EJIDATARIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001436.html">TSIMB001436</a></td>
+                <td><a href="TSIMB001436.html">CENTRO DE SALUD RÍO
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001441.html">TSIMB001441</a></td>
+                <td><a href="TSIMB001441.html">CENTRO DE SALUD EMILIO
+                PORTES GIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001453.html">TSIMB001453</a></td>
+                <td><a href="TSIMB001453.html">CENTRO DE SALUD MANUEL
+                PARREÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001465.html">TSIMB001465</a></td>
+                <td><a href="TSIMB001465.html">CENTRO DE SALUD NUEVO
+                PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001470.html">TSIMB001470</a></td>
+                <td><a href="TSIMB001470.html">CENTRO DE SALUD SANTA
+                APOLONIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001482.html">TSIMB001482</a></td>
+                <td><a href="TSIMB001482.html">CENTRO DE SALUD LA
+                SOLEDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001494.html">TSIMB001494</a></td>
+                <td><a href="TSIMB001494.html">CENTRO DE SALUD SAN
+                CARLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001506.html">TSIMB001506</a></td>
+                <td><a href="TSIMB001506.html">CENTRO DE SALUD BARRANCO
+                AZUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001511.html">TSIMB001511</a></td>
+                <td><a href="TSIMB001511.html">CENTRO DE SALUD LA
+                GAVIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001523.html">TSIMB001523</a></td>
+                <td><a href="TSIMB001523.html">CENTRO DE SALUD EL
+                SAUCILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001540.html">TSIMB001540</a></td>
+                <td><a href="TSIMB001540.html">CENTRO DE SALUD COL.
+                OBRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001552.html">TSIMB001552</a></td>
+                <td><a href="TSIMB001552.html">CENTRO DE SALUD COL. LA
+                LADRILLERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001564.html">TSIMB001564</a></td>
+                <td><a href="TSIMB001564.html">CENTRO DE SALUD COL. PASO
+                REAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001576.html">TSIMB001576</a></td>
+                <td><a href="TSIMB001576.html">CENTRO DE SALUD COL.
+                AMPLIACIÓN BELLAVISTA NORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001581.html">TSIMB001581</a></td>
+                <td><a href="TSIMB001581.html">CENTRO DE SALUD SAN
+                FERNANDO LOMA ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001593.html">TSIMB001593</a></td>
+                <td><a href="TSIMB001593.html">CENTRO DE SALUD LA
+                CARRETA UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001605.html">TSIMB001605</a></td>
+                <td><a href="TSIMB001605.html">CENTRO DE SALUD FRANCISCO
+                GONZÁLEZ VILLARREAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001610.html">TSIMB001610</a></td>
+                <td><a href="TSIMB001610.html">CENTRO DE SALUD FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001622.html">TSIMB001622</a></td>
+                <td><a href="TSIMB001622.html">CENTRO DE SALUD LAS
+                NORIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001634.html">TSIMB001634</a></td>
+                <td><a href="TSIMB001634.html">CENTRO DE SALUD SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001646.html">TSIMB001646</a></td>
+                <td><a href="TSIMB001646.html">CENTRO DE SALUD BARRANCÓN
+                DEL TÍO BLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001651.html">TSIMB001651</a></td>
+                <td><a href="TSIMB001651.html">CENTRO DE SALUD PUNTA DE
+                ALAMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001663.html">TSIMB001663</a></td>
+                <td><a href="TSIMB001663.html">CENTRO DE SALUD ALFREDO
+                V. BONFIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001675.html">TSIMB001675</a></td>
+                <td><a href="TSIMB001675.html">CENTRO DE SALUD
+                CARBONERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001680.html">TSIMB001680</a></td>
+                <td><a href="TSIMB001680.html">CENTRO DE SALUD LA
+                PEÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001692.html">TSIMB001692</a></td>
+                <td><a href="TSIMB001692.html">CENTRO DE SALUD LA
+                PESCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001716.html">TSIMB001716</a></td>
+                <td><a href="TSIMB001716.html">CENTRO DE SALUD LAS
+                AMÉRICAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001721.html">TSIMB001721</a></td>
+                <td><a href="TSIMB001721.html">CENTRO DE SALUD COL.
+                CARMEN ROMANO DE LÓPEZ PORTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001733.html">TSIMB001733</a></td>
+                <td><a href="TSIMB001733.html">CENTRO DE SALUD COL.
+                ENRIQUE CÁRDENAS GONZÁLEZ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001745.html">TSIMB001745</a></td>
+                <td><a href="TSIMB001745.html">CENTRO DE SALUD COL.
+                ESFUERZO OBRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001750.html">TSIMB001750</a></td>
+                <td><a href="TSIMB001750.html">CENTRO DE SALUD COL.
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001762.html">TSIMB001762</a></td>
+                <td><a href="TSIMB001762.html">CENTRO DE SALUD COL.
+                NUEVO AMANECER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001774.html">TSIMB001774</a></td>
+                <td><a href="TSIMB001774.html">CENTRO DE SALUD COL.
+                REVOLUCIÓN VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001786.html">TSIMB001786</a></td>
+                <td><a href="TSIMB001786.html">CENTRO DE SALUD
+                TANCOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001791.html">TSIMB001791</a></td>
+                <td><a href="TSIMB001791.html">CENTRO DE SALUD
+                COL.TOLTECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001803.html">TSIMB001803</a></td>
+                <td><a href="TSIMB001803.html">CENTRO DE SALUD COL.
+                VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001815.html">TSIMB001815</a></td>
+                <td><a href="TSIMB001815.html">CENTRO DE SALUD LA
+                BORREGUERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001820.html">TSIMB001820</a></td>
+                <td><a href="TSIMB001820.html">CENTRO DE SALUD COL. DEL
+                PUEBLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001832.html">TSIMB001832</a></td>
+                <td><a href="TSIMB001832.html">CENTRO DE SALUD
+                TULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001844.html">TSIMB001844</a></td>
+                <td><a href="TSIMB001844.html">CENTRO DE SALUD SANTA ANA
+                DE NAHOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001861.html">TSIMB001861</a></td>
+                <td><a href="TSIMB001861.html">CENTRO DE SALUD VALLE
+                HERMOSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001873.html">TSIMB001873</a></td>
+                <td><a href="TSIMB001873.html">CENTRO DE SALUD
+                ANÁHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001885.html">TSIMB001885</a></td>
+                <td><a href="TSIMB001885.html">CENTRO DE SALUD AQUILES
+                SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001890.html">TSIMB001890</a></td>
+                <td><a href="TSIMB001890.html">CENTRO DE SALUD
+                EMPALME</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001902.html">TSIMB001902</a></td>
+                <td><a href="TSIMB001902.html">CENTRO DE SALUD
+                ENSENADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001914.html">TSIMB001914</a></td>
+                <td><a href="TSIMB001914.html">CENTRO DE SALUD EL
+                REALITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001960.html">TSIMB001960</a></td>
+                <td><a href="TSIMB001960.html">CENTRO DE SALUD COL.
+                MANUEL A. RAVIZÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001972.html">TSIMB001972</a></td>
+                <td><a href="TSIMB001972.html">CENTRO DE SALUD COL. LUIS
+                DONALDO COLOSIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB001984.html">TSIMB001984</a></td>
+                <td><a href="TSIMB001984.html">CENTRO DE SALUD COL. SAN
+                MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001996.html">TSIMB001996</a></td>
+                <td><a href="TSIMB001996.html">CENTRO DE SALUD COL.
+                AMÉRICA DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002001.html">TSIMB002001</a></td>
+                <td><a href="TSIMB002001.html">CENTRO DE SALUD COL.
+                NUEVO AMANECER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002013.html">TSIMB002013</a></td>
+                <td><a href="TSIMB002013.html">CENTRO DE SALUD COL.
+                ESTUDIANTIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002025.html">TSIMB002025</a></td>
+                <td><a href="TSIMB002025.html">CENTRO DE SALUD COL.
+                EMILIO PORTES GIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002030.html">TSIMB002030</a></td>
+                <td><a href="TSIMB002030.html">CENTRO DE SALUD COL.
+                ENRIQUE CÁRDENAS GONZÁLEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002042.html">TSIMB002042</a></td>
+                <td><a href="TSIMB002042.html">CENTRO DE SALUD LOMAS DEL
+                SANTUARÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002054.html">TSIMB002054</a></td>
+                <td><a href="TSIMB002054.html">CENTRO DE SALUD LA
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002066.html">TSIMB002066</a></td>
+                <td><a href="TSIMB002066.html">CENTRO DE SALUD
+                VILLAGRÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002071.html">TSIMB002071</a></td>
+                <td><a href="TSIMB002071.html">CENTRO DE SALUD GARZA
+                VALDÉZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002083.html">TSIMB002083</a></td>
+                <td><a href="TSIMB002083.html">CENTRO DE SALUD TRANCAS Y
+                SAUZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002095.html">TSIMB002095</a></td>
+                <td><a href="TSIMB002095.html">CENTRO DE SALUD EL
+                ALAMITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002100.html">TSIMB002100</a></td>
+                <td><a href="TSIMB002100.html">CENTRO DE SALUD
+                FLECHADORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002112.html">TSIMB002112</a></td>
+                <td><a href="TSIMB002112.html">CENTRO DE SALUD COL. LAS
+                CULTURAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002124.html">TSIMB002124</a></td>
+                <td><a href="TSIMB002124.html">CENTRO DE SALUD COL.
+                NUEVA ERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002136.html">TSIMB002136</a></td>
+                <td><a href="TSIMB002136.html">CENTRO DE SALUD EL
+                PENSIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002141.html">TSIMB002141</a></td>
+                <td><a href="TSIMB002141.html">CENTRO DE SALUD EL
+                TRIUNFO Nº DOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002153.html">TSIMB002153</a></td>
+                <td><a href="TSIMB002153.html">CENTRO DE SALUD SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002165.html">TSIMB002165</a></td>
+                <td><a href="TSIMB002165.html">CENTRO DE SALUD COL.
+                AZTECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002182.html">TSIMB002182</a></td>
+                <td><a href="TSIMB002182.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE JAUMAVE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002194.html">TSIMB002194</a></td>
+                <td><a href="TSIMB002194.html">CENTRO DE SALUD LA
+                AURORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002206.html">TSIMB002206</a></td>
+                <td><a href="TSIMB002206.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CAJ REYNOSA CARMEN
+                SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002211.html">TSIMB002211</a></td>
+                <td><a href="TSIMB002211.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CAJ NUEVO LAREDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002223.html">TSIMB002223</a></td>
+                <td><a href="TSIMB002223.html">CENTRO DE SALUD MIRADORES
+                DE LA PRESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002235.html">TSIMB002235</a></td>
+                <td><a href="TSIMB002235.html">CENTRO DE SALUD LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002240.html">TSIMB002240</a></td>
+                <td><a href="TSIMB002240.html">CENTRO DE SALUD EL
+                LIMÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002252.html">TSIMB002252</a></td>
+                <td><a href="TSIMB002252.html">CENTRO DE SALUD
+                CAMARGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002276.html">TSIMB002276</a></td>
+                <td><a href="TSIMB002276.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002281.html">TSIMB002281</a></td>
+                <td><a href="TSIMB002281.html">CENTRO DE SALUD LA
+                MODERNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002293.html">TSIMB002293</a></td>
+                <td><a href="TSIMB002293.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE GONZÁLEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002305.html">TSIMB002305</a></td>
+                <td><a href="TSIMB002305.html">CENTRO DE SALUD SOTO LA
+                MARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002310.html">TSIMB002310</a></td>
+                <td><a href="TSIMB002310.html">CENTRO DE SALUD
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002322.html">TSIMB002322</a></td>
+                <td><a href="TSIMB002322.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL NUEVO LAREDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002334.html">TSIMB002334</a></td>
+                <td><a href="TSIMB002334.html">CENTRO DE SALUD UNIDOS
+                AVANZAMOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002346.html">TSIMB002346</a></td>
+                <td><a href="TSIMB002346.html">CENTRO DE SALUD LA
+                CIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002351.html">TSIMB002351</a></td>
+                <td><a href="TSIMB002351.html">CENTRO DE SALUD
+                XICOTÉNCATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002375.html">TSIMB002375</a></td>
+                <td><a href="TSIMB002375.html">CENTRO DE SALUD COL.
+                GRACIANO SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002380.html">TSIMB002380</a></td>
+                <td><a href="TSIMB002380.html">CENTRO DE SALUD COL.
+                RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002392.html">TSIMB002392</a></td>
+                <td><a href="TSIMB002392.html">CENTRO DE SALUD COL.
+                MONTERREAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002404.html">TSIMB002404</a></td>
+                <td><a href="TSIMB002404.html">CENTRO DE SALUD
+                MAGUEYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002421.html">TSIMB002421</a></td>
+                <td><a href="TSIMB002421.html">CENTRO DE SALUD TAMPICO
+                ALTAMIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002433.html">TSIMB002433</a></td>
+                <td><a href="TSIMB002433.html">CENTRO DE SALUD
+                ALTAMIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002491.html">TSIMB002491</a></td>
+                <td><a href="TSIMB002491.html">CENTRO DE SALUD DR.
+                RODOLFO TORRE CANTÚ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002503.html">TSIMB002503</a></td>
+                <td><a href="TSIMB002503.html">CENTRO DE SALUD EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002515.html">TSIMB002515</a></td>
+                <td><a href="TSIMB002515.html">CENTRO DE SALUD POBLADO
+                VENECIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002544.html">TSIMB002544</a></td>
+                <td><a href="TSIMB002544.html">CENTRO DE SALUD MAGDALENO
+                CEDILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002556.html">TSIMB002556</a></td>
+                <td><a href="TSIMB002556.html">CENTRO DE SALUD RESERVAS
+                TERRITORIALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002561.html">TSIMB002561</a></td>
+                <td><a href="TSIMB002561.html">CENTRO DE SALUD
+                MAGUEYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002573.html">TSIMB002573</a></td>
+                <td><a href="TSIMB002573.html">CENTRO DE SALUD LOS
+                BELLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002585.html">TSIMB002585</a></td>
+                <td><a href="TSIMB002585.html">CENTRO DE SALUD FRANCISCO
+                ZARCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002590.html">TSIMB002590</a></td>
+                <td><a href="TSIMB002590.html">CENTRO DE SALUD LA
+                CARRETA II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002655.html">TSIMB002655</a></td>
+                <td><a href="TSIMB002655.html">UMM FAM TULA UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002672.html">TSIMB002672</a></td>
+                <td><a href="TSIMB002672.html">UMM FAM JAUMAVE
+                TRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002684.html">TSIMB002684</a></td>
+                <td><a href="TSIMB002684.html">UMM FAM SAN CARLOS
+                SIETE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002696.html">TSIMB002696</a></td>
+                <td><a href="TSIMB002696.html">UMM FAM VICTORIA
+                CINCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002701.html">TSIMB002701</a></td>
+                <td><a href="TSIMB002701.html">UMM FAM SAN CARLOS
+                OCHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002725.html">TSIMB002725</a></td>
+                <td><a href="TSIMB002725.html">UNEME VICTORIA UNIDAD DE
+                ESPECIALIDADES MÉDICAS DE ENFERMEDADES CRÓNICAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002730.html">TSIMB002730</a></td>
+                <td><a href="TSIMB002730.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES RÍO BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002742.html">TSIMB002742</a></td>
+                <td><a href="TSIMB002742.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES REYNOSA SATÉLITE II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002754.html">TSIMB002754</a></td>
+                <td><a href="TSIMB002754.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES REYNOSA LA CURVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002766.html">TSIMB002766</a></td>
+                <td><a href="TSIMB002766.html">UNEME SORID REYNOSA
+                ALMAGUER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002771.html">TSIMB002771</a></td>
+                <td><a href="TSIMB002771.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002783.html">TSIMB002783</a></td>
+                <td><a href="TSIMB002783.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN FERNANDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002795.html">TSIMB002795</a></td>
+                <td><a href="TSIMB002795.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CIUDAD VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002800.html">TSIMB002800</a></td>
+                <td><a href="TSIMB002800.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002812.html">TSIMB002812</a></td>
+                <td><a href="TSIMB002812.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SOTO LA MARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002824.html">TSIMB002824</a></td>
+                <td><a href="TSIMB002824.html">UNEME CISAME CENTRO
+                INTEGRAL DE SALUD MENTAL VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002836.html">TSIMB002836</a></td>
+                <td><a href="TSIMB002836.html">UMM FAM SOTO LA MARINA
+                NUEVE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002841.html">TSIMB002841</a></td>
+                <td><a href="TSIMB002841.html">UMM FAM XICOTÉNCATL
+                DIEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002870.html">TSIMB002870</a></td>
+                <td><a href="TSIMB002870.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES NUEVO LAREDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002882.html">TSIMB002882</a></td>
+                <td><a href="TSIMB002882.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MIGUEL ALEMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002894.html">TSIMB002894</a></td>
+                <td><a href="TSIMB002894.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TAMPICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002906.html">TSIMB002906</a></td>
+                <td><a href="TSIMB002906.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CIUDAD MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002911.html">TSIMB002911</a></td>
+                <td><a href="TSIMB002911.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ALTAMIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002923.html">TSIMB002923</a></td>
+                <td><a href="TSIMB002923.html">CENTRO DE SALUD
+                TANTOYUQUITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002935.html">TSIMB002935</a></td>
+                <td><a href="TSIMB002935.html">UNEME SORID HERÓICA
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002940.html">TSIMB002940</a></td>
+                <td><a href="TSIMB002940.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002952.html">TSIMB002952</a></td>
+                <td><a href="TSIMB002952.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES VALLE HERMOSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002964.html">TSIMB002964</a></td>
+                <td><a href="TSIMB002964.html">CENTRO DE SALUD COL.
+                VAMOS TAMAULIPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002976.html">TSIMB002976</a></td>
+                <td><a href="TSIMB002976.html">CENTRO DE SALUD
+                TAMPIQUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002981.html">TSIMB002981</a></td>
+                <td><a href="TSIMB002981.html">CENTRO DE SALUD LUZ DEL
+                CAMPESINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB002993.html">TSIMB002993</a></td>
+                <td><a href="TSIMB002993.html">CENTRO DE SALUD COL.
+                BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003005.html">TSIMB003005</a></td>
+                <td><a href="TSIMB003005.html">CENTRO DE SALUD
+                CONTADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003010.html">TSIMB003010</a></td>
+                <td><a href="TSIMB003010.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES JAUMAVE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003022.html">TSIMB003022</a></td>
+                <td><a href="TSIMB003022.html">CENTRO DE SALUD COL.
+                INSURGENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003034.html">TSIMB003034</a></td>
+                <td><a href="TSIMB003034.html">CENTRO DE SALUD COL.
+                FRANCISCO VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003046.html">TSIMB003046</a></td>
+                <td><a href="TSIMB003046.html">CENTRO DE SALUD
+                FRACCIONAMIENTO VILLAS DE SAN MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003051.html">TSIMB003051</a></td>
+                <td><a href="TSIMB003051.html">CENTRO DE SALUD COL.
+                VILLA DEL MAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003063.html">TSIMB003063</a></td>
+                <td><a href="TSIMB003063.html">CENTRO DE SALUD COL.
+                AMPLIACIÓN LOMA ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003080.html">TSIMB003080</a></td>
+                <td><a href="TSIMB003080.html">CENTRO DE SALUD
+                ALDAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003092.html">TSIMB003092</a></td>
+                <td><a href="TSIMB003092.html">CENTRO DE SALUD COL. LUIS
+                ECHEVERRÍA ÁLVAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003104.html">TSIMB003104</a></td>
+                <td><a href="TSIMB003104.html">CENTRO DE SALUD COL. JOSÉ
+                MARÍA MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003116.html">TSIMB003116</a></td>
+                <td><a href="TSIMB003116.html">CENTRO DE SALUD COL.
+                CAMPESTRE ITAVU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003121.html">TSIMB003121</a></td>
+                <td><a href="TSIMB003121.html">CENTRO DE SALUD COL. 16
+                DE SEPTIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003133.html">TSIMB003133</a></td>
+                <td><a href="TSIMB003133.html">CENTRO DE SALUD COL.
+                REVOLUCIÓN VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003145.html">TSIMB003145</a></td>
+                <td><a href="TSIMB003145.html">CENTRO DE SALUD COL. JOSÉ
+                LÓPEZ PORTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003150.html">TSIMB003150</a></td>
+                <td><a href="TSIMB003150.html">CENTRO DE SALUD LÓPEZ Y
+                NUEVO CADILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003162.html">TSIMB003162</a></td>
+                <td><a href="TSIMB003162.html">CENTRO DE SALUD COL.
+                LOMAS DE VALLE ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003174.html">TSIMB003174</a></td>
+                <td><a href="TSIMB003174.html">CENTRO DE SALUD COL.
+                VOLUNTAD Y TRABAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003186.html">TSIMB003186</a></td>
+                <td><a href="TSIMB003186.html">CENTRO DE SALUD COL.
+                LOMAS DEL PEDREGAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003191.html">TSIMB003191</a></td>
+                <td><a href="TSIMB003191.html">CENTRO DE SALUD COL. LAS
+                TORRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003203.html">TSIMB003203</a></td>
+                <td><a href="TSIMB003203.html">CENTRO DE SALUD COL.
+                INTEGRACIÓN FAMILIAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003215.html">TSIMB003215</a></td>
+                <td><a href="TSIMB003215.html">CENTRO DE SALUD DOROTEO
+                ARANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003220.html">TSIMB003220</a></td>
+                <td><a href="TSIMB003220.html">CENTRO DE SALUD LLORONA
+                NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003232.html">TSIMB003232</a></td>
+                <td><a href="TSIMB003232.html">CENTRO DE SALUD LA MESA
+                DEL SEÑOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003244.html">TSIMB003244</a></td>
+                <td><a href="TSIMB003244.html">CENTRO DE SALUD COL.
+                LAGUNA DE LA PUERTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003256.html">TSIMB003256</a></td>
+                <td><a href="TSIMB003256.html">CENTRO DE SALUD COL.
+                FRANCISCO VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003261.html">TSIMB003261</a></td>
+                <td><a href="TSIMB003261.html">CENTRO DE SALUD
+                NACIMIENTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003273.html">TSIMB003273</a></td>
+                <td><a href="TSIMB003273.html">CENTRO DE SALUD NUEVO
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003285.html">TSIMB003285</a></td>
+                <td><a href="TSIMB003285.html">CENTRO DE SALUD EL
+                NORTEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003290.html">TSIMB003290</a></td>
+                <td><a href="TSIMB003290.html">CENTRO DE SALUD LA
+                LOMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003302.html">TSIMB003302</a></td>
+                <td><a href="TSIMB003302.html">CENTRO DE SALUD XALAPA DE
+                LOS VERGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003314.html">TSIMB003314</a></td>
+                <td><a href="TSIMB003314.html">CENTRO DE SALUD COL.
+                AMPLIACIÓN SOLIDARIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003326.html">TSIMB003326</a></td>
+                <td><a href="TSIMB003326.html">CENTRO DE SALUD COL.
+                ESPERANZA Y REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003331.html">TSIMB003331</a></td>
+                <td><a href="TSIMB003331.html">CENTRO DE SALUD COL.
+                INTEGRACIÓN FAMILIAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003343.html">TSIMB003343</a></td>
+                <td><a href="TSIMB003343.html">CENTRO DE SALUD COL. LAS
+                PALMITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003355.html">TSIMB003355</a></td>
+                <td><a href="TSIMB003355.html">CENTRO DE SALUD COL.
+                NUEVA JERUSALEM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003360.html">TSIMB003360</a></td>
+                <td><a href="TSIMB003360.html">CENTRO DE SALUD COL.
+                VILLA LAS TORRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003372.html">TSIMB003372</a></td>
+                <td><a href="TSIMB003372.html">CENTRO DE SALUD COL. LAS
+                BRISAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003384.html">TSIMB003384</a></td>
+                <td><a href="TSIMB003384.html">CENTRO DE SALUD COL.
+                AEROPUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003396.html">TSIMB003396</a></td>
+                <td><a href="TSIMB003396.html">CENTRO DE SALUD COL.
+                BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003401.html">TSIMB003401</a></td>
+                <td><a href="TSIMB003401.html">CENTRO DE SALUD COL. EL
+                CAMBIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003413.html">TSIMB003413</a></td>
+                <td><a href="TSIMB003413.html">CENTRO DE SALUD COL.
+                ROBERTO GUERRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003425.html">TSIMB003425</a></td>
+                <td><a href="TSIMB003425.html">CENTRO DE SALUD COL. SAN
+                FERNANDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003430.html">TSIMB003430</a></td>
+                <td><a href="TSIMB003430.html">CENTRO DE SALUD COL.
+                INDEPENDENCIA SUR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003442.html">TSIMB003442</a></td>
+                <td><a href="TSIMB003442.html">CENTRO DE SALUD COL.
+                JARITAS SUR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003454.html">TSIMB003454</a></td>
+                <td><a href="TSIMB003454.html">CENTRO DE SALUD COL. LA
+                NORTEÑITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003471.html">TSIMB003471</a></td>
+                <td><a href="TSIMB003471.html">CENTRO DE SALUD CÁNDIDO
+                AGUILAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003495.html">TSIMB003495</a></td>
+                <td><a href="TSIMB003495.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE CAMARGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003500.html">TSIMB003500</a></td>
+                <td><a href="TSIMB003500.html">CENTRO DE SALUD NUEVA
+                CIUDAD GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003512.html">TSIMB003512</a></td>
+                <td><a href="TSIMB003512.html">UNEME CISAME NUEVO
+                LAREDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003524.html">TSIMB003524</a></td>
+                <td><a href="TSIMB003524.html">CENTRO REGIONAL CONTRA LA
+                TUBERCULOSIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003541.html">TSIMB003541</a></td>
+                <td><a href="TSIMB003541.html">CENTRO DE SALUD
+                MODELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003553.html">TSIMB003553</a></td>
+                <td><a href="TSIMB003553.html">CENTRO DE SALUD DR.
+                RODOLFO TORRE CANTÚ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003565.html">TSIMB003565</a></td>
+                <td><a href="TSIMB003565.html">CENTRO DE SALUD COL.
+                PARQUE INDUSTRIAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003623.html">TSIMB003623</a></td>
+                <td><a href="TSIMB003623.html">CENTRO DE SALUD
+                PRISCILIANO DELGADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003640.html">TSIMB003640</a></td>
+                <td><a href="TSIMB003640.html">CENTRO DE SALUD
+                SOLISEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003676.html">TSIMB003676</a></td>
+                <td><a href="TSIMB003676.html">CENTRO DE SALUD PALO
+                SOLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003722.html">TSIMB003722</a></td>
+                <td><a href="TSIMB003722.html">CAIRRS NUEVO
+                LAREDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003734.html">TSIMB003734</a></td>
+                <td><a href="TSIMB003734.html">CAIRRS MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003746.html">TSIMB003746</a></td>
+                <td><a href="TSIMB003746.html">CENTRO DE SALUD COL.
+                AGRÍCOLA ORIENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB000053.html">TSIMB000053</a></td>
+                <td><a href="TSIMB000053.html">CENTRO DE SALUD
+                DELICIAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB000234.html">TSIMB000234</a></td>
+                <td><a href="TSIMB000234.html">CENTRO DE SALUD LAS
+                ALBERCAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB001856.html">TSIMB001856</a></td>
+                <td><a href="TSIMB001856.html">CENTRO DE SALUD EL
+                REFUGIO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB002660.html">TSIMB002660</a></td>
+                <td><a href="TSIMB002660.html">UMM FAM HIGUERILLAS
+                CATORCE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003606.html">TSIMB003606</a></td>
+                <td><a href="TSIMB003606.html">CENTRO DE SALUD SANTA
+                ROSALÍA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003611.html">TSIMB003611</a></td>
+                <td><a href="TSIMB003611.html">CENTRO DE SALUD BUENOS
+                AIRES</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003635.html">TSIMB003635</a></td>
+                <td><a href="TSIMB003635.html">CENTRO DE SALUD
+                REVOLUCIÓN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003652.html">TSIMB003652</a></td>
+                <td><a href="TSIMB003652.html">CENTRO DE SALUD
+                HIGUERILLAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003664.html">TSIMB003664</a></td>
+                <td><a href="TSIMB003664.html">CENTRO DE SALUD RAÚL
+                MUÑÍZ</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003681.html">TSIMB003681</a></td>
+                <td><a href="TSIMB003681.html">CENTRO DE SALUD LUCIO
+                BLANCO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003693.html">TSIMB003693</a></td>
+                <td><a href="TSIMB003693.html">CENTRO DE SALUD
+                ABASOLO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TSIMB003705.html">TSIMB003705</a></td>
+                <td><a href="TSIMB003705.html">CENTRO DE SALUD NUEVO
+                SANTANA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TSIMB003710.html">TSIMB003710</a></td>
+                <td><a href="TSIMB003710.html">CENTRO DE SALUD SAN
+                ANTONIO DE PADUA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="figures/mapa_entidad/primer_nivel_tamaulipas.png"
+                id="fig:mapa-primer_nivel-tamaulipas"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
