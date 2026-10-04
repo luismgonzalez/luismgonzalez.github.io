@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#méxico">MÉXICO</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="méxico">MÉXICO</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="MCIMB000226.html">MCIMB000226</a></td>
+                <td><a href="MCIMB000226.html">TEPEXPAN DR. GUSTAVO BAZ
+                PRADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB000231.html">MCIMB000231</a></td>
+                <td><a href="MCIMB000231.html">HOSPITAL PSIQUIÁTRICO DR.
+                ADOLFO M. NIETO TEPEXPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB000243.html">MCIMB000243</a></td>
+                <td><a href="MCIMB000243.html">HOSPITAL PSIQUIÁTRICO
+                JOSÉ SAYAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB000890.html">MCIMB000890</a></td>
+                <td><a href="MCIMB000890.html">HOSPITAL MUNICIPAL SANTA
+                CRUZ ATIZAPÁN BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB000914.html">MCIMB000914</a></td>
+                <td><a href="MCIMB000914.html">H.G. DR.SALVADOR GONZÁLEZ
+                HERREJON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB001013.html">MCIMB001013</a></td>
+                <td><a href="MCIMB001013.html">CENTRO DE ATENCIÓN
+                ESTOMATOLÓGICA ATLACOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB001351.html">MCIMB001351</a></td>
+                <td><a href="MCIMB001351.html">HOSPITAL RAMÓN LÓPEZ
+                RAYÓN BICENTENARIO COATEPEC HARINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB001486.html">MCIMB001486</a></td>
+                <td><a href="MCIMB001486.html">H.G. JOSÉ VICENTE
+                VILLADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB001491.html">MCIMB001491</a></td>
+                <td><a href="MCIMB001491.html">CENTRO DE ATENCIÓN
+                ESTOMATOLÓGICA CUAUTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB001515.html">MCIMB001515</a></td>
+                <td><a href="MCIMB001515.html">HOSPITAL GENERAL DE
+                CHALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB001841.html">MCIMB001841</a></td>
+                <td><a href="MCIMB001841.html">H.G.
+                CHIMALHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB002244.html">MCIMB002244</a></td>
+                <td><a href="MCIMB002244.html">HOSPITAL MUNICIPAL
+                HUEHUETOCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB002331.html">MCIMB002331</a></td>
+                <td><a href="MCIMB002331.html">HOSPITAL SANTOS DEGOLLADO
+                BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB002565.html">MCIMB002565</a></td>
+                <td><a href="MCIMB002565.html">ZOQUIAPAN DR. PEDRO
+                LÓPEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB002570.html">MCIMB002570</a></td>
+                <td><a href="MCIMB002570.html">H. ZOQUIAPAN GRANJA LA
+                SALUD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB002640.html">MCIMB002640</a></td>
+                <td><a href="MCIMB002640.html">HOSPITAL GENERAL
+                IXTLAHUACA VALENTIN GÓMEZ FARÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB002874.html">MCIMB002874</a></td>
+                <td><a href="MCIMB002874.html">HOSPITAL MUNICIPAL
+                XALATLACO MARIANO MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB003731.html">MCIMB003731</a></td>
+                <td><a href="MCIMB003731.html">SAN RAFAEL CHAMAPA MODULO
+                ODONTOPEDIATRICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB003743.html">MCIMB003743</a></td>
+                <td><a href="MCIMB003743.html">H.G. DR. MAXIMILIANO RUÍZ
+                CASTAÑEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB003895.html">MCIMB003895</a></td>
+                <td><a href="MCIMB003895.html">H.G. DR. GUSTAVO BAZ
+                PRADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB004344.html">MCIMB004344</a></td>
+                <td><a href="MCIMB004344.html">HOSPITAL IGNACIO LÓPEZ
+                RAYÓN BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB004443.html">MCIMB004443</a></td>
+                <td><a href="MCIMB004443.html">HOSPITAL MUNICIPAL OTUMBA
+                BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB004694.html">MCIMB004694</a></td>
+                <td><a href="MCIMB004694.html">HOSPITAL GENERAL SAN
+                FELIPE DEL PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB005102.html">MCIMB005102</a></td>
+                <td><a href="MCIMB005102.html">HOSPITAL JOSÉ MARÍA COSS
+                BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB005225.html">MCIMB005225</a></td>
+                <td><a href="MCIMB005225.html">HOSPITAL GENERAL MIGUEL
+                HIDALGO Y COSTILLA BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB005860.html">MCIMB005860</a></td>
+                <td><a href="MCIMB005860.html">H.G. TENANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB005942.html">MCIMB005942</a></td>
+                <td><a href="MCIMB005942.html">HOSPITAL MUNICIPAL
+                MARIANO MATAMOROS BICENTENARIO TENANGO DEL
+                VALLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB006181.html">MCIMB006181</a></td>
+                <td><a href="MCIMB006181.html">HM TEPETLIXPA
+                HERMENEGILDO GALEANA, BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB006275.html">MCIMB006275</a></td>
+                <td><a href="MCIMB006275.html">HOSPITAL JUAN ALDAMA
+                BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB006893.html">MCIMB006893</a></td>
+                <td><a href="MCIMB006893.html">HOSPITAL MUNICIPAL SAN
+                PEDRO LIMÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB007231.html">MCIMB007231</a></td>
+                <td><a href="MCIMB007231.html">HOSPITAL GENERAL VALLE DE
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB007465.html">MCIMB007465</a></td>
+                <td><a href="MCIMB007465.html">HOSPITAL MUNICIPAL
+                BICENTENARIO HERMENEGILDO GALEANA VILLA
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB007540.html">MCIMB007540</a></td>
+                <td><a href="MCIMB007540.html">HOSPITAL GUADALUPE
+                VICTORIA BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB007960.html">MCIMB007960</a></td>
+                <td><a href="MCIMB007960.html">HOSPITAL MUNICIPAL SAN
+                JUAN ZITLALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB008042.html">MCIMB008042</a></td>
+                <td><a href="MCIMB008042.html">H.G. DR. FERNANDO QUIROZ
+                GUTIÉRREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB008556.html">MCIMB008556</a></td>
+                <td><a href="MCIMB008556.html">HOSPITAL VALERIO TRUJANO
+                BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB008824.html">MCIMB008824</a></td>
+                <td><a href="MCIMB008824.html">HOSPITAL MUNICIPAL
+                TECAMAC LIC. CÉSAR CAMACHO QUIROZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009022.html">MCIMB009022</a></td>
+                <td><a href="MCIMB009022.html">H.G. JILOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009051.html">MCIMB009051</a></td>
+                <td><a href="MCIMB009051.html">HOSPITAL MUNICIPAL
+                ACAMBAY IGNACIO ALLENDE BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009063.html">MCIMB009063</a></td>
+                <td><a href="MCIMB009063.html">HOSPITAL GENERAL
+                ATLACOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009162.html">MCIMB009162</a></td>
+                <td><a href="MCIMB009162.html">HOSPITAL MUNICIPAL
+                TEMOAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009174.html">MCIMB009174</a></td>
+                <td><a href="MCIMB009174.html">HOSPITAL GENERAL IXTAPAN
+                DE LA SAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009186.html">MCIMB009186</a></td>
+                <td><a href="MCIMB009186.html">HOSPITAL MUNICIPAL
+                ZACUALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009261.html">MCIMB009261</a></td>
+                <td><a href="MCIMB009261.html">HOSPITAL GENERAL
+                TULTITLAN SAN PABLO DE LAS SALINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009302.html">MCIMB009302</a></td>
+                <td><a href="MCIMB009302.html">UNIDAD DE ESPECIALIDAD
+                MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA
+                HUIXQUILUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009425.html">MCIMB009425</a></td>
+                <td><a href="MCIMB009425.html">HOSPITAL MUNICIPAL
+                LERMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009536.html">MCIMB009536</a></td>
+                <td><a href="MCIMB009536.html">HOSPITAL GENERAL
+                CHIMALHUACÁN SAN AGUSTÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009606.html">MCIMB009606</a></td>
+                <td><a href="MCIMB009606.html">MATERNIDAD
+                HUIXQUILUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009676.html">MCIMB009676</a></td>
+                <td><a href="MCIMB009676.html">HOSPITAL MATERNO DE
+                TEXCOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009734.html">MCIMB009734</a></td>
+                <td><a href="MCIMB009734.html">HOSPITAL MUNICIPAL VILLA
+                DEL CARBON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009775.html">MCIMB009775</a></td>
+                <td><a href="MCIMB009775.html">HOSPITAL GENERAL DE
+                AXAPUSCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB009932.html">MCIMB009932</a></td>
+                <td><a href="MCIMB009932.html">MATERNIDAD
+                CUAUTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB009944.html">MCIMB009944</a></td>
+                <td><a href="MCIMB009944.html">UNIDAD DE ESPECIALIDAD
+                MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA
+                CUAUTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB010212.html">MCIMB010212</a></td>
+                <td><a href="MCIMB010212.html">CENTRO ESTATAL DE
+                REHABILITACIÓN Y EDUCACIÓN ESPECIAL DE TOLUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB010224.html">MCIMB010224</a></td>
+                <td><a href="MCIMB010224.html">HOSPITAL MUNICIPAL DE
+                CHICONCUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB010236.html">MCIMB010236</a></td>
+                <td><a href="MCIMB010236.html">CENTRO ESPECIALIZADO DE
+                ATENCIÓN A PERSONAS CON DISCAPACIDAD VISUAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB010294.html">MCIMB010294</a></td>
+                <td><a href="MCIMB010294.html">HOSPITAL MUNICIPAL
+                MALINALCO PEDRO ASCENCIO DE ALQUISIRAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB010825.html">MCIMB010825</a></td>
+                <td><a href="MCIMB010825.html">HOSPITAL MUNICIPAL
+                IXTAPALUCA LEONA VICARIO BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB010842.html">MCIMB010842</a></td>
+                <td><a href="MCIMB010842.html">SANTA MARÍA
+                TETITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB011694.html">MCIMB011694</a></td>
+                <td><a href="MCIMB011694.html">HOSPITAL MUNICIPAL
+                XONACATLÁN VICENTE GUERRERO BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB011904.html">MCIMB011904</a></td>
+                <td><a href="MCIMB011904.html">MATERNIDAD
+                ATLACOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB011945.html">MCIMB011945</a></td>
+                <td><a href="MCIMB011945.html">H.G. TEXCOCO GUADALUPE
+                VICTORIA BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB011986.html">MCIMB011986</a></td>
+                <td><a href="MCIMB011986.html">HOSPITAL MATERNO INFANTIL
+                CHALCO JOSÉFA ORTÍZ DE DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012073.html">MCIMB012073</a></td>
+                <td><a href="MCIMB012073.html">HOSPITAL GENERAL
+                HUEYPOXTLA HERMENEGILDO GALEANA BICENTENARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB012085.html">MCIMB012085</a></td>
+                <td><a href="MCIMB012085.html">HOSPITAL MATERNO INFANTIL
+                JOSÉ MARÍA MORELOS Y PAVÓN BICENTENARIO SAN JOSÉ DEL
+                RINCÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012114.html">MCIMB012114</a></td>
+                <td><a href="MCIMB012114.html">HOSPITAL MUNICIPAL
+                TEMASCALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB012131.html">MCIMB012131</a></td>
+                <td><a href="MCIMB012131.html">HOSPITAL MUNICIPAL
+                HERMENEGILDO GALEANA JIQUIPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012143.html">MCIMB012143</a></td>
+                <td><a href="MCIMB012143.html">HOSPITAL MATERNO INFANTIL
+                MIGUEL HIDALGO Y COSTILLA LOS REYES LA PAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB012196.html">MCIMB012196</a></td>
+                <td><a href="MCIMB012196.html">HOSPITAL MUNICIPAL JUAN
+                ALDAMA VILLA NICOLÁS ROMERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012254.html">MCIMB012254</a></td>
+                <td><a href="MCIMB012254.html">HOSPITAL MATERNO INFANTIL
+                GUADALUPE VICTORIA ATIZAPÁN DE ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB012271.html">MCIMB012271</a></td>
+                <td><a href="MCIMB012271.html">H.G. VALENTÍN GÓMEZ
+                FARÍAS (SAN FRANCISCO ZENTLALPAN)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012341.html">MCIMB012341</a></td>
+                <td><a href="MCIMB012341.html">MÓDULO ODONTOPEDIÁTRICO
+                LAS ALAMEDAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MCIMB012411.html">MCIMB012411</a></td>
+                <td><a href="MCIMB012411.html">UNIDAD DE ESPECIALIDAD
+                MEDICA DETECCIÓN Y DIAGNÓSTICO DEL CANCER DE MAMA
+                TOLUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MCIMB012476.html">MCIMB012476</a></td>
+                <td><a href="MCIMB012476.html">HOSPITAL GENERAL ATENCO
+                “FRANCISCO ALTAMIRANO NÚÑEZ”</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/segundo_nivel_mexico.png"
+                id="fig:mapa-segundo_nivel-mexico"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
