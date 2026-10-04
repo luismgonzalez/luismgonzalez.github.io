@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#san-luis-potosí">SAN
+                                                        LUIS
+                                                        POTOSÍ</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="san-luis-potosí">SAN LUIS POTOSÍ</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="SPIMB000013.html">SPIMB000013</a></td>
+                <td><a href="SPIMB000013.html">UNIDAD MÉDICA MÓVIL SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000025.html">SPIMB000025</a></td>
+                <td><a href="SPIMB000025.html">ALAQUINES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000030.html">SPIMB000030</a></td>
+                <td><a href="SPIMB000030.html">MARTÍNEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000054.html">SPIMB000054</a></td>
+                <td><a href="SPIMB000054.html">ALITZE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000066.html">SPIMB000066</a></td>
+                <td><a href="SPIMB000066.html">JABALI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000071.html">SPIMB000071</a></td>
+                <td><a href="SPIMB000071.html">LA MESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000083.html">SPIMB000083</a></td>
+                <td><a href="SPIMB000083.html">TAMPEMOCHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000095.html">SPIMB000095</a></td>
+                <td><a href="SPIMB000095.html">TANCHANACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000100.html">SPIMB000100</a></td>
+                <td><a href="SPIMB000100.html">UNIDAD MÉDICA MÓVIL SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000112.html">SPIMB000112</a></td>
+                <td><a href="SPIMB000112.html">REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000124.html">SPIMB000124</a></td>
+                <td><a href="SPIMB000124.html">LANIM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000136.html">SPIMB000136</a></td>
+                <td><a href="SPIMB000136.html">ESTACIÓN CATORCE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000141.html">SPIMB000141</a></td>
+                <td><a href="SPIMB000141.html">ZAMARRIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000153.html">SPIMB000153</a></td>
+                <td><a href="SPIMB000153.html">CENTRO DE SALUD JOYA DE
+                LUNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000165.html">SPIMB000165</a></td>
+                <td><a href="SPIMB000165.html">CARAVANA TIPO 2 TEPOZAN
+                DE ARRIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000182.html">SPIMB000182</a></td>
+                <td><a href="SPIMB000182.html">SAN RAFAEL
+                CARRETERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000194.html">SPIMB000194</a></td>
+                <td><a href="SPIMB000194.html">CD. FERNANDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000206.html">SPIMB000206</a></td>
+                <td><a href="SPIMB000206.html">CENTRO DE SALUD
+                TANCANHUITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000211.html">SPIMB000211</a></td>
+                <td><a href="SPIMB000211.html">UNIDAD MÉDICA MÓVIL LAS
+                ARMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000223.html">SPIMB000223</a></td>
+                <td><a href="SPIMB000223.html">EL CRUCERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000235.html">SPIMB000235</a></td>
+                <td><a href="SPIMB000235.html">PALMIRA NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000252.html">SPIMB000252</a></td>
+                <td><a href="SPIMB000252.html">PIMIENTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000264.html">SPIMB000264</a></td>
+                <td><a href="SPIMB000264.html">COL. JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000276.html">SPIMB000276</a></td>
+                <td><a href="SPIMB000276.html">EL PUJAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000281.html">SPIMB000281</a></td>
+                <td><a href="SPIMB000281.html">UNIDAD MÉDICA MÓVIL
+                CANOAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000293.html">SPIMB000293</a></td>
+                <td><a href="SPIMB000293.html">C.S. EL SIDRAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000305.html">SPIMB000305</a></td>
+                <td><a href="SPIMB000305.html">CARAVANA TIPO 2 GUSTAVO
+                GARMENDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000310.html">SPIMB000310</a></td>
+                <td><a href="SPIMB000310.html">LAS HUERTAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000322.html">SPIMB000322</a></td>
+                <td><a href="SPIMB000322.html">UNIDAD MÉDICA MÓVIL
+                SALCEDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000334.html">SPIMB000334</a></td>
+                <td><a href="SPIMB000334.html">UNIDAD MÉDICA MÓVIL SAN
+                DIEGUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000346.html">SPIMB000346</a></td>
+                <td><a href="SPIMB000346.html">UNIDAD MÉDICA MÓVIL
+                TANTOBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000351.html">SPIMB000351</a></td>
+                <td><a href="SPIMB000351.html">CHANTOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000363.html">SPIMB000363</a></td>
+                <td><a href="SPIMB000363.html">CENTRO DE SALUD
+                COXCATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000375.html">SPIMB000375</a></td>
+                <td><a href="SPIMB000375.html">AMAXAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000380.html">SPIMB000380</a></td>
+                <td><a href="SPIMB000380.html">MOYOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000392.html">SPIMB000392</a></td>
+                <td><a href="SPIMB000392.html">TAZAQUIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000404.html">SPIMB000404</a></td>
+                <td><a href="SPIMB000404.html">UNIDAD MÉDICA MÓVIL
+                AJUATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000416.html">SPIMB000416</a></td>
+                <td><a href="SPIMB000416.html">EBANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000421.html">SPIMB000421</a></td>
+                <td><a href="SPIMB000421.html">PUJAL COY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000433.html">SPIMB000433</a></td>
+                <td><a href="SPIMB000433.html">PLAN DE IGUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000445.html">SPIMB000445</a></td>
+                <td><a href="SPIMB000445.html">AURELIO MANRIQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000450.html">SPIMB000450</a></td>
+                <td><a href="SPIMB000450.html">PONCIANO ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000462.html">SPIMB000462</a></td>
+                <td><a href="SPIMB000462.html">POZAS DE SANTA
+                ANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000486.html">SPIMB000486</a></td>
+                <td><a href="SPIMB000486.html">LAGUNILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000491.html">SPIMB000491</a></td>
+                <td><a href="SPIMB000491.html">CENTRO DE SALUD EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000503.html">SPIMB000503</a></td>
+                <td><a href="SPIMB000503.html">CENTRO DE SALUD OLIVAR DE
+                LAS ANIMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000515.html">SPIMB000515</a></td>
+                <td><a href="SPIMB000515.html">CENTRO DE SALUD
+                OLLERIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000520.html">SPIMB000520</a></td>
+                <td><a href="SPIMB000520.html">CENTRO DE SALUD LOS
+                POCITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000532.html">SPIMB000532</a></td>
+                <td><a href="SPIMB000532.html">CENTRO DE SALUD TANQUE
+                COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000544.html">SPIMB000544</a></td>
+                <td><a href="SPIMB000544.html">EL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000561.html">SPIMB000561</a></td>
+                <td><a href="SPIMB000561.html">CENTRO DE SALUD MONTE
+                OBSCURO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000573.html">SPIMB000573</a></td>
+                <td><a href="SPIMB000573.html">EL PAJARITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000590.html">SPIMB000590</a></td>
+                <td><a href="SPIMB000590.html">CAÑADA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000602.html">SPIMB000602</a></td>
+                <td><a href="SPIMB000602.html">EL CAPULIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000614.html">SPIMB000614</a></td>
+                <td><a href="SPIMB000614.html">UNIDAD MÉDICA MÓVIL LA
+                PALMITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000626.html">SPIMB000626</a></td>
+                <td><a href="SPIMB000626.html">PASTORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000631.html">SPIMB000631</a></td>
+                <td><a href="SPIMB000631.html">SAN JOSÉ DEL
+                TAPANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000655.html">SPIMB000655</a></td>
+                <td><a href="SPIMB000655.html">DIEGO MARTIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000660.html">SPIMB000660</a></td>
+                <td><a href="SPIMB000660.html">CENTRO DE SALUD SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000672.html">SPIMB000672</a></td>
+                <td><a href="SPIMB000672.html">EL LEJEM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000696.html">SPIMB000696</a></td>
+                <td><a href="SPIMB000696.html">SAUCITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000701.html">SPIMB000701</a></td>
+                <td><a href="SPIMB000701.html">DR. JUAN H.
+                SANCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000713.html">SPIMB000713</a></td>
+                <td><a href="SPIMB000713.html">ARROYOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000725.html">SPIMB000725</a></td>
+                <td><a href="SPIMB000725.html">BOCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000730.html">SPIMB000730</a></td>
+                <td><a href="SPIMB000730.html">LAGUNA DE SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000742.html">SPIMB000742</a></td>
+                <td><a href="SPIMB000742.html">LA PILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000754.html">SPIMB000754</a></td>
+                <td><a href="SPIMB000754.html">CENTRO DE SALUD SAN
+                MARTÍN CHALCHICUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000766.html">SPIMB000766</a></td>
+                <td><a href="SPIMB000766.html">ACAMAYAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000771.html">SPIMB000771</a></td>
+                <td><a href="SPIMB000771.html">ACAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000783.html">SPIMB000783</a></td>
+                <td><a href="SPIMB000783.html">ESCUATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000795.html">SPIMB000795</a></td>
+                <td><a href="SPIMB000795.html">MESA DEL TORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000800.html">SPIMB000800</a></td>
+                <td><a href="SPIMB000800.html">TEPEMICHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000812.html">SPIMB000812</a></td>
+                <td><a href="SPIMB000812.html">PITAGIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000824.html">SPIMB000824</a></td>
+                <td><a href="SPIMB000824.html">OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000836.html">SPIMB000836</a></td>
+                <td><a href="SPIMB000836.html">SANTA CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000841.html">SPIMB000841</a></td>
+                <td><a href="SPIMB000841.html">SANTA CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000853.html">SPIMB000853</a></td>
+                <td><a href="SPIMB000853.html">CALABAZAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000865.html">SPIMB000865</a></td>
+                <td><a href="SPIMB000865.html">LAS LAGUNITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000870.html">SPIMB000870</a></td>
+                <td><a href="SPIMB000870.html">CENTRO DE SALUD PUERTA
+                DEL SALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000882.html">SPIMB000882</a></td>
+                <td><a href="SPIMB000882.html">SANTA MARÍA DEL
+                RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000894.html">SPIMB000894</a></td>
+                <td><a href="SPIMB000894.html">EL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000906.html">SPIMB000906</a></td>
+                <td><a href="SPIMB000906.html">CENTRO DE SALUD
+                ENRAMADAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000911.html">SPIMB000911</a></td>
+                <td><a href="SPIMB000911.html">MILPA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000923.html">SPIMB000923</a></td>
+                <td><a href="SPIMB000923.html">CENTRO DE SALUD SANTO
+                DOMINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000935.html">SPIMB000935</a></td>
+                <td><a href="SPIMB000935.html">TORTUGAS DE
+                ARRIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000940.html">SPIMB000940</a></td>
+                <td><a href="SPIMB000940.html">JESÚS MARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000952.html">SPIMB000952</a></td>
+                <td><a href="SPIMB000952.html">SAN VICENTE
+                TANCUAYALAB</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000964.html">SPIMB000964</a></td>
+                <td><a href="SPIMB000964.html">NUEVO JOMTÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000981.html">SPIMB000981</a></td>
+                <td><a href="SPIMB000981.html">CENTRO DE SALUD 1RO. DE
+                MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000993.html">SPIMB000993</a></td>
+                <td><a href="SPIMB000993.html">PONCIANO ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001005.html">SPIMB001005</a></td>
+                <td><a href="SPIMB001005.html">CABEZAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001010.html">SPIMB001010</a></td>
+                <td><a href="SPIMB001010.html">DAMIAN CARMONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001022.html">SPIMB001022</a></td>
+                <td><a href="SPIMB001022.html">MOHONERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001034.html">SPIMB001034</a></td>
+                <td><a href="SPIMB001034.html">PUERTO VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001046.html">SPIMB001046</a></td>
+                <td><a href="SPIMB001046.html">SAN NICOLÁS DE LOS MONTES
+                ( EL CHINO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001051.html">SPIMB001051</a></td>
+                <td><a href="SPIMB001051.html">TAMBACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001075.html">SPIMB001075</a></td>
+                <td><a href="SPIMB001075.html">AGUAZARCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001080.html">SPIMB001080</a></td>
+                <td><a href="SPIMB001080.html">CENTRO DE SALUD
+                AXHUMOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001092.html">SPIMB001092</a></td>
+                <td><a href="SPIMB001092.html">CHAPULHUACANITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001104.html">SPIMB001104</a></td>
+                <td><a href="SPIMB001104.html">UNIDAD MÉDICA MÓVIL EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001116.html">SPIMB001116</a></td>
+                <td><a href="SPIMB001116.html">PALICTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001121.html">SPIMB001121</a></td>
+                <td><a href="SPIMB001121.html">PAPATLACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001133.html">SPIMB001133</a></td>
+                <td><a href="SPIMB001133.html">TEPETATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001145.html">SPIMB001145</a></td>
+                <td><a href="SPIMB001145.html">TETITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001150.html">SPIMB001150</a></td>
+                <td><a href="SPIMB001150.html">AMATITLA
+                SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001162.html">SPIMB001162</a></td>
+                <td><a href="SPIMB001162.html">CENTRO DE SALUD
+                TEZAPOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001174.html">SPIMB001174</a></td>
+                <td><a href="SPIMB001174.html">TLALNEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001186.html">SPIMB001186</a></td>
+                <td><a href="SPIMB001186.html">CENTRO DE SALUD
+                ZOQUITIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001191.html">SPIMB001191</a></td>
+                <td><a href="SPIMB001191.html">CACALACAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001203.html">SPIMB001203</a></td>
+                <td><a href="SPIMB001203.html">TEPETZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001215.html">SPIMB001215</a></td>
+                <td><a href="SPIMB001215.html">TAMPACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001220.html">SPIMB001220</a></td>
+                <td><a href="SPIMB001220.html">TOTOMOXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001232.html">SPIMB001232</a></td>
+                <td><a href="SPIMB001232.html">CENTRO DE SALUD
+                TAMPAMOLON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001244.html">SPIMB001244</a></td>
+                <td><a href="SPIMB001244.html">AGUA FRÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001256.html">SPIMB001256</a></td>
+                <td><a href="SPIMB001256.html">COAXINQUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001261.html">SPIMB001261</a></td>
+                <td><a href="SPIMB001261.html">TAMARINDO
+                HUASTECO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001273.html">SPIMB001273</a></td>
+                <td><a href="SPIMB001273.html">EJIDO EL PUENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001285.html">SPIMB001285</a></td>
+                <td><a href="SPIMB001285.html">UNIDAD MÉDICA MÓVIL LA
+                FORTALEZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001290.html">SPIMB001290</a></td>
+                <td><a href="SPIMB001290.html">ESTACIÓN PALMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001302.html">SPIMB001302</a></td>
+                <td><a href="SPIMB001302.html">SANTA ELENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001314.html">SPIMB001314</a></td>
+                <td><a href="SPIMB001314.html">SANTA MARTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001326.html">SPIMB001326</a></td>
+                <td><a href="SPIMB001326.html">HUASTECOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001331.html">SPIMB001331</a></td>
+                <td><a href="SPIMB001331.html">NUEVO TAMPAON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001343.html">SPIMB001343</a></td>
+                <td><a href="SPIMB001343.html">CENTINELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001355.html">SPIMB001355</a></td>
+                <td><a href="SPIMB001355.html">CENTRO DE SALUD
+                TANLAJAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001360.html">SPIMB001360</a></td>
+                <td><a href="SPIMB001360.html">ARGENTINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001372.html">SPIMB001372</a></td>
+                <td><a href="SPIMB001372.html">EL PANDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001384.html">SPIMB001384</a></td>
+                <td><a href="SPIMB001384.html">EL PANDO ( FORTIN
+                MAY)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001396.html">SPIMB001396</a></td>
+                <td><a href="SPIMB001396.html">SAN NICOLÁS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001401.html">SPIMB001401</a></td>
+                <td><a href="SPIMB001401.html">SANTA ROSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001413.html">SPIMB001413</a></td>
+                <td><a href="SPIMB001413.html">NIÑOS HÉROES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001425.html">SPIMB001425</a></td>
+                <td><a href="SPIMB001425.html">CENTRO DE SALUD
+                TANQUIAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001430.html">SPIMB001430</a></td>
+                <td><a href="SPIMB001430.html">UNIDAD MÉDICA MÓVIL LOS
+                CHARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001442.html">SPIMB001442</a></td>
+                <td><a href="SPIMB001442.html">LOS LOBOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001454.html">SPIMB001454</a></td>
+                <td><a href="SPIMB001454.html">UNIDAD MÉDICA MÓVIL
+                BARRÍO DE SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001466.html">SPIMB001466</a></td>
+                <td><a href="SPIMB001466.html">CARAVANA TIPO 1 SALTO
+                COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001471.html">SPIMB001471</a></td>
+                <td><a href="SPIMB001471.html">UNIDAD MÉDICA MÓVIL
+                EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001483.html">SPIMB001483</a></td>
+                <td><a href="SPIMB001483.html">CENTRO DE SALUD SAN
+                FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001500.html">SPIMB001500</a></td>
+                <td><a href="SPIMB001500.html">RANCHO ALEGRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001512.html">SPIMB001512</a></td>
+                <td><a href="SPIMB001512.html">LA DULCITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001524.html">SPIMB001524</a></td>
+                <td><a href="SPIMB001524.html">SALITRAL DE
+                CARRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001536.html">SPIMB001536</a></td>
+                <td><a href="SPIMB001536.html">CENTRO DE SALUD JESÚS
+                MARÍA (EMILIANO ZAPATA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001541.html">SPIMB001541</a></td>
+                <td><a href="SPIMB001541.html">GUADIANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001553.html">SPIMB001553</a></td>
+                <td><a href="SPIMB001553.html">CENTRO DE SALUD LAGUNA DE
+                SAN VICENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001565.html">SPIMB001565</a></td>
+                <td><a href="SPIMB001565.html">CENTRO DE SALUD LA
+                VENTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001570.html">SPIMB001570</a></td>
+                <td><a href="SPIMB001570.html">VILLA HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001582.html">SPIMB001582</a></td>
+                <td><a href="SPIMB001582.html">CARAVANA TIPO 2 SAN
+                LORENZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001606.html">SPIMB001606</a></td>
+                <td><a href="SPIMB001606.html">AHUACATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001611.html">SPIMB001611</a></td>
+                <td><a href="SPIMB001611.html">CENTRO DE SALUD
+                JALPILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001623.html">SPIMB001623</a></td>
+                <td><a href="SPIMB001623.html">CHIMALACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001635.html">SPIMB001635</a></td>
+                <td><a href="SPIMB001635.html">TEMALACACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001640.html">SPIMB001640</a></td>
+                <td><a href="SPIMB001640.html">NUEVO AYOTOXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001652.html">SPIMB001652</a></td>
+                <td><a href="SPIMB001652.html">XILITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001664.html">SPIMB001664</a></td>
+                <td><a href="SPIMB001664.html">EL BALCON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001676.html">SPIMB001676</a></td>
+                <td><a href="SPIMB001676.html">LA HERRADURA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001681.html">SPIMB001681</a></td>
+                <td><a href="SPIMB001681.html">ITZTACAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001693.html">SPIMB001693</a></td>
+                <td><a href="SPIMB001693.html">EL JOBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001705.html">SPIMB001705</a></td>
+                <td><a href="SPIMB001705.html">LA JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001710.html">SPIMB001710</a></td>
+                <td><a href="SPIMB001710.html">PETATILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001722.html">SPIMB001722</a></td>
+                <td><a href="SPIMB001722.html">PLAN DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001734.html">SPIMB001734</a></td>
+                <td><a href="SPIMB001734.html">AMAYO DE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001746.html">SPIMB001746</a></td>
+                <td><a href="SPIMB001746.html">SAN PEDRO
+                HUITZQUILICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001751.html">SPIMB001751</a></td>
+                <td><a href="SPIMB001751.html">SOLEDAD DE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001763.html">SPIMB001763</a></td>
+                <td><a href="SPIMB001763.html">EL RETEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001775.html">SPIMB001775</a></td>
+                <td><a href="SPIMB001775.html">EL JOBO
+                XILOSUCHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001780.html">SPIMB001780</a></td>
+                <td><a href="SPIMB001780.html">LA ESCALERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001792.html">SPIMB001792</a></td>
+                <td><a href="SPIMB001792.html">UNIDAD MÉDICA MÓVIL LA
+                PARADA DEL ZARCIDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001816.html">SPIMB001816</a></td>
+                <td><a href="SPIMB001816.html">EL POZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001821.html">SPIMB001821</a></td>
+                <td><a href="SPIMB001821.html">CENTRO DE SALUD
+                MATLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001833.html">SPIMB001833</a></td>
+                <td><a href="SPIMB001833.html">AGUACATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001845.html">SPIMB001845</a></td>
+                <td><a href="SPIMB001845.html">CENTRO DE SALUD
+                CHALCHOCOYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001850.html">SPIMB001850</a></td>
+                <td><a href="SPIMB001850.html">CUAXILOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001862.html">SPIMB001862</a></td>
+                <td><a href="SPIMB001862.html">AHUEHUEYO PRIMERO
+                CENTRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001874.html">SPIMB001874</a></td>
+                <td><a href="SPIMB001874.html">XOCHITITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001886.html">SPIMB001886</a></td>
+                <td><a href="SPIMB001886.html">COAQUENTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001891.html">SPIMB001891</a></td>
+                <td><a href="SPIMB001891.html">EL NARANJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001903.html">SPIMB001903</a></td>
+                <td><a href="SPIMB001903.html">EL MECO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001915.html">SPIMB001915</a></td>
+                <td><a href="SPIMB001915.html">EL REFUGIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001932.html">SPIMB001932</a></td>
+                <td><a href="SPIMB001932.html">SAN JUAN DE LAS
+                VEGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001944.html">SPIMB001944</a></td>
+                <td><a href="SPIMB001944.html">SAN NICOLÁS DE LOS
+                MONTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001956.html">SPIMB001956</a></td>
+                <td><a href="SPIMB001956.html">CENTRO DE SALUD
+                COAXOCOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001961.html">SPIMB001961</a></td>
+                <td><a href="SPIMB001961.html">UNIDAD MÉDICA MÓVIL
+                PAHUAYO SAN MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001973.html">SPIMB001973</a></td>
+                <td><a href="SPIMB001973.html">TANCOLOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001985.html">SPIMB001985</a></td>
+                <td><a href="SPIMB001985.html">CENTRO DE SALUD SAN
+                NICOLÁS DE LOS JASSOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001990.html">SPIMB001990</a></td>
+                <td><a href="SPIMB001990.html">EL SASUB.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002014.html">SPIMB002014</a></td>
+                <td><a href="SPIMB002014.html">UNIDAD MÉDICA MÓVIL LA
+                CEIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002026.html">SPIMB002026</a></td>
+                <td><a href="SPIMB002026.html">CARAVANA TIPO 2 ESTACIÓN
+                VELAZCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002031.html">SPIMB002031</a></td>
+                <td><a href="SPIMB002031.html">UNIDAD MÉDICA MÓVIL LAS
+                LOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002043.html">SPIMB002043</a></td>
+                <td><a href="SPIMB002043.html">RASCON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002055.html">SPIMB002055</a></td>
+                <td><a href="SPIMB002055.html">CENTRO DE SALUD SANTA
+                MARÍA PICULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002060.html">SPIMB002060</a></td>
+                <td><a href="SPIMB002060.html">CENTRO DE SALUD EL
+                CARRIZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002072.html">SPIMB002072</a></td>
+                <td><a href="SPIMB002072.html">CENTRO DE SALUD IXTLA DE
+                SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002084.html">SPIMB002084</a></td>
+                <td><a href="SPIMB002084.html">RANCHO NUEVO.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002096.html">SPIMB002096</a></td>
+                <td><a href="SPIMB002096.html">CENTRO DE SALUD
+                MARAVILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002101.html">SPIMB002101</a></td>
+                <td><a href="SPIMB002101.html">16 DE SEPTIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002113.html">SPIMB002113</a></td>
+                <td><a href="SPIMB002113.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL (CEREDI)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002130.html">SPIMB002130</a></td>
+                <td><a href="SPIMB002130.html">CENTRO DE SALUD VILLA DE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002142.html">SPIMB002142</a></td>
+                <td><a href="SPIMB002142.html">CENTRO DE SALUD EL
+                BOSQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002154.html">SPIMB002154</a></td>
+                <td><a href="SPIMB002154.html">CENTRO DE SALUD PUENTE
+                DEL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002166.html">SPIMB002166</a></td>
+                <td><a href="SPIMB002166.html">CENTRO DE SALUD
+                ESCALERILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002171.html">SPIMB002171</a></td>
+                <td><a href="SPIMB002171.html">CENTRO DE SALUD VILLA
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002183.html">SPIMB002183</a></td>
+                <td><a href="SPIMB002183.html">CENTRO DE SALUD TIERRA
+                NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002195.html">SPIMB002195</a></td>
+                <td><a href="SPIMB002195.html">CENTRO DE SALUD 6 DE
+                JUNIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002200.html">SPIMB002200</a></td>
+                <td><a href="SPIMB002200.html">CENTRO DE SALUD VILLA DE
+                LA PAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002212.html">SPIMB002212</a></td>
+                <td><a href="SPIMB002212.html">CENTRO DE SALUD VILLA DE
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002224.html">SPIMB002224</a></td>
+                <td><a href="SPIMB002224.html">CENTRO DE SALUD
+                TAMUÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002236.html">SPIMB002236</a></td>
+                <td><a href="SPIMB002236.html">CENTRO DE SALUD
+                TAMASOPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002241.html">SPIMB002241</a></td>
+                <td><a href="SPIMB002241.html">CENTRO DE SALUD
+                DORACELI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002253.html">SPIMB002253</a></td>
+                <td><a href="SPIMB002253.html">CENTRO DE SALUD
+                ROTARIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002265.html">SPIMB002265</a></td>
+                <td><a href="SPIMB002265.html">CENTRO DE SALUD SANTO
+                DOMINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002270.html">SPIMB002270</a></td>
+                <td><a href="SPIMB002270.html">CENTRO DE SALUD SAN CIRO
+                DE ACOSTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002282.html">SPIMB002282</a></td>
+                <td><a href="SPIMB002282.html">CENTRO DE SALUD
+                VENADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002306.html">SPIMB002306</a></td>
+                <td><a href="SPIMB002306.html">CENTRO DE SALUD SAN
+                NICOLÁS TOLENTINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002311.html">SPIMB002311</a></td>
+                <td><a href="SPIMB002311.html">CENTRO DE SALUD
+                GUADALCÁZAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002323.html">SPIMB002323</a></td>
+                <td><a href="SPIMB002323.html">CENTRO DE SALUD
+                VANEGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002335.html">SPIMB002335</a></td>
+                <td><a href="SPIMB002335.html">CENTRO DE SALUD
+                RAYON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002340.html">SPIMB002340</a></td>
+                <td><a href="SPIMB002340.html">CENTRO DE SALUD FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002352.html">SPIMB002352</a></td>
+                <td><a href="SPIMB002352.html">CENTRO DE SALUD VILLA DE
+                ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002364.html">SPIMB002364</a></td>
+                <td><a href="SPIMB002364.html">CENTRO DE SALUD
+                CEDRAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002376.html">SPIMB002376</a></td>
+                <td><a href="SPIMB002376.html">CENTRO DE SALUD REAL DE
+                CATORCE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002381.html">SPIMB002381</a></td>
+                <td><a href="SPIMB002381.html">CENTRO DE SALUD
+                MOCTEZUMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002393.html">SPIMB002393</a></td>
+                <td><a href="SPIMB002393.html">CENTRO DE SALUD
+                CHARCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002405.html">SPIMB002405</a></td>
+                <td><a href="SPIMB002405.html">CENTRO DE SALUD ARMADILLO
+                DE LOS INFANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002410.html">SPIMB002410</a></td>
+                <td><a href="SPIMB002410.html">CENTRO DE SALUD
+                MEXQUITIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002422.html">SPIMB002422</a></td>
+                <td><a href="SPIMB002422.html">CENTRO DE SALUD EL
+                BARRIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002434.html">SPIMB002434</a></td>
+                <td><a href="SPIMB002434.html">CENTRO DE SALUD
+                AHUALULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002446.html">SPIMB002446</a></td>
+                <td><a href="SPIMB002446.html">CENTRO DE SALUD VILLA DE
+                REYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002451.html">SPIMB002451</a></td>
+                <td><a href="SPIMB002451.html">CENTRO DE SALUD
+                CERRITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002463.html">SPIMB002463</a></td>
+                <td><a href="SPIMB002463.html">CENTRO DE SALUD VILLA DE
+                RAMOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002475.html">SPIMB002475</a></td>
+                <td><a href="SPIMB002475.html">CENTRO DE SALUD 21 DE
+                MARZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002480.html">SPIMB002480</a></td>
+                <td><a href="SPIMB002480.html">CENTRO DE SALUD
+                CARDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002492.html">SPIMB002492</a></td>
+                <td><a href="SPIMB002492.html">CENTRO DE SALUD
+                VISTAHERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002504.html">SPIMB002504</a></td>
+                <td><a href="SPIMB002504.html">CENTRO DE SALUD
+                REPUBLICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002516.html">SPIMB002516</a></td>
+                <td><a href="SPIMB002516.html">CENTRO DE SALUD
+                HUEHUETLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002521.html">SPIMB002521</a></td>
+                <td><a href="SPIMB002521.html">CENTRO DE SALUD SIMÓN
+                DÍAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002533.html">SPIMB002533</a></td>
+                <td><a href="SPIMB002533.html">CENTRO DE SALUD BOSQUES
+                DE JACARANDAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002545.html">SPIMB002545</a></td>
+                <td><a href="SPIMB002545.html">CENTRO DE SALUD SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002550.html">SPIMB002550</a></td>
+                <td><a href="SPIMB002550.html">CENTRO DE SALUD VILLA DE
+                POZOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002562.html">SPIMB002562</a></td>
+                <td><a href="SPIMB002562.html">CENTRO DE SALUD
+                TERCERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002603.html">SPIMB002603</a></td>
+                <td><a href="SPIMB002603.html">UNIDAD MEDICA MOVIL LA
+                CALDERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002632.html">SPIMB002632</a></td>
+                <td><a href="SPIMB002632.html">UNIDAD MÉDICA MOVIL
+                GUAXCUACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002656.html">SPIMB002656</a></td>
+                <td><a href="SPIMB002656.html">CENTRO DE SALUD AXTLA DE
+                TERRAZAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002661.html">SPIMB002661</a></td>
+                <td><a href="SPIMB002661.html">CENTRO DE SALUD JARDINES
+                DE MARIA CECILIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002673.html">SPIMB002673</a></td>
+                <td><a href="SPIMB002673.html">UNIDAD MEDICA MÓVIL
+                TLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002685.html">SPIMB002685</a></td>
+                <td><a href="SPIMB002685.html">CENTRO DE SALUD SAN
+                MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002690.html">SPIMB002690</a></td>
+                <td><a href="SPIMB002690.html">CENTRO DE SALUD DE SAN
+                MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002702.html">SPIMB002702</a></td>
+                <td><a href="SPIMB002702.html">UNIDAD MÉDICA MOVIL
+                TEXOJOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002714.html">SPIMB002714</a></td>
+                <td><a href="SPIMB002714.html">CENTRO DE SALUD
+                PORTEZUELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002726.html">SPIMB002726</a></td>
+                <td><a href="SPIMB002726.html">CENTRO DE SALUD COLONIA
+                GAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002731.html">SPIMB002731</a></td>
+                <td><a href="SPIMB002731.html">CENTRO DE SALUD LOS
+                MAGUEYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002743.html">SPIMB002743</a></td>
+                <td><a href="SPIMB002743.html">SABINITO DE
+                ARRIBA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002755.html">SPIMB002755</a></td>
+                <td><a href="SPIMB002755.html">EL JABALI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002760.html">SPIMB002760</a></td>
+                <td><a href="SPIMB002760.html">SAN RAFAEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002772.html">SPIMB002772</a></td>
+                <td><a href="SPIMB002772.html">CEBADILLA, LA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002784.html">SPIMB002784</a></td>
+                <td><a href="SPIMB002784.html">NUEVO CUAYTZEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002825.html">SPIMB002825</a></td>
+                <td><a href="SPIMB002825.html">C.S. RURAL
+                PEMUCHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002830.html">SPIMB002830</a></td>
+                <td><a href="SPIMB002830.html">C.S. URBANO
+                ANÁHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002842.html">SPIMB002842</a></td>
+                <td><a href="SPIMB002842.html">UMF SOLEDAD DE GRACIANO
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002854.html">SPIMB002854</a></td>
+                <td><a href="SPIMB002854.html">CHARCO DE LOBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002866.html">SPIMB002866</a></td>
+                <td><a href="SPIMB002866.html">CISAME SAN LUIS
+                POTOSÍ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002871.html">SPIMB002871</a></td>
+                <td><a href="SPIMB002871.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN LUIS POTOSÍ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002883.html">SPIMB002883</a></td>
+                <td><a href="SPIMB002883.html">SORID SAN LUIS
+                POTOSÍ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002895.html">SPIMB002895</a></td>
+                <td><a href="SPIMB002895.html">CISAME VALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002900.html">SPIMB002900</a></td>
+                <td><a href="SPIMB002900.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CIUDAD VALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002912.html">SPIMB002912</a></td>
+                <td><a href="SPIMB002912.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SOLEDAD DE GRACIANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002924.html">SPIMB002924</a></td>
+                <td><a href="SPIMB002924.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MATEHUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002936.html">SPIMB002936</a></td>
+                <td><a href="SPIMB002936.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES RIOVERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002941.html">SPIMB002941</a></td>
+                <td><a href="SPIMB002941.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TAMAZUNCHALE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002953.html">SPIMB002953</a></td>
+                <td><a href="SPIMB002953.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SALINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002982.html">SPIMB002982</a></td>
+                <td><a href="SPIMB002982.html">LA MODERNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002994.html">SPIMB002994</a></td>
+                <td><a href="SPIMB002994.html">CENTRO DE SALUD CERRO
+                GORDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003006.html">SPIMB003006</a></td>
+                <td><a href="SPIMB003006.html">TAMAZUNCHALE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003011.html">SPIMB003011</a></td>
+                <td><a href="SPIMB003011.html">SAN CRISTOBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003023.html">SPIMB003023</a></td>
+                <td><a href="SPIMB003023.html">SORID VILLA DE
+                POZOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003035.html">SPIMB003035</a></td>
+                <td><a href="SPIMB003035.html">SORID SOLEDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003040.html">SPIMB003040</a></td>
+                <td><a href="SPIMB003040.html">SORID MATEHUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003052.html">SPIMB003052</a></td>
+                <td><a href="SPIMB003052.html">SORID SANTA MARÍA DEL
+                RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003064.html">SPIMB003064</a></td>
+                <td><a href="SPIMB003064.html">SORID RÍOVERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003076.html">SPIMB003076</a></td>
+                <td><a href="SPIMB003076.html">SORID CIUDAD
+                VALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003081.html">SPIMB003081</a></td>
+                <td><a href="SPIMB003081.html">SORID
+                TAMAZUNCHALE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003093.html">SPIMB003093</a></td>
+                <td><a href="SPIMB003093.html">CARAVANA TIPO 3
+                SAUCILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003105.html">SPIMB003105</a></td>
+                <td><a href="SPIMB003105.html">HUICHIHUAYAN
+                SALUD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003110.html">SPIMB003110</a></td>
+                <td><a href="SPIMB003110.html">CARAVANA TIPO 3
+                MOCTEZUMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003134.html">SPIMB003134</a></td>
+                <td><a href="SPIMB003134.html">CENTRO DE SALUD LA
+                PÓLVORA ( EL HUIZACHE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB003146.html">SPIMB003146</a></td>
+                <td><a href="SPIMB003146.html">CENTRO DE SALUD VILLA
+                CACTUS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB000474.html">SPIMB000474</a></td>
+                <td><a href="SPIMB000474.html">SANTO DOMINGO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB000684.html">SPIMB000684</a></td>
+                <td><a href="SPIMB000684.html">CARAVANA TIPO 1 SAN
+                LUIS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB001495.html">SPIMB001495</a></td>
+                <td><a href="SPIMB001495.html">MAGDALENAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB001594.html">SPIMB001594</a></td>
+                <td><a href="SPIMB001594.html">VEINTE DE
+                NOVIEMBRE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002002.html">SPIMB002002</a></td>
+                <td><a href="SPIMB002002.html">UNIDAD MÉDICA MÓVIL
+                ANTIGUO TAMUÍN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002615.html">SPIMB002615</a></td>
+                <td><a href="SPIMB002615.html">EQUIPO DE SALUD
+                ITINERANTE (BRIGADA MEDICA MOVIL -MONTEBELLO)</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB002620.html">SPIMB002620</a></td>
+                <td><a href="SPIMB002620.html">EQUIPO DE SALUD
+                ITINERANTE (BRIGADA MEDICA MOVIL -CHACUALA)</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SPIMB002644.html">SPIMB002644</a></td>
+                <td><a href="SPIMB002644.html">UNIDAD MEDICA MOVIL SAN
+                JOSE TLAJUMPAL</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SPIMB003122.html">SPIMB003122</a></td>
+                <td><a href="SPIMB003122.html">UNIDAD DE
+                MASTOGRAFÍA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="figures/mapa_entidad/primer_nivel_san_luis_potosi.png"
+                id="fig:mapa-primer_nivel-san_luis_potosi"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
