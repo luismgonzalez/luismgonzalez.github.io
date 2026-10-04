@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#ciudad-de-méxico">CIUDAD
+                                                        DE
+                                                        MÉXICO</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="ciudad-de-méxico">CIUDAD DE MÉXICO</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="DFIMB000043.html">DFIMB000043</a></td>
+                <td><a href="DFIMB000043.html">C.S.T-I PROHOGAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000055.html">DFIMB000055</a></td>
+                <td><a href="DFIMB000055.html">C.S.T-I SAN MIGUEL
+                AMANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000060.html">DFIMB000060</a></td>
+                <td><a href="DFIMB000060.html">C.S.T-I SAN PEDRO
+                XALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000072.html">DFIMB000072</a></td>
+                <td><a href="DFIMB000072.html">C.S.T-I SANTA
+                CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000084.html">DFIMB000084</a></td>
+                <td><a href="DFIMB000084.html">C.S.T-I SANTA
+                INÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000096.html">DFIMB000096</a></td>
+                <td><a href="DFIMB000096.html">C.S.T-I TLATILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000101.html">DFIMB000101</a></td>
+                <td><a href="DFIMB000101.html">C.S.T-I REYNOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000113.html">DFIMB000113</a></td>
+                <td><a href="DFIMB000113.html">C.S.T-I SANTA
+                BÁRBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000125.html">DFIMB000125</a></td>
+                <td><a href="DFIMB000125.html">C.S.T-I 23 DE
+                ABRIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000130.html">DFIMB000130</a></td>
+                <td><a href="DFIMB000130.html">C.S.T-II
+                TEZOZOMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000142.html">DFIMB000142</a></td>
+                <td><a href="DFIMB000142.html">C.S.T-III DR. MANUEL
+                MARTÍNEZ BAEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000154.html">DFIMB000154</a></td>
+                <td><a href="DFIMB000154.html">C.S.T-II EL
+                ARENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000166.html">DFIMB000166</a></td>
+                <td><a href="DFIMB000166.html">C.S.T-III SANTIAGO
+                AHUIZOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000171.html">DFIMB000171</a></td>
+                <td><a href="DFIMB000171.html">C.S.T-III DR. GALO
+                SOBERÓN Y PARRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000195.html">DFIMB000195</a></td>
+                <td><a href="DFIMB000195.html">C.S.T-I EJIDOS DE SANTA
+                URSULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000200.html">DFIMB000200</a></td>
+                <td><a href="DFIMB000200.html">C.S.T-I COPILCO EL
+                ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000212.html">DFIMB000212</a></td>
+                <td><a href="DFIMB000212.html">C.S.T-I SANTO DOMINGO
+                PONIENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000224.html">DFIMB000224</a></td>
+                <td><a href="DFIMB000224.html">C.S.T-I LA
+                CIÉNEGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000236.html">DFIMB000236</a></td>
+                <td><a href="DFIMB000236.html">C.S.T-I SANTO DOMINGO
+                ORIENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000241.html">DFIMB000241</a></td>
+                <td><a href="DFIMB000241.html">C.S.T-II AJUSCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000253.html">DFIMB000253</a></td>
+                <td><a href="DFIMB000253.html">C.S.T-II SANTA ÚRSULA
+                COAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000265.html">DFIMB000265</a></td>
+                <td><a href="DFIMB000265.html">C.S.T-II
+                NAYARITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000270.html">DFIMB000270</a></td>
+                <td><a href="DFIMB000270.html">C.S.T-III DR. GUSTAVO A.
+                ROVIROSA PÉREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000282.html">DFIMB000282</a></td>
+                <td><a href="DFIMB000282.html">C.S.T-III DRA. MARGARITA
+                CHORNE Y SALAZAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000294.html">DFIMB000294</a></td>
+                <td><a href="DFIMB000294.html">C.S.T-III SAN FRANCISCO
+                CULHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000306.html">DFIMB000306</a></td>
+                <td><a href="DFIMB000306.html">C.S.T-III CARMEN
+                SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000311.html">DFIMB000311</a></td>
+                <td><a href="DFIMB000311.html">C.S.T-I ROSA
+                TORRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000323.html">DFIMB000323</a></td>
+                <td><a href="DFIMB000323.html">C.S.T-I MEMETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000335.html">DFIMB000335</a></td>
+                <td><a href="DFIMB000335.html">C.S.T-I PALO
+                ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000340.html">DFIMB000340</a></td>
+                <td><a href="DFIMB000340.html">C.S.T-I CHIMALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000352.html">DFIMB000352</a></td>
+                <td><a href="DFIMB000352.html">C.S.T-II
+                ACOPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000364.html">DFIMB000364</a></td>
+                <td><a href="DFIMB000364.html">C.S.T-I SAN
+                MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000376.html">DFIMB000376</a></td>
+                <td><a href="DFIMB000376.html">C.S.T-I EL
+                CHAMIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000381.html">DFIMB000381</a></td>
+                <td><a href="DFIMB000381.html">C.S.T-I JARDINES DE LA
+                PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000393.html">DFIMB000393</a></td>
+                <td><a href="DFIMB000393.html">CENTRO DE SALUD T-III LA
+                NAVIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000405.html">DFIMB000405</a></td>
+                <td><a href="DFIMB000405.html">C.S.T-III
+                CUAJIMALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000463.html">DFIMB000463</a></td>
+                <td><a href="DFIMB000463.html">C.S.T-I SAN JUAN DE
+                ARAGÓN 6TA. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000475.html">DFIMB000475</a></td>
+                <td><a href="DFIMB000475.html">C.S.T-I ARBOLEDAS DE
+                CUAUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000480.html">DFIMB000480</a></td>
+                <td><a href="DFIMB000480.html">C.S.T-I CABO BUENA
+                ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000492.html">DFIMB000492</a></td>
+                <td><a href="DFIMB000492.html">C.S.T-I GERTRUDIS
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000504.html">DFIMB000504</a></td>
+                <td><a href="DFIMB000504.html">C.S.T-I SAN JUAN DE
+                ARAGÓN 1A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000516.html">DFIMB000516</a></td>
+                <td><a href="DFIMB000516.html">C.S.T-I LOMAS DE
+                CUAUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000521.html">DFIMB000521</a></td>
+                <td><a href="DFIMB000521.html">C.S.T-II NARCISO
+                BASSOLS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000533.html">DFIMB000533</a></td>
+                <td><a href="DFIMB000533.html">C.S.T-I
+                COCOYOTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000545.html">DFIMB000545</a></td>
+                <td><a href="DFIMB000545.html">C.S.T-I FELIPE
+                BERRIOZÁBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000550.html">DFIMB000550</a></td>
+                <td><a href="DFIMB000550.html">C.S.T-I MALACATES
+                PONDEROSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000562.html">DFIMB000562</a></td>
+                <td><a href="DFIMB000562.html">C.S.T-I NUEVA
+                ATZACOALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000574.html">DFIMB000574</a></td>
+                <td><a href="DFIMB000574.html">C.S.T-I
+                TLALPEXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000586.html">DFIMB000586</a></td>
+                <td><a href="DFIMB000586.html">C.S.T-I BARRÍO SAN JUAN
+                TICOMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000591.html">DFIMB000591</a></td>
+                <td><a href="DFIMB000591.html">C.S.T-I
+                PROVIDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000603.html">DFIMB000603</a></td>
+                <td><a href="DFIMB000603.html">C.S.T-II LA
+                MALINCHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000615.html">DFIMB000615</a></td>
+                <td><a href="DFIMB000615.html">C.S.T-I CASTILLO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000620.html">DFIMB000620</a></td>
+                <td><a href="DFIMB000620.html">C.S.T-I COMPOSITORES
+                MEXICANOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000632.html">DFIMB000632</a></td>
+                <td><a href="DFIMB000632.html">C.S.T-I DIANA LAURA
+                RÍOJAS DE COLOSIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000644.html">DFIMB000644</a></td>
+                <td><a href="DFIMB000644.html">C.S.T-II GERTRUDIS
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000656.html">DFIMB000656</a></td>
+                <td><a href="DFIMB000656.html">C.S.T-II PRADERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000661.html">DFIMB000661</a></td>
+                <td><a href="DFIMB000661.html">C.S.T-II 25 DE
+                JULIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000673.html">DFIMB000673</a></td>
+                <td><a href="DFIMB000673.html">C.S.T-I LA
+                PASTORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000685.html">DFIMB000685</a></td>
+                <td><a href="DFIMB000685.html">C.S.T-II GABRIEL
+                HERNÁNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000690.html">DFIMB000690</a></td>
+                <td><a href="DFIMB000690.html">C.S.T-III DR. GABRIEL
+                GARZÓN COSSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000702.html">DFIMB000702</a></td>
+                <td><a href="DFIMB000702.html">C.S.T-III DR. MANUEL
+                CÁRDENAS DE LA VEGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000714.html">DFIMB000714</a></td>
+                <td><a href="DFIMB000714.html">C.S.T-III DR. RAFAEL
+                RAMÍREZ SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000726.html">DFIMB000726</a></td>
+                <td><a href="DFIMB000726.html">C.S.T-III NUEVA
+                ATZACOALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000731.html">DFIMB000731</a></td>
+                <td><a href="DFIMB000731.html">C.S.T-III
+                PALMATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000743.html">DFIMB000743</a></td>
+                <td><a href="DFIMB000743.html">C.S.T-II LA
+                ESMERALDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000755.html">DFIMB000755</a></td>
+                <td><a href="DFIMB000755.html">C.S.T-II VALLE
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000772.html">DFIMB000772</a></td>
+                <td><a href="DFIMB000772.html">C.S.T-III DR. LUIS
+                MAZZOTTI GALINDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000784.html">DFIMB000784</a></td>
+                <td><a href="DFIMB000784.html">C.S.T-II RAMOS
+                MILLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000796.html">DFIMB000796</a></td>
+                <td><a href="DFIMB000796.html">C.S.T-III DR. MANUEL
+                PESQUEIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000801.html">DFIMB000801</a></td>
+                <td><a href="DFIMB000801.html">C.S.T-III 2 DE
+                OCTUBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000813.html">DFIMB000813</a></td>
+                <td><a href="DFIMB000813.html">C.S.T-III DR. JOSÉ
+                ZOZAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000854.html">DFIMB000854</a></td>
+                <td><a href="DFIMB000854.html">C.S.T-I MARGARITA MAZA DE
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000871.html">DFIMB000871</a></td>
+                <td><a href="DFIMB000871.html">C.S.T-I SAN JOSÉ
+                ACULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000883.html">DFIMB000883</a></td>
+                <td><a href="DFIMB000883.html">C.S.T-I APATLACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000895.html">DFIMB000895</a></td>
+                <td><a href="DFIMB000895.html">C.S.T-I FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000900.html">DFIMB000900</a></td>
+                <td><a href="DFIMB000900.html">C.S.T-I SAN ANDRÉS
+                XICOTENCATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000912.html">DFIMB000912</a></td>
+                <td><a href="DFIMB000912.html">C.S.T-I CAMPESTRE
+                POTRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000924.html">DFIMB000924</a></td>
+                <td><a href="DFIMB000924.html">C.S.T-I
+                RENOVACIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000936.html">DFIMB000936</a></td>
+                <td><a href="DFIMB000936.html">C.S.T-I SANTA CRUZ
+                MEYEHUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000941.html">DFIMB000941</a></td>
+                <td><a href="DFIMB000941.html">C.S.T-I LAS
+                PEÑAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000953.html">DFIMB000953</a></td>
+                <td><a href="DFIMB000953.html">C.S.T-I XALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000965.html">DFIMB000965</a></td>
+                <td><a href="DFIMB000965.html">C.S.T-II EJIDO LOS
+                REYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000970.html">DFIMB000970</a></td>
+                <td><a href="DFIMB000970.html">C.S.T-III DR. GUILLERMO
+                ROMAN Y CARRILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB000982.html">DFIMB000982</a></td>
+                <td><a href="DFIMB000982.html">C.S.T-III DR. RAFAEL
+                CARRILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000994.html">DFIMB000994</a></td>
+                <td><a href="DFIMB000994.html">C.S.T-III DR. FRANCISCO
+                J. BALMIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001006.html">DFIMB001006</a></td>
+                <td><a href="DFIMB001006.html">C.S.T-III CHINAMPAC DE
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001011.html">DFIMB001011</a></td>
+                <td><a href="DFIMB001011.html">C.S.T-III
+                QUETZALCOATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001023.html">DFIMB001023</a></td>
+                <td><a href="DFIMB001023.html">C.S.T-III SAN ANDRÉS
+                TOMATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001035.html">DFIMB001035</a></td>
+                <td><a href="DFIMB001035.html">C.S.T-II SAN MIGUEL
+                TEOTONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001040.html">DFIMB001040</a></td>
+                <td><a href="DFIMB001040.html">C.S. T-III SANTA MARÍA
+                AZTAHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001052.html">DFIMB001052</a></td>
+                <td><a href="DFIMB001052.html">C.S. T-III SANTIAGO
+                ACAHUALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001076.html">DFIMB001076</a></td>
+                <td><a href="DFIMB001076.html">C.S.T-I TIERRA
+                COLORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001081.html">DFIMB001081</a></td>
+                <td><a href="DFIMB001081.html">C.S.T-I HÉROES DE
+                PADIERNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001093.html">DFIMB001093</a></td>
+                <td><a href="DFIMB001093.html">C.S.T-I AMPLIACIÓN LOMAS
+                DE SAN BERNABÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001105.html">DFIMB001105</a></td>
+                <td><a href="DFIMB001105.html">C.S.T-I EXHACIENDA DE
+                ESLAVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001110.html">DFIMB001110</a></td>
+                <td><a href="DFIMB001110.html">C.S.T-I 1RO. DE
+                MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001122.html">DFIMB001122</a></td>
+                <td><a href="DFIMB001122.html">C.S.T-I SAN NICOLÁS
+                TOTOLAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001134.html">DFIMB001134</a></td>
+                <td><a href="DFIMB001134.html">C.S.T-II SAN BARTOLO
+                AMEYALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001146.html">DFIMB001146</a></td>
+                <td><a href="DFIMB001146.html">C.S.T-III DR. ÁNGEL DE LA
+                GARZA BRITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001163.html">DFIMB001163</a></td>
+                <td><a href="DFIMB001163.html">C.S.T-I SAN JUAN
+                TEPENAHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001175.html">DFIMB001175</a></td>
+                <td><a href="DFIMB001175.html">C.S.T-I SAN JERÓNIMO
+                MIACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001180.html">DFIMB001180</a></td>
+                <td><a href="DFIMB001180.html">C.S.T-I SAN BARTOLOMÉ
+                XICOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001192.html">DFIMB001192</a></td>
+                <td><a href="DFIMB001192.html">C.S.T-I SAN FRANCISCO
+                TECOXPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001204.html">DFIMB001204</a></td>
+                <td><a href="DFIMB001204.html">C.S.T-I SAN LORENZO
+                TLACOYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001216.html">DFIMB001216</a></td>
+                <td><a href="DFIMB001216.html">C.S.T-III SAN PABLO
+                OZTOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001221.html">DFIMB001221</a></td>
+                <td><a href="DFIMB001221.html">C.S.T-II DR. LUIS A.
+                EROSA LEÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001233.html">DFIMB001233</a></td>
+                <td><a href="DFIMB001233.html">C.S.T-II SANTA ANA
+                TLACOTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001245.html">DFIMB001245</a></td>
+                <td><a href="DFIMB001245.html">C.S.T-II SAN SALVADOR
+                CUAUHTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001250.html">DFIMB001250</a></td>
+                <td><a href="DFIMB001250.html">C.S.T-III DR GASTÓN
+                MELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001262.html">DFIMB001262</a></td>
+                <td><a href="DFIMB001262.html">C.S.T-I TETELPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001274.html">DFIMB001274</a></td>
+                <td><a href="DFIMB001274.html">C.S.T-II LA
+                CASCADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001286.html">DFIMB001286</a></td>
+                <td><a href="DFIMB001286.html">C.S.T-I HERÓN
+                PROAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001291.html">DFIMB001291</a></td>
+                <td><a href="DFIMB001291.html">C.S.T-I AVE REAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001303.html">DFIMB001303</a></td>
+                <td><a href="DFIMB001303.html">C.S.T-I TARANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001315.html">DFIMB001315</a></td>
+                <td><a href="DFIMB001315.html">C.S.T-I PUENTE
+                COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001320.html">DFIMB001320</a></td>
+                <td><a href="DFIMB001320.html">C.S.T-III DR. IGNACIO
+                MORONES PRIETO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001332.html">DFIMB001332</a></td>
+                <td><a href="DFIMB001332.html">C.S.T-III AMPLIACIÓN
+                PRESIDENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001344.html">DFIMB001344</a></td>
+                <td><a href="DFIMB001344.html">C.S.T-III DR. EDUARDO
+                JENNER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001356.html">DFIMB001356</a></td>
+                <td><a href="DFIMB001356.html">C.S.T-III MINAS DE
+                CRISTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001361.html">DFIMB001361</a></td>
+                <td><a href="DFIMB001361.html">C.S.T-III DR. MANUEL
+                ESCONTRIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001373.html">DFIMB001373</a></td>
+                <td><a href="DFIMB001373.html">C.S.T-III DR. MANUEL B.
+                MÁRQUEZ ESCOBEDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001390.html">DFIMB001390</a></td>
+                <td><a href="DFIMB001390.html">C.S.T-II 13 DE
+                SEPTIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001402.html">DFIMB001402</a></td>
+                <td><a href="DFIMB001402.html">C.S.T-I
+                ZAPOTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001414.html">DFIMB001414</a></td>
+                <td><a href="DFIMB001414.html">CENTRO DE SALUD T-II XUAN
+                ZENTENO CUEVAS SANTA CATARINA YECAHUIZOTL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001426.html">DFIMB001426</a></td>
+                <td><a href="DFIMB001426.html">C.S.T-II AMPLIACIÓN
+                SELENE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001431.html">DFIMB001431</a></td>
+                <td><a href="DFIMB001431.html">CLÍNICA COMUNITARIA
+                MIXQUIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001443.html">DFIMB001443</a></td>
+                <td><a href="DFIMB001443.html">C.S.T-III SAN FRANCISCO
+                TLALTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001455.html">DFIMB001455</a></td>
+                <td><a href="DFIMB001455.html">C.S.T-II SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001460.html">DFIMB001460</a></td>
+                <td><a href="DFIMB001460.html">C.S.T-II SAN JUAN
+                IXTAYOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001472.html">DFIMB001472</a></td>
+                <td><a href="DFIMB001472.html">C.S.T-III MIGUEL
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001484.html">DFIMB001484</a></td>
+                <td><a href="DFIMB001484.html">C.S.T-II
+                ZAPOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001496.html">DFIMB001496</a></td>
+                <td><a href="DFIMB001496.html">C.S.T-II
+                HORTENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001501.html">DFIMB001501</a></td>
+                <td><a href="DFIMB001501.html">C.S.T-I MAGDALENA
+                PETLACALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001513.html">DFIMB001513</a></td>
+                <td><a href="DFIMB001513.html">C.S.T-I PARRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001525.html">DFIMB001525</a></td>
+                <td><a href="DFIMB001525.html">C.S.T-I DIF</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001530.html">DFIMB001530</a></td>
+                <td><a href="DFIMB001530.html">C.S.T-I TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001542.html">DFIMB001542</a></td>
+                <td><a href="DFIMB001542.html">C.S.T-I XITLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001554.html">DFIMB001554</a></td>
+                <td><a href="DFIMB001554.html">C.S.T-I PEDREGAL DE SAN
+                NICOLÁS NORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001566.html">DFIMB001566</a></td>
+                <td><a href="DFIMB001566.html">CENTRO DE SALUD T-I
+                PEDREGAL DE SAN NICOLÁS SUR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001571.html">DFIMB001571</a></td>
+                <td><a href="DFIMB001571.html">C.S.T-I EJIDOS DE
+                HUIPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001583.html">DFIMB001583</a></td>
+                <td><a href="DFIMB001583.html">C.S.T-I BEKAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001595.html">DFIMB001595</a></td>
+                <td><a href="DFIMB001595.html">C.S.T-I BOSQUES DEL
+                PEDREGAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001600.html">DFIMB001600</a></td>
+                <td><a href="DFIMB001600.html">CENTRO DE SALUD T-III
+                LOMAS DE PADIERNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001612.html">DFIMB001612</a></td>
+                <td><a href="DFIMB001612.html">C.S.T-II SAN ANDRÉS
+                TOTOLTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001624.html">DFIMB001624</a></td>
+                <td><a href="DFIMB001624.html">C.S.T-III DR. DAVID
+                FRAGOSO LIZALDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001636.html">DFIMB001636</a></td>
+                <td><a href="DFIMB001636.html">C.S.T-III AMPLIACIÓN
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001641.html">DFIMB001641</a></td>
+                <td><a href="DFIMB001641.html">C.S.T-III DR. GERARDO
+                VARELA MARISCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001653.html">DFIMB001653</a></td>
+                <td><a href="DFIMB001653.html">CENTRO DE SALUD T-II
+                TOPILEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001665.html">DFIMB001665</a></td>
+                <td><a href="DFIMB001665.html">C.S.T-III CULTURA
+                MAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001670.html">DFIMB001670</a></td>
+                <td><a href="DFIMB001670.html">C.S.T-III DR. JOSÉ CASTRO
+                VILLAGRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001682.html">DFIMB001682</a></td>
+                <td><a href="DFIMB001682.html">C.S.T-III PEDREGAL DE LAS
+                ÁGUILAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001711.html">DFIMB001711</a></td>
+                <td><a href="DFIMB001711.html">C.S.T-I SAN FRANCISCO
+                TLANEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001723.html">DFIMB001723</a></td>
+                <td><a href="DFIMB001723.html">C.S.T-I SANTA CECILIA
+                TEPETLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001735.html">DFIMB001735</a></td>
+                <td><a href="DFIMB001735.html">C.S.T-I SAN ANDRÉS
+                AHUAYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001740.html">DFIMB001740</a></td>
+                <td><a href="DFIMB001740.html">C.S.T-I SANTA CRUZ
+                XOCHITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001752.html">DFIMB001752</a></td>
+                <td><a href="DFIMB001752.html">CENTRO DE SALUD T-II SAN
+                LUIS TLAXIALTEMALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001764.html">DFIMB001764</a></td>
+                <td><a href="DFIMB001764.html">C.S.T-II SANTA CRUZ
+                ACALPIXCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001776.html">DFIMB001776</a></td>
+                <td><a href="DFIMB001776.html">C.S.T-III SAN GREGORÍO
+                ATLAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001781.html">DFIMB001781</a></td>
+                <td><a href="DFIMB001781.html">C.S.T-II SANTA MARÍA
+                NATIVITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001793.html">DFIMB001793</a></td>
+                <td><a href="DFIMB001793.html">C.S.T-III
+                XOCHIMILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001805.html">DFIMB001805</a></td>
+                <td><a href="DFIMB001805.html">C.S.T-III
+                TULYEHUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001810.html">DFIMB001810</a></td>
+                <td><a href="DFIMB001810.html">C.S. T-II SAN MATEO
+                XALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001834.html">DFIMB001834</a></td>
+                <td><a href="DFIMB001834.html">C.S.T-I VALENTÍN GÓMEZ
+                FARIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001846.html">DFIMB001846</a></td>
+                <td><a href="DFIMB001846.html">C.S.T-III
+                MIXCOAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001851.html">DFIMB001851</a></td>
+                <td><a href="DFIMB001851.html">C.S.T-III
+                PORTALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001863.html">DFIMB001863</a></td>
+                <td><a href="DFIMB001863.html">CLÍNICA DE ESPECIALIDADES
+                NO. 4</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001875.html">DFIMB001875</a></td>
+                <td><a href="DFIMB001875.html">CLÍNICA DE ESPECIALIDADES
+                NO. 3</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001880.html">DFIMB001880</a></td>
+                <td><a href="DFIMB001880.html">CLÍNICA DE ESPECIALIDADES
+                NO. 6</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001892.html">DFIMB001892</a></td>
+                <td><a href="DFIMB001892.html">CLÍNICA DE ESPECIALIDADES
+                NO. 2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001904.html">DFIMB001904</a></td>
+                <td><a href="DFIMB001904.html">CLÍNICA DE ESPECIALIDADES
+                NO. 5</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001916.html">DFIMB001916</a></td>
+                <td><a href="DFIMB001916.html">CENTRO DERMATOLÓGICO DR.
+                LADISLAO DE LA PASCUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001945.html">DFIMB001945</a></td>
+                <td><a href="DFIMB001945.html">C.S.T-III SOLEDAD OROZCO
+                DE ÁVILA CAMACHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001950.html">DFIMB001950</a></td>
+                <td><a href="DFIMB001950.html">C.S.T-III DR. ATANACIO
+                GARZA RÍOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001962.html">DFIMB001962</a></td>
+                <td><a href="DFIMB001962.html">ESPACIO INTERACTIVO EN
+                SALUD PARA JOVENES IMPULSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001974.html">DFIMB001974</a></td>
+                <td><a href="DFIMB001974.html">C.S.T-III DR. JOSÉ MA.
+                RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB001986.html">DFIMB001986</a></td>
+                <td><a href="DFIMB001986.html">C.S.T-III DR. DOMINGO
+                ORVAÑANOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB001991.html">DFIMB001991</a></td>
+                <td><a href="DFIMB001991.html">C.S.T-III DR. MANUEL
+                DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002032.html">DFIMB002032</a></td>
+                <td><a href="DFIMB002032.html">C.S.T-III MANUEL GONZÁLEZ
+                RIVERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002044.html">DFIMB002044</a></td>
+                <td><a href="DFIMB002044.html">C.S.T-II DR. MANUEL
+                GUTIÉRREZ ZAVALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002056.html">DFIMB002056</a></td>
+                <td><a href="DFIMB002056.html">C.S.T-III LAGO
+                CARDIEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002061.html">DFIMB002061</a></td>
+                <td><a href="DFIMB002061.html">C.S.T-III
+                MÉXICO-ESPAÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002073.html">DFIMB002073</a></td>
+                <td><a href="DFIMB002073.html">C.S.T-III DR. ÁNGEL
+                BRÍOSO VASCONCELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002126.html">DFIMB002126</a></td>
+                <td><a href="DFIMB002126.html">C.S.T-I AMPLIACIÓN
+                CARACOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002131.html">DFIMB002131</a></td>
+                <td><a href="DFIMB002131.html">C.S.T-I CUATRO
+                ARBOLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002143.html">DFIMB002143</a></td>
+                <td><a href="DFIMB002143.html">C.S.T-I
+                RENOVACIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002155.html">DFIMB002155</a></td>
+                <td><a href="DFIMB002155.html">C.S.T-I
+                REVOLUCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002160.html">DFIMB002160</a></td>
+                <td><a href="DFIMB002160.html">C.S.T-II
+                IXNAHUALTONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002172.html">DFIMB002172</a></td>
+                <td><a href="DFIMB002172.html">CENTRO DE SALUD T-III
+                ROMERO RUBIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002184.html">DFIMB002184</a></td>
+                <td><a href="DFIMB002184.html">C.S.T-III ARENAL 4TA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002196.html">DFIMB002196</a></td>
+                <td><a href="DFIMB002196.html">C.S.T-II PEÑON DE LOS
+                BAÑOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002201.html">DFIMB002201</a></td>
+                <td><a href="DFIMB002201.html">C.S.T-II CUCHILLA
+                PANTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002213.html">DFIMB002213</a></td>
+                <td><a href="DFIMB002213.html">C.S.T-II JOSÉ MARÍA
+                MORELOS Y PAVÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002225.html">DFIMB002225</a></td>
+                <td><a href="DFIMB002225.html">C.S.T-III DR. JUAN DUQUE
+                DE ESTRADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002230.html">DFIMB002230</a></td>
+                <td><a href="DFIMB002230.html">C.S.T-III DR. LUIS E.
+                RUÍZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002242.html">DFIMB002242</a></td>
+                <td><a href="DFIMB002242.html">C.S.T-III BEATRIZ VELASCO
+                DE ALEMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002254.html">DFIMB002254</a></td>
+                <td><a href="DFIMB002254.html">CENTRO DE SALUD T-III
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002271.html">DFIMB002271</a></td>
+                <td><a href="DFIMB002271.html">CLÍNICA COMUNITARIA SANTA
+                CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002295.html">DFIMB002295</a></td>
+                <td><a href="DFIMB002295.html">CENTRO DE SALUD T-III DR.
+                SALVADOR ALLENDE CON CLÍNICA DE ESPECIALIDADES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002300.html">DFIMB002300</a></td>
+                <td><a href="DFIMB002300.html">CLÍNICA ESPECIALIZADA EN
+                EL MANEJO DE LA DIABETES EN LA CIUDAD DE MÉXICO
+                (UNEME-EC)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002312.html">DFIMB002312</a></td>
+                <td><a href="DFIMB002312.html">CENTRO DE SALUD T-III
+                JALALPA EL GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002370.html">DFIMB002370</a></td>
+                <td><a href="DFIMB002370.html">CLÍNICA INTEGRAL DE LA
+                MUJER “HERMILA GALINDO”</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002382.html">DFIMB002382</a></td>
+                <td><a href="DFIMB002382.html">CENTRO DE SALUD T-III
+                VILLA MILPA ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002394.html">DFIMB002394</a></td>
+                <td><a href="DFIMB002394.html">CENTRO DE SALUD T-I
+                GABRIELA MISTRAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002406.html">DFIMB002406</a></td>
+                <td><a href="DFIMB002406.html">CENTRO DE SALUD T-II
+                QUIAHUATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002411.html">DFIMB002411</a></td>
+                <td><a href="DFIMB002411.html">CENTRO ESPECIALIZADO EN
+                MEDICINA INTEGRATIVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002423.html">DFIMB002423</a></td>
+                <td><a href="DFIMB002423.html">CENTRO DE SALUD T-II DEL
+                MAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002440.html">DFIMB002440</a></td>
+                <td><a href="DFIMB002440.html">CENTRO DE SALUD T-II
+                TENORIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002452.html">DFIMB002452</a></td>
+                <td><a href="DFIMB002452.html">CENTRO DE SALUD T III
+                LOMAS DE LA ERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002464.html">DFIMB002464</a></td>
+                <td><a href="DFIMB002464.html">CENTRO DE SALUD T-II
+                SANTA ROSA XOCHIAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002476.html">DFIMB002476</a></td>
+                <td><a href="DFIMB002476.html">CENTRO DE SALUD T I
+                CORPUS CHRISTY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002481.html">DFIMB002481</a></td>
+                <td><a href="DFIMB002481.html">CENTRO DE SALUD T-I PEÑÓN
+                VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002493.html">DFIMB002493</a></td>
+                <td><a href="DFIMB002493.html">C.S. T-I AMPLIACIÓN
+                TEPEPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002505.html">DFIMB002505</a></td>
+                <td><a href="DFIMB002505.html">C.S.T-I HONORATO
+                LEAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002510.html">DFIMB002510</a></td>
+                <td><a href="DFIMB002510.html">C.S. T-II ERMITA
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002522.html">DFIMB002522</a></td>
+                <td><a href="DFIMB002522.html">CENTRO DE SALUD TII EL
+                PIRU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002534.html">DFIMB002534</a></td>
+                <td><a href="DFIMB002534.html">CENTRO DE SALUD T-I
+                ZÓCALO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002580.html">DFIMB002580</a></td>
+                <td><a href="DFIMB002580.html">C.S.T-III OASIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002592.html">DFIMB002592</a></td>
+                <td><a href="DFIMB002592.html">UNIDAD MÉDICA MÓVIL
+                1</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002604.html">DFIMB002604</a></td>
+                <td><a href="DFIMB002604.html">UNIDAD MÉDICA MÓVIL
+                2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002616.html">DFIMB002616</a></td>
+                <td><a href="DFIMB002616.html">UNIDAD MÉDICA MÓVIL
+                3</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002621.html">DFIMB002621</a></td>
+                <td><a href="DFIMB002621.html">UNIDAD MÉDICA MÓVIL
+                4</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002633.html">DFIMB002633</a></td>
+                <td><a href="DFIMB002633.html">UNIDAD MÉDICA MÓVIL
+                5</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002645.html">DFIMB002645</a></td>
+                <td><a href="DFIMB002645.html">UNIDAD MÉDICA MÓVIL
+                6</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002686.html">DFIMB002686</a></td>
+                <td><a href="DFIMB002686.html">CARAVANA
+                TOPILEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002691.html">DFIMB002691</a></td>
+                <td><a href="DFIMB002691.html">CARAVANA IZTAP - 4
+                DEGOLLADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002703.html">DFIMB002703</a></td>
+                <td><a href="DFIMB002703.html">CARAVANA XALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002715.html">DFIMB002715</a></td>
+                <td><a href="DFIMB002715.html">CARAVANA
+                ZAPOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002720.html">DFIMB002720</a></td>
+                <td><a href="DFIMB002720.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES LOMAS DE LA ERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002732.html">DFIMB002732</a></td>
+                <td><a href="DFIMB002732.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES AMPLIACIÓN
+                PRESIDENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002744.html">DFIMB002744</a></td>
+                <td><a href="DFIMB002744.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TEZOZOMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002756.html">DFIMB002756</a></td>
+                <td><a href="DFIMB002756.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SANTIAGO AHUIZOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002761.html">DFIMB002761</a></td>
+                <td><a href="DFIMB002761.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES PORTALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002773.html">DFIMB002773</a></td>
+                <td><a href="DFIMB002773.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CARMEN SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002785.html">DFIMB002785</a></td>
+                <td><a href="DFIMB002785.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES GUSTAVO A. ROVIROSA
+                PÉREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002790.html">DFIMB002790</a></td>
+                <td><a href="DFIMB002790.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002802.html">DFIMB002802</a></td>
+                <td><a href="DFIMB002802.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES JOSÉ MARÍA RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002814.html">DFIMB002814</a></td>
+                <td><a href="DFIMB002814.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CLÍNICA DE ESPECIALIDADES N°.
+                5</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002826.html">DFIMB002826</a></td>
+                <td><a href="DFIMB002826.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES VALLE MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002831.html">DFIMB002831</a></td>
+                <td><a href="DFIMB002831.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES LA MALINCHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002843.html">DFIMB002843</a></td>
+                <td><a href="DFIMB002843.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES FELIPE BERRIOZABAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002855.html">DFIMB002855</a></td>
+                <td><a href="DFIMB002855.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TLALPEXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002860.html">DFIMB002860</a></td>
+                <td><a href="DFIMB002860.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES PREDIO LA FORTALEZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002872.html">DFIMB002872</a></td>
+                <td><a href="DFIMB002872.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CHINAMPAC DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002884.html">DFIMB002884</a></td>
+                <td><a href="DFIMB002884.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SANTIAGO ACAHUALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002896.html">DFIMB002896</a></td>
+                <td><a href="DFIMB002896.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES FRANCISCO J. BALMIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002901.html">DFIMB002901</a></td>
+                <td><a href="DFIMB002901.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES DR. GUILLERMO ROMÁN Y
+                CARRILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002913.html">DFIMB002913</a></td>
+                <td><a href="DFIMB002913.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EJIDO LOS REYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002925.html">DFIMB002925</a></td>
+                <td><a href="DFIMB002925.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES OASIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002930.html">DFIMB002930</a></td>
+                <td><a href="DFIMB002930.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES AMPLIACIÓN LOMAS DE SAN
+                BERNABÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002942.html">DFIMB002942</a></td>
+                <td><a href="DFIMB002942.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MÉXICO ESPAÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002954.html">DFIMB002954</a></td>
+                <td><a href="DFIMB002954.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES DR. GASTÓN MELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002966.html">DFIMB002966</a></td>
+                <td><a href="DFIMB002966.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES 13 DE SEPTIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002971.html">DFIMB002971</a></td>
+                <td><a href="DFIMB002971.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MIGUEL HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB002983.html">DFIMB002983</a></td>
+                <td><a href="DFIMB002983.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN ANDRÉS TOTOLTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB002995.html">DFIMB002995</a></td>
+                <td><a href="DFIMB002995.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES GERARDO VARELA
+                MARISCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003000.html">DFIMB003000</a></td>
+                <td><a href="DFIMB003000.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ROMERO RUBIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003012.html">DFIMB003012</a></td>
+                <td><a href="DFIMB003012.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EL ARENAL 4TA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003024.html">DFIMB003024</a></td>
+                <td><a href="DFIMB003024.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TULYEHUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003036.html">DFIMB003036</a></td>
+                <td><a href="DFIMB003036.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SANTA MARÍA NATIVITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003041.html">DFIMB003041</a></td>
+                <td><a href="DFIMB003041.html">UNEME E.C. MÉXICO
+                ESPAÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003053.html">DFIMB003053</a></td>
+                <td><a href="DFIMB003053.html">UNEME E.C. BEATRÍZ
+                VELASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003065.html">DFIMB003065</a></td>
+                <td><a href="DFIMB003065.html">UNEME E.C. DAVID
+                FRAGOSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003070.html">DFIMB003070</a></td>
+                <td><a href="DFIMB003070.html">UNEME E.C. SAN GREGORIO
+                ATLAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003082.html">DFIMB003082</a></td>
+                <td><a href="DFIMB003082.html">UNEME E.C.
+                MIXQUIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003094.html">DFIMB003094</a></td>
+                <td><a href="DFIMB003094.html">UNEME E.C. ROMÁN Y
+                CARRILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003106.html">DFIMB003106</a></td>
+                <td><a href="DFIMB003106.html">UNEME E.C. MANUEL
+                ESCONTRÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003111.html">DFIMB003111</a></td>
+                <td><a href="DFIMB003111.html">CENTRO DE SALUD T-II
+                SANTIAGO TEPALCATLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003123.html">DFIMB003123</a></td>
+                <td><a href="DFIMB003123.html">C.S.T-I
+                GARCIMARRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003135.html">DFIMB003135</a></td>
+                <td><a href="DFIMB003135.html">CLÍNICA DE ATENCIÓN
+                INTEGRAL A LA MUJER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003140.html">DFIMB003140</a></td>
+                <td><a href="DFIMB003140.html">C.S. T-II LA
+                CONCHITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003152.html">DFIMB003152</a></td>
+                <td><a href="DFIMB003152.html">CLÍNICA GERIÁTRICA
+                COYOACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003164.html">DFIMB003164</a></td>
+                <td><a href="DFIMB003164.html">CENTRO DE SALUD T-II SAN
+                MIGUEL XICALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003176.html">DFIMB003176</a></td>
+                <td><a href="DFIMB003176.html">CENTRO DE SALUD T-II
+                SOLIDARIDAD TETELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003181.html">DFIMB003181</a></td>
+                <td><a href="DFIMB003181.html">CENTRO DE SALUD T-I
+                CENTRAL DE ABASTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB003193.html">DFIMB003193</a></td>
+                <td><a href="DFIMB003193.html">CENTRO DE SALUD T-III DR.
+                MAXIMILIANO RUIZ CASTAÑEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="DFIMB003205.html">DFIMB003205</a></td>
+                <td><a href="DFIMB003205.html">CENTRO DE SALUD T-I
+                XOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="DFIMB000866.html">DFIMB000866</a></td>
+                <td><a href="DFIMB000866.html">C.S.T-I CENTRAL DE
+                ABASTOS.</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="figures/mapa_entidad/primer_nivel_ciudad_de_mexico.png"
+                id="fig:mapa-primer_nivel-ciudad_de_mexico"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
