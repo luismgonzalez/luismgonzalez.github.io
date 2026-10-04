@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#sinaloa">SINALOA</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="sinaloa">SINALOA</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="SLIMB000043.html">SLIMB000043</a></td>
+                <td><a href="SLIMB000043.html">AHOME</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000055.html">SLIMB000055</a></td>
+                <td><a href="SLIMB000055.html">BACHOMOBAMPO 1</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000060.html">SLIMB000060</a></td>
+                <td><a href="SLIMB000060.html">CHIHUAHUITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000072.html">SLIMB000072</a></td>
+                <td><a href="SLIMB000072.html">GUILLERMO CHÁVEZ
+                TALAMANTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000084.html">SLIMB000084</a></td>
+                <td><a href="SLIMB000084.html">LAS GRULLAS MARGEN
+                DERECHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000096.html">SLIMB000096</a></td>
+                <td><a href="SLIMB000096.html">LAS GRULLAS MARGEN
+                IZQUIERDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000101.html">SLIMB000101</a></td>
+                <td><a href="SLIMB000101.html">HIGUERAS DE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000113.html">SLIMB000113</a></td>
+                <td><a href="SLIMB000113.html">MOCHIS (EJIDO
+                MOCHIS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000125.html">SLIMB000125</a></td>
+                <td><a href="SLIMB000125.html">SAN MIGUEL
+                ZAPOTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000130.html">SLIMB000130</a></td>
+                <td><a href="SLIMB000130.html">TOPOLOBAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000142.html">SLIMB000142</a></td>
+                <td><a href="SLIMB000142.html">BOLSA DE
+                TOZALIBAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000154.html">SLIMB000154</a></td>
+                <td><a href="SLIMB000154.html">ALFONSO G. CALDERÓN
+                (POBLADO SIETE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000166.html">SLIMB000166</a></td>
+                <td><a href="SLIMB000166.html">BACHOMOBAMPO 2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000171.html">SLIMB000171</a></td>
+                <td><a href="SLIMB000171.html">SAN JOSÉ DE
+                AHOME</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000183.html">SLIMB000183</a></td>
+                <td><a href="SLIMB000183.html">HERIBERTO VALDEZ ROMERO (
+                EL GUAYABO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000200.html">SLIMB000200</a></td>
+                <td><a href="SLIMB000200.html">AGUSTÍNA RAMÍREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000212.html">SLIMB000212</a></td>
+                <td><a href="SLIMB000212.html">COLONIA AGRÍCOLA MÉXICO
+                (PALMITAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000224.html">SLIMB000224</a></td>
+                <td><a href="SLIMB000224.html">ESTACIÓN ACATITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000236.html">SLIMB000236</a></td>
+                <td><a href="SLIMB000236.html">LA REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000253.html">SLIMB000253</a></td>
+                <td><a href="SLIMB000253.html">BADIRAGUATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000265.html">SLIMB000265</a></td>
+                <td><a href="SLIMB000265.html">CARAVANAS DE SALUD
+                HUICHARABITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000270.html">SLIMB000270</a></td>
+                <td><a href="SLIMB000270.html">CARAVANAS DE SALUD
+                ALISOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000323.html">SLIMB000323</a></td>
+                <td><a href="SLIMB000323.html">CARAVANAS DE SALUD
+                NOCORIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000335.html">SLIMB000335</a></td>
+                <td><a href="SLIMB000335.html">CARAVANAS DE SALUD EL
+                VAREJONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000340.html">SLIMB000340</a></td>
+                <td><a href="SLIMB000340.html">BATOPITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000352.html">SLIMB000352</a></td>
+                <td><a href="SLIMB000352.html">HIGUERAS DE ALVAREZ
+                BORBOA (HIGUERA DE LOS MONZON)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000376.html">SLIMB000376</a></td>
+                <td><a href="SLIMB000376.html">PASO DEL HUEJOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000381.html">SLIMB000381</a></td>
+                <td><a href="SLIMB000381.html">SURUTATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000393.html">SLIMB000393</a></td>
+                <td><a href="SLIMB000393.html">EL TRIGUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000405.html">SLIMB000405</a></td>
+                <td><a href="SLIMB000405.html">SANTA RITA DE
+                ABAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000422.html">SLIMB000422</a></td>
+                <td><a href="SLIMB000422.html">LOS TEPEHUAJES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000451.html">SLIMB000451</a></td>
+                <td><a href="SLIMB000451.html">CONCORDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000463.html">SLIMB000463</a></td>
+                <td><a href="SLIMB000463.html">AGUA CALIENTE DE GÁRATE
+                (AGUA CALIENTE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000475.html">SLIMB000475</a></td>
+                <td><a href="SLIMB000475.html">LA CONCEPCIÓN (LA
+                BARRIGONA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000480.html">SLIMB000480</a></td>
+                <td><a href="SLIMB000480.html">MESILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000521.html">SLIMB000521</a></td>
+                <td><a href="SLIMB000521.html">TEPUXTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000533.html">SLIMB000533</a></td>
+                <td><a href="SLIMB000533.html">EL VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000550.html">SLIMB000550</a></td>
+                <td><a href="SLIMB000550.html">CARAVANAS DE SALUD SAN
+                MIGUEL DE LAS MESAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000562.html">SLIMB000562</a></td>
+                <td><a href="SLIMB000562.html">CARAVANAS DE SALUD
+                MEZCALTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000574.html">SLIMB000574</a></td>
+                <td><a href="SLIMB000574.html">SANTA CRUZ DE
+                ALAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000586.html">SLIMB000586</a></td>
+                <td><a href="SLIMB000586.html">LA ILAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000591.html">SLIMB000591</a></td>
+                <td><a href="SLIMB000591.html">CENTRO DE HIGIENE
+                ESCOLAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000620.html">SLIMB000620</a></td>
+                <td><a href="SLIMB000620.html">CULIACÁN (COL. LOMA DE
+                RODRIGUERA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000632.html">SLIMB000632</a></td>
+                <td><a href="SLIMB000632.html">CULIACÁN (PEMEX)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000644.html">SLIMB000644</a></td>
+                <td><a href="SLIMB000644.html">CULIACÁN (EL
+                VALLADO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000656.html">SLIMB000656</a></td>
+                <td><a href="SLIMB000656.html">CULIACÁN (VICENTE
+                GUERRERO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000661.html">SLIMB000661</a></td>
+                <td><a href="SLIMB000661.html">CULIACÁN (COL. LÁZARO
+                CÁRDENAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000685.html">SLIMB000685</a></td>
+                <td><a href="SLIMB000685.html">CULIACÁN
+                (AGUARUTO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000690.html">SLIMB000690</a></td>
+                <td><a href="SLIMB000690.html">CULIACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000702.html">SLIMB000702</a></td>
+                <td><a href="SLIMB000702.html">LAS ARENITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000714.html">SLIMB000714</a></td>
+                <td><a href="SLIMB000714.html">BAILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000726.html">SLIMB000726</a></td>
+                <td><a href="SLIMB000726.html">LAS BATEAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000731.html">SLIMB000731</a></td>
+                <td><a href="SLIMB000731.html">COSTA RICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000743.html">SLIMB000743</a></td>
+                <td><a href="SLIMB000743.html">CULIACÁNCITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000755.html">SLIMB000755</a></td>
+                <td><a href="SLIMB000755.html">LA GUAMUCHILERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000760.html">SLIMB000760</a></td>
+                <td><a href="SLIMB000760.html">HIGUERA DE ABUYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000772.html">SLIMB000772</a></td>
+                <td><a href="SLIMB000772.html">JESÚS MARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000784.html">SLIMB000784</a></td>
+                <td><a href="SLIMB000784.html">OBISPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000796.html">SLIMB000796</a></td>
+                <td><a href="SLIMB000796.html">EL POZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000801.html">SLIMB000801</a></td>
+                <td><a href="SLIMB000801.html">QUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000813.html">SLIMB000813</a></td>
+                <td><a href="SLIMB000813.html">SAN LORENZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000825.html">SLIMB000825</a></td>
+                <td><a href="SLIMB000825.html">SAN FRANCISCO DE
+                TACUICHAMONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000830.html">SLIMB000830</a></td>
+                <td><a href="SLIMB000830.html">ADOLFO LÓPEZ MATEOS (EL
+                TAMARINDO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000842.html">SLIMB000842</a></td>
+                <td><a href="SLIMB000842.html">MIGUEL VALDEZ QUINTERO
+                (EL CORAZON)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000854.html">SLIMB000854</a></td>
+                <td><a href="SLIMB000854.html">PUEBLOS UNIDOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000866.html">SLIMB000866</a></td>
+                <td><a href="SLIMB000866.html">EL DIEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000871.html">SLIMB000871</a></td>
+                <td><a href="SLIMB000871.html">GUADALUPE VICTORIA (EL
+                ATORON)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000883.html">SLIMB000883</a></td>
+                <td><a href="SLIMB000883.html">VALLE ESCONDIDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000900.html">SLIMB000900</a></td>
+                <td><a href="SLIMB000900.html">CARAVANAS DE SALUD EL
+                SAUZ DE SAN ISIDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000924.html">SLIMB000924</a></td>
+                <td><a href="SLIMB000924.html">AGUA CALIENTE GRANDE (DE
+                GASTÉLUM)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000936.html">SLIMB000936</a></td>
+                <td><a href="SLIMB000936.html">BACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000941.html">SLIMB000941</a></td>
+                <td><a href="SLIMB000941.html">BAJOSORI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000953.html">SLIMB000953</a></td>
+                <td><a href="SLIMB000953.html">LOS PICACHOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000965.html">SLIMB000965</a></td>
+                <td><a href="SLIMB000965.html">POTRERO DE
+                CANCIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000970.html">SLIMB000970</a></td>
+                <td><a href="SLIMB000970.html">SAN JAVIER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000982.html">SLIMB000982</a></td>
+                <td><a href="SLIMB000982.html">TABUCAHUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000994.html">SLIMB000994</a></td>
+                <td><a href="SLIMB000994.html">YECORATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001006.html">SLIMB001006</a></td>
+                <td><a href="SLIMB001006.html">LA CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001011.html">SLIMB001011</a></td>
+                <td><a href="SLIMB001011.html">ELOTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001023.html">SLIMB001023</a></td>
+                <td><a href="SLIMB001023.html">POTRERILLOS DEL
+                NOROTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001035.html">SLIMB001035</a></td>
+                <td><a href="SLIMB001035.html">PUEBLO NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001040.html">SLIMB001040</a></td>
+                <td><a href="SLIMB001040.html">ESCUINAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001052.html">SLIMB001052</a></td>
+                <td><a href="SLIMB001052.html">LA CONCHA (LA
+                CONCEPCIÓN)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001064.html">SLIMB001064</a></td>
+                <td><a href="SLIMB001064.html">CRISTO REY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001076.html">SLIMB001076</a></td>
+                <td><a href="SLIMB001076.html">PALMITO DEL
+                VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001081.html">SLIMB001081</a></td>
+                <td><a href="SLIMB001081.html">TEACAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001093.html">SLIMB001093</a></td>
+                <td><a href="SLIMB001093.html">CONSTANCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001105.html">SLIMB001105</a></td>
+                <td><a href="SLIMB001105.html">ADOLFO LÓPEZ MATEOS
+                (JAHUARA II)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001110.html">SLIMB001110</a></td>
+                <td><a href="SLIMB001110.html">PALMA DE CHARAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001122.html">SLIMB001122</a></td>
+                <td><a href="SLIMB001122.html">SAN BLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001146.html">SLIMB001146</a></td>
+                <td><a href="SLIMB001146.html">ADOLFO RUIZ
+                CORTINES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001151.html">SLIMB001151</a></td>
+                <td><a href="SLIMB001151.html">EL AMOLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001163.html">SLIMB001163</a></td>
+                <td><a href="SLIMB001163.html">BACHOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001175.html">SLIMB001175</a></td>
+                <td><a href="SLIMB001175.html">BAMOA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001180.html">SLIMB001180</a></td>
+                <td><a href="SLIMB001180.html">LA BRECHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001192.html">SLIMB001192</a></td>
+                <td><a href="SLIMB001192.html">EL BURRÍON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001204.html">SLIMB001204</a></td>
+                <td><a href="SLIMB001204.html">CALLEJONES DE
+                TAMAZULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001216.html">SLIMB001216</a></td>
+                <td><a href="SLIMB001216.html">ESTACIÓN CAPOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001221.html">SLIMB001221</a></td>
+                <td><a href="SLIMB001221.html">COREREPE (EL
+                GALLO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001233.html">SLIMB001233</a></td>
+                <td><a href="SLIMB001233.html">EL CUBILETE (EL NUMERO
+                UNO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001245.html">SLIMB001245</a></td>
+                <td><a href="SLIMB001245.html">FRANCISCO R.
+                SERRANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001250.html">SLIMB001250</a></td>
+                <td><a href="SLIMB001250.html">GABRIEL LEYVA SOLANO (EL
+                BATAMOTE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001262.html">SLIMB001262</a></td>
+                <td><a href="SLIMB001262.html">GABRIEL LEYVA SOLANO
+                (BENITO JUÁREZ)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001274.html">SLIMB001274</a></td>
+                <td><a href="SLIMB001274.html">JUAN JOSÉ RÍOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001286.html">SLIMB001286</a></td>
+                <td><a href="SLIMB001286.html">EL HUITUSSI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001291.html">SLIMB001291</a></td>
+                <td><a href="SLIMB001291.html">LEÓN FONSECA (ESTACIÓN
+                VERDURA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001303.html">SLIMB001303</a></td>
+                <td><a href="SLIMB001303.html">NIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001315.html">SLIMB001315</a></td>
+                <td><a href="SLIMB001315.html">PALOS BLANCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001320.html">SLIMB001320</a></td>
+                <td><a href="SLIMB001320.html">PALOS VERDES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001332.html">SLIMB001332</a></td>
+                <td><a href="SLIMB001332.html">EL PITAHAYAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001344.html">SLIMB001344</a></td>
+                <td><a href="SLIMB001344.html">LAS QUEMAZONES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001356.html">SLIMB001356</a></td>
+                <td><a href="SLIMB001356.html">EL SACRIFICIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001361.html">SLIMB001361</a></td>
+                <td><a href="SLIMB001361.html">SAN FERNANDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001373.html">SLIMB001373</a></td>
+                <td><a href="SLIMB001373.html">SAN RAFAEL (GRAL.MIGUEL
+                VALLE DAVALOS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001385.html">SLIMB001385</a></td>
+                <td><a href="SLIMB001385.html">LA TRINIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001390.html">SLIMB001390</a></td>
+                <td><a href="SLIMB001390.html">HERCULANO DE LA
+                ROCHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001402.html">SLIMB001402</a></td>
+                <td><a href="SLIMB001402.html">ISLA DE LA
+                PIEDRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001414.html">SLIMB001414</a></td>
+                <td><a href="SLIMB001414.html">MAZATLAN (COL. 20 DE
+                NOVIEMBRE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001426.html">SLIMB001426</a></td>
+                <td><a href="SLIMB001426.html">MAZATLAN (COL.
+                MONTUOSA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001431.html">SLIMB001431</a></td>
+                <td><a href="SLIMB001431.html">MAZATLAN (COL.
+                URIAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001443.html">SLIMB001443</a></td>
+                <td><a href="SLIMB001443.html">MAZATLAN (COL.
+                CENTRO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001455.html">SLIMB001455</a></td>
+                <td><a href="SLIMB001455.html">COFRADIA (COFRADIA DE
+                LEYVA SOLANO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001460.html">SLIMB001460</a></td>
+                <td><a href="SLIMB001460.html">ESCAMILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001472.html">SLIMB001472</a></td>
+                <td><a href="SLIMB001472.html">LA NORIA DE SAN ANTONIO
+                (LA NORIA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001484.html">SLIMB001484</a></td>
+                <td><a href="SLIMB001484.html">LA PALMA SOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001496.html">SLIMB001496</a></td>
+                <td><a href="SLIMB001496.html">EL QUELITE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001501.html">SLIMB001501</a></td>
+                <td><a href="SLIMB001501.html">EL RECODO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001513.html">SLIMB001513</a></td>
+                <td><a href="SLIMB001513.html">SAN MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001525.html">SLIMB001525</a></td>
+                <td><a href="SLIMB001525.html">SIQUEROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001542.html">SLIMB001542</a></td>
+                <td><a href="SLIMB001542.html">VILLA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001566.html">SLIMB001566</a></td>
+                <td><a href="SLIMB001566.html">CAIMANERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001571.html">SLIMB001571</a></td>
+                <td><a href="SLIMB001571.html">CERRO AGUDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001583.html">SLIMB001583</a></td>
+                <td><a href="SLIMB001583.html">ROSA MORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001595.html">SLIMB001595</a></td>
+                <td><a href="SLIMB001595.html">MAZATE DE LOS
+                LÓPEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001600.html">SLIMB001600</a></td>
+                <td><a href="SLIMB001600.html">MELCHOR OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001612.html">SLIMB001612</a></td>
+                <td><a href="SLIMB001612.html">PALMARITO DE LA
+                SIERRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001624.html">SLIMB001624</a></td>
+                <td><a href="SLIMB001624.html">PERICOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001636.html">SLIMB001636</a></td>
+                <td><a href="SLIMB001636.html">CARAVANAS DE SALUD
+                CAPIRATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001641.html">SLIMB001641</a></td>
+                <td><a href="SLIMB001641.html">POTRERO DE LOS
+                GASTELUM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001653.html">SLIMB001653</a></td>
+                <td><a href="SLIMB001653.html">POTRERO DE LOS
+                SANCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001665.html">SLIMB001665</a></td>
+                <td><a href="SLIMB001665.html">EL PROGRESO (EL
+                JALON)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001670.html">SLIMB001670</a></td>
+                <td><a href="SLIMB001670.html">SAN BENITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001682.html">SLIMB001682</a></td>
+                <td><a href="SLIMB001682.html">TEPANTITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001694.html">SLIMB001694</a></td>
+                <td><a href="SLIMB001694.html">EL TULE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001706.html">SLIMB001706</a></td>
+                <td><a href="SLIMB001706.html">EL VALLE DE LEYVA
+                SOLANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001723.html">SLIMB001723</a></td>
+                <td><a href="SLIMB001723.html">EL ROSARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001735.html">SLIMB001735</a></td>
+                <td><a href="SLIMB001735.html">MATATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001740.html">SLIMB001740</a></td>
+                <td><a href="SLIMB001740.html">EJIDO EL TABLON NO
+                1(CRUCES CUATAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001764.html">SLIMB001764</a></td>
+                <td><a href="SLIMB001764.html">CHAMETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001776.html">SLIMB001776</a></td>
+                <td><a href="SLIMB001776.html">AGUA VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001781.html">SLIMB001781</a></td>
+                <td><a href="SLIMB001781.html">COLONIA VEINTISIETE DE
+                NOVIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001793.html">SLIMB001793</a></td>
+                <td><a href="SLIMB001793.html">CACALOTITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001805.html">SLIMB001805</a></td>
+                <td><a href="SLIMB001805.html">CIÉNEGA DE CASAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001810.html">SLIMB001810</a></td>
+                <td><a href="SLIMB001810.html">EL SALITRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001822.html">SLIMB001822</a></td>
+                <td><a href="SLIMB001822.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001834.html">SLIMB001834</a></td>
+                <td><a href="SLIMB001834.html">TERRERO DE LOS
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001846.html">SLIMB001846</a></td>
+                <td><a href="SLIMB001846.html">EMILIO ALVAREZ
+                IBARRA(GOLONDRINAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001851.html">SLIMB001851</a></td>
+                <td><a href="SLIMB001851.html">SAN IGNACIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001880.html">SLIMB001880</a></td>
+                <td><a href="SLIMB001880.html">COYOTITAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001892.html">SLIMB001892</a></td>
+                <td><a href="SLIMB001892.html">DIMAS (ESTACIÓN
+                DIMAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001904.html">SLIMB001904</a></td>
+                <td><a href="SLIMB001904.html">IXPALINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001916.html">SLIMB001916</a></td>
+                <td><a href="SLIMB001916.html">LA LABOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001921.html">SLIMB001921</a></td>
+                <td><a href="SLIMB001921.html">PIAXTLA DE ABAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001933.html">SLIMB001933</a></td>
+                <td><a href="SLIMB001933.html">SAN JAVIER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001945.html">SLIMB001945</a></td>
+                <td><a href="SLIMB001945.html">SAN JUAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001962.html">SLIMB001962</a></td>
+                <td><a href="SLIMB001962.html">SINALOA DE LEYVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002003.html">SLIMB002003</a></td>
+                <td><a href="SLIMB002003.html">BUCHINARI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002015.html">SLIMB002015</a></td>
+                <td><a href="SLIMB002015.html">BUENA VISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002020.html">SLIMB002020</a></td>
+                <td><a href="SLIMB002020.html">PALMAR DE LOS
+                SEPULVEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002032.html">SLIMB002032</a></td>
+                <td><a href="SLIMB002032.html">ESTACIÓN NARANJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002044.html">SLIMB002044</a></td>
+                <td><a href="SLIMB002044.html">GENARO ESTRADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002056.html">SLIMB002056</a></td>
+                <td><a href="SLIMB002056.html">LLANO GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002061.html">SLIMB002061</a></td>
+                <td><a href="SLIMB002061.html">TETAMECHA (EL
+                MEZQUITE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002073.html">SLIMB002073</a></td>
+                <td><a href="SLIMB002073.html">NAVOLATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002085.html">SLIMB002085</a></td>
+                <td><a href="SLIMB002085.html">JUAN ALDAMA (EL
+                TIGRE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002090.html">SLIMB002090</a></td>
+                <td><a href="SLIMB002090.html">RURAL SATAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002102.html">SLIMB002102</a></td>
+                <td><a href="SLIMB002102.html">VILLAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002114.html">SLIMB002114</a></td>
+                <td><a href="SLIMB002114.html">EL MOLINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002126.html">SLIMB002126</a></td>
+                <td><a href="SLIMB002126.html">SAN PEDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002131.html">SLIMB002131</a></td>
+                <td><a href="SLIMB002131.html">LIC. BENITO JUÁREZ (CAMPO
+                GOBIERNO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002143.html">SLIMB002143</a></td>
+                <td><a href="SLIMB002143.html">CENTRO DE SALUD COSTA
+                AZUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002155.html">SLIMB002155</a></td>
+                <td><a href="SLIMB002155.html">RECOVECO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002160.html">SLIMB002160</a></td>
+                <td><a href="SLIMB002160.html">BACHIMETO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002172.html">SLIMB002172</a></td>
+                <td><a href="SLIMB002172.html">PUEBLO NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002196.html">SLIMB002196</a></td>
+                <td><a href="SLIMB002196.html">GRAL. ÁNGEL FLORES (LA
+                PALMA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002201.html">SLIMB002201</a></td>
+                <td><a href="SLIMB002201.html">VALLE DEL
+                JARIPILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002213.html">SLIMB002213</a></td>
+                <td><a href="SLIMB002213.html">RUÍZ CORTINEZ NUMERO
+                TRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002225.html">SLIMB002225</a></td>
+                <td><a href="SLIMB002225.html">SAN SEBASTIAN (LÁZARO
+                CÁRDENAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002266.html">SLIMB002266</a></td>
+                <td><a href="SLIMB002266.html">UNIDAD MOVIL DE LA MUJER
+                Nº II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002271.html">SLIMB002271</a></td>
+                <td><a href="SLIMB002271.html">CENTRO DE SALUD EL
+                BATURY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002283.html">SLIMB002283</a></td>
+                <td><a href="SLIMB002283.html">CENTRO DE SALUD EL
+                DORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002295.html">SLIMB002295</a></td>
+                <td><a href="SLIMB002295.html">CENTRO DE SALUD RURAL
+                HIGUERA DE LOS VEGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002300.html">SLIMB002300</a></td>
+                <td><a href="SLIMB002300.html">CENTRO DE SALUD CULIACAN
+                (COL. LA AMISTAD)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002312.html">SLIMB002312</a></td>
+                <td><a href="SLIMB002312.html">CENTRO DE SALUD EL
+                FUERTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002324.html">SLIMB002324</a></td>
+                <td><a href="SLIMB002324.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACIÓN TEMPRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002336.html">SLIMB002336</a></td>
+                <td><a href="SLIMB002336.html">CENTRO DE SALUD LA
+                APOMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002353.html">SLIMB002353</a></td>
+                <td><a href="SLIMB002353.html">CENTRO DE SALUD FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002370.html">SLIMB002370</a></td>
+                <td><a href="SLIMB002370.html">CENTRO DE SALUD EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002382.html">SLIMB002382</a></td>
+                <td><a href="SLIMB002382.html">LOS POZOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002394.html">SLIMB002394</a></td>
+                <td><a href="SLIMB002394.html">IMALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002406.html">SLIMB002406</a></td>
+                <td><a href="SLIMB002406.html">UNIDAD MÓVIL DE LA
+                MUJER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002440.html">SLIMB002440</a></td>
+                <td><a href="SLIMB002440.html">CENTRO DE SALUD RURAL EL
+                VERGEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002452.html">SLIMB002452</a></td>
+                <td><a href="SLIMB002452.html">CENTRO DE SALUD RURAL
+                DAUTILLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002510.html">SLIMB002510</a></td>
+                <td><a href="SLIMB002510.html">ANGOSTURA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002522.html">SLIMB002522</a></td>
+                <td><a href="SLIMB002522.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES LOS MOCHIS AHOME</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002534.html">SLIMB002534</a></td>
+                <td><a href="SLIMB002534.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CULIACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002546.html">SLIMB002546</a></td>
+                <td><a href="SLIMB002546.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MAZATLÁN 1</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002551.html">SLIMB002551</a></td>
+                <td><a href="SLIMB002551.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EL DORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002563.html">SLIMB002563</a></td>
+                <td><a href="SLIMB002563.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES NAVOLATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002575.html">SLIMB002575</a></td>
+                <td><a href="SLIMB002575.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ESCUINAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002580.html">SLIMB002580</a></td>
+                <td><a href="SLIMB002580.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SINALOA DE LEYVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002592.html">SLIMB002592</a></td>
+                <td><a href="SLIMB002592.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES GUASAVE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002604.html">SLIMB002604</a></td>
+                <td><a href="SLIMB002604.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SALUD MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002616.html">SLIMB002616</a></td>
+                <td><a href="SLIMB002616.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SALUD MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002621.html">SLIMB002621</a></td>
+                <td><a href="SLIMB002621.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SALUD MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002633.html">SLIMB002633</a></td>
+                <td><a href="SLIMB002633.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SOBREPESO RIESGO CARDIOVASCULAR Y
+                DIABETES MELLITUS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002645.html">SLIMB002645</a></td>
+                <td><a href="SLIMB002645.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SOBREPESO RIESGO CARDIOVASCULAR Y
+                DIABETES MELLITUS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002650.html">SLIMB002650</a></td>
+                <td><a href="SLIMB002650.html">EL COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002662.html">SLIMB002662</a></td>
+                <td><a href="SLIMB002662.html">NUEVE DE
+                DICIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002674.html">SLIMB002674</a></td>
+                <td><a href="SLIMB002674.html">TECUALILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002686.html">SLIMB002686</a></td>
+                <td><a href="SLIMB002686.html">CARAVANAS DE SALUD TIPO 1
+                CAIMANES II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002691.html">SLIMB002691</a></td>
+                <td><a href="SLIMB002691.html">CARAVANAS DE LA SALUD
+                TIPO 1 EL CARACOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002703.html">SLIMB002703</a></td>
+                <td><a href="SLIMB002703.html">CARAVANAS DE SALUD TIPO 2
+                TOYPAQUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002715.html">SLIMB002715</a></td>
+                <td><a href="SLIMB002715.html">CARAVANAS DE LA SALUD
+                TIPO 2 POTRERO DE SOTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002720.html">SLIMB002720</a></td>
+                <td><a href="SLIMB002720.html">CARAVANAS DE SALUD TIPO 2
+                EL CASTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002732.html">SLIMB002732</a></td>
+                <td><a href="SLIMB002732.html">CARAVANAS DE SALUD TIPO 2
+                LA HIGUERITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002744.html">SLIMB002744</a></td>
+                <td><a href="SLIMB002744.html">CARAVANAS DE SALUD TIPO 2
+                LAS HABAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002761.html">SLIMB002761</a></td>
+                <td><a href="SLIMB002761.html">CENTRO DE SALUD
+                MAQUIPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002773.html">SLIMB002773</a></td>
+                <td><a href="SLIMB002773.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES GUAMUCHIL SALVADOR
+                ALVARADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002785.html">SLIMB002785</a></td>
+                <td><a href="SLIMB002785.html">UNIDAD MÉDICA DE
+                ESPECIALIDAD EN SOBREPESO RIESGO CARDIOVASCULAR Y
+                DIABETES MELLITUS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002790.html">SLIMB002790</a></td>
+                <td><a href="SLIMB002790.html">CARAVANA DE LA SALUD TIPO
+                3 LOS HORNILLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002843.html">SLIMB002843</a></td>
+                <td><a href="SLIMB002843.html">CARAVANA DE LA SALUD TIPO
+                0 SAN JOAQUÍN (SAN JOAQUÍN NUEVO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002855.html">SLIMB002855</a></td>
+                <td><a href="SLIMB002855.html">CARAVANA DE LA SALUD TIPO
+                0 POTRERO DE LOS FÉLIX</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002860.html">SLIMB002860</a></td>
+                <td><a href="SLIMB002860.html">CARAVANA DE LA SALUD TIPO
+                1 LA BRECHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002896.html">SLIMB002896</a></td>
+                <td><a href="SLIMB002896.html">CARAVANA DE LA SALUD TIPO
+                0 SAN RAFAEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002901.html">SLIMB002901</a></td>
+                <td><a href="SLIMB002901.html">CARAVANA DE LA SALUD TIPO
+                0 LA PRESITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002925.html">SLIMB002925</a></td>
+                <td><a href="SLIMB002925.html">CARAVANA DE LA SALUD TIPO
+                3 CHIRIMOYOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002942.html">SLIMB002942</a></td>
+                <td><a href="SLIMB002942.html">EJIDO EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002954.html">SLIMB002954</a></td>
+                <td><a href="SLIMB002954.html">UNEME DE SALUD
+                MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002966.html">SLIMB002966</a></td>
+                <td><a href="SLIMB002966.html">UNEME DE ENFERMEDADES
+                CRÓNICO DEGENERATIVAS (SORID)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002983.html">SLIMB002983</a></td>
+                <td><a href="SLIMB002983.html">ENFERMEDADES CRÓNICO
+                DEGENERATIVAS (SORID)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002995.html">SLIMB002995</a></td>
+                <td><a href="SLIMB002995.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EL ROSARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003000.html">SLIMB003000</a></td>
+                <td><a href="SLIMB003000.html">UNEME DE ENFERMEDADES
+                CRÓNICO DEGENERATIVAS (SORID)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003012.html">SLIMB003012</a></td>
+                <td><a href="SLIMB003012.html">CENTRO DE SALUD MOCHIS
+                II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003024.html">SLIMB003024</a></td>
+                <td><a href="SLIMB003024.html">CENTRO DE SALUD LAS
+                JUNTAS DE CHAMICARI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003036.html">SLIMB003036</a></td>
+                <td><a href="SLIMB003036.html">CENTRO DE SALUD GUASAVE
+                II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003041.html">SLIMB003041</a></td>
+                <td><a href="SLIMB003041.html">CENTRO DE SALUD LOS
+                VASITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003070.html">SLIMB003070</a></td>
+                <td><a href="SLIMB003070.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MAZATLÁN 2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003106.html">SLIMB003106</a></td>
+                <td><a href="SLIMB003106.html">CARAVANAS DE LA SALUD
+                RANCHO VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003111.html">SLIMB003111</a></td>
+                <td><a href="SLIMB003111.html">CARAVANAS DE LA SALUD
+                CUATRO MILPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003123.html">SLIMB003123</a></td>
+                <td><a href="SLIMB003123.html">CARAVANAS DE SALUD
+                TETASIARI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003135.html">SLIMB003135</a></td>
+                <td><a href="SLIMB003135.html">CARAVANAS DE SALUD EL
+                MEZQUITE CAIDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003140.html">SLIMB003140</a></td>
+                <td><a href="SLIMB003140.html">CENTRO DE SALUD
+                CHOIX</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003152.html">SLIMB003152</a></td>
+                <td><a href="SLIMB003152.html">CENTRO DE SALUD
+                MOCHICAHUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003164.html">SLIMB003164</a></td>
+                <td><a href="SLIMB003164.html">CENTRO DE SALUD
+                COSALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003176.html">SLIMB003176</a></td>
+                <td><a href="SLIMB003176.html">CENTRO DE SALUD CUATRO
+                MILPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003181.html">SLIMB003181</a></td>
+                <td><a href="SLIMB003181.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EL FUERTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003193.html">SLIMB003193</a></td>
+                <td><a href="SLIMB003193.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CONCORDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003205.html">SLIMB003205</a></td>
+                <td><a href="SLIMB003205.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES VILLA BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003210.html">SLIMB003210</a></td>
+                <td><a href="SLIMB003210.html">CENTRO DE SALUD COL.
+                AGRICOLA INDEPENDENCIA CHINITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003234.html">SLIMB003234</a></td>
+                <td><a href="SLIMB003234.html">CENTRO DE SALUD
+                GUAMUCHIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000282.html">SLIMB000282</a></td>
+                <td><a href="SLIMB000282.html">CARAVANAS DE SALUD LA
+                JUANILLA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000294.html">SLIMB000294</a></td>
+                <td><a href="SLIMB000294.html">CARAVANAS DE SALUD
+                PERSOGADEROS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000306.html">SLIMB000306</a></td>
+                <td><a href="SLIMB000306.html">CARAVANAS DE SALUD
+                PICACHOS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000311.html">SLIMB000311</a></td>
+                <td><a href="SLIMB000311.html">CARAVANAS DE SALUD EL
+                SAUCE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000364.html">SLIMB000364</a></td>
+                <td><a href="SLIMB000364.html">LAS HIGUERAS DE
+                TECUAN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000410.html">SLIMB000410</a></td>
+                <td><a href="SLIMB000410.html">TAMEAPA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000434.html">SLIMB000434</a></td>
+                <td><a href="SLIMB000434.html">LA TUNA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000492.html">SLIMB000492</a></td>
+                <td><a href="SLIMB000492.html">EL PALMITO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000504.html">SLIMB000504</a></td>
+                <td><a href="SLIMB000504.html">PANUCO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB000516.html">SLIMB000516</a></td>
+                <td><a href="SLIMB000516.html">LA PETACA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB000912.html">SLIMB000912</a></td>
+                <td><a href="SLIMB000912.html">CARAVANAS DE SALUD LA
+                CUMBRE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001530.html">SLIMB001530</a></td>
+                <td><a href="SLIMB001530.html">TECOMATE DE LA
+                NORIA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001752.html">SLIMB001752</a></td>
+                <td><a href="SLIMB001752.html">TEBAIRA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001863.html">SLIMB001863</a></td>
+                <td><a href="SLIMB001863.html">CARAVANAS DE SALUD EL
+                JINETE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001875.html">SLIMB001875</a></td>
+                <td><a href="SLIMB001875.html">CARAVANAS DE SALUD PUEBLO
+                VIEJO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001974.html">SLIMB001974</a></td>
+                <td><a href="SLIMB001974.html">CARAVANAS DE SALUD
+                POTRERO DE ALVARADO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB001986.html">SLIMB001986</a></td>
+                <td><a href="SLIMB001986.html">CARAVANAS DE SALUD
+                SIERRITA DE LOS GERMAN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB001991.html">SLIMB001991</a></td>
+                <td><a href="SLIMB001991.html">CARAVANAS DE LA SALUD
+                TOSIBUENA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002365.html">SLIMB002365</a></td>
+                <td><a href="SLIMB002365.html">CENTRO DE SALUD EL
+                PÍCHOL</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002756.html">SLIMB002756</a></td>
+                <td><a href="SLIMB002756.html">CARAVANAS DE SALUD
+                VINATERIAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002802.html">SLIMB002802</a></td>
+                <td><a href="SLIMB002802.html">CARAVANA DE LA SALUD TIPO
+                0 JAHUARA PRIMERO (LOS LEYVA)</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002814.html">SLIMB002814</a></td>
+                <td><a href="SLIMB002814.html">CARAVANA DE LA SALUD TIPO
+                0 CARRICITOS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002826.html">SLIMB002826</a></td>
+                <td><a href="SLIMB002826.html">CARAVANA DE LA SALUD TIPO
+                0 EL TEROQUE VIEJO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002831.html">SLIMB002831</a></td>
+                <td><a href="SLIMB002831.html">CARAVANA DE LA SALUD TIPO
+                0 PALOTAL</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002872.html">SLIMB002872</a></td>
+                <td><a href="SLIMB002872.html">CARAVANA DE LA SALUD TIPO
+                0 HIGUERA DE LOS VEGA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB002884.html">SLIMB002884</a></td>
+                <td><a href="SLIMB002884.html">CARAVANA DE LA SALUD TIPO
+                0 SAN ANTONIO DE LOS BUENOS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB002913.html">SLIMB002913</a></td>
+                <td><a href="SLIMB002913.html">CARAVANA DE LA SALUD TIPO
+                0 SAN JUAN DE JACOBO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="SLIMB003082.html">SLIMB003082</a></td>
+                <td><a href="SLIMB003082.html">CARAVANAS DE LA SALUD LA
+                SOLEDAD</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="SLIMB003094.html">SLIMB003094</a></td>
+                <td><a href="SLIMB003094.html">CARAVANAS DE LA SALUD EL
+                OJITO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_sinaloa.png"
+                id="fig:mapa-primer_nivel-sinaloa"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
