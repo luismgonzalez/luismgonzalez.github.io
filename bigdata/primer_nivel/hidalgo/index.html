@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#hidalgo">HIDALGO</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="hidalgo">HIDALGO</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="HGIMB000011.html">HGIMB000011</a></td>
+                <td><a href="HGIMB000011.html">ACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000023.html">HGIMB000023</a></td>
+                <td><a href="HGIMB000023.html">ALCHOLOYA EL
+                SALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000035.html">HGIMB000035</a></td>
+                <td><a href="HGIMB000035.html">SAN BARTOLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000040.html">HGIMB000040</a></td>
+                <td><a href="HGIMB000040.html">SAN DIONISIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000052.html">HGIMB000052</a></td>
+                <td><a href="HGIMB000052.html">COL. 28 DE MAYO SANTA
+                ROSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000064.html">HGIMB000064</a></td>
+                <td><a href="HGIMB000064.html">ACAXOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000076.html">HGIMB000076</a></td>
+                <td><a href="HGIMB000076.html">LA MESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000081.html">HGIMB000081</a></td>
+                <td><a href="HGIMB000081.html">LOS REYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000093.html">HGIMB000093</a></td>
+                <td><a href="HGIMB000093.html">SAN MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000105.html">HGIMB000105</a></td>
+                <td><a href="HGIMB000105.html">SAN MIGUEL EL
+                RESGATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000110.html">HGIMB000110</a></td>
+                <td><a href="HGIMB000110.html">SAN PEDRO
+                TLACHICHILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000122.html">HGIMB000122</a></td>
+                <td><a href="HGIMB000122.html">TLAMIMILOLPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000134.html">HGIMB000134</a></td>
+                <td><a href="HGIMB000134.html">ZACACUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000146.html">HGIMB000146</a></td>
+                <td><a href="HGIMB000146.html">CHIMALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000163.html">HGIMB000163</a></td>
+                <td><a href="HGIMB000163.html">ACTOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000175.html">HGIMB000175</a></td>
+                <td><a href="HGIMB000175.html">BOXAXNI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000180.html">HGIMB000180</a></td>
+                <td><a href="HGIMB000180.html">BOXTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000192.html">HGIMB000192</a></td>
+                <td><a href="HGIMB000192.html">CAÑADA CHICA
+                ANTIGUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000204.html">HGIMB000204</a></td>
+                <td><a href="HGIMB000204.html">CHICAVASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000216.html">HGIMB000216</a></td>
+                <td><a href="HGIMB000216.html">DAJIEDHI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000221.html">HGIMB000221</a></td>
+                <td><a href="HGIMB000221.html">LA ESTANCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000233.html">HGIMB000233</a></td>
+                <td><a href="HGIMB000233.html">HUAXTHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000245.html">HGIMB000245</a></td>
+                <td><a href="HGIMB000245.html">SANTA MARÍA
+                MAGDALENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000250.html">HGIMB000250</a></td>
+                <td><a href="HGIMB000250.html">SAN ANDRÉS
+                TIANGUISTENGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000262.html">HGIMB000262</a></td>
+                <td><a href="HGIMB000262.html">AGUA BLANCA
+                ITURBIDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000274.html">HGIMB000274</a></td>
+                <td><a href="HGIMB000274.html">CHICHICAXTLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000286.html">HGIMB000286</a></td>
+                <td><a href="HGIMB000286.html">EJIDO DE PALIZAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000291.html">HGIMB000291</a></td>
+                <td><a href="HGIMB000291.html">LA SALITRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000303.html">HGIMB000303</a></td>
+                <td><a href="HGIMB000303.html">SAN FRANCISCO
+                SACACHICHILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000315.html">HGIMB000315</a></td>
+                <td><a href="HGIMB000315.html">SAN PABLO
+                OXTOTIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000320.html">HGIMB000320</a></td>
+                <td><a href="HGIMB000320.html">SANTA MARÍA
+                XIGUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000332.html">HGIMB000332</a></td>
+                <td><a href="HGIMB000332.html">EL TEPOZAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000344.html">HGIMB000344</a></td>
+                <td><a href="HGIMB000344.html">CHIMALPA
+                TLALAYOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000356.html">HGIMB000356</a></td>
+                <td><a href="HGIMB000356.html">SAN JOSÉ
+                JIQUILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000361.html">HGIMB000361</a></td>
+                <td><a href="HGIMB000361.html">ZOTOLUCA VELOZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000373.html">HGIMB000373</a></td>
+                <td><a href="HGIMB000373.html">ARENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000385.html">HGIMB000385</a></td>
+                <td><a href="HGIMB000385.html">OJO DE AGUA SAN JOSÉ
+                TEPENENE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000390.html">HGIMB000390</a></td>
+                <td><a href="HGIMB000390.html">RINCÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000402.html">HGIMB000402</a></td>
+                <td><a href="HGIMB000402.html">SAN JOSÉ TEPENENE
+                TEPENENE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000414.html">HGIMB000414</a></td>
+                <td><a href="HGIMB000414.html">ATITALAQUIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000426.html">HGIMB000426</a></td>
+                <td><a href="HGIMB000426.html">TLAMACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000443.html">HGIMB000443</a></td>
+                <td><a href="HGIMB000443.html">ATLAPEXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000455.html">HGIMB000455</a></td>
+                <td><a href="HGIMB000455.html">COCHISCOATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000460.html">HGIMB000460</a></td>
+                <td><a href="HGIMB000460.html">HUITZOTLACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000472.html">HGIMB000472</a></td>
+                <td><a href="HGIMB000472.html">PAHACTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000484.html">HGIMB000484</a></td>
+                <td><a href="HGIMB000484.html">TECACAHUACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000496.html">HGIMB000496</a></td>
+                <td><a href="HGIMB000496.html">TENEXCO I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000501.html">HGIMB000501</a></td>
+                <td><a href="HGIMB000501.html">CERRO COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000513.html">HGIMB000513</a></td>
+                <td><a href="HGIMB000513.html">LOS SABINOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000525.html">HGIMB000525</a></td>
+                <td><a href="HGIMB000525.html">ATOTONILCO DE
+                TULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000530.html">HGIMB000530</a></td>
+                <td><a href="HGIMB000530.html">PROGRESO EL DE ATOTONILCO
+                DE TULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000542.html">HGIMB000542</a></td>
+                <td><a href="HGIMB000542.html">EL REFUGIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000554.html">HGIMB000554</a></td>
+                <td><a href="HGIMB000554.html">VITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000566.html">HGIMB000566</a></td>
+                <td><a href="HGIMB000566.html">CALNALI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000571.html">HGIMB000571</a></td>
+                <td><a href="HGIMB000571.html">COYULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000583.html">HGIMB000583</a></td>
+                <td><a href="HGIMB000583.html">PAPATLATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000595.html">HGIMB000595</a></td>
+                <td><a href="HGIMB000595.html">PEZMATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000600.html">HGIMB000600</a></td>
+                <td><a href="HGIMB000600.html">SANTA LUCIA MESA DE SANTA
+                LUCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000612.html">HGIMB000612</a></td>
+                <td><a href="HGIMB000612.html">CARDONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000624.html">HGIMB000624</a></td>
+                <td><a href="HGIMB000624.html">EL BINGU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000636.html">HGIMB000636</a></td>
+                <td><a href="HGIMB000636.html">EL BUENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000641.html">HGIMB000641</a></td>
+                <td><a href="HGIMB000641.html">CIENEGUILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000653.html">HGIMB000653</a></td>
+                <td><a href="HGIMB000653.html">EL DECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000665.html">HGIMB000665</a></td>
+                <td><a href="HGIMB000665.html">LA MESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000670.html">HGIMB000670</a></td>
+                <td><a href="HGIMB000670.html">POZUELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000682.html">HGIMB000682</a></td>
+                <td><a href="HGIMB000682.html">SAN ANDRÉS
+                DABOXTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000694.html">HGIMB000694</a></td>
+                <td><a href="HGIMB000694.html">SAN ANTONIO
+                SABANILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000706.html">HGIMB000706</a></td>
+                <td><a href="HGIMB000706.html">SAN CRISTÓBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000711.html">HGIMB000711</a></td>
+                <td><a href="HGIMB000711.html">SAN MIGUEL
+                TLAZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000723.html">HGIMB000723</a></td>
+                <td><a href="HGIMB000723.html">SAN MIGUEL JIGUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000735.html">HGIMB000735</a></td>
+                <td><a href="HGIMB000735.html">SANTA TERESA
+                DABOXTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000740.html">HGIMB000740</a></td>
+                <td><a href="HGIMB000740.html">SANTUARIO
+                MAPETHÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000752.html">HGIMB000752</a></td>
+                <td><a href="HGIMB000752.html">EL SAUZ JUXMAYE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000764.html">HGIMB000764</a></td>
+                <td><a href="HGIMB000764.html">EL TIXQUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000776.html">HGIMB000776</a></td>
+                <td><a href="HGIMB000776.html">CUAUTEPEC DE
+                HINOJOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000781.html">HGIMB000781</a></td>
+                <td><a href="HGIMB000781.html">EL CAPULIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000793.html">HGIMB000793</a></td>
+                <td><a href="HGIMB000793.html">HUEYAPITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000805.html">HGIMB000805</a></td>
+                <td><a href="HGIMB000805.html">LAS PUENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000810.html">HGIMB000810</a></td>
+                <td><a href="HGIMB000810.html">SANTA MARÍA
+                NATIVITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000822.html">HGIMB000822</a></td>
+                <td><a href="HGIMB000822.html">TECOCOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000834.html">HGIMB000834</a></td>
+                <td><a href="HGIMB000834.html">ALMOLOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000846.html">HGIMB000846</a></td>
+                <td><a href="HGIMB000846.html">LA CAÑADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000851.html">HGIMB000851</a></td>
+                <td><a href="HGIMB000851.html">CHAPANTONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000863.html">HGIMB000863</a></td>
+                <td><a href="HGIMB000863.html">SAN BARTOLO
+                OZOCALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000875.html">HGIMB000875</a></td>
+                <td><a href="HGIMB000875.html">TLAUNILOLPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000880.html">HGIMB000880</a></td>
+                <td><a href="HGIMB000880.html">CHAPULHUACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000892.html">HGIMB000892</a></td>
+                <td><a href="HGIMB000892.html">CAHUAZAS HACIENDA DE
+                CAHUAZAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000904.html">HGIMB000904</a></td>
+                <td><a href="HGIMB000904.html">MIAHUATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000916.html">HGIMB000916</a></td>
+                <td><a href="HGIMB000916.html">SAN RAFAEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000921.html">HGIMB000921</a></td>
+                <td><a href="HGIMB000921.html">SANTA ANA DE
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000933.html">HGIMB000933</a></td>
+                <td><a href="HGIMB000933.html">SAUCILLO SAUCILLO AGUA
+                NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000945.html">HGIMB000945</a></td>
+                <td><a href="HGIMB000945.html">SOLEDAD DEL
+                COYOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000950.html">HGIMB000950</a></td>
+                <td><a href="HGIMB000950.html">CHILCUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000962.html">HGIMB000962</a></td>
+                <td><a href="HGIMB000962.html">EL DADHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000974.html">HGIMB000974</a></td>
+                <td><a href="HGIMB000974.html">HUITEXCALCO DE
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB000986.html">HGIMB000986</a></td>
+                <td><a href="HGIMB000986.html">SANTA ANA BATHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB000991.html">HGIMB000991</a></td>
+                <td><a href="HGIMB000991.html">TEXCATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001003.html">HGIMB001003</a></td>
+                <td><a href="HGIMB001003.html">ELOXOCHITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001015.html">HGIMB001015</a></td>
+                <td><a href="HGIMB001015.html">IZTACAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001020.html">HGIMB001020</a></td>
+                <td><a href="HGIMB001020.html">SAN JUAN
+                AMAJAQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001032.html">HGIMB001032</a></td>
+                <td><a href="HGIMB001032.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001044.html">HGIMB001044</a></td>
+                <td><a href="HGIMB001044.html">SANTA BÁRBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001056.html">HGIMB001056</a></td>
+                <td><a href="HGIMB001056.html">SANTA CLARA
+                PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001061.html">HGIMB001061</a></td>
+                <td><a href="HGIMB001061.html">JOSÉ MARÍA MORELOS SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001073.html">HGIMB001073</a></td>
+                <td><a href="HGIMB001073.html">EPAZOYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001085.html">HGIMB001085</a></td>
+                <td><a href="HGIMB001085.html">SAN JUAN
+                TIZAHUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001090.html">HGIMB001090</a></td>
+                <td><a href="HGIMB001090.html">SANTA MONICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001102.html">HGIMB001102</a></td>
+                <td><a href="HGIMB001102.html">TEPATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001114.html">HGIMB001114</a></td>
+                <td><a href="HGIMB001114.html">DENGANTZHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001126.html">HGIMB001126</a></td>
+                <td><a href="HGIMB001126.html">LÁZARO CÁRDENAS COLONIA
+                EL MEXE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001131.html">HGIMB001131</a></td>
+                <td><a href="HGIMB001131.html">EL ROSARÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001143.html">HGIMB001143</a></td>
+                <td><a href="HGIMB001143.html">SAN JUAN TEPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001155.html">HGIMB001155</a></td>
+                <td><a href="HGIMB001155.html">HUASCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001160.html">HGIMB001160</a></td>
+                <td><a href="HGIMB001160.html">HUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001172.html">HGIMB001172</a></td>
+                <td><a href="HGIMB001172.html">ACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001184.html">HGIMB001184</a></td>
+                <td><a href="HGIMB001184.html">COATZONCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001196.html">HGIMB001196</a></td>
+                <td><a href="HGIMB001196.html">CHALINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001201.html">HGIMB001201</a></td>
+                <td><a href="HGIMB001201.html">TAMOYON I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001213.html">HGIMB001213</a></td>
+                <td><a href="HGIMB001213.html">TECOLUCO CALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001225.html">HGIMB001225</a></td>
+                <td><a href="HGIMB001225.html">TZACUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001230.html">HGIMB001230</a></td>
+                <td><a href="HGIMB001230.html">ZACATIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001242.html">HGIMB001242</a></td>
+                <td><a href="HGIMB001242.html">HUAZALINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001254.html">HGIMB001254</a></td>
+                <td><a href="HGIMB001254.html">SAN FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001266.html">HGIMB001266</a></td>
+                <td><a href="HGIMB001266.html">HUEHUETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001271.html">HGIMB001271</a></td>
+                <td><a href="HGIMB001271.html">LA ESPERANZA NUMERO
+                UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001283.html">HGIMB001283</a></td>
+                <td><a href="HGIMB001283.html">EL PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001295.html">HGIMB001295</a></td>
+                <td><a href="HGIMB001295.html">SAN AMBROSIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001300.html">HGIMB001300</a></td>
+                <td><a href="HGIMB001300.html">CUAPAXTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001312.html">HGIMB001312</a></td>
+                <td><a href="HGIMB001312.html">IXCATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001324.html">HGIMB001324</a></td>
+                <td><a href="HGIMB001324.html">IXTLÁHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001336.html">HGIMB001336</a></td>
+                <td><a href="HGIMB001336.html">LOS OTATES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001341.html">HGIMB001341</a></td>
+                <td><a href="HGIMB001341.html">PAHUATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001353.html">HGIMB001353</a></td>
+                <td><a href="HGIMB001353.html">SANTA CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001365.html">HGIMB001365</a></td>
+                <td><a href="HGIMB001365.html">TEACAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001370.html">HGIMB001370</a></td>
+                <td><a href="HGIMB001370.html">TEHUETLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001382.html">HGIMB001382</a></td>
+                <td><a href="HGIMB001382.html">LAS CHACAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001406.html">HGIMB001406</a></td>
+                <td><a href="HGIMB001406.html">HUICHAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001411.html">HGIMB001411</a></td>
+                <td><a href="HGIMB001411.html">DANTZIBOJAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001423.html">HGIMB001423</a></td>
+                <td><a href="HGIMB001423.html">LLANO LARGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001435.html">HGIMB001435</a></td>
+                <td><a href="HGIMB001435.html">MAMITHI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001440.html">HGIMB001440</a></td>
+                <td><a href="HGIMB001440.html">MANEY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001452.html">HGIMB001452</a></td>
+                <td><a href="HGIMB001452.html">SAN JOSÉ ATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001464.html">HGIMB001464</a></td>
+                <td><a href="HGIMB001464.html">TAGUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001476.html">HGIMB001476</a></td>
+                <td><a href="HGIMB001476.html">TLAXCALILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001493.html">HGIMB001493</a></td>
+                <td><a href="HGIMB001493.html">IXMIQUILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001505.html">HGIMB001505</a></td>
+                <td><a href="HGIMB001505.html">EL ALBERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001510.html">HGIMB001510</a></td>
+                <td><a href="HGIMB001510.html">CUESTA COLORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001522.html">HGIMB001522</a></td>
+                <td><a href="HGIMB001522.html">EL DEFAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001534.html">HGIMB001534</a></td>
+                <td><a href="HGIMB001534.html">DEXTHI SAN
+                JUANICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001546.html">HGIMB001546</a></td>
+                <td><a href="HGIMB001546.html">DIOS PADRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001551.html">HGIMB001551</a></td>
+                <td><a href="HGIMB001551.html">EL ESPIRITU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001563.html">HGIMB001563</a></td>
+                <td><a href="HGIMB001563.html">IGNACIO LÓPEZ
+                RAYON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001575.html">HGIMB001575</a></td>
+                <td><a href="HGIMB001575.html">JULIÁN VILLAGRAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001580.html">HGIMB001580</a></td>
+                <td><a href="HGIMB001580.html">LA LAGUNITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001592.html">HGIMB001592</a></td>
+                <td><a href="HGIMB001592.html">MAGUEY BLANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001604.html">HGIMB001604</a></td>
+                <td><a href="HGIMB001604.html">ORIZABITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001616.html">HGIMB001616</a></td>
+                <td><a href="HGIMB001616.html">PANALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001621.html">HGIMB001621</a></td>
+                <td><a href="HGIMB001621.html">PUEBLO NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001633.html">HGIMB001633</a></td>
+                <td><a href="HGIMB001633.html">REMEDIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001645.html">HGIMB001645</a></td>
+                <td><a href="HGIMB001645.html">SAN JUANICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001650.html">HGIMB001650</a></td>
+                <td><a href="HGIMB001650.html">TAXADHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001662.html">HGIMB001662</a></td>
+                <td><a href="HGIMB001662.html">EL TEPHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001674.html">HGIMB001674</a></td>
+                <td><a href="HGIMB001674.html">COLONIA GENERAL FELIPE
+                ÁNGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001691.html">HGIMB001691</a></td>
+                <td><a href="HGIMB001691.html">JACALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001703.html">HGIMB001703</a></td>
+                <td><a href="HGIMB001703.html">COÑECITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001715.html">HGIMB001715</a></td>
+                <td><a href="HGIMB001715.html">QUETZALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001720.html">HGIMB001720</a></td>
+                <td><a href="HGIMB001720.html">SANTO DOMINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001732.html">HGIMB001732</a></td>
+                <td><a href="HGIMB001732.html">JALTOCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001744.html">HGIMB001744</a></td>
+                <td><a href="HGIMB001744.html">SANTA MARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001756.html">HGIMB001756</a></td>
+                <td><a href="HGIMB001756.html">LOLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001761.html">HGIMB001761</a></td>
+                <td><a href="HGIMB001761.html">CHALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001773.html">HGIMB001773</a></td>
+                <td><a href="HGIMB001773.html">CHANTASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001785.html">HGIMB001785</a></td>
+                <td><a href="HGIMB001785.html">CHICONCOAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001790.html">HGIMB001790</a></td>
+                <td><a href="HGIMB001790.html">METEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001802.html">HGIMB001802</a></td>
+                <td><a href="HGIMB001802.html">METZTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001814.html">HGIMB001814</a></td>
+                <td><a href="HGIMB001814.html">EL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001826.html">HGIMB001826</a></td>
+                <td><a href="HGIMB001826.html">ITZTAZACUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001831.html">HGIMB001831</a></td>
+                <td><a href="HGIMB001831.html">LA MESA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001843.html">HGIMB001843</a></td>
+                <td><a href="HGIMB001843.html">EL PEDREGAL DE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001855.html">HGIMB001855</a></td>
+                <td><a href="HGIMB001855.html">EL PIRU
+                TEPOZOTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001860.html">HGIMB001860</a></td>
+                <td><a href="HGIMB001860.html">SAN CRISTÓBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001872.html">HGIMB001872</a></td>
+                <td><a href="HGIMB001872.html">SANTA MONICA
+                AUTEMPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001884.html">HGIMB001884</a></td>
+                <td><a href="HGIMB001884.html">TLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001896.html">HGIMB001896</a></td>
+                <td><a href="HGIMB001896.html">MINERAL DEL
+                CHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001901.html">HGIMB001901</a></td>
+                <td><a href="HGIMB001901.html">CAPULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001913.html">HGIMB001913</a></td>
+                <td><a href="HGIMB001913.html">CARBONERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001925.html">HGIMB001925</a></td>
+                <td><a href="HGIMB001925.html">ESTANZUELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001930.html">HGIMB001930</a></td>
+                <td><a href="HGIMB001930.html">SAN SEBASTIAN
+                CAPULINES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001942.html">HGIMB001942</a></td>
+                <td><a href="HGIMB001942.html">LA MISION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001954.html">HGIMB001954</a></td>
+                <td><a href="HGIMB001954.html">JACALILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001966.html">HGIMB001966</a></td>
+                <td><a href="HGIMB001966.html">TAXHUADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001971.html">HGIMB001971</a></td>
+                <td><a href="HGIMB001971.html">CAÑADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB001983.html">HGIMB001983</a></td>
+                <td><a href="HGIMB001983.html">JAGUEY BLANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB001995.html">HGIMB001995</a></td>
+                <td><a href="HGIMB001995.html">MOTOBATHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002000.html">HGIMB002000</a></td>
+                <td><a href="HGIMB002000.html">COLONIA
+                PALMILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002012.html">HGIMB002012</a></td>
+                <td><a href="HGIMB002012.html">COLONIA TEÑHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002024.html">HGIMB002024</a></td>
+                <td><a href="HGIMB002024.html">COLONIA VERACRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002041.html">HGIMB002041</a></td>
+                <td><a href="HGIMB002041.html">MOLANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002053.html">HGIMB002053</a></td>
+                <td><a href="HGIMB002053.html">ACAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002065.html">HGIMB002065</a></td>
+                <td><a href="HGIMB002065.html">IXCUICUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002070.html">HGIMB002070</a></td>
+                <td><a href="HGIMB002070.html">SAN ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002082.html">HGIMB002082</a></td>
+                <td><a href="HGIMB002082.html">NICOLÁS FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002094.html">HGIMB002094</a></td>
+                <td><a href="HGIMB002094.html">EL BOCUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002106.html">HGIMB002106</a></td>
+                <td><a href="HGIMB002106.html">ITATLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002111.html">HGIMB002111</a></td>
+                <td><a href="HGIMB002111.html">TAXHAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002123.html">HGIMB002123</a></td>
+                <td><a href="HGIMB002123.html">NOPALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002135.html">HGIMB002135</a></td>
+                <td><a href="HGIMB002135.html">BATHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002140.html">HGIMB002140</a></td>
+                <td><a href="HGIMB002140.html">JAGUEY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002152.html">HGIMB002152</a></td>
+                <td><a href="HGIMB002152.html">SAN SEBASTIAN
+                TENOCHTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002164.html">HGIMB002164</a></td>
+                <td><a href="HGIMB002164.html">SAN SEBASTIAN
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002176.html">HGIMB002176</a></td>
+                <td><a href="HGIMB002176.html">OMITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002181.html">HGIMB002181</a></td>
+                <td><a href="HGIMB002181.html">SAN ANTONIO EL
+                PASO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002193.html">HGIMB002193</a></td>
+                <td><a href="HGIMB002193.html">SAN FELIPE
+                ORIZATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002205.html">HGIMB002205</a></td>
+                <td><a href="HGIMB002205.html">AHUATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002210.html">HGIMB002210</a></td>
+                <td><a href="HGIMB002210.html">NEXPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002222.html">HGIMB002222</a></td>
+                <td><a href="HGIMB002222.html">LAS PIEDRAS MICROPOLIS
+                ECOLOGICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002234.html">HGIMB002234</a></td>
+                <td><a href="HGIMB002234.html">TALOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002246.html">HGIMB002246</a></td>
+                <td><a href="HGIMB002246.html">EL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002251.html">HGIMB002251</a></td>
+                <td><a href="HGIMB002251.html">LOS HUMOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002263.html">HGIMB002263</a></td>
+                <td><a href="HGIMB002263.html">JILIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002275.html">HGIMB002275</a></td>
+                <td><a href="HGIMB002275.html">POTRERILLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002280.html">HGIMB002280</a></td>
+                <td><a href="HGIMB002280.html">SANTA MARÍA
+                MIRAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002292.html">HGIMB002292</a></td>
+                <td><a href="HGIMB002292.html">PIRACANTOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002316.html">HGIMB002316</a></td>
+                <td><a href="HGIMB002316.html">AQUILES SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002321.html">HGIMB002321</a></td>
+                <td><a href="HGIMB002321.html">COLONIA BUENOS
+                AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002333.html">HGIMB002333</a></td>
+                <td><a href="HGIMB002333.html">COLONIA
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002345.html">HGIMB002345</a></td>
+                <td><a href="HGIMB002345.html">COLONIA ROJO
+                GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002350.html">HGIMB002350</a></td>
+                <td><a href="HGIMB002350.html">LA ALCANTARILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002362.html">HGIMB002362</a></td>
+                <td><a href="HGIMB002362.html">COLONIA EL
+                ARBOLITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002374.html">HGIMB002374</a></td>
+                <td><a href="HGIMB002374.html">COLONIA CUBITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002386.html">HGIMB002386</a></td>
+                <td><a href="HGIMB002386.html">COLONIA LA RAZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002391.html">HGIMB002391</a></td>
+                <td><a href="HGIMB002391.html">ABRAHAM KANAN
+                HUEBE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002403.html">HGIMB002403</a></td>
+                <td><a href="HGIMB002403.html">PACHUCA (DR. JESÚS DEL
+                ROSAL)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002415.html">HGIMB002415</a></td>
+                <td><a href="HGIMB002415.html">SAN MIGUEL EL CEREZO EL
+                CEREZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002420.html">HGIMB002420</a></td>
+                <td><a href="HGIMB002420.html">SANTIAGO
+                TLAPACOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002432.html">HGIMB002432</a></td>
+                <td><a href="HGIMB002432.html">PISAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002444.html">HGIMB002444</a></td>
+                <td><a href="HGIMB002444.html">GARGANTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002456.html">HGIMB002456</a></td>
+                <td><a href="HGIMB002456.html">GUAYABOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002461.html">HGIMB002461</a></td>
+                <td><a href="HGIMB002461.html">LA PEÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002473.html">HGIMB002473</a></td>
+                <td><a href="HGIMB002473.html">PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002485.html">HGIMB002485</a></td>
+                <td><a href="HGIMB002485.html">XOCHITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002490.html">HGIMB002490</a></td>
+                <td><a href="HGIMB002490.html">PACHUQUILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002502.html">HGIMB002502</a></td>
+                <td><a href="HGIMB002502.html">LA PROVIDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002514.html">HGIMB002514</a></td>
+                <td><a href="HGIMB002514.html">SAN AGUSTÍN
+                TLAXIACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002526.html">HGIMB002526</a></td>
+                <td><a
+                href="HGIMB002526.html">IXCUINQUITLAPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002531.html">HGIMB002531</a></td>
+                <td><a href="HGIMB002531.html">PUERTO MÉXICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002543.html">HGIMB002543</a></td>
+                <td><a href="HGIMB002543.html">SAN JUAN SOLIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002555.html">HGIMB002555</a></td>
+                <td><a href="HGIMB002555.html">SAN JUAN
+                TILCUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002560.html">HGIMB002560</a></td>
+                <td><a href="HGIMB002560.html">SAN MIGUEL
+                TORNACUXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002584.html">HGIMB002584</a></td>
+                <td><a href="HGIMB002584.html">SAN ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002596.html">HGIMB002596</a></td>
+                <td><a href="HGIMB002596.html">SAN MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002601.html">HGIMB002601</a></td>
+                <td><a href="HGIMB002601.html">SANTA CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002613.html">HGIMB002613</a></td>
+                <td><a href="HGIMB002613.html">SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002625.html">HGIMB002625</a></td>
+                <td><a href="HGIMB002625.html">CAÑADA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002630.html">HGIMB002630</a></td>
+                <td><a href="HGIMB002630.html">DEXTHO DE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002642.html">HGIMB002642</a></td>
+                <td><a href="HGIMB002642.html">PACHECO DE
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002654.html">HGIMB002654</a></td>
+                <td><a href="HGIMB002654.html">SAN ANTONIO
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002666.html">HGIMB002666</a></td>
+                <td><a href="HGIMB002666.html">SAN MIGUEL
+                ACAMBAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002671.html">HGIMB002671</a></td>
+                <td><a href="HGIMB002671.html">SANTA MARÍA
+                AMAJAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002683.html">HGIMB002683</a></td>
+                <td><a href="HGIMB002683.html">TEOFANI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002695.html">HGIMB002695</a></td>
+                <td><a href="HGIMB002695.html">CAXUXI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002700.html">HGIMB002700</a></td>
+                <td><a href="HGIMB002700.html">EL PUERTO LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002712.html">HGIMB002712</a></td>
+                <td><a href="HGIMB002712.html">SANTIAGO DE
+                ANAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002724.html">HGIMB002724</a></td>
+                <td><a href="HGIMB002724.html">CERRITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002736.html">HGIMB002736</a></td>
+                <td><a href="HGIMB002736.html">EL ENCINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002741.html">HGIMB002741</a></td>
+                <td><a href="HGIMB002741.html">GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002753.html">HGIMB002753</a></td>
+                <td><a href="HGIMB002753.html">MEZQUITAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002765.html">HGIMB002765</a></td>
+                <td><a href="HGIMB002765.html">PATRIA NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002770.html">HGIMB002770</a></td>
+                <td><a href="HGIMB002770.html">SANTA MONICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002782.html">HGIMB002782</a></td>
+                <td><a href="HGIMB002782.html">YOLOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002794.html">HGIMB002794</a></td>
+                <td><a href="HGIMB002794.html">SANTIAGO TULANTEPEC DE
+                LUGO GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002806.html">HGIMB002806</a></td>
+                <td><a href="HGIMB002806.html">EL PEDREGAL DE SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002811.html">HGIMB002811</a></td>
+                <td><a href="HGIMB002811.html">SINGUILUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002823.html">HGIMB002823</a></td>
+                <td><a href="HGIMB002823.html">MATIAS RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002835.html">HGIMB002835</a></td>
+                <td><a href="HGIMB002835.html">PLUTARCO ELIAS
+                CALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002840.html">HGIMB002840</a></td>
+                <td><a href="HGIMB002840.html">TASQUILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002852.html">HGIMB002852</a></td>
+                <td><a href="HGIMB002852.html">CANDELARIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002864.html">HGIMB002864</a></td>
+                <td><a href="HGIMB002864.html">DANGHU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002876.html">HGIMB002876</a></td>
+                <td><a href="HGIMB002876.html">TECOZAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002881.html">HGIMB002881</a></td>
+                <td><a href="HGIMB002881.html">LA MESILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002893.html">HGIMB002893</a></td>
+                <td><a href="HGIMB002893.html">EL SALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002905.html">HGIMB002905</a></td>
+                <td><a href="HGIMB002905.html">SAN ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002910.html">HGIMB002910</a></td>
+                <td><a href="HGIMB002910.html">SAN FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002922.html">HGIMB002922</a></td>
+                <td><a href="HGIMB002922.html">SAN JOAQUÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002934.html">HGIMB002934</a></td>
+                <td><a href="HGIMB002934.html">SAN MIGUEL
+                CALTEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002946.html">HGIMB002946</a></td>
+                <td><a href="HGIMB002946.html">UXDEJHE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002951.html">HGIMB002951</a></td>
+                <td><a href="HGIMB002951.html">TENANGO DE DORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002963.html">HGIMB002963</a></td>
+                <td><a href="HGIMB002963.html">EL BOPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002975.html">HGIMB002975</a></td>
+                <td><a href="HGIMB002975.html">SAN PABLO EL
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB002980.html">HGIMB002980</a></td>
+                <td><a href="HGIMB002980.html">SANTA MARÍA
+                TEMAXCALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB002992.html">HGIMB002992</a></td>
+                <td><a href="HGIMB002992.html">LOS CIDES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003004.html">HGIMB003004</a></td>
+                <td><a href="HGIMB003004.html">IROLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003016.html">HGIMB003016</a></td>
+                <td><a href="HGIMB003016.html">SAN MIGUEL
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003021.html">HGIMB003021</a></td>
+                <td><a href="HGIMB003021.html">TULTENGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003033.html">HGIMB003033</a></td>
+                <td><a href="HGIMB003033.html">TEPEHUACAN DE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003045.html">HGIMB003045</a></td>
+                <td><a href="HGIMB003045.html">ACUIMANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003050.html">HGIMB003050</a></td>
+                <td><a href="HGIMB003050.html">AMOLA DE OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003062.html">HGIMB003062</a></td>
+                <td><a href="HGIMB003062.html">AQUILASTEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003074.html">HGIMB003074</a></td>
+                <td><a href="HGIMB003074.html">SAN MIGUEL
+                AYOTEMPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003086.html">HGIMB003086</a></td>
+                <td><a href="HGIMB003086.html">CUAZAHUATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003091.html">HGIMB003091</a></td>
+                <td><a href="HGIMB003091.html">PETLAPIXCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003103.html">HGIMB003103</a></td>
+                <td><a href="HGIMB003103.html">LA REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003115.html">HGIMB003115</a></td>
+                <td><a href="HGIMB003115.html">TAMALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003120.html">HGIMB003120</a></td>
+                <td><a href="HGIMB003120.html">TEXCAPA DE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003132.html">HGIMB003132</a></td>
+                <td><a href="HGIMB003132.html">XILITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003144.html">HGIMB003144</a></td>
+                <td><a href="HGIMB003144.html">ZACUALTIPANITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003156.html">HGIMB003156</a></td>
+                <td><a href="HGIMB003156.html">TLAXINACALPAN TEPEJI DE
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003161.html">HGIMB003161</a></td>
+                <td><a href="HGIMB003161.html">MELCHOR OCAMPO EL
+                SALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003173.html">HGIMB003173</a></td>
+                <td><a href="HGIMB003173.html">SAN IGNACIO
+                NOPALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003185.html">HGIMB003185</a></td>
+                <td><a href="HGIMB003185.html">SAN ILDEFONSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003190.html">HGIMB003190</a></td>
+                <td><a href="HGIMB003190.html">SANTA MARÍA
+                QUELITES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003202.html">HGIMB003202</a></td>
+                <td><a href="HGIMB003202.html">SANTIAGO
+                TLAPANALOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003214.html">HGIMB003214</a></td>
+                <td><a href="HGIMB003214.html">TEPETITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003226.html">HGIMB003226</a></td>
+                <td><a href="HGIMB003226.html">GENERAL PEDRO MARÍA
+                ANAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003231.html">HGIMB003231</a></td>
+                <td><a href="HGIMB003231.html">JOSÉ MARÍA PINO
+                SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003243.html">HGIMB003243</a></td>
+                <td><a href="HGIMB003243.html">SAN PEDRO
+                NEXTLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003255.html">HGIMB003255</a></td>
+                <td><a href="HGIMB003255.html">TETEPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003260.html">HGIMB003260</a></td>
+                <td><a href="HGIMB003260.html">ULAPA DE MELCHOR
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003272.html">HGIMB003272</a></td>
+                <td><a href="HGIMB003272.html">TEZONTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003284.html">HGIMB003284</a></td>
+                <td><a href="HGIMB003284.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003296.html">HGIMB003296</a></td>
+                <td><a href="HGIMB003296.html">TEZONTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003301.html">HGIMB003301</a></td>
+                <td><a href="HGIMB003301.html">SANTIAGO
+                ACAYUTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003313.html">HGIMB003313</a></td>
+                <td><a href="HGIMB003313.html">ATENGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003325.html">HGIMB003325</a></td>
+                <td><a href="HGIMB003325.html">SANTA MARÍA
+                BATHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003330.html">HGIMB003330</a></td>
+                <td><a href="HGIMB003330.html">TENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003342.html">HGIMB003342</a></td>
+                <td><a href="HGIMB003342.html">TIANGUISTENGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003354.html">HGIMB003354</a></td>
+                <td><a href="HGIMB003354.html">ATECOXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003366.html">HGIMB003366</a></td>
+                <td><a href="HGIMB003366.html">COAMELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003371.html">HGIMB003371</a></td>
+                <td><a href="HGIMB003371.html">TEXACAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003383.html">HGIMB003383</a></td>
+                <td><a href="HGIMB003383.html">XOCHIMILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003395.html">HGIMB003395</a></td>
+                <td><a href="HGIMB003395.html">TIZAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003400.html">HGIMB003400</a></td>
+                <td><a href="HGIMB003400.html">HUITZILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003412.html">HGIMB003412</a></td>
+                <td><a href="HGIMB003412.html">EL CID</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003424.html">HGIMB003424</a></td>
+                <td><a href="HGIMB003424.html">TEPOJACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003436.html">HGIMB003436</a></td>
+                <td><a href="HGIMB003436.html">LAS PLAZAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003441.html">HGIMB003441</a></td>
+                <td><a href="HGIMB003441.html">TLAHUELILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003453.html">HGIMB003453</a></td>
+                <td><a href="HGIMB003453.html">MUNITEPEC DE
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003465.html">HGIMB003465</a></td>
+                <td><a href="HGIMB003465.html">COLONIA
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003470.html">HGIMB003470</a></td>
+                <td><a href="HGIMB003470.html">TLAHUILTEPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003482.html">HGIMB003482</a></td>
+                <td><a href="HGIMB003482.html">AGUA DEL CUERVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003494.html">HGIMB003494</a></td>
+                <td><a href="HGIMB003494.html">CERRO DEL AGUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003506.html">HGIMB003506</a></td>
+                <td><a href="HGIMB003506.html">SAN ANDRÉS
+                MIRAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003511.html">HGIMB003511</a></td>
+                <td><a href="HGIMB003511.html">XILOCUATITLA EL PUERTO DE
+                XILOCUATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003523.html">HGIMB003523</a></td>
+                <td><a href="HGIMB003523.html">TLANALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003535.html">HGIMB003535</a></td>
+                <td><a href="HGIMB003535.html">CHICONCUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003540.html">HGIMB003540</a></td>
+                <td><a href="HGIMB003540.html">TLANCHINOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003552.html">HGIMB003552</a></td>
+                <td><a href="HGIMB003552.html">ACAHUASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003564.html">HGIMB003564</a></td>
+                <td><a href="HGIMB003564.html">ACATIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003576.html">HGIMB003576</a></td>
+                <td><a href="HGIMB003576.html">CHICHATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003581.html">HGIMB003581</a></td>
+                <td><a href="HGIMB003581.html">CHIPOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003593.html">HGIMB003593</a></td>
+                <td><a href="HGIMB003593.html">PUEBLO HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003605.html">HGIMB003605</a></td>
+                <td><a href="HGIMB003605.html">HUITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003610.html">HGIMB003610</a></td>
+                <td><a href="HGIMB003610.html">JALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003622.html">HGIMB003622</a></td>
+                <td><a href="HGIMB003622.html">OLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003634.html">HGIMB003634</a></td>
+                <td><a href="HGIMB003634.html">PILCUATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003646.html">HGIMB003646</a></td>
+                <td><a href="HGIMB003646.html">SANTA LUCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003651.html">HGIMB003651</a></td>
+                <td><a href="HGIMB003651.html">SANTA MARÍA CATZOTIPAN
+                SANTA MARÍA TEPETZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003663.html">HGIMB003663</a></td>
+                <td><a href="HGIMB003663.html">TEMANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003675.html">HGIMB003675</a></td>
+                <td><a href="HGIMB003675.html">TLAXCOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003680.html">HGIMB003680</a></td>
+                <td><a href="HGIMB003680.html">DOXEY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003692.html">HGIMB003692</a></td>
+                <td><a href="HGIMB003692.html">TELTIPAN DE
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003704.html">HGIMB003704</a></td>
+                <td><a href="HGIMB003704.html">TOLCAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003716.html">HGIMB003716</a></td>
+                <td><a href="HGIMB003716.html">TULA DE ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003721.html">HGIMB003721</a></td>
+                <td><a href="HGIMB003721.html">XITEJE DE ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003733.html">HGIMB003733</a></td>
+                <td><a href="HGIMB003733.html">HÉROES CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003745.html">HGIMB003745</a></td>
+                <td><a href="HGIMB003745.html">EL LLANO PRIMERA
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003750.html">HGIMB003750</a></td>
+                <td><a href="HGIMB003750.html">MICHIMALOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003762.html">HGIMB003762</a></td>
+                <td><a href="HGIMB003762.html">BOMINTZHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003774.html">HGIMB003774</a></td>
+                <td><a href="HGIMB003774.html">XITHEJE DE
+                REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003786.html">HGIMB003786</a></td>
+                <td><a href="HGIMB003786.html">SAN ANDRÉS
+                TULTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003791.html">HGIMB003791</a></td>
+                <td><a href="HGIMB003791.html">SAN MIGUEL DE LAS PIEDRAS
+                PRIMERA SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003803.html">HGIMB003803</a></td>
+                <td><a href="HGIMB003803.html">SAN MIGUEL
+                VINDHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003815.html">HGIMB003815</a></td>
+                <td><a href="HGIMB003815.html">SAN PEDRITO
+                ALPUYECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003820.html">HGIMB003820</a></td>
+                <td><a href="HGIMB003820.html">SANTA ANA
+                AHUEHUEPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003832.html">HGIMB003832</a></td>
+                <td><a href="HGIMB003832.html">XOCHITLAN DE LAS
+                FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003844.html">HGIMB003844</a></td>
+                <td><a href="HGIMB003844.html">TULANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003856.html">HGIMB003856</a></td>
+                <td><a href="HGIMB003856.html">HUAJOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003861.html">HGIMB003861</a></td>
+                <td><a href="HGIMB003861.html">SANTA ANA
+                HUEYTLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003873.html">HGIMB003873</a></td>
+                <td><a href="HGIMB003873.html">SANTA MARÍA
+                ASUNCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003885.html">HGIMB003885</a></td>
+                <td><a href="HGIMB003885.html">JAVIER ROJO
+                GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003890.html">HGIMB003890</a></td>
+                <td><a href="HGIMB003890.html">EJIDO EL PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003902.html">HGIMB003902</a></td>
+                <td><a href="HGIMB003902.html">ATLALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003914.html">HGIMB003914</a></td>
+                <td><a href="HGIMB003914.html">CHIAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003926.html">HGIMB003926</a></td>
+                <td><a href="HGIMB003926.html">IXTACZOQUICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003931.html">HGIMB003931</a></td>
+                <td><a href="HGIMB003931.html">OHUATIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003943.html">HGIMB003943</a></td>
+                <td><a href="HGIMB003943.html">PACHIQUITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003955.html">HGIMB003955</a></td>
+                <td><a href="HGIMB003955.html">XOCHICOATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003960.html">HGIMB003960</a></td>
+                <td><a href="HGIMB003960.html">TLAXCOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003972.html">HGIMB003972</a></td>
+                <td><a href="HGIMB003972.html">YAHUALICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB003984.html">HGIMB003984</a></td>
+                <td><a href="HGIMB003984.html">EL ARENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB003996.html">HGIMB003996</a></td>
+                <td><a href="HGIMB003996.html">ATLALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004001.html">HGIMB004001</a></td>
+                <td><a href="HGIMB004001.html">OXELOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004013.html">HGIMB004013</a></td>
+                <td><a href="HGIMB004013.html">TETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004025.html">HGIMB004025</a></td>
+                <td><a href="HGIMB004025.html">TLALCHIYAHUALICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004030.html">HGIMB004030</a></td>
+                <td><a href="HGIMB004030.html">XOCHITL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004042.html">HGIMB004042</a></td>
+                <td><a href="HGIMB004042.html">ZACUALTIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004054.html">HGIMB004054</a></td>
+                <td><a href="HGIMB004054.html">COATLILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004066.html">HGIMB004066</a></td>
+                <td><a href="HGIMB004066.html">JALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004071.html">HGIMB004071</a></td>
+                <td><a href="HGIMB004071.html">ACAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004083.html">HGIMB004083</a></td>
+                <td><a href="HGIMB004083.html">ZEMPOALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004095.html">HGIMB004095</a></td>
+                <td><a href="HGIMB004095.html">SAN GABRIEL
+                AZTECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004100.html">HGIMB004100</a></td>
+                <td><a href="HGIMB004100.html">SANTO TOMÁS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004112.html">HGIMB004112</a></td>
+                <td><a href="HGIMB004112.html">ZIMAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004124.html">HGIMB004124</a></td>
+                <td><a href="HGIMB004124.html">AGUAS BLANCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004136.html">HGIMB004136</a></td>
+                <td><a href="HGIMB004136.html">EL CERROTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004141.html">HGIMB004141</a></td>
+                <td><a href="HGIMB004141.html">LA ENCARNACIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004153.html">HGIMB004153</a></td>
+                <td><a href="HGIMB004153.html">FRANCISCO I MADERO
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004165.html">HGIMB004165</a></td>
+                <td><a href="HGIMB004165.html">LÁZARO CÁRDENAS
+                REMEDIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004170.html">HGIMB004170</a></td>
+                <td><a href="HGIMB004170.html">PUERTO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004182.html">HGIMB004182</a></td>
+                <td><a href="HGIMB004182.html">CAÑADA CHICA
+                AVIACION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004194.html">HGIMB004194</a></td>
+                <td><a href="HGIMB004194.html">COL. DENDHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004206.html">HGIMB004206</a></td>
+                <td><a href="HGIMB004206.html">TABLON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004211.html">HGIMB004211</a></td>
+                <td><a href="HGIMB004211.html">ITZOACAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004223.html">HGIMB004223</a></td>
+                <td><a href="HGIMB004223.html">TEPANTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004235.html">HGIMB004235</a></td>
+                <td><a href="HGIMB004235.html">ZIMAPANTONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004240.html">HGIMB004240</a></td>
+                <td><a href="HGIMB004240.html">BETHÍ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004252.html">HGIMB004252</a></td>
+                <td><a href="HGIMB004252.html">RANCHO VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004264.html">HGIMB004264</a></td>
+                <td><a href="HGIMB004264.html">SANTA MARÍA
+                MATILDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004276.html">HGIMB004276</a></td>
+                <td><a href="HGIMB004276.html">DOS CARLOS PUEBLO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004281.html">HGIMB004281</a></td>
+                <td><a href="HGIMB004281.html">COL. ÁVILA
+                CAMACHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004293.html">HGIMB004293</a></td>
+                <td><a href="HGIMB004293.html">EL SAUCILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004305.html">HGIMB004305</a></td>
+                <td><a href="HGIMB004305.html">POXINDEJE DE
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004310.html">HGIMB004310</a></td>
+                <td><a href="HGIMB004310.html">BONDHI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004322.html">HGIMB004322</a></td>
+                <td><a href="HGIMB004322.html">HUITEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004334.html">HGIMB004334</a></td>
+                <td><a href="HGIMB004334.html">PRESAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004346.html">HGIMB004346</a></td>
+                <td><a href="HGIMB004346.html">MANGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004351.html">HGIMB004351</a></td>
+                <td><a href="HGIMB004351.html">SAN GABRIEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004363.html">HGIMB004363</a></td>
+                <td><a href="HGIMB004363.html">SAN FRANCISCO
+                BOJAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004375.html">HGIMB004375</a></td>
+                <td><a href="HGIMB004375.html">SAN MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004380.html">HGIMB004380</a></td>
+                <td><a href="HGIMB004380.html">COLONIA ITURBE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004392.html">HGIMB004392</a></td>
+                <td><a href="HGIMB004392.html">COLONIA EL
+                MONTECILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004404.html">HGIMB004404</a></td>
+                <td><a href="HGIMB004404.html">NICOLÁS BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004416.html">HGIMB004416</a></td>
+                <td><a href="HGIMB004416.html">SAN PEDRO
+                HUAQUILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004421.html">HGIMB004421</a></td>
+                <td><a href="HGIMB004421.html">VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004433.html">HGIMB004433</a></td>
+                <td><a href="HGIMB004433.html">EL JIADI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004445.html">HGIMB004445</a></td>
+                <td><a href="HGIMB004445.html">EL NITH</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004450.html">HGIMB004450</a></td>
+                <td><a href="HGIMB004450.html">ACHICHILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004462.html">HGIMB004462</a></td>
+                <td><a href="HGIMB004462.html">PUEBLO NUEVO
+                JASSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004474.html">HGIMB004474</a></td>
+                <td><a href="HGIMB004474.html">GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004486.html">HGIMB004486</a></td>
+                <td><a href="HGIMB004486.html">COLONIA CERRO DE LA
+                CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004491.html">HGIMB004491</a></td>
+                <td><a href="HGIMB004491.html">LA CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004503.html">HGIMB004503</a></td>
+                <td><a href="HGIMB004503.html">EL TABLON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004515.html">HGIMB004515</a></td>
+                <td><a href="HGIMB004515.html">CERRITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004520.html">HGIMB004520</a></td>
+                <td><a href="HGIMB004520.html">MIXQUIAHUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004532.html">HGIMB004532</a></td>
+                <td><a href="HGIMB004532.html">UNIDAD MÉDICA DE
+                MOLANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004544.html">HGIMB004544</a></td>
+                <td><a href="HGIMB004544.html">CHICHICAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004556.html">HGIMB004556</a></td>
+                <td><a href="HGIMB004556.html">HUEJUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004585.html">HGIMB004585</a></td>
+                <td><a href="HGIMB004585.html">SANTA MARÍA LA
+                CALERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004590.html">HGIMB004590</a></td>
+                <td><a href="HGIMB004590.html">SANTA MARÍA
+                AMAJAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004602.html">HGIMB004602</a></td>
+                <td><a href="HGIMB004602.html">GENERAL FELIPE ANGELES
+                LOS ANGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004614.html">HGIMB004614</a></td>
+                <td><a href="HGIMB004614.html">XUCHITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004626.html">HGIMB004626</a></td>
+                <td><a href="HGIMB004626.html">SAN NICOLÁS
+                TECOMATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004631.html">HGIMB004631</a></td>
+                <td><a href="HGIMB004631.html">MINERAL DEL
+                MONTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004643.html">HGIMB004643</a></td>
+                <td><a href="HGIMB004643.html">JAGÜEY DE TELLEZ
+                (ESTACIÓN TELLEZ)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004655.html">HGIMB004655</a></td>
+                <td><a href="HGIMB004655.html">BOMANXOTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004660.html">HGIMB004660</a></td>
+                <td><a href="HGIMB004660.html">PUERTO DE
+                NARANJOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004672.html">HGIMB004672</a></td>
+                <td><a href="HGIMB004672.html">HUIXMÍ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004684.html">HGIMB004684</a></td>
+                <td><a href="HGIMB004684.html">CARDONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004696.html">HGIMB004696</a></td>
+                <td><a href="HGIMB004696.html">TEZOQUIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004701.html">HGIMB004701</a></td>
+                <td><a href="HGIMB004701.html">AJACUBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004713.html">HGIMB004713</a></td>
+                <td><a href="HGIMB004713.html">ATOTOMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004725.html">HGIMB004725</a></td>
+                <td><a href="HGIMB004725.html">PARQUE DE
+                POBLAMIENTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004730.html">HGIMB004730</a></td>
+                <td><a href="HGIMB004730.html">IXTLAHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004742.html">HGIMB004742</a></td>
+                <td><a href="HGIMB004742.html">SAN BARTOLO
+                TUTOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004754.html">HGIMB004754</a></td>
+                <td><a href="HGIMB004754.html">TEPEAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004766.html">HGIMB004766</a></td>
+                <td><a href="HGIMB004766.html">APAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004771.html">HGIMB004771</a></td>
+                <td><a href="HGIMB004771.html">LEOPOLDO
+                SANTILLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004783.html">HGIMB004783</a></td>
+                <td><a href="HGIMB004783.html">LUZ DEL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004836.html">HGIMB004836</a></td>
+                <td><a href="HGIMB004836.html">SAN NICOLÁS
+                COATZONTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004853.html">HGIMB004853</a></td>
+                <td><a href="HGIMB004853.html">SAN AGUSTÍN
+                METZQUITITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004865.html">HGIMB004865</a></td>
+                <td><a href="HGIMB004865.html">LA LAGUNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004870.html">HGIMB004870</a></td>
+                <td><a href="HGIMB004870.html">ALFAJAYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004882.html">HGIMB004882</a></td>
+                <td><a href="HGIMB004882.html">BARRIO DENDHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004894.html">HGIMB004894</a></td>
+                <td><a href="HGIMB004894.html">LA ESQUINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004906.html">HGIMB004906</a></td>
+                <td><a href="HGIMB004906.html">ZAPOTLAN DE
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004911.html">HGIMB004911</a></td>
+                <td><a href="HGIMB004911.html">SAN JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004923.html">HGIMB004923</a></td>
+                <td><a href="HGIMB004923.html">SAN ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004935.html">HGIMB004935</a></td>
+                <td><a href="HGIMB004935.html">CAHUAZAZ DE
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004940.html">HGIMB004940</a></td>
+                <td><a href="HGIMB004940.html">TENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004964.html">HGIMB004964</a></td>
+                <td><a href="HGIMB004964.html">CS SAN LORENZO
+                ACHIOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004976.html">HGIMB004976</a></td>
+                <td><a href="HGIMB004976.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB004981.html">HGIMB004981</a></td>
+                <td><a href="HGIMB004981.html">SANTA MARÍA
+                MAGDALENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB004993.html">HGIMB004993</a></td>
+                <td><a href="HGIMB004993.html">AZOYATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005010.html">HGIMB005010</a></td>
+                <td><a href="HGIMB005010.html">ALMOLOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005046.html">HGIMB005046</a></td>
+                <td><a href="HGIMB005046.html">CARAVANA 3
+                ZACUALTIPÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005063.html">HGIMB005063</a></td>
+                <td><a href="HGIMB005063.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACIÓN TEMPRANA
+                TIZAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005075.html">HGIMB005075</a></td>
+                <td><a href="HGIMB005075.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACIÓN TEMPRANA SAN BARTOLO
+                TUTOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005080.html">HGIMB005080</a></td>
+                <td><a href="HGIMB005080.html">UNIDAD MÉDICA ASISTENCIAL
+                PARA PACIENTES DE GRUPOS VULNERABLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005191.html">HGIMB005191</a></td>
+                <td><a href="HGIMB005191.html">UNIDAD ESPECIALIZADA PARA
+                LA PREVENCIÓN Y ATENCIÓN DE LA VIOLENCIA FAMILIAR Y
+                SEXUAL (UEPAVFS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005203.html">HGIMB005203</a></td>
+                <td><a href="HGIMB005203.html">CARAVANA 1 ATOTONILCO
+                ELGRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005215.html">HGIMB005215</a></td>
+                <td><a href="HGIMB005215.html">CARAVANA 2 ATOTONILCO
+                ELGRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005220.html">HGIMB005220</a></td>
+                <td><a href="HGIMB005220.html">CARAVANA 1
+                METZTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005232.html">HGIMB005232</a></td>
+                <td><a href="HGIMB005232.html">CARAVANA 2
+                METZTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005244.html">HGIMB005244</a></td>
+                <td><a href="HGIMB005244.html">CARAVANA 1
+                CHAPULHUACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005256.html">HGIMB005256</a></td>
+                <td><a href="HGIMB005256.html">CARAVANA 2 LA
+                MISIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005261.html">HGIMB005261</a></td>
+                <td><a href="HGIMB005261.html">CARAVANA 3
+                PISAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005273.html">HGIMB005273</a></td>
+                <td><a href="HGIMB005273.html">CARAVANA 4
+                ZIMAPÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005285.html">HGIMB005285</a></td>
+                <td><a href="HGIMB005285.html">CARAVANA 1
+                HUAZALINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005290.html">HGIMB005290</a></td>
+                <td><a href="HGIMB005290.html">CARAVANA 2 TEPEHUACAN DE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005302.html">HGIMB005302</a></td>
+                <td><a href="HGIMB005302.html">CARAVANA 3
+                TLANCHINOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005314.html">HGIMB005314</a></td>
+                <td><a href="HGIMB005314.html">CARAVANA 2 AGUA BLANCA DE
+                ITURBIDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005326.html">HGIMB005326</a></td>
+                <td><a href="HGIMB005326.html">CARAVANA 1
+                HUEHUETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005331.html">HGIMB005331</a></td>
+                <td><a href="HGIMB005331.html">CARAVANA 3 SAN BARTOLO
+                TUTOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005343.html">HGIMB005343</a></td>
+                <td><a href="HGIMB005343.html">CARAVANA 4 TENANGO DE
+                DORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005355.html">HGIMB005355</a></td>
+                <td><a href="HGIMB005355.html">UNEME ENFERMEDADES
+                CRÓNICAS PACHUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005360.html">HGIMB005360</a></td>
+                <td><a href="HGIMB005360.html">CENTRO ESTATAL DE
+                ATENCIÓN GERIÁTRICA INTEGRAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005372.html">HGIMB005372</a></td>
+                <td><a href="HGIMB005372.html">CARAVANA 2
+                ACAXOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005384.html">HGIMB005384</a></td>
+                <td><a href="HGIMB005384.html">CARAVANA 2
+                JALTOCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005396.html">HGIMB005396</a></td>
+                <td><a href="HGIMB005396.html">UNEME ENFERMEDADES
+                CRÓNICAS TULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="HGIMB005022.html">HGIMB005022</a></td>
+                <td><a href="HGIMB005022.html">UNIDAD MÓVIL DENTAL
+                PACHUCA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="HGIMB005186.html">HGIMB005186</a></td>
+                <td><a href="HGIMB005186.html">UNIDAD MÓVIL DE
+                GERIATRIA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_hidalgo.png"
+                id="fig:mapa-primer_nivel-hidalgo"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
