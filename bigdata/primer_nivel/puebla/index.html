@@ -1,0 +1,4398 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#puebla">PUEBLA</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="puebla">PUEBLA</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="PLIMB000013.html">PLIMB000013</a></td>
+                <td><a href="PLIMB000013.html">CENTRO DE SALUD SANTA
+                MARÍA NENETZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000025.html">PLIMB000025</a></td>
+                <td><a href="PLIMB000025.html">CENTRO DE SALUD
+                JILIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000030.html">PLIMB000030</a></td>
+                <td><a href="PLIMB000030.html">CENTRO DE SALUD LA
+                PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000042.html">PLIMB000042</a></td>
+                <td><a href="PLIMB000042.html">CENTRO DE SALUD
+                HERMENEGILDO GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000054.html">PLIMB000054</a></td>
+                <td><a href="PLIMB000054.html">CENTRO DE SALUD LA
+                HUERTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000066.html">PLIMB000066</a></td>
+                <td><a href="PLIMB000066.html">CENTRO DE SALUD SAN
+                BERNARDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000071.html">PLIMB000071</a></td>
+                <td><a href="PLIMB000071.html">CENTRO DE SALUD ACTIPAN
+                DE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000083.html">PLIMB000083</a></td>
+                <td><a href="PLIMB000083.html">CENTRO DE SALUD NICOLÁS
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000095.html">PLIMB000095</a></td>
+                <td><a href="PLIMB000095.html">CENTRO DE SALUD SAN
+                MARCOS ACTEOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000112.html">PLIMB000112</a></td>
+                <td><a href="PLIMB000112.html">CENTRO DE SALUD SAN
+                MARCOS ELOXOCHITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000124.html">PLIMB000124</a></td>
+                <td><a href="PLIMB000124.html">CENTRO DE SALUD SAN MATEO
+                TLACOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000136.html">PLIMB000136</a></td>
+                <td><a href="PLIMB000136.html">CENTRO DE SALUD SAN
+                ANDRÉS TLAYEHUALANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000141.html">PLIMB000141</a></td>
+                <td><a href="PLIMB000141.html">CENTRO DE SALUD
+                AHUAZOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000153.html">PLIMB000153</a></td>
+                <td><a href="PLIMB000153.html">CENTRO DE SALUD
+                BERISTAIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000165.html">PLIMB000165</a></td>
+                <td><a href="PLIMB000165.html">CENTRO DE SALUD LAGUNA
+                SECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000170.html">PLIMB000170</a></td>
+                <td><a href="PLIMB000170.html">CENTRO DE SALUD
+                CUAUTOTOLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000182.html">PLIMB000182</a></td>
+                <td><a href="PLIMB000182.html">CENTRO DE SALUD
+                TECPANZACOALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000194.html">PLIMB000194</a></td>
+                <td><a href="PLIMB000194.html">CENTRO DE SALUD
+                CUAXUXPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000206.html">PLIMB000206</a></td>
+                <td><a href="PLIMB000206.html">CENTRO DE SALUD
+                ACAXTLAHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000211.html">PLIMB000211</a></td>
+                <td><a href="PLIMB000211.html">CENTRO DE SALUD SAN
+                MIGUEL TECUITLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000223.html">PLIMB000223</a></td>
+                <td><a href="PLIMB000223.html">CENTRO DE SALUD
+                ALTEPEXI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000235.html">PLIMB000235</a></td>
+                <td><a href="PLIMB000235.html">CENTRO DE SALUD DE
+                CUAUTOTOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000240.html">PLIMB000240</a></td>
+                <td><a href="PLIMB000240.html">CENTRO DE SALUD
+                ATEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000252.html">PLIMB000252</a></td>
+                <td><a href="PLIMB000252.html">CENTRO DE SALUD
+                TEZHUATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000264.html">PLIMB000264</a></td>
+                <td><a href="PLIMB000264.html">CENTRO DE SALUD URBANO
+                ATLIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000276.html">PLIMB000276</a></td>
+                <td><a href="PLIMB000276.html">CENTRO DE SALUD SANTA ANA
+                YANCUITLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000281.html">PLIMB000281</a></td>
+                <td><a href="PLIMB000281.html">CENTRO DE SALUD SANTA
+                MARÍA COZAMALOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000293.html">PLIMB000293</a></td>
+                <td><a href="PLIMB000293.html">CENTRO DE SALUD SANTO
+                DOMINGO ATOYATEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000305.html">PLIMB000305</a></td>
+                <td><a href="PLIMB000305.html">CENTRO DE SALUD DE SAN
+                DIEGO ACAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000310.html">PLIMB000310</a></td>
+                <td><a href="PLIMB000310.html">CENTRO DE SALUD
+                ATOYATEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000322.html">PLIMB000322</a></td>
+                <td><a href="PLIMB000322.html">CENTRO DE SALUD
+                ATZALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000334.html">PLIMB000334</a></td>
+                <td><a href="PLIMB000334.html">CENTRO DE SALUD SAN JUAN
+                AMECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000346.html">PLIMB000346</a></td>
+                <td><a href="PLIMB000346.html">CENTRO DE SALUD SAN JUAN
+                TEJUPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000363.html">PLIMB000363</a></td>
+                <td><a href="PLIMB000363.html">CENTRO DE SALUD SAN
+                ANTONIO METZONAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000375.html">PLIMB000375</a></td>
+                <td><a href="PLIMB000375.html">CENTRO DE SALUD SAN MATEO
+                OZOLCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000380.html">PLIMB000380</a></td>
+                <td><a href="PLIMB000380.html">CENTRO DE SALUD
+                CALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000392.html">PLIMB000392</a></td>
+                <td><a href="PLIMB000392.html">CENTRO DE SALUD
+                COATZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000404.html">PLIMB000404</a></td>
+                <td><a href="PLIMB000404.html">CENTRO DE SALUD
+                COHETZALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000416.html">PLIMB000416</a></td>
+                <td><a href="PLIMB000416.html">CENTRO DE SALUD
+                MIHUACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000421.html">PLIMB000421</a></td>
+                <td><a href="PLIMB000421.html">CENTRO DE SALUD SAN
+                FRANCISCO OCOTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000445.html">PLIMB000445</a></td>
+                <td><a href="PLIMB000445.html">CENTRO DE SALUD
+                CALIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000450.html">PLIMB000450</a></td>
+                <td><a href="PLIMB000450.html">CENTRO DE SALUD
+                OCOTLAMANIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000462.html">PLIMB000462</a></td>
+                <td><a href="PLIMB000462.html">CENTRO DE SALUD SAN JOSÉ
+                TILAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000474.html">PLIMB000474</a></td>
+                <td><a href="PLIMB000474.html">CENTRO DE SALUD
+                COYOMEAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000486.html">PLIMB000486</a></td>
+                <td><a href="PLIMB000486.html">CENTRO DE SALUD
+                CUAUTEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000491.html">PLIMB000491</a></td>
+                <td><a href="PLIMB000491.html">CENTRO DE SALUD
+                HUEYTENTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000503.html">PLIMB000503</a></td>
+                <td><a href="PLIMB000503.html">CENTRO DE SALUD
+                CUAUTINCHAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000515.html">PLIMB000515</a></td>
+                <td><a href="PLIMB000515.html">CENTRO DE SALUD SANTA
+                CRUZ ORGANAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000520.html">PLIMB000520</a></td>
+                <td><a href="PLIMB000520.html">CENTRO DE SALUD
+                AYOTZINAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000532.html">PLIMB000532</a></td>
+                <td><a href="PLIMB000532.html">CENTRO DE SALUD
+                CUAUHTAMAZACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000544.html">PLIMB000544</a></td>
+                <td><a href="PLIMB000544.html">CENTRO DE SALUD
+                PINAHUISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000556.html">PLIMB000556</a></td>
+                <td><a href="PLIMB000556.html">CENTRO DE SALUD
+                TEPETZINTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000561.html">PLIMB000561</a></td>
+                <td><a href="PLIMB000561.html">CENTRO DE SALUD
+                TZICUILAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000573.html">PLIMB000573</a></td>
+                <td><a href="PLIMB000573.html">CENTRO DE SALUD
+                TZINACAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000585.html">PLIMB000585</a></td>
+                <td><a href="PLIMB000585.html">CENTRO DE SALUD
+                XILOXOCHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000590.html">PLIMB000590</a></td>
+                <td><a href="PLIMB000590.html">CENTRO DE SALUD SANTIAGO
+                YANCUITLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000614.html">PLIMB000614</a></td>
+                <td><a href="PLIMB000614.html">CENTRO DE SALUD SAN
+                ANDRÉS PAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000631.html">PLIMB000631</a></td>
+                <td><a href="PLIMB000631.html">CENTRO DE SALUD SAN
+                MIGUEL OCOTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000643.html">PLIMB000643</a></td>
+                <td><a href="PLIMB000643.html">CENTRO DE SALUD SAN PEDRO
+                TEMAMATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000655.html">PLIMB000655</a></td>
+                <td><a href="PLIMB000655.html">CENTRO DE SALUD
+                PILCAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000660.html">PLIMB000660</a></td>
+                <td><a href="PLIMB000660.html">CENTRO DE SALUD SAN JUAN
+                DEL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000672.html">PLIMB000672</a></td>
+                <td><a href="PLIMB000672.html">CENTRO DE SALUD
+                TLANCUALPICAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000684.html">PLIMB000684</a></td>
+                <td><a href="PLIMB000684.html">CENTRO DE SALUD SAN
+                LORENZO CHIAUTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000696.html">PLIMB000696</a></td>
+                <td><a href="PLIMB000696.html">CENTRO DE SALUD SAN JUAN
+                TETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000701.html">PLIMB000701</a></td>
+                <td><a href="PLIMB000701.html">CENTRO DE SALUD SAN
+                NICOLÁS ZECALACOYAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000713.html">PLIMB000713</a></td>
+                <td><a href="PLIMB000713.html">CENTRO DE SALUD
+                TLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000725.html">PLIMB000725</a></td>
+                <td><a href="PLIMB000725.html">CENTRO DE SALUD SAN
+                LORENZO TLAXIPEHUALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000730.html">PLIMB000730</a></td>
+                <td><a href="PLIMB000730.html">CENTRO DE SALUD
+                ZEMPOALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000742.html">PLIMB000742</a></td>
+                <td><a href="PLIMB000742.html">CENTRO DE SALUD JESÚS
+                MARÍA ACATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000754.html">PLIMB000754</a></td>
+                <td><a href="PLIMB000754.html">CENTRO DE SALUD EL
+                PALMAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000766.html">PLIMB000766</a></td>
+                <td><a href="PLIMB000766.html">CENTRO DE SALUD
+                CHIETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000771.html">PLIMB000771</a></td>
+                <td><a href="PLIMB000771.html">CENTRO DE SALUD
+                AHUEHUETZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000783.html">PLIMB000783</a></td>
+                <td><a href="PLIMB000783.html">CENTRO DE SALUD SAN
+                ANTONIO COAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000795.html">PLIMB000795</a></td>
+                <td><a href="PLIMB000795.html">CENTRO DE SALUD ESCAPE DE
+                LAGUNILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000800.html">PLIMB000800</a></td>
+                <td><a href="PLIMB000800.html">CENTRO DE SALUD
+                CHIGMECATITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000812.html">PLIMB000812</a></td>
+                <td><a href="PLIMB000812.html">CENTRO DE SALUD
+                ACOCULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000824.html">PLIMB000824</a></td>
+                <td><a href="PLIMB000824.html">CENTRO DE SALUD
+                ACOLIHUIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000836.html">PLIMB000836</a></td>
+                <td><a href="PLIMB000836.html">CENTRO DE SALUD CORRAL
+                BLANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000841.html">PLIMB000841</a></td>
+                <td><a href="PLIMB000841.html">CENTRO DE SALUD
+                MICHAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000853.html">PLIMB000853</a></td>
+                <td><a href="PLIMB000853.html">CENTRO DE SALUD
+                PAREDON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000865.html">PLIMB000865</a></td>
+                <td><a href="PLIMB000865.html">CENTRO DE SALUD PUEBLO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000870.html">PLIMB000870</a></td>
+                <td><a href="PLIMB000870.html">CENTRO DE SALUD
+                COAHUIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000882.html">PLIMB000882</a></td>
+                <td><a href="PLIMB000882.html">CENTRO DE SALUD
+                SOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000894.html">PLIMB000894</a></td>
+                <td><a href="PLIMB000894.html">CENTRO DE SALUD
+                TEQUIMILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000906.html">PLIMB000906</a></td>
+                <td><a href="PLIMB000906.html">CENTRO DE SALUD CHILA DE
+                LAS FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000911.html">PLIMB000911</a></td>
+                <td><a href="PLIMB000911.html">CENTRO DE SALUD
+                TONALIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000923.html">PLIMB000923</a></td>
+                <td><a href="PLIMB000923.html">CENTRO DE SALUD
+                ACOCOMOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000935.html">PLIMB000935</a></td>
+                <td><a href="PLIMB000935.html">CENTRO DE SALUD EL
+                CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000940.html">PLIMB000940</a></td>
+                <td><a href="PLIMB000940.html">CENTRO DE SALUD
+                CHINANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000952.html">PLIMB000952</a></td>
+                <td><a href="PLIMB000952.html">CENTRO DE SALUD XONOTIPAN
+                DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000964.html">PLIMB000964</a></td>
+                <td><a href="PLIMB000964.html">CENTRO DE SALUD SANTA ANA
+                NECOXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000976.html">PLIMB000976</a></td>
+                <td><a href="PLIMB000976.html">CENTRO DE SALUD EL
+                TECOMATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB000981.html">PLIMB000981</a></td>
+                <td><a href="PLIMB000981.html">CENTRO DE SALUD GENERAL
+                FELIPE ÁNGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB000993.html">PLIMB000993</a></td>
+                <td><a href="PLIMB000993.html">CENTRO DE SALUD SAN
+                ANTONIO PORTEZUELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001005.html">PLIMB001005</a></td>
+                <td><a href="PLIMB001005.html">CENTRO DE SALUD FRANCISCO
+                OSORNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001010.html">PLIMB001010</a></td>
+                <td><a href="PLIMB001010.html">CENTRO DE SALUD IGNACIO
+                RAMÍREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001022.html">PLIMB001022</a></td>
+                <td><a href="PLIMB001022.html">CENTRO DE SALUD
+                HUATLATLAUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001034.html">PLIMB001034</a></td>
+                <td><a href="PLIMB001034.html">CENTRO DE SALUD SAN PABLO
+                ZOYATITLANAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001046.html">PLIMB001046</a></td>
+                <td><a href="PLIMB001046.html">CENTRO DE SALUD
+                AHUACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001051.html">PLIMB001051</a></td>
+                <td><a href="PLIMB001051.html">CENTRO DE SALUD LAS
+                COLONIAS DE HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001063.html">PLIMB001063</a></td>
+                <td><a href="PLIMB001063.html">CENTRO DE SALUD
+                CUAHUEYATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001075.html">PLIMB001075</a></td>
+                <td><a href="PLIMB001075.html">CENTRO DE SALUD
+                HUILACAPIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001080.html">PLIMB001080</a></td>
+                <td><a href="PLIMB001080.html">CENTRO DE SALUD TENANGO
+                DE LAS FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001092.html">PLIMB001092</a></td>
+                <td><a href="PLIMB001092.html">CENTRO DE SALUD
+                TLACOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001104.html">PLIMB001104</a></td>
+                <td><a href="PLIMB001104.html">CENTRO DE SALUD VENTA
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001116.html">PLIMB001116</a></td>
+                <td><a href="PLIMB001116.html">CENTRO DE SALUD
+                XALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001133.html">PLIMB001133</a></td>
+                <td><a href="PLIMB001133.html">CENTRO DE SALUD CINCO DE
+                MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001145.html">PLIMB001145</a></td>
+                <td><a href="PLIMB001145.html">CENTRO DE SALUD FRANCISCO
+                I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001150.html">PLIMB001150</a></td>
+                <td><a href="PLIMB001150.html">CENTRO DE SALUD
+                OZELONACAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001162.html">PLIMB001162</a></td>
+                <td><a href="PLIMB001162.html">CENTRO DE SALUD
+                XONALPU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001174.html">PLIMB001174</a></td>
+                <td><a href="PLIMB001174.html">CENTRO DE SALUD
+                ATEXCAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001186.html">PLIMB001186</a></td>
+                <td><a href="PLIMB001186.html">CENTRO DE SALUD SAN LUIS
+                COYOTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001191.html">PLIMB001191</a></td>
+                <td><a href="PLIMB001191.html">CENTRO DE SALUD
+                XALMIMILULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001203.html">PLIMB001203</a></td>
+                <td><a href="PLIMB001203.html">CENTRO DE SALUD
+                HUEYAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001215.html">PLIMB001215</a></td>
+                <td><a href="PLIMB001215.html">CENTRO DE SALUD EL
+                MOHON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001220.html">PLIMB001220</a></td>
+                <td><a href="PLIMB001220.html">CENTRO DE SALUD PUENTE DE
+                PALO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001232.html">PLIMB001232</a></td>
+                <td><a href="PLIMB001232.html">CENTRO DE SALUD SAN
+                MIGUEL DEL PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001244.html">PLIMB001244</a></td>
+                <td><a href="PLIMB001244.html">CENTRO DE SALUD
+                ZOYOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001256.html">PLIMB001256</a></td>
+                <td><a href="PLIMB001256.html">CENTRO DE SALUD SANTA
+                CLARA HUITZILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001261.html">PLIMB001261</a></td>
+                <td><a href="PLIMB001261.html">CENTRO DE SALUD IXCAMILPA
+                DE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001273.html">PLIMB001273</a></td>
+                <td><a href="PLIMB001273.html">CENTRO DE SALUD
+                TOLTECAMILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001290.html">PLIMB001290</a></td>
+                <td><a href="PLIMB001290.html">CENTRO DE SALUD LA
+                CALDERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001302.html">PLIMB001302</a></td>
+                <td><a href="PLIMB001302.html">CENTRO DE SALUD CRUZ DE
+                LEÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001314.html">PLIMB001314</a></td>
+                <td><a href="PLIMB001314.html">CENTRO DE SALUD
+                HUIXCOLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001326.html">PLIMB001326</a></td>
+                <td><a href="PLIMB001326.html">CENTRO DE SALUD LA
+                MESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001331.html">PLIMB001331</a></td>
+                <td><a href="PLIMB001331.html">CENTRO DE SALUD EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001343.html">PLIMB001343</a></td>
+                <td><a href="PLIMB001343.html">CENTRO DE SALUD
+                OYAMETEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001355.html">PLIMB001355</a></td>
+                <td><a href="PLIMB001355.html">CENTRO DE SALUD LA
+                UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001360.html">PLIMB001360</a></td>
+                <td><a href="PLIMB001360.html">CENTRO DE SALUD
+                AYUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001372.html">PLIMB001372</a></td>
+                <td><a href="PLIMB001372.html">CENTRO DE SALUD SAN JUAN
+                COLON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001384.html">PLIMB001384</a></td>
+                <td><a href="PLIMB001384.html">CENTRO DE SALUD SAN LUCAS
+                COLUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001396.html">PLIMB001396</a></td>
+                <td><a href="PLIMB001396.html">CENTRO DE SALUD
+                MATZACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001401.html">PLIMB001401</a></td>
+                <td><a href="PLIMB001401.html">CENTRO DE SALUD AGUA
+                LINDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001413.html">PLIMB001413</a></td>
+                <td><a href="PLIMB001413.html">CENTRO DE SALUD
+                APAPANTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001425.html">PLIMB001425</a></td>
+                <td><a href="PLIMB001425.html">CENTRO DE SALUD PIEDRAS
+                NEGRAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001430.html">PLIMB001430</a></td>
+                <td><a href="PLIMB001430.html">CENTRO DE SALUD VISTA
+                HERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001442.html">PLIMB001442</a></td>
+                <td><a href="PLIMB001442.html">CENTRO DE SALUD
+                JOLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001454.html">PLIMB001454</a></td>
+                <td><a href="PLIMB001454.html">CENTRO DE SALUD
+                MITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001466.html">PLIMB001466</a></td>
+                <td><a href="PLIMB001466.html">CENTRO DE SALUD
+                XOCHITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001471.html">PLIMB001471</a></td>
+                <td><a href="PLIMB001471.html">CENTRO DE SALUD SAN
+                ANTONIO RAYON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001483.html">PLIMB001483</a></td>
+                <td><a href="PLIMB001483.html">CENTRO DE SALUD BUENOS
+                AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001495.html">PLIMB001495</a></td>
+                <td><a href="PLIMB001495.html">CENTRO DE SALUD
+                CHICONTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001500.html">PLIMB001500</a></td>
+                <td><a href="PLIMB001500.html">CENTRO DE SALUD STA. MA.
+                ZACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001512.html">PLIMB001512</a></td>
+                <td><a href="PLIMB001512.html">CENTRO DE SALUD NUEVO
+                NECAXA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001524.html">PLIMB001524</a></td>
+                <td><a href="PLIMB001524.html">CENTRO DE SALUD
+                TLANALAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001541.html">PLIMB001541</a></td>
+                <td><a href="PLIMB001541.html">CENTRO DE SALUD LA
+                CAÑADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001553.html">PLIMB001553</a></td>
+                <td><a href="PLIMB001553.html">CENTRO DE SALUD SAN JOSÉ
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001565.html">PLIMB001565</a></td>
+                <td><a href="PLIMB001565.html">CENTRO DE SALUD SAN
+                CARLOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001570.html">PLIMB001570</a></td>
+                <td><a href="PLIMB001570.html">CENTRO DE SALUD
+                MAZAPILTEPEC DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001582.html">PLIMB001582</a></td>
+                <td><a href="PLIMB001582.html">CENTRO DE SALUD
+                MIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001594.html">PLIMB001594</a></td>
+                <td><a href="PLIMB001594.html">CENTRO DE SALUD
+                NAUPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001606.html">PLIMB001606</a></td>
+                <td><a href="PLIMB001606.html">CENTRO DE SALUD
+                CHACHAHUANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001611.html">PLIMB001611</a></td>
+                <td><a href="PLIMB001611.html">CENTRO DE SALUD
+                ICZOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001623.html">PLIMB001623</a></td>
+                <td><a href="PLIMB001623.html">CENTRO DE SALUD
+                CUAUTAPEHUALT</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001635.html">PLIMB001635</a></td>
+                <td><a href="PLIMB001635.html">CENTRO DE SALUD
+                NEALTICAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001640.html">PLIMB001640</a></td>
+                <td><a href="PLIMB001640.html">CENTRO DE SALUD NICOLÁS
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001652.html">PLIMB001652</a></td>
+                <td><a href="PLIMB001652.html">CENTRO DE SALUD SANTA
+                MARÍA IXTIYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001664.html">PLIMB001664</a></td>
+                <td><a href="PLIMB001664.html">CENTRO DE SALUD SANTA
+                CLARA OCOYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001676.html">PLIMB001676</a></td>
+                <td><a href="PLIMB001676.html">CENTRO DE SALUD SAN
+                BERNABE TEMOXTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001681.html">PLIMB001681</a></td>
+                <td><a href="PLIMB001681.html">CENTRO DE SALUD VICENTE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001693.html">PLIMB001693</a></td>
+                <td><a href="PLIMB001693.html">CENTRO DE SALUD LACAPAN
+                CAMALLAGNE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001705.html">PLIMB001705</a></td>
+                <td><a href="PLIMB001705.html">CENTRO DE SALUD ZOYATLA
+                DE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001722.html">PLIMB001722</a></td>
+                <td><a href="PLIMB001722.html">CENTRO DE SALUD CUESTA
+                BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001734.html">PLIMB001734</a></td>
+                <td><a href="PLIMB001734.html">CENTRO DE SALUD SAN
+                MIGUEL XALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001746.html">PLIMB001746</a></td>
+                <td><a href="PLIMB001746.html">CENTRO DE SALUD
+                AMELUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001751.html">PLIMB001751</a></td>
+                <td><a href="PLIMB001751.html">CENTRO DE SALUD
+                IXTOLOLOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001763.html">PLIMB001763</a></td>
+                <td><a href="PLIMB001763.html">CENTRO DE SALUD PROGRESO
+                DE ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001775.html">PLIMB001775</a></td>
+                <td><a href="PLIMB001775.html">CENTRO DE SALUD
+                PIAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001804.html">PLIMB001804</a></td>
+                <td><a href="PLIMB001804.html">CENTRO DE SALUD URBANO
+                SAN BERNABE TEMOXTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001816.html">PLIMB001816</a></td>
+                <td><a href="PLIMB001816.html">CENTRO DE SALUD IGNACIO
+                MARISCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001821.html">PLIMB001821</a></td>
+                <td><a href="PLIMB001821.html">CENTRO DE SALUD URBANO
+                BALCONES DEL SUR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001833.html">PLIMB001833</a></td>
+                <td><a href="PLIMB001833.html">CENTRO DE SALUD URBANO EL
+                SALVADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001845.html">PLIMB001845</a></td>
+                <td><a href="PLIMB001845.html">CENTRO DE SALUD URBANO LA
+                LOMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001850.html">PLIMB001850</a></td>
+                <td><a href="PLIMB001850.html">CENTRO DE SALUD URBANO
+                LOMAS DE SAN MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001862.html">PLIMB001862</a></td>
+                <td><a href="PLIMB001862.html">CENTRO DE SALUD URBANO
+                MAYORAZGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001874.html">PLIMB001874</a></td>
+                <td><a href="PLIMB001874.html">CENTRO DE SALUD URBANO
+                MÉXICO 68</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001886.html">PLIMB001886</a></td>
+                <td><a href="PLIMB001886.html">CENTRO DE SALUD URBANO
+                REFORMA SUR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001891.html">PLIMB001891</a></td>
+                <td><a href="PLIMB001891.html">CENTRO DE SALUD URBANO
+                ANALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001903.html">PLIMB001903</a></td>
+                <td><a href="PLIMB001903.html">CENTRO DE SALUD URBANO LA
+                POPULAR CASTILLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001915.html">PLIMB001915</a></td>
+                <td><a href="PLIMB001915.html">CENTRO DE SALUD LOS
+                ÁNGELES TETELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001920.html">PLIMB001920</a></td>
+                <td><a href="PLIMB001920.html">CENTRO DE SALUD LA
+                RESURRECCION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001932.html">PLIMB001932</a></td>
+                <td><a href="PLIMB001932.html">CENTRO DE SALUD SAN
+                BALTAZAR TETELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001944.html">PLIMB001944</a></td>
+                <td><a href="PLIMB001944.html">CENTRO DE SALUD URBANO
+                SAN MIGUEL CANOA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001956.html">PLIMB001956</a></td>
+                <td><a href="PLIMB001956.html">CENTRO DE SALUD SANTO
+                TOMÁS CHAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001961.html">PLIMB001961</a></td>
+                <td><a href="PLIMB001961.html">CENTRO DE SALUD SAN PEDRO
+                ZACACHIMALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001973.html">PLIMB001973</a></td>
+                <td><a href="PLIMB001973.html">CENTRO DE SALUD SAN SIMON
+                DE BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB001985.html">PLIMB001985</a></td>
+                <td><a href="PLIMB001985.html">CENTRO DE SALUD SAN JOSÉ
+                TUZUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB001990.html">PLIMB001990</a></td>
+                <td><a href="PLIMB001990.html">CENTRO DE SALUD
+                TLANEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002002.html">PLIMB002002</a></td>
+                <td><a href="PLIMB002002.html">CENTRO DE SALUD
+                TOZIHUIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002014.html">PLIMB002014</a></td>
+                <td><a href="PLIMB002014.html">CENTRO DE SALUD EL
+                TRIUNFO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002026.html">PLIMB002026</a></td>
+                <td><a href="PLIMB002026.html">CENTRO DE SALUD RAFAEL
+                LARA GRAJALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002031.html">PLIMB002031</a></td>
+                <td><a href="PLIMB002031.html">CENTRO DE SALUD MAXIMO
+                SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002043.html">PLIMB002043</a></td>
+                <td><a href="PLIMB002043.html">CENTRO DE SALUD LOS REYES
+                DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002055.html">PLIMB002055</a></td>
+                <td><a href="PLIMB002055.html">CENTRO DE SALUD BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002060.html">PLIMB002060</a></td>
+                <td><a href="PLIMB002060.html">CENTRO DE SALUD SAN
+                ANDRÉS CHOLULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002072.html">PLIMB002072</a></td>
+                <td><a href="PLIMB002072.html">CENTRO DE SALUD SAN DIEGO
+                LA MESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002084.html">PLIMB002084</a></td>
+                <td><a href="PLIMB002084.html">CENTRO DE SALUD SAN
+                FELIPE TEOTLALCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002096.html">PLIMB002096</a></td>
+                <td><a href="PLIMB002096.html">CENTRO DE SALUD SAN
+                MIGUEL JOJUPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002101.html">PLIMB002101</a></td>
+                <td><a href="PLIMB002101.html">CENTRO DE SALUD SAN
+                GABRIEL CHILAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002113.html">PLIMB002113</a></td>
+                <td><a href="PLIMB002113.html">CENTRO DE SALUD SAN JUAN
+                ATZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002125.html">PLIMB002125</a></td>
+                <td><a href="PLIMB002125.html">CENTRO DE SALUD SAN JOSÉ
+                OZUMBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002130.html">PLIMB002130</a></td>
+                <td><a href="PLIMB002130.html">CENTRO DE SALUD SAN PEDRO
+                TETITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002142.html">PLIMB002142</a></td>
+                <td><a href="PLIMB002142.html">CENTRO DE SALUD SAN JUAN
+                ATENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002166.html">PLIMB002166</a></td>
+                <td><a href="PLIMB002166.html">CENTRO DE SALUD SAN
+                JERONIMO TIANGUISMANALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002171.html">PLIMB002171</a></td>
+                <td><a href="PLIMB002171.html">CENTRO DE SALUD SAN JUAN
+                TUXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002183.html">PLIMB002183</a></td>
+                <td><a href="PLIMB002183.html">CENTRO DE SALUD SAN
+                RAFAEL TLANALAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002195.html">PLIMB002195</a></td>
+                <td><a href="PLIMB002195.html">CENTRO DE SALUD SANTA
+                MARÍA MOYOTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002200.html">PLIMB002200</a></td>
+                <td><a href="PLIMB002200.html">CENTRO DE SALUD SAN
+                MARTÍN TOTOLTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002212.html">PLIMB002212</a></td>
+                <td><a href="PLIMB002212.html">CENTRO DE SALUD JUÁREZ
+                CORONACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002224.html">PLIMB002224</a></td>
+                <td><a href="PLIMB002224.html">CENTRO DE SALUD SAN PABLO
+                ANICANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002236.html">PLIMB002236</a></td>
+                <td><a href="PLIMB002236.html">CENTRO DE SALUD SAN
+                FRANCISCO CUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002241.html">PLIMB002241</a></td>
+                <td><a href="PLIMB002241.html">CENTRO DE SALUD SANTA
+                MARÍA ACUEXCOMAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002253.html">PLIMB002253</a></td>
+                <td><a href="PLIMB002253.html">CENTRO DE SALUD SANTA
+                MARÍA COATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002265.html">PLIMB002265</a></td>
+                <td><a href="PLIMB002265.html">CENTRO DE SALUD PASO
+                PUENTE SANTA ANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002270.html">PLIMB002270</a></td>
+                <td><a href="PLIMB002270.html">CENTRO DE SALUD SAN
+                ANDRÉS HUEYACATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002282.html">PLIMB002282</a></td>
+                <td><a href="PLIMB002282.html">CENTRO DE SALUD
+                AZTOTOACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002294.html">PLIMB002294</a></td>
+                <td><a href="PLIMB002294.html">CENTRO DE SALUD SAN LUCAS
+                EL GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002306.html">PLIMB002306</a></td>
+                <td><a href="PLIMB002306.html">CENTRO DE SALUD SAN SIMON
+                ATZITZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002311.html">PLIMB002311</a></td>
+                <td><a href="PLIMB002311.html">CENTRO DE SALUD BUENA
+                VISTA DE CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002323.html">PLIMB002323</a></td>
+                <td><a href="PLIMB002323.html">CENTRO DE SALUD PASO
+                ATZIHUATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002335.html">PLIMB002335</a></td>
+                <td><a href="PLIMB002335.html">CENTRO DE SALUD ZACATEPEC
+                DE BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002340.html">PLIMB002340</a></td>
+                <td><a href="PLIMB002340.html">CENTRO DE SALUD SANTA
+                ISABEL CHOLULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002352.html">PLIMB002352</a></td>
+                <td><a href="PLIMB002352.html">CENTRO DE SALUD SAN
+                MARTÍN TLAMAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002364.html">PLIMB002364</a></td>
+                <td><a href="PLIMB002364.html">CENTRO DE SALUD
+                HUEHUETLAN EL GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002376.html">PLIMB002376</a></td>
+                <td><a href="PLIMB002376.html">CENTRO DE SALUD SAN
+                MIGUEL ZACAOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002381.html">PLIMB002381</a></td>
+                <td><a href="PLIMB002381.html">CENTRO DE SALUD TECALI DE
+                HERRERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002393.html">PLIMB002393</a></td>
+                <td><a href="PLIMB002393.html">CENTRO DE SALUD
+                CONCEPCIÓN CUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002405.html">PLIMB002405</a></td>
+                <td><a href="PLIMB002405.html">CENTRO DE SALUD SAN LUIS
+                AJAJALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002410.html">PLIMB002410</a></td>
+                <td><a href="PLIMB002410.html">CENTRO DE SALUD SANTA
+                CRUZ AJAJALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002422.html">PLIMB002422</a></td>
+                <td><a href="PLIMB002422.html">CENTRO DE SALUD URBANO
+                TECAMACHALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002434.html">PLIMB002434</a></td>
+                <td><a href="PLIMB002434.html">CENTRO DE SALUD LA
+                PURISIMA DE HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002446.html">PLIMB002446</a></td>
+                <td><a href="PLIMB002446.html">CENTRO DE SALUD SAN
+                ANTONIO LA PORTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002451.html">PLIMB002451</a></td>
+                <td><a href="PLIMB002451.html">CENTRO DE SALUD SANTA
+                ROSA TECAMACHALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002463.html">PLIMB002463</a></td>
+                <td><a href="PLIMB002463.html">CENTRO DE SALUD SANTIAGO
+                ALSESECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002475.html">PLIMB002475</a></td>
+                <td><a href="PLIMB002475.html">CENTRO DE SALUD PINO
+                SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002480.html">PLIMB002480</a></td>
+                <td><a href="PLIMB002480.html">CENTRO DE SALUD RUBEN
+                JARAMILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002504.html">PLIMB002504</a></td>
+                <td><a href="PLIMB002504.html">CENTRO DE SALUD CENTRO DE
+                SALUD MIXQUIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002521.html">PLIMB002521</a></td>
+                <td><a href="PLIMB002521.html">CENTRO DE SALUD URBANO
+                TEHUACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002533.html">PLIMB002533</a></td>
+                <td><a href="PLIMB002533.html">CENTRO DE SALUD
+                TEHUITZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002545.html">PLIMB002545</a></td>
+                <td><a href="PLIMB002545.html">CENTRO DE SALUD
+                TEOTLALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002550.html">PLIMB002550</a></td>
+                <td><a href="PLIMB002550.html">CENTRO DE SALUD TEPANCO
+                DE LÓPEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002562.html">PLIMB002562</a></td>
+                <td><a href="PLIMB002562.html">CENTRO DE SALUD
+                CACALOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002574.html">PLIMB002574</a></td>
+                <td><a href="PLIMB002574.html">CENTRO DE SALUD SAN
+                BARTOLOME HUEYAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002586.html">PLIMB002586</a></td>
+                <td><a href="PLIMB002586.html">CENTRO DE SALUD SAN
+                NICOLÁS ZOYAPETLAYOCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002591.html">PLIMB002591</a></td>
+                <td><a href="PLIMB002591.html">CENTRO DE SALUD SAN PEDRO
+                LA JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002603.html">PLIMB002603</a></td>
+                <td><a href="PLIMB002603.html">CENTRO DE SALUD SANTIAGO
+                ACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002615.html">PLIMB002615</a></td>
+                <td><a href="PLIMB002615.html">CENTRO DE SALUD
+                TEPEOJUMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002620.html">PLIMB002620</a></td>
+                <td><a href="PLIMB002620.html">CENTRO DE SALUD
+                XOYATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002632.html">PLIMB002632</a></td>
+                <td><a href="PLIMB002632.html">CENTRO DE SALUD SAN
+                MIGUEL TONALIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002644.html">PLIMB002644</a></td>
+                <td><a href="PLIMB002644.html">CENTRO DE SALUD DE
+                TENANTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002656.html">PLIMB002656</a></td>
+                <td><a href="PLIMB002656.html">CENTRO DE SALUD TLAMANCA
+                DE HERNANDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002661.html">PLIMB002661</a></td>
+                <td><a href="PLIMB002661.html">CENTRO DE SALUD
+                TEPEXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002673.html">PLIMB002673</a></td>
+                <td><a href="PLIMB002673.html">CENTRO DE SALUD
+                CALMECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002685.html">PLIMB002685</a></td>
+                <td><a href="PLIMB002685.html">CENTRO DE SALUD
+                HUAJOYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002690.html">PLIMB002690</a></td>
+                <td><a href="PLIMB002690.html">CENTRO DE SALUD
+                HUEJONAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002702.html">PLIMB002702</a></td>
+                <td><a href="PLIMB002702.html">CENTRO DE SALUD EL FUERTE
+                DE LA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002714.html">PLIMB002714</a></td>
+                <td><a href="PLIMB002714.html">CENTRO DE SALUD GUADALUPE
+                SARABIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002726.html">PLIMB002726</a></td>
+                <td><a href="PLIMB002726.html">CENTRO DE SALUD
+                TEPEYAHUALCO DE CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002731.html">PLIMB002731</a></td>
+                <td><a href="PLIMB002731.html">CENTRO DE SALUD
+                CAPULUAQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002743.html">PLIMB002743</a></td>
+                <td><a href="PLIMB002743.html">CENTRO DE SALUD
+                ZITLALCUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002755.html">PLIMB002755</a></td>
+                <td><a href="PLIMB002755.html">CENTRO DE SALUD
+                TETELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002760.html">PLIMB002760</a></td>
+                <td><a href="PLIMB002760.html">CENTRO DE SALUD LA
+                LEGUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002772.html">PLIMB002772</a></td>
+                <td><a href="PLIMB002772.html">CENTRO DE SALUD SAN
+                SEBASTIAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002784.html">PLIMB002784</a></td>
+                <td><a href="PLIMB002784.html">CENTRO DE SALUD SAN JUAN
+                TIANGUISMANALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002796.html">PLIMB002796</a></td>
+                <td><a href="PLIMB002796.html">CENTRO DE SALUD
+                TILAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002801.html">PLIMB002801</a></td>
+                <td><a href="PLIMB002801.html">CENTRO DE SALUD SANTA
+                MARÍA LA ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002813.html">PLIMB002813</a></td>
+                <td><a href="PLIMB002813.html">CENTRO DE SALUD
+                TLACUITLAPAN LA ESTACIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002825.html">PLIMB002825</a></td>
+                <td><a href="PLIMB002825.html">CENTRO DE SALUD
+                TLACUILOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002830.html">PLIMB002830</a></td>
+                <td><a href="PLIMB002830.html">CENTRO DE SALUD
+                CUAUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002842.html">PLIMB002842</a></td>
+                <td><a href="PLIMB002842.html">CENTRO DE SALUD
+                ITZATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002854.html">PLIMB002854</a></td>
+                <td><a href="PLIMB002854.html">CENTRO DE SALUD
+                EMANCIPACION QUETZALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002866.html">PLIMB002866</a></td>
+                <td><a href="PLIMB002866.html">CENTRO DE SALUD GUADALUPE
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002871.html">PLIMB002871</a></td>
+                <td><a href="PLIMB002871.html">CENTRO DE SALUD MANUEL E.
+                AVALOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002883.html">PLIMB002883</a></td>
+                <td><a href="PLIMB002883.html">CENTRO DE SALUD
+                OYAMECALCO EL CAJON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002895.html">PLIMB002895</a></td>
+                <td><a href="PLIMB002895.html">CENTRO DE SALUD PASO
+                NACIONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002900.html">PLIMB002900</a></td>
+                <td><a href="PLIMB002900.html">CENTRO DE SALUD SAN
+                FRANCISCO INDEPENDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002912.html">PLIMB002912</a></td>
+                <td><a href="PLIMB002912.html">CENTRO DE SALUD SANTA
+                RITA TLAHUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002924.html">PLIMB002924</a></td>
+                <td><a href="PLIMB002924.html">CENTRO DE SALUD GUADALUPE
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002936.html">PLIMB002936</a></td>
+                <td><a href="PLIMB002936.html">CENTRO DE SALUD SAN JUAN
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002941.html">PLIMB002941</a></td>
+                <td><a href="PLIMB002941.html">CENTRO DE SALUD DE
+                TIANGUISTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002953.html">PLIMB002953</a></td>
+                <td><a href="PLIMB002953.html">CENTRO DE SALUD SAN
+                RAFAEL IXTAPALUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002965.html">PLIMB002965</a></td>
+                <td><a href="PLIMB002965.html">CENTRO DE SALUD STA. MA.
+                TEXMELUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002970.html">PLIMB002970</a></td>
+                <td><a href="PLIMB002970.html">CENTRO DE SALUD SANTIAGO
+                COLTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB002982.html">PLIMB002982</a></td>
+                <td><a href="PLIMB002982.html">CENTRO DE SALUD
+                TLANEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB002994.html">PLIMB002994</a></td>
+                <td><a href="PLIMB002994.html">CENTRO DE SALUD
+                CHICAHUAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003006.html">PLIMB003006</a></td>
+                <td><a href="PLIMB003006.html">CENTRO DE SALUD
+                TZITZICAZAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003011.html">PLIMB003011</a></td>
+                <td><a href="PLIMB003011.html">CENTRO DE SALUD TLAMAYA
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003023.html">PLIMB003023</a></td>
+                <td><a href="PLIMB003023.html">CENTRO DE SALUD
+                MAZATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003035.html">PLIMB003035</a></td>
+                <td><a href="PLIMB003035.html">CENTRO DE SALUD
+                OCOTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003040.html">PLIMB003040</a></td>
+                <td><a href="PLIMB003040.html">CENTRO DE SALUD TEPETENO
+                DE ITURBIDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003052.html">PLIMB003052</a></td>
+                <td><a href="PLIMB003052.html">CENTRO DE SALUD
+                TATAUZOQUICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003064.html">PLIMB003064</a></td>
+                <td><a href="PLIMB003064.html">CENTRO DE SALUD
+                ACALMAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003076.html">PLIMB003076</a></td>
+                <td><a href="PLIMB003076.html">CENTRO DE SALUD
+                ALPANOCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003081.html">PLIMB003081</a></td>
+                <td><a href="PLIMB003081.html">CENTRO DE SALUD SANTA
+                CRUZ CUAUTOMATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003105.html">PLIMB003105</a></td>
+                <td><a href="PLIMB003105.html">CENTRO DE SALUD TETELILLA
+                DE ISLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003110.html">PLIMB003110</a></td>
+                <td><a href="PLIMB003110.html">CENTRO DE SALUD
+                ACUEXCOMAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003122.html">PLIMB003122</a></td>
+                <td><a href="PLIMB003122.html">CENTRO DE SALUD SAN
+                ANTONIO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003134.html">PLIMB003134</a></td>
+                <td><a href="PLIMB003134.html">CENTRO DE SALUD
+                VENUSTIANO CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003146.html">PLIMB003146</a></td>
+                <td><a href="PLIMB003146.html">CENTRO DE SALUD VILLA
+                LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003151.html">PLIMB003151</a></td>
+                <td><a href="PLIMB003151.html">CENTRO DE SALUD SAN JOSÉ
+                PUEBLO VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003163.html">PLIMB003163</a></td>
+                <td><a href="PLIMB003163.html">CENTRO DE SALUD RANCHO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003175.html">PLIMB003175</a></td>
+                <td><a href="PLIMB003175.html">CENTRO DE SALUD
+                XAYACATLÁN DE BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003180.html">PLIMB003180</a></td>
+                <td><a href="PLIMB003180.html">CENTRO DE SALUD SAN
+                ANTONIO OCOPETATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003192.html">PLIMB003192</a></td>
+                <td><a href="PLIMB003192.html">CENTRO DE SALUD SAN
+                LORENZO LA JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003204.html">PLIMB003204</a></td>
+                <td><a href="PLIMB003204.html">CENTRO DE SALUD SAN PEDRO
+                ITZTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003216.html">PLIMB003216</a></td>
+                <td><a href="PLIMB003216.html">CENTRO DE SALUD SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003221.html">PLIMB003221</a></td>
+                <td><a href="PLIMB003221.html">CENTRO DE SALUD
+                ATECAX</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003233.html">PLIMB003233</a></td>
+                <td><a href="PLIMB003233.html">CENTRO DE SALUD SAN
+                ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003245.html">PLIMB003245</a></td>
+                <td><a href="PLIMB003245.html">CENTRO DE SALUD SAN
+                SALVADOR (NARANJILLO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003250.html">PLIMB003250</a></td>
+                <td><a href="PLIMB003250.html">CENTRO DE SALUD
+                TOMAQUILAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003262.html">PLIMB003262</a></td>
+                <td><a href="PLIMB003262.html">CENTRO DE SALUD SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003274.html">PLIMB003274</a></td>
+                <td><a href="PLIMB003274.html">CENTRO DE SALUD SAN
+                MARTÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003286.html">PLIMB003286</a></td>
+                <td><a href="PLIMB003286.html">CENTRO DE SALUD
+                XOCHIAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003291.html">PLIMB003291</a></td>
+                <td><a href="PLIMB003291.html">CENTRO DE SALUD
+                CUAXIMALOYAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003303.html">PLIMB003303</a></td>
+                <td><a href="PLIMB003303.html">CENTRO DE SALUD
+                XOCHILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003315.html">PLIMB003315</a></td>
+                <td><a href="PLIMB003315.html">CENTRO DE SALUD
+                HUAHUAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003320.html">PLIMB003320</a></td>
+                <td><a href="PLIMB003320.html">CENTRO DE SALUD
+                ZOATECPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003332.html">PLIMB003332</a></td>
+                <td><a href="PLIMB003332.html">CENTRO DE SALUD SAN
+                MIGUEL ZOZUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003344.html">PLIMB003344</a></td>
+                <td><a href="PLIMB003344.html">CENTRO DE SALUD URBANO
+                ZACAPOAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003356.html">PLIMB003356</a></td>
+                <td><a href="PLIMB003356.html">CENTRO DE SALUD
+                ATACPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003361.html">PLIMB003361</a></td>
+                <td><a href="PLIMB003361.html">CENTRO DE SALUD
+                COMALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003373.html">PLIMB003373</a></td>
+                <td><a href="PLIMB003373.html">CENTRO DE SALUD LAS
+                LOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003385.html">PLIMB003385</a></td>
+                <td><a href="PLIMB003385.html">CENTRO DE SALUD EL
+                MOLINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003390.html">PLIMB003390</a></td>
+                <td><a href="PLIMB003390.html">CENTRO DE SALUD SAN JUAN
+                TAHITIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003402.html">PLIMB003402</a></td>
+                <td><a href="PLIMB003402.html">CENTRO DE SALUD
+                TATOXCAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003414.html">PLIMB003414</a></td>
+                <td><a href="PLIMB003414.html">CENTRO DE SALUD
+                XALACAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003426.html">PLIMB003426</a></td>
+                <td><a href="PLIMB003426.html">CENTRO DE SALUD
+                XOCHITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003431.html">PLIMB003431</a></td>
+                <td><a href="PLIMB003431.html">CENTRO DE SALUD URBANO
+                ZACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003443.html">PLIMB003443</a></td>
+                <td><a href="PLIMB003443.html">CENTRO DE SALUD
+                ATZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003455.html">PLIMB003455</a></td>
+                <td><a href="PLIMB003455.html">CENTRO DE SALUD
+                CAMOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003460.html">PLIMB003460</a></td>
+                <td><a href="PLIMB003460.html">CENTRO DE SALUD
+                JICOLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003472.html">PLIMB003472</a></td>
+                <td><a href="PLIMB003472.html">CENTRO DE SALUD
+                OTLATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003484.html">PLIMB003484</a></td>
+                <td><a href="PLIMB003484.html">CENTRO DE SALUD SAN PEDRO
+                ATMATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003496.html">PLIMB003496</a></td>
+                <td><a href="PLIMB003496.html">CENTRO DE SALUD SAN
+                MIGUEL TENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003501.html">PLIMB003501</a></td>
+                <td><a href="PLIMB003501.html">CENTRO DE SALUD
+                TEPEIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003513.html">PLIMB003513</a></td>
+                <td><a href="PLIMB003513.html">CENTRO DE SALUD
+                TLALIXTLIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003525.html">PLIMB003525</a></td>
+                <td><a href="PLIMB003525.html">CENTRO DE SALUD
+                TOMATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003530.html">PLIMB003530</a></td>
+                <td><a href="PLIMB003530.html">CENTRO DE SALUD SAN
+                CRISTÓBAL XOCHIMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003542.html">PLIMB003542</a></td>
+                <td><a href="PLIMB003542.html">CENTRO DE SALUD
+                XOXONACATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003554.html">PLIMB003554</a></td>
+                <td><a href="PLIMB003554.html">CENTRO DE SALUD
+                TEXCALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003566.html">PLIMB003566</a></td>
+                <td><a href="PLIMB003566.html">CENTRO DE SALUD
+                ATZUMBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003583.html">PLIMB003583</a></td>
+                <td><a href="PLIMB003583.html">CENTRO DE SALUD
+                TUXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003595.html">PLIMB003595</a></td>
+                <td><a href="PLIMB003595.html">CENTRO DE SALUD
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003600.html">PLIMB003600</a></td>
+                <td><a href="PLIMB003600.html">CENTRO DE SALUD PLAN DE
+                AYALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003612.html">PLIMB003612</a></td>
+                <td><a href="PLIMB003612.html">CENTRO DE SALUD EMILIO
+                CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003624.html">PLIMB003624</a></td>
+                <td><a href="PLIMB003624.html">CENTRO DE SALUD ROSA DE
+                CASTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003636.html">PLIMB003636</a></td>
+                <td><a href="PLIMB003636.html">CENTRO DE SALUD SAN
+                ANDRÉS YAHUITLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003641.html">PLIMB003641</a></td>
+                <td><a href="PLIMB003641.html">CENTRO DE SALUD
+                MAZACOATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003653.html">PLIMB003653</a></td>
+                <td><a href="PLIMB003653.html">CENTRO DE SALUD
+                TELOLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003665.html">PLIMB003665</a></td>
+                <td><a href="PLIMB003665.html">CENTRO DE SALUD
+                TENANGUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003670.html">PLIMB003670</a></td>
+                <td><a href="PLIMB003670.html">CENTRO DE SALUD LOMA
+                BONITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003682.html">PLIMB003682</a></td>
+                <td><a href="PLIMB003682.html">CENTRO DE SALUD
+                ZINACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003694.html">PLIMB003694</a></td>
+                <td><a href="PLIMB003694.html">CENTRO DE SALUD
+                ZOQUIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003711.html">PLIMB003711</a></td>
+                <td><a href="PLIMB003711.html">CENTRO DE SALUD
+                CACALOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003723.html">PLIMB003723</a></td>
+                <td><a href="PLIMB003723.html">CENTRO DE SALUD
+                XITLAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003735.html">PLIMB003735</a></td>
+                <td><a href="PLIMB003735.html">CENTRO DE SALUD
+                JILOTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003740.html">PLIMB003740</a></td>
+                <td><a href="PLIMB003740.html">CENTRO DE SALUD
+                ZOQUITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003752.html">PLIMB003752</a></td>
+                <td><a href="PLIMB003752.html">CENTRO DE SALUD LAS
+                LAJAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003764.html">PLIMB003764</a></td>
+                <td><a href="PLIMB003764.html">CENTRO DE SALUD
+                IXTACTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003776.html">PLIMB003776</a></td>
+                <td><a href="PLIMB003776.html">CENTRO DE SALUD SAN
+                ANTONIO CACALOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003781.html">PLIMB003781</a></td>
+                <td><a href="PLIMB003781.html">CENTRO DE SALUD SAN
+                RAFAEL COMAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003793.html">PLIMB003793</a></td>
+                <td><a href="PLIMB003793.html">CENTRO DE SALUD TRINIDAD
+                TEPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003805.html">PLIMB003805</a></td>
+                <td><a href="PLIMB003805.html">CENTRO DE SALUD SAN
+                RAFAEL LA PAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003810.html">PLIMB003810</a></td>
+                <td><a href="PLIMB003810.html">CENTRO DE SALUD SAN
+                SALVADOR CHACHAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003822.html">PLIMB003822</a></td>
+                <td><a href="PLIMB003822.html">CENTRO DE SALUD LA
+                PURISIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003834.html">PLIMB003834</a></td>
+                <td><a href="PLIMB003834.html">CENTRO DE SALUD SAN JOSÉ
+                CARPINTEROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003846.html">PLIMB003846</a></td>
+                <td><a href="PLIMB003846.html">CENTRO DE SALUD
+                OXTOTIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003851.html">PLIMB003851</a></td>
+                <td><a href="PLIMB003851.html">CENTRO DE SALUD SAN
+                BARTOLOME TEPETLACALTECHCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003863.html">PLIMB003863</a></td>
+                <td><a href="PLIMB003863.html">CENTRO DE SALUD
+                TEMEXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003875.html">PLIMB003875</a></td>
+                <td><a href="PLIMB003875.html">CENTRO DE SALUD SAN
+                MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003880.html">PLIMB003880</a></td>
+                <td><a href="PLIMB003880.html">CENTRO DE SALUD XICOTENCO
+                DE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003892.html">PLIMB003892</a></td>
+                <td><a href="PLIMB003892.html">CENTRO DE SALUD SAN
+                CRISTÓBAL TEPATLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003904.html">PLIMB003904</a></td>
+                <td><a href="PLIMB003904.html">CENTRO DE SALUD
+                CHICHICUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003916.html">PLIMB003916</a></td>
+                <td><a href="PLIMB003916.html">CENTRO DE SALUD CASA
+                BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003921.html">PLIMB003921</a></td>
+                <td><a href="PLIMB003921.html">CENTRO DE SALUD
+                CANDELARIA PORTEZUELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003933.html">PLIMB003933</a></td>
+                <td><a href="PLIMB003933.html">CENTRO DE SALUD
+                TEPETLAMPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003945.html">PLIMB003945</a></td>
+                <td><a href="PLIMB003945.html">CENTRO DE SALUD SAN
+                CRISTÓBAL TEPETEOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003950.html">PLIMB003950</a></td>
+                <td><a href="PLIMB003950.html">CENTRO DE SALUD SANTA
+                CRUZ ACAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003962.html">PLIMB003962</a></td>
+                <td><a href="PLIMB003962.html">CENTRO DE SALUD JOSÉ
+                MARÍA PINO SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003974.html">PLIMB003974</a></td>
+                <td><a href="PLIMB003974.html">CENTRO DE SALUD
+                ATOLUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB003986.html">PLIMB003986</a></td>
+                <td><a href="PLIMB003986.html">CENTRO DE SALUD MAGDALENA
+                YANCUITLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB003991.html">PLIMB003991</a></td>
+                <td><a href="PLIMB003991.html">CENTRO DE SALUD CHIPILO
+                DE FRANCISCO JAVIER MINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004003.html">PLIMB004003</a></td>
+                <td><a href="PLIMB004003.html">CENTRO DE SALUD LA
+                UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004015.html">PLIMB004015</a></td>
+                <td><a href="PLIMB004015.html">CENTRO DE SALUD SAN JUAN
+                TEPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004032.html">PLIMB004032</a></td>
+                <td><a href="PLIMB004032.html">CENTRO DE SALUD
+                TEOPANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004044.html">PLIMB004044</a></td>
+                <td><a href="PLIMB004044.html">CENTRO DE SALUD
+                NECTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004061.html">PLIMB004061</a></td>
+                <td><a href="PLIMB004061.html">CENTRO DE SALUD
+                CONCEPCIÓN CAPULAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004090.html">PLIMB004090</a></td>
+                <td><a href="PLIMB004090.html">CENTRO DE SALUD SAN JOSÉ
+                AXUXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004114.html">PLIMB004114</a></td>
+                <td><a href="PLIMB004114.html">CENTRO DE SALUD SAN
+                MARCOS NECOXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004155.html">PLIMB004155</a></td>
+                <td><a href="PLIMB004155.html">CENTRO DE SALUD SAN SIMON
+                CHICOMETEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004184.html">PLIMB004184</a></td>
+                <td><a href="PLIMB004184.html">CENTRO DE SALUD SAN
+                BALTAZAR TEMAXCALAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004196.html">PLIMB004196</a></td>
+                <td><a href="PLIMB004196.html">CENTRO DE SALUD SAN
+                FRANCISCO TEPEYECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004201.html">PLIMB004201</a></td>
+                <td><a href="PLIMB004201.html">CENTRO DE SALUD SANTA
+                CRUZ HUITZILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004213.html">PLIMB004213</a></td>
+                <td><a href="PLIMB004213.html">CENTRO DE SALUD BELLA
+                VISTA DE VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004225.html">PLIMB004225</a></td>
+                <td><a href="PLIMB004225.html">CENTRO DE SALUD SAN
+                MARTÍN CALTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004230.html">PLIMB004230</a></td>
+                <td><a href="PLIMB004230.html">CENTRO DE SALUD DOS
+                NÚCLEOS + 1 DENTAL HUEHUETLÁN EL CHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004254.html">PLIMB004254</a></td>
+                <td><a href="PLIMB004254.html">CENTRO DE SALUD 1 NÚCLEO
+                BÁSICO ATENCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004266.html">PLIMB004266</a></td>
+                <td><a href="PLIMB004266.html">UNIDAD MÓVIL DE SALUD UMS
+                - 027</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004271.html">PLIMB004271</a></td>
+                <td><a href="PLIMB004271.html">CENTRO DE SALUD
+                ATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004283.html">PLIMB004283</a></td>
+                <td><a href="PLIMB004283.html">CARAVANA HUEYTALPAN TIPO
+                0</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004295.html">PLIMB004295</a></td>
+                <td><a href="PLIMB004295.html">UNIDAD MÓVIL DE SALUD UMS
+                - 032</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004300.html">PLIMB004300</a></td>
+                <td><a href="PLIMB004300.html">CARAVANA HUITZILAN DE
+                SERDÁN TIPO 0</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004312.html">PLIMB004312</a></td>
+                <td><a href="PLIMB004312.html">CENTRO DE SALUD
+                PETLALCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004324.html">PLIMB004324</a></td>
+                <td><a href="PLIMB004324.html">UNIDAD MOVIL DE SALUD MS
+                - 030</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004336.html">PLIMB004336</a></td>
+                <td><a href="PLIMB004336.html">CENTRO DE SALUD 2 DE
+                MARZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004341.html">PLIMB004341</a></td>
+                <td><a href="PLIMB004341.html">CENTRO DE SALUD URBANO
+                TEPEYAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004353.html">PLIMB004353</a></td>
+                <td><a href="PLIMB004353.html">CARAVANA ELOXOCHITLÁN
+                TIPO 0</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004365.html">PLIMB004365</a></td>
+                <td><a href="PLIMB004365.html">CENTRO DE SALUD
+                ALJOJUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004370.html">PLIMB004370</a></td>
+                <td><a href="PLIMB004370.html">CESSA DE
+                HUAQUECHULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004382.html">PLIMB004382</a></td>
+                <td><a href="PLIMB004382.html">CENTRO DE SALUD SAN MATEO
+                MENDIZABAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004394.html">PLIMB004394</a></td>
+                <td><a href="PLIMB004394.html">CESSA
+                XONACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004406.html">PLIMB004406</a></td>
+                <td><a href="PLIMB004406.html">CENTRO DE SALUD
+                TEPEYAHUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004411.html">PLIMB004411</a></td>
+                <td><a href="PLIMB004411.html">CESSA
+                TLAXCALANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004423.html">PLIMB004423</a></td>
+                <td><a href="PLIMB004423.html">CENTRO DE SALUD SAN JUAN
+                LLANO GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004435.html">PLIMB004435</a></td>
+                <td><a href="PLIMB004435.html">CENTRO DE SALUD
+                OCOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004440.html">PLIMB004440</a></td>
+                <td><a href="PLIMB004440.html">CENTRO DE SALUD SAN
+                SALVADOR HUIXCOLOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004452.html">PLIMB004452</a></td>
+                <td><a href="PLIMB004452.html">CENTRO DE SALUD SAN
+                MARTIN ATEXCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004464.html">PLIMB004464</a></td>
+                <td><a href="PLIMB004464.html">CENTRO DE SALUD
+                MOLCAXAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004476.html">PLIMB004476</a></td>
+                <td><a href="PLIMB004476.html">CENTRO DE SALUD SAN JUAN
+                EPATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004481.html">PLIMB004481</a></td>
+                <td><a href="PLIMB004481.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS ATZITZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004493.html">PLIMB004493</a></td>
+                <td><a href="PLIMB004493.html">CENTRO DE SALUD DE
+                AQUIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004505.html">PLIMB004505</a></td>
+                <td><a href="PLIMB004505.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACIÓN TEMPRANA
+                (CEREDI)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004510.html">PLIMB004510</a></td>
+                <td><a href="PLIMB004510.html">CENTRO DE SALUD SAN
+                LORENZO ALMECATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004522.html">PLIMB004522</a></td>
+                <td><a href="PLIMB004522.html">CENTRO DE SALUD SAN
+                GREGORIO ATZOMPA-CHIPILO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004534.html">PLIMB004534</a></td>
+                <td><a href="PLIMB004534.html">CENTRO DE SALUD DOMINGO
+                ARENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004546.html">PLIMB004546</a></td>
+                <td><a href="PLIMB004546.html">CENTRO DE SALUD
+                ELOXOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004551.html">PLIMB004551</a></td>
+                <td><a href="PLIMB004551.html">CENTRO DE SALUD
+                CHAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004563.html">PLIMB004563</a></td>
+                <td><a href="PLIMB004563.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES IZÚCAR DE MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004575.html">PLIMB004575</a></td>
+                <td><a href="PLIMB004575.html">CENTRO DE SALUD
+                METLALTOYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004580.html">PLIMB004580</a></td>
+                <td><a href="PLIMB004580.html">CENTRO DE SALUD SANTA ANA
+                ACOZAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004592.html">PLIMB004592</a></td>
+                <td><a href="PLIMB004592.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ATLIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004604.html">PLIMB004604</a></td>
+                <td><a href="PLIMB004604.html">CENTRO DE SALUD DE UN
+                NÚCLEO BÁSICO MAS DENTAL YEHUALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004616.html">PLIMB004616</a></td>
+                <td><a href="PLIMB004616.html">CENTRO DE SALUD 2 NÚCLEOS
+                BÁSICOS CON DENTAL SANTA INÉS AHUATEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004621.html">PLIMB004621</a></td>
+                <td><a href="PLIMB004621.html">CESSA SAN JOSÉ
+                CHIAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004633.html">PLIMB004633</a></td>
+                <td><a href="PLIMB004633.html">CESSA SAN SEBASTIÁN DE
+                APARICIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004650.html">PLIMB004650</a></td>
+                <td><a href="PLIMB004650.html">CENTRO DE SALUD URBANO
+                ACATLÁN DE OSORIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004662.html">PLIMB004662</a></td>
+                <td><a href="PLIMB004662.html">CENTRO DE SALUD SAN PEDRO
+                CUAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004674.html">PLIMB004674</a></td>
+                <td><a href="PLIMB004674.html">CENTRO DE SALUD DE SAN
+                PEDRO OCOTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004686.html">PLIMB004686</a></td>
+                <td><a href="PLIMB004686.html">CENTRO DE SALUD DE 1
+                NÚCLEO BÁSICO MAS DENTAL SAN FELIPE TEPEMAXALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004691.html">PLIMB004691</a></td>
+                <td><a href="PLIMB004691.html">CENTRO DE SALUD SAN
+                MIGUEL IXITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004715.html">PLIMB004715</a></td>
+                <td><a href="PLIMB004715.html">CENTRO DE SALUD DE
+                SERVICIOS AMPLIADOS DE XICOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004744.html">PLIMB004744</a></td>
+                <td><a href="PLIMB004744.html">CENTRO DE SALUD
+                HUEYTAMALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004756.html">PLIMB004756</a></td>
+                <td><a href="PLIMB004756.html">CENTRO DE SALUD
+                TENAMPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004761.html">PLIMB004761</a></td>
+                <td><a href="PLIMB004761.html">CENTRO DE SALUD
+                XACAXOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004773.html">PLIMB004773</a></td>
+                <td><a href="PLIMB004773.html">CENTRO DE SALUD DE SAN
+                MARTÍN RINCONADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004785.html">PLIMB004785</a></td>
+                <td><a href="PLIMB004785.html">CENTRO DE SALUD
+                TLAXCALANTONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004790.html">PLIMB004790</a></td>
+                <td><a href="PLIMB004790.html">CENTRO DE SALUD EL
+                ÁLAMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004802.html">PLIMB004802</a></td>
+                <td><a href="PLIMB004802.html">CENTRO DE SALUD SAN
+                MIGUEL TENEXTATILOYAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004814.html">PLIMB004814</a></td>
+                <td><a href="PLIMB004814.html">CENTRO DE SALUD
+                TEPETITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004826.html">PLIMB004826</a></td>
+                <td><a href="PLIMB004826.html">CENTRO DE SALUD
+                ZOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004831.html">PLIMB004831</a></td>
+                <td><a href="PLIMB004831.html">CENTRO DE SALUD SAN JOSÉ
+                CUYACHAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004843.html">PLIMB004843</a></td>
+                <td><a href="PLIMB004843.html">CARAVANA
+                TLATLAUQUITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004855.html">PLIMB004855</a></td>
+                <td><a href="PLIMB004855.html">CARAVANA
+                HUEYTAMALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004872.html">PLIMB004872</a></td>
+                <td><a href="PLIMB004872.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) ALCOMUNGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004884.html">PLIMB004884</a></td>
+                <td><a href="PLIMB004884.html">CENTRO DE SALUD SAN
+                GREGORIO ZACAPECHPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004896.html">PLIMB004896</a></td>
+                <td><a href="PLIMB004896.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) TEHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004901.html">PLIMB004901</a></td>
+                <td><a href="PLIMB004901.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE TLACHICHUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004913.html">PLIMB004913</a></td>
+                <td><a href="PLIMB004913.html">CENTRO DE SALUD
+                XOCHITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004930.html">PLIMB004930</a></td>
+                <td><a href="PLIMB004930.html">CENTRO DE SALUD SAN
+                MIGUEL EL CRISTO CANOA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004942.html">PLIMB004942</a></td>
+                <td><a href="PLIMB004942.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) DE AMOZOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004966.html">PLIMB004966</a></td>
+                <td><a href="PLIMB004966.html">CENTRO DE SALUD SAN
+                BARTOLO TEONTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004971.html">PLIMB004971</a></td>
+                <td><a href="PLIMB004971.html">CENTRO DE SALUD SANTA
+                ÚRSULA CHICONQUIAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB004983.html">PLIMB004983</a></td>
+                <td><a href="PLIMB004983.html">CENTRO DE SALUD PALMARITO
+                TOCHAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004995.html">PLIMB004995</a></td>
+                <td><a href="PLIMB004995.html">CENTRO DE SALUD
+                ALHUACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005000.html">PLIMB005000</a></td>
+                <td><a href="PLIMB005000.html">CENTRO DE SALUD SAN
+                ANDRÉS AZUMIATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005024.html">PLIMB005024</a></td>
+                <td><a href="PLIMB005024.html">CENTRO DE SALUD SAN JOSÉ
+                IXTAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005036.html">PLIMB005036</a></td>
+                <td><a href="PLIMB005036.html">CENTRO DE SALUD SAN
+                SEBASTIÁN TETELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005041.html">PLIMB005041</a></td>
+                <td><a href="PLIMB005041.html">CENTRO DE SALUD TEPANGO
+                DE RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005053.html">PLIMB005053</a></td>
+                <td><a href="PLIMB005053.html">CARAVANA
+                TOCHIMILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005065.html">PLIMB005065</a></td>
+                <td><a href="PLIMB005065.html">CARAVANA NICOLÁS
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005082.html">PLIMB005082</a></td>
+                <td><a href="PLIMB005082.html">MÓDULO DE MEDICINA
+                TRADICIONAL ZOQUITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005094.html">PLIMB005094</a></td>
+                <td><a href="PLIMB005094.html">CENTRO DE SALUD GUADALUPE
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005106.html">PLIMB005106</a></td>
+                <td><a href="PLIMB005106.html">CENTRO DE SALUD
+                MIRAVALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005111.html">PLIMB005111</a></td>
+                <td><a href="PLIMB005111.html">CENTRO DE SALUD SAN
+                JERÓNIMO TECUANIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005123.html">PLIMB005123</a></td>
+                <td><a href="PLIMB005123.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) DE TOCHTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005135.html">PLIMB005135</a></td>
+                <td><a href="PLIMB005135.html">CENTRO DE SALUD SAN
+                ANTONIO SOLEDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005140.html">PLIMB005140</a></td>
+                <td><a href="PLIMB005140.html">CENTRO DE SALUD DE SAN
+                PABLO TEPETZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005152.html">PLIMB005152</a></td>
+                <td><a href="PLIMB005152.html">CENTRO DE SALUD
+                XALTEPUXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005164.html">PLIMB005164</a></td>
+                <td><a href="PLIMB005164.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) DE TEPEACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005176.html">PLIMB005176</a></td>
+                <td><a href="PLIMB005176.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) SAN PEDRO CHOLULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005181.html">PLIMB005181</a></td>
+                <td><a href="PLIMB005181.html">CENTRO DE SALUD DE
+                MAGDALENA CUAYUCATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005193.html">PLIMB005193</a></td>
+                <td><a href="PLIMB005193.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) TLATLAUQUITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005210.html">PLIMB005210</a></td>
+                <td><a href="PLIMB005210.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) SANTIAGO MIAHUATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005222.html">PLIMB005222</a></td>
+                <td><a href="PLIMB005222.html">CENTRO DE SALUD
+                AZUMBILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005234.html">PLIMB005234</a></td>
+                <td><a href="PLIMB005234.html">CENTRO DE SALUD SAN
+                ANDRÉS CALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005246.html">PLIMB005246</a></td>
+                <td><a href="PLIMB005246.html">CENTRO DE SALUD SAN
+                NICOLÁS BUENOS AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005251.html">PLIMB005251</a></td>
+                <td><a href="PLIMB005251.html">CENTRO DE SALUD
+                TLALTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005275.html">PLIMB005275</a></td>
+                <td><a href="PLIMB005275.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) CHIGNAHUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005280.html">PLIMB005280</a></td>
+                <td><a href="PLIMB005280.html">CENTRO DE SALUD SAN
+                ANDRÉS LAS VEGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005292.html">PLIMB005292</a></td>
+                <td><a href="PLIMB005292.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) TEZIUTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005304.html">PLIMB005304</a></td>
+                <td><a href="PLIMB005304.html">CENTRO DE SALUD
+                XONACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005316.html">PLIMB005316</a></td>
+                <td><a href="PLIMB005316.html">CENTRO DE SALUD
+                CHILCHOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005333.html">PLIMB005333</a></td>
+                <td><a href="PLIMB005333.html">CENTRO DE SALUD URBANO
+                CHIAUTLA DE TAPIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005345.html">PLIMB005345</a></td>
+                <td><a href="PLIMB005345.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS IZÚCAR DE MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005350.html">PLIMB005350</a></td>
+                <td><a href="PLIMB005350.html">CENTRO DE SALUD 2 NÚCLEOS
+                BÁSICOS MÁS DENTAL XOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005362.html">PLIMB005362</a></td>
+                <td><a href="PLIMB005362.html">CENTRO DE SALUD DE DOS
+                NÚCLEOS BÁSICOS SAN JERÓNIMO OCOTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005374.html">PLIMB005374</a></td>
+                <td><a href="PLIMB005374.html">CENTRO DE SALUD DE 2
+                NÚCLEOS BÁSICOS CUAPÍAXTLA DE MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005386.html">PLIMB005386</a></td>
+                <td><a href="PLIMB005386.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) CAÑADA MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005391.html">PLIMB005391</a></td>
+                <td><a href="PLIMB005391.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) DE TEPETZALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005403.html">PLIMB005403</a></td>
+                <td><a href="PLIMB005403.html">CENTRO DE SALUD DE SAN
+                JOSÉ ACATENO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005415.html">PLIMB005415</a></td>
+                <td><a href="PLIMB005415.html">CENTRO DE SALUD
+                PUTLUNICHUCHUT (VISTA HERMOSA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005420.html">PLIMB005420</a></td>
+                <td><a href="PLIMB005420.html">CENTRO DE SALUD SANTA
+                CRUZ TEOTLALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005432.html">PLIMB005432</a></td>
+                <td><a href="PLIMB005432.html">CENTRO DE SALUD
+                TEPETZITZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005444.html">PLIMB005444</a></td>
+                <td><a href="PLIMB005444.html">CESSA LIBRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005456.html">PLIMB005456</a></td>
+                <td><a href="PLIMB005456.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) HUITZILAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005461.html">PLIMB005461</a></td>
+                <td><a href="PLIMB005461.html">CENTRO DE SALUD SAN
+                ANTONIO CAÑADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005473.html">PLIMB005473</a></td>
+                <td><a href="PLIMB005473.html">CENTRO DE SALUD SAN
+                MIGUEL XOXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005485.html">PLIMB005485</a></td>
+                <td><a href="PLIMB005485.html">CENTRO DE SALUD SANTA
+                MARÍA CORONANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005490.html">PLIMB005490</a></td>
+                <td><a href="PLIMB005490.html">CESSA SAN MARTÍN
+                TEXMELUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005502.html">PLIMB005502</a></td>
+                <td><a href="PLIMB005502.html">MÓDULO DE MEDICINA
+                TRADICIONAL ATLIXCO, PUE.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005514.html">PLIMB005514</a></td>
+                <td><a href="PLIMB005514.html">MÓDULO DE MEDICINA
+                TRADICIONAL MECAPALAPA, PANTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005526.html">PLIMB005526</a></td>
+                <td><a href="PLIMB005526.html">MÓDULO DE MEDICINA
+                TRADICIONAL XALACAPAN, ZACAPOAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005531.html">PLIMB005531</a></td>
+                <td><a href="PLIMB005531.html">CESSA ROMERO
+                VARGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005543.html">PLIMB005543</a></td>
+                <td><a href="PLIMB005543.html">CESSA SAN FRANCISCO
+                TOTIMEHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005560.html">PLIMB005560</a></td>
+                <td><a href="PLIMB005560.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE SAN FELIPE HUEYOTLIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005572.html">PLIMB005572</a></td>
+                <td><a href="PLIMB005572.html">MÓDULO DE MEDICINA
+                TRADICIONAL AHUACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005584.html">PLIMB005584</a></td>
+                <td><a href="PLIMB005584.html">CESSA SAN GABRIEL
+                TETZOYOCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005596.html">PLIMB005596</a></td>
+                <td><a href="PLIMB005596.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005625.html">PLIMB005625</a></td>
+                <td><a href="PLIMB005625.html">MÓDULO DE MEDICINA
+                TRADICIONAL TLAOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005630.html">PLIMB005630</a></td>
+                <td><a href="PLIMB005630.html">CENTRO DE SALUD
+                HUIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005642.html">PLIMB005642</a></td>
+                <td><a href="PLIMB005642.html">CESSA CIUDAD
+                SERDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005654.html">PLIMB005654</a></td>
+                <td><a href="PLIMB005654.html">CESSA NOPALUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005666.html">PLIMB005666</a></td>
+                <td><a href="PLIMB005666.html">CENTRO DE SALUD ZARAGOZA
+                INSURGENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005671.html">PLIMB005671</a></td>
+                <td><a href="PLIMB005671.html">CARAVANA (UMM-FAM)
+                CUETZALAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005683.html">PLIMB005683</a></td>
+                <td><a href="PLIMB005683.html">CENTRO DE SALUD
+                MIXQUITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005695.html">PLIMB005695</a></td>
+                <td><a href="PLIMB005695.html">CENTRO DE SALUD
+                ORIENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005712.html">PLIMB005712</a></td>
+                <td><a href="PLIMB005712.html">CENTRO DE SALUD
+                TEPANTILOYAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005724.html">PLIMB005724</a></td>
+                <td><a href="PLIMB005724.html">CESSA TEPATLAXCO DE
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005736.html">PLIMB005736</a></td>
+                <td><a href="PLIMB005736.html">CENTRO DE SALUD SAN
+                LORENZO LA JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005741.html">PLIMB005741</a></td>
+                <td><a href="PLIMB005741.html">CENTRO DE SALUD
+                TEZOHUATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005753.html">PLIMB005753</a></td>
+                <td><a href="PLIMB005753.html">CENTRO DE SALUD LA
+                AURORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005765.html">PLIMB005765</a></td>
+                <td><a href="PLIMB005765.html">CENTRO DE SALUD LOS
+                GARCÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005770.html">PLIMB005770</a></td>
+                <td><a href="PLIMB005770.html">CENTRO DE SALUD URBANO
+                HUAUCHINANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005782.html">PLIMB005782</a></td>
+                <td><a href="PLIMB005782.html">CENTRO DE SALUD SAN JOSÉ
+                MIAHUATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005806.html">PLIMB005806</a></td>
+                <td><a href="PLIMB005806.html">CENTRO DE SALUD
+                APANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005811.html">PLIMB005811</a></td>
+                <td><a href="PLIMB005811.html">CENTRO DE SALUD LA
+                COMPAÑIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005823.html">PLIMB005823</a></td>
+                <td><a href="PLIMB005823.html">CENTRO DE SALUD
+                XOCHIMILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005835.html">PLIMB005835</a></td>
+                <td><a href="PLIMB005835.html">CENTRO DE SALUD SANTA
+                CATARINA VILLANUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005840.html">PLIMB005840</a></td>
+                <td><a href="PLIMB005840.html">CENTRO DE SALUD
+                CALVARÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005852.html">PLIMB005852</a></td>
+                <td><a href="PLIMB005852.html">CENTRO DE SALUD
+                MOMOXPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005864.html">PLIMB005864</a></td>
+                <td><a href="PLIMB005864.html">CENTRO DE SALUD SANTA
+                BÁRBARA ALMOLOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005876.html">PLIMB005876</a></td>
+                <td><a href="PLIMB005876.html">CENTRO DE SALUD
+                ZOTIK</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005881.html">PLIMB005881</a></td>
+                <td><a href="PLIMB005881.html">CENTRO DE SALUD BUENA
+                VISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005893.html">PLIMB005893</a></td>
+                <td><a href="PLIMB005893.html">CENTRO DE SALUD
+                APATAUYAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005905.html">PLIMB005905</a></td>
+                <td><a href="PLIMB005905.html">CENTRO DE SALUD SAN PABLO
+                AHUATEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005922.html">PLIMB005922</a></td>
+                <td><a href="PLIMB005922.html">CENTRO DE SALUD
+                AYEHUALULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005934.html">PLIMB005934</a></td>
+                <td><a href="PLIMB005934.html">CENTRO DE SALUD EL
+                TRIUNFO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005946.html">PLIMB005946</a></td>
+                <td><a href="PLIMB005946.html">CENTRO DE SALUD VILLA DEL
+                RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005951.html">PLIMB005951</a></td>
+                <td><a href="PLIMB005951.html">CENTRO DE SALUD FRANCISCO
+                I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005963.html">PLIMB005963</a></td>
+                <td><a href="PLIMB005963.html">CENTRO DE SALUD
+                QUECHOLAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005975.html">PLIMB005975</a></td>
+                <td><a href="PLIMB005975.html">CENTRO DE SALUD URBANO 2A
+                AMPLIACIÓN UNIÓN ANTORCHISTA-ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB005980.html">PLIMB005980</a></td>
+                <td><a href="PLIMB005980.html">CENTRO DE SALUD
+                VIGASTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB005992.html">PLIMB005992</a></td>
+                <td><a href="PLIMB005992.html">CENTRO DE SALUD
+                TEXCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006021.html">PLIMB006021</a></td>
+                <td><a href="PLIMB006021.html">CARAVANA TIPO 2 VILLA DEL
+                RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006033.html">PLIMB006033</a></td>
+                <td><a href="PLIMB006033.html">CARAVANA TIPO 1
+                HERMENEGILDO GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006045.html">PLIMB006045</a></td>
+                <td><a href="PLIMB006045.html">CARAVANA TIPO 1
+                HUEHUETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006050.html">PLIMB006050</a></td>
+                <td><a href="PLIMB006050.html">CARAVANA TIPO 2
+                COYOMEAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006062.html">PLIMB006062</a></td>
+                <td><a href="PLIMB006062.html">UNIDAD MOVIL DE SALUD
+                UMS-007</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006074.html">PLIMB006074</a></td>
+                <td><a href="PLIMB006074.html">CENTRO DE SALUD SAN
+                MARCOS TLACOYALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006086.html">PLIMB006086</a></td>
+                <td><a href="PLIMB006086.html">CENTRO DE SALUD SAN
+                NICOLÁS TOLENTINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006115.html">PLIMB006115</a></td>
+                <td><a href="PLIMB006115.html">CENTRO DE SALUD SAN
+                FRANCISCO XOCHITEOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006120.html">PLIMB006120</a></td>
+                <td><a href="PLIMB006120.html">CENTRO DE SALUD SAN
+                ANTONIO TLACAMILCO.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006132.html">PLIMB006132</a></td>
+                <td><a href="PLIMB006132.html">CENTRO DE SALUD BARRIO
+                TLACAMILCO.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006144.html">PLIMB006144</a></td>
+                <td><a href="PLIMB006144.html">CENTRO DE SALUD
+                ATENAYUCA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006156.html">PLIMB006156</a></td>
+                <td><a href="PLIMB006156.html">CENTRO DE SALUD FRANCISCO
+                VILLA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006161.html">PLIMB006161</a></td>
+                <td><a href="PLIMB006161.html">CENTRO DE SALUD LA
+                MAGDALENA TETELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006173.html">PLIMB006173</a></td>
+                <td><a href="PLIMB006173.html">CENTRO DE SALUD SAN
+                JOSÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006185.html">PLIMB006185</a></td>
+                <td><a href="PLIMB006185.html">CENTRO DE SALUD ALTA LUZ
+                CUATRO RAYAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006190.html">PLIMB006190</a></td>
+                <td><a href="PLIMB006190.html">CENTRO DE SALUD TENEXAPA
+                DE AZUETA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006202.html">PLIMB006202</a></td>
+                <td><a href="PLIMB006202.html">CENTRO DE SALUD
+                TACOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006214.html">PLIMB006214</a></td>
+                <td><a href="PLIMB006214.html">CENTRO DE SALUD SAN
+                FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006226.html">PLIMB006226</a></td>
+                <td><a href="PLIMB006226.html">CENTRO DE SALUD CHILOCOYO
+                EL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006231.html">PLIMB006231</a></td>
+                <td><a href="PLIMB006231.html">CENTRO DE SALUD BUENA
+                VISTA DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006243.html">PLIMB006243</a></td>
+                <td><a href="PLIMB006243.html">CENTRO DE SALUD
+                COXOLICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006255.html">PLIMB006255</a></td>
+                <td><a href="PLIMB006255.html">CENTRO DE SALUD SAN
+                ANTONIO CHILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006260.html">PLIMB006260</a></td>
+                <td><a href="PLIMB006260.html">CARAVANA
+                TLACUILOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006272.html">PLIMB006272</a></td>
+                <td><a href="PLIMB006272.html">CARAVANA
+                CHICONCUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006284.html">PLIMB006284</a></td>
+                <td><a href="PLIMB006284.html">CARAVANA TETELA DE
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006296.html">PLIMB006296</a></td>
+                <td><a href="PLIMB006296.html">CARAVANA
+                TEPETZINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006301.html">PLIMB006301</a></td>
+                <td><a href="PLIMB006301.html">CARAVANA
+                QUIMIXTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006313.html">PLIMB006313</a></td>
+                <td><a href="PLIMB006313.html">CARAVANA
+                CHICHIQUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006325.html">PLIMB006325</a></td>
+                <td><a href="PLIMB006325.html">CARAVANA
+                IXCAMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006330.html">PLIMB006330</a></td>
+                <td><a href="PLIMB006330.html">CARAVANA CHILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006342.html">PLIMB006342</a></td>
+                <td><a href="PLIMB006342.html">CARAVANA
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006366.html">PLIMB006366</a></td>
+                <td><a href="PLIMB006366.html">CARAVANA ATEXCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006371.html">PLIMB006371</a></td>
+                <td><a href="PLIMB006371.html">CARAVANA COYOMEAPAN
+                2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006383.html">PLIMB006383</a></td>
+                <td><a href="PLIMB006383.html">CARAVANA VICENTE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006395.html">PLIMB006395</a></td>
+                <td><a href="PLIMB006395.html">CARAVANA ZOQUITLÁN
+                2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006400.html">PLIMB006400</a></td>
+                <td><a href="PLIMB006400.html">CARAVANA
+                ZACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006412.html">PLIMB006412</a></td>
+                <td><a href="PLIMB006412.html">CARAVANA PASO
+                SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006424.html">PLIMB006424</a></td>
+                <td><a href="PLIMB006424.html">CARAVANA
+                TECPANTZACOALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006436.html">PLIMB006436</a></td>
+                <td><a href="PLIMB006436.html">CARAVANA
+                TEPETLAMPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006441.html">PLIMB006441</a></td>
+                <td><a href="PLIMB006441.html">CENTRO DE SALUD XALTIPAN
+                SECC 10°</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006453.html">PLIMB006453</a></td>
+                <td><a href="PLIMB006453.html">CENTRO DE SALUD
+                ZITLALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006465.html">PLIMB006465</a></td>
+                <td><a href="PLIMB006465.html">CENTRO DE SALUD
+                CHICHICAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006470.html">PLIMB006470</a></td>
+                <td><a href="PLIMB006470.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE TLAPANALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006482.html">PLIMB006482</a></td>
+                <td><a href="PLIMB006482.html">UNEME SORID</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006494.html">PLIMB006494</a></td>
+                <td><a href="PLIMB006494.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CHALCHICOMULA DE
+                SESMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006506.html">PLIMB006506</a></td>
+                <td><a href="PLIMB006506.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EDUARDO VÁZQUEZ
+                NAVARRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006511.html">PLIMB006511</a></td>
+                <td><a href="PLIMB006511.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES LIBRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006523.html">PLIMB006523</a></td>
+                <td><a href="PLIMB006523.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN MARTÍN TEXMELUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006535.html">PLIMB006535</a></td>
+                <td><a href="PLIMB006535.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN PEDRO CHOLULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006540.html">PLIMB006540</a></td>
+                <td><a href="PLIMB006540.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TEHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006552.html">PLIMB006552</a></td>
+                <td><a href="PLIMB006552.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TEPEACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006564.html">PLIMB006564</a></td>
+                <td><a href="PLIMB006564.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ZACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006576.html">PLIMB006576</a></td>
+                <td><a href="PLIMB006576.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ZONA NORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006581.html">PLIMB006581</a></td>
+                <td><a href="PLIMB006581.html">UNEME SORID</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006593.html">PLIMB006593</a></td>
+                <td><a href="PLIMB006593.html">CENTRO DE SALUD FRANCISCO
+                I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006605.html">PLIMB006605</a></td>
+                <td><a href="PLIMB006605.html">CENTRO DE SALUD
+                MAZATIANQUIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006622.html">PLIMB006622</a></td>
+                <td><a href="PLIMB006622.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO.168</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006634.html">PLIMB006634</a></td>
+                <td><a href="PLIMB006634.html">UNIDAD MÓVIL NO.
+                247</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006646.html">PLIMB006646</a></td>
+                <td><a href="PLIMB006646.html">UNIDAD MÓVIL NO.
+                248</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006651.html">PLIMB006651</a></td>
+                <td><a href="PLIMB006651.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 447</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006675.html">PLIMB006675</a></td>
+                <td><a href="PLIMB006675.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 559</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006692.html">PLIMB006692</a></td>
+                <td><a href="PLIMB006692.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 561</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006721.html">PLIMB006721</a></td>
+                <td><a href="PLIMB006721.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 684</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006733.html">PLIMB006733</a></td>
+                <td><a href="PLIMB006733.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 685</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006745.html">PLIMB006745</a></td>
+                <td><a href="PLIMB006745.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 686</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006786.html">PLIMB006786</a></td>
+                <td><a href="PLIMB006786.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 690</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006815.html">PLIMB006815</a></td>
+                <td><a href="PLIMB006815.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 693</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006820.html">PLIMB006820</a></td>
+                <td><a href="PLIMB006820.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 694</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006832.html">PLIMB006832</a></td>
+                <td><a href="PLIMB006832.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 737</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006861.html">PLIMB006861</a></td>
+                <td><a href="PLIMB006861.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 1074</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006890.html">PLIMB006890</a></td>
+                <td><a href="PLIMB006890.html">CENTRO DE SALUD
+                MAZATEOPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006902.html">PLIMB006902</a></td>
+                <td><a href="PLIMB006902.html">CENTRO DE SALUD SANTA
+                CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006914.html">PLIMB006914</a></td>
+                <td><a href="PLIMB006914.html">CENTRO DE SALUD SANTA
+                MARÍA GUADALUPE TECOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006926.html">PLIMB006926</a></td>
+                <td><a href="PLIMB006926.html">CARAVANA
+                TEPETZALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006931.html">PLIMB006931</a></td>
+                <td><a href="PLIMB006931.html">CENTRO DE SALUD JESÚS
+                NAZARENO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006943.html">PLIMB006943</a></td>
+                <td><a href="PLIMB006943.html">CENTRO DE SALUD SAN
+                SEBASTIÁN VILLANUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006955.html">PLIMB006955</a></td>
+                <td><a href="PLIMB006955.html">CENTRO DE SALUD SAN JUAN
+                OCOZAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006960.html">PLIMB006960</a></td>
+                <td><a href="PLIMB006960.html">CARAVANA FRANCISCO Z
+                MENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006972.html">PLIMB006972</a></td>
+                <td><a href="PLIMB006972.html">CARAVANA
+                IXTACAMAXTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006984.html">PLIMB006984</a></td>
+                <td><a href="PLIMB006984.html">CARAVANA
+                CHIGNAHUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006996.html">PLIMB006996</a></td>
+                <td><a href="PLIMB006996.html">CARAVANA
+                NOPALUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007001.html">PLIMB007001</a></td>
+                <td><a href="PLIMB007001.html">CARAVANA
+                ORIENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007013.html">PLIMB007013</a></td>
+                <td><a href="PLIMB007013.html">CARAVANA
+                CHILCHOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007025.html">PLIMB007025</a></td>
+                <td><a href="PLIMB007025.html">CARAVANA QUIMIXTLÁN
+                2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007030.html">PLIMB007030</a></td>
+                <td><a href="PLIMB007030.html">CARAVANA
+                HUAQUECHULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007054.html">PLIMB007054</a></td>
+                <td><a href="PLIMB007054.html">CARAVANA IZÚCAR DE
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007066.html">PLIMB007066</a></td>
+                <td><a href="PLIMB007066.html">CARAVANA
+                ZACAPALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007100.html">PLIMB007100</a></td>
+                <td><a href="PLIMB007100.html">CENTRO DE SALUD SAN
+                HIPOLITO XOCHILTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007124.html">PLIMB007124</a></td>
+                <td><a href="PLIMB007124.html">CENTRO DE SALUD
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007141.html">PLIMB007141</a></td>
+                <td><a href="PLIMB007141.html">CENTRO DE SALUD
+                COYOLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007153.html">PLIMB007153</a></td>
+                <td><a href="PLIMB007153.html">CENTRO DE SALUD SAN
+                MATÍAS TLALANCALECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007165.html">PLIMB007165</a></td>
+                <td><a href="PLIMB007165.html">CENTRO DE SALUD DE
+                TLACOTEPEC DE JOSÉ MANZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007182.html">PLIMB007182</a></td>
+                <td><a href="PLIMB007182.html">MÓDULO DE MEDICINA
+                TRADICIONAL TETELA DE OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007194.html">PLIMB007194</a></td>
+                <td><a href="PLIMB007194.html">MÓDULO DE MEDICINA
+                TRADICIONAL AYOTOXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007206.html">PLIMB007206</a></td>
+                <td><a href="PLIMB007206.html">MÓDULO DE MEDICINA
+                TRADICIONAL CUETZALAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007211.html">PLIMB007211</a></td>
+                <td><a href="PLIMB007211.html">MÓDULO DE MEDICINA
+                TRADICIONAL HUEHUETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007223.html">PLIMB007223</a></td>
+                <td><a href="PLIMB007223.html">MÓDULO DE MEDICINA
+                TRADICIONAL ZAPOTITLÁN DE MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007235.html">PLIMB007235</a></td>
+                <td><a href="PLIMB007235.html">MÓDULO DE MEDICINA
+                TRADICIONAL TULCINGO DE VALLE ENGRACIA VALLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007240.html">PLIMB007240</a></td>
+                <td><a href="PLIMB007240.html">MÓDULO DE MEDICINA
+                TRADICIONAL COXCATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007252.html">PLIMB007252</a></td>
+                <td><a href="PLIMB007252.html">MÓDULO DE MEDICINA
+                TRADICIONAL TLACOTEPEC DE PORFIRIO DÍAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007264.html">PLIMB007264</a></td>
+                <td><a href="PLIMB007264.html">MÓDULO DE MEDICINA
+                TRADICIONAL SAN MIGUEL ELOXOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007276.html">PLIMB007276</a></td>
+                <td><a href="PLIMB007276.html">CENTRO DE SALUD DE SAN
+                PEDRO YANCUITLALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007281.html">PLIMB007281</a></td>
+                <td><a href="PLIMB007281.html">CENTRO DE SALUD GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007293.html">PLIMB007293</a></td>
+                <td><a href="PLIMB007293.html">CENTRO DE SALUD DE
+                GUADALUPITO LAS DALIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007310.html">PLIMB007310</a></td>
+                <td><a href="PLIMB007310.html">CARAVANA (UMM-PFAM)
+                CHICHIQUILA 2</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007322.html">PLIMB007322</a></td>
+                <td><a href="PLIMB007322.html">CENTRO DE SALUD SAN
+                AGUSTÍN TLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007334.html">PLIMB007334</a></td>
+                <td><a href="PLIMB007334.html">CENTRO DE SALUD URBANO
+                DEL COMPLEJO MÉDICO GONZÁLO RÍO ARRONTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007346.html">PLIMB007346</a></td>
+                <td><a href="PLIMB007346.html">CESSA SANCTORUM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007351.html">PLIMB007351</a></td>
+                <td><a href="PLIMB007351.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS (CESSA) SAN SALVADOR EL
+                VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007363.html">PLIMB007363</a></td>
+                <td><a href="PLIMB007363.html">CENTRO DE SALUD
+                HUAQUECHULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007375.html">PLIMB007375</a></td>
+                <td><a href="PLIMB007375.html">CENTRO DE SALUD SAN
+                NICOLÁS DE LOS RANCHOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007380.html">PLIMB007380</a></td>
+                <td><a href="PLIMB007380.html">CENTRO DE SALUD UN NÚCLEO
+                BÁSICO MAS DENTAL AHUATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB007392.html">PLIMB007392</a></td>
+                <td><a href="PLIMB007392.html">CENTRO DE SALUD SANTA
+                MARÍA MALACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB007404.html">PLIMB007404</a></td>
+                <td><a href="PLIMB007404.html">CESSA LA
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB004645.html">PLIMB004645</a></td>
+                <td><a href="PLIMB004645.html">UNIDAD MÓVIL DE SALUD
+                UMS-005</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006610.html">PLIMB006610</a></td>
+                <td><a href="PLIMB006610.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO.167</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006663.html">PLIMB006663</a></td>
+                <td><a href="PLIMB006663.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 449</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006680.html">PLIMB006680</a></td>
+                <td><a href="PLIMB006680.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 560</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006704.html">PLIMB006704</a></td>
+                <td><a href="PLIMB006704.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 562</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006716.html">PLIMB006716</a></td>
+                <td><a href="PLIMB006716.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 683</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006750.html">PLIMB006750</a></td>
+                <td><a href="PLIMB006750.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 687</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006762.html">PLIMB006762</a></td>
+                <td><a href="PLIMB006762.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 688</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006774.html">PLIMB006774</a></td>
+                <td><a href="PLIMB006774.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 689</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006791.html">PLIMB006791</a></td>
+                <td><a href="PLIMB006791.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 691</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006803.html">PLIMB006803</a></td>
+                <td><a href="PLIMB006803.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 692</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006844.html">PLIMB006844</a></td>
+                <td><a href="PLIMB006844.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 738</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="PLIMB006856.html">PLIMB006856</a></td>
+                <td><a href="PLIMB006856.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 842</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="PLIMB006873.html">PLIMB006873</a></td>
+                <td><a href="PLIMB006873.html">UNIDAD MÓVIL MÉDICO
+                DENTAL NO. 1075</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_puebla.png"
+                id="fig:mapa-primer_nivel-puebla"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
