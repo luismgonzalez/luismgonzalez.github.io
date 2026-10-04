@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#michoacán">MICHOACÁN</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="michoacán">MICHOACÁN</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="MNIMB000015.html">MNIMB000015</a></td>
+                <td><a href="MNIMB000015.html">CENTRO DE SALUD ACUITZIO
+                DEL CANJE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000020.html">MNIMB000020</a></td>
+                <td><a href="MNIMB000020.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS AGUILILLA (SECUNDINO BENJAMIN
+                R.)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000032.html">MNIMB000032</a></td>
+                <td><a href="MNIMB000032.html">CENTRO DE SALUD BONIFACIO
+                MORENO (EL AGUAJE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000044.html">MNIMB000044</a></td>
+                <td><a href="MNIMB000044.html">CENTRO DE SALUD ÁLVARO
+                OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000056.html">MNIMB000056</a></td>
+                <td><a href="MNIMB000056.html">CENTRO DE SALUD EL
+                CALVARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000061.html">MNIMB000061</a></td>
+                <td><a href="MNIMB000061.html">CENTRO DE SALUD FELIPE
+                CARRILLO PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000073.html">MNIMB000073</a></td>
+                <td><a href="MNIMB000073.html">CENTRO DE SALUD CHEHUAYO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000085.html">MNIMB000085</a></td>
+                <td><a href="MNIMB000085.html">CENTRO DE SALUD LAS
+                TROJES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000090.html">MNIMB000090</a></td>
+                <td><a href="MNIMB000090.html">CENTRO DE SALUD
+                TZINTZIMEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000102.html">MNIMB000102</a></td>
+                <td><a href="MNIMB000102.html">CENTRO DE SALUD
+                ANGAMACUTIRO DE LA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000114.html">MNIMB000114</a></td>
+                <td><a href="MNIMB000114.html">CENTRO DE SALUD EL
+                MALUCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000126.html">MNIMB000126</a></td>
+                <td><a href="MNIMB000126.html">CENTRO DE SALUD DE
+                ANGANGUEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000131.html">MNIMB000131</a></td>
+                <td><a href="MNIMB000131.html">CENTRO DE SALUD
+                APATZINGÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000143.html">MNIMB000143</a></td>
+                <td><a href="MNIMB000143.html">CENTRO DE SALUD
+                APORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000155.html">MNIMB000155</a></td>
+                <td><a href="MNIMB000155.html">CENTRO DE SALUD
+                AQUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000160.html">MNIMB000160</a></td>
+                <td><a href="MNIMB000160.html">UNIDAD MOVIL LA
+                LABOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000172.html">MNIMB000172</a></td>
+                <td><a href="MNIMB000172.html">UNIDAD MOVIL SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000184.html">MNIMB000184</a></td>
+                <td><a href="MNIMB000184.html">CENTRO DE SALUD
+                TIZUPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000196.html">MNIMB000196</a></td>
+                <td><a href="MNIMB000196.html">CENTRO DE SALUD ARIO DE
+                ROSALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000213.html">MNIMB000213</a></td>
+                <td><a href="MNIMB000213.html">CENTRO DE SALUD PALMA DE
+                ALTAMIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000225.html">MNIMB000225</a></td>
+                <td><a href="MNIMB000225.html">CENTRO DE SALUD SAN JOSÉ
+                DE CHUÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000242.html">MNIMB000242</a></td>
+                <td><a href="MNIMB000242.html">UNIDAD MOVIL LOS
+                AGUACATES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000254.html">MNIMB000254</a></td>
+                <td><a href="MNIMB000254.html">UNIDAD MOVIL EL
+                VALLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000266.html">MNIMB000266</a></td>
+                <td><a href="MNIMB000266.html">CENTRO DE SALUD
+                INFIERNILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000271.html">MNIMB000271</a></td>
+                <td><a href="MNIMB000271.html">CENTRO DE SALUD
+                BRISEÑAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000283.html">MNIMB000283</a></td>
+                <td><a href="MNIMB000283.html">CENTRO DE SALUD
+                BUENAVISTA TOMATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000295.html">MNIMB000295</a></td>
+                <td><a href="MNIMB000295.html">CENTRO DE SALUD
+                CATALINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000300.html">MNIMB000300</a></td>
+                <td><a href="MNIMB000300.html">CENTRO DE SALUD FELIPE
+                CARRILLO PUERTO (LA RUANA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000312.html">MNIMB000312</a></td>
+                <td><a href="MNIMB000312.html">CENTRO DE SALUD CARÁCUARO
+                DE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000341.html">MNIMB000341</a></td>
+                <td><a href="MNIMB000341.html">CENTRO DE SALUD
+                ACUYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000370.html">MNIMB000370</a></td>
+                <td><a href="MNIMB000370.html">CENTRO DE SALUD
+                ACHOTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000382.html">MNIMB000382</a></td>
+                <td><a href="MNIMB000382.html">CENTRO DE SALUD BOCA DE
+                APIZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000394.html">MNIMB000394</a></td>
+                <td><a href="MNIMB000394.html">CENTRO DE SALUD
+                COAHUAYANA VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000406.html">MNIMB000406</a></td>
+                <td><a href="MNIMB000406.html">CENTRO DE SALUD PALOS
+                MARÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000411.html">MNIMB000411</a></td>
+                <td><a href="MNIMB000411.html">CENTRO DE SALUD COALCOMÁN
+                DE VÁZQUEZ PALLARES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000423.html">MNIMB000423</a></td>
+                <td><a href="MNIMB000423.html">CENTRO DE SALUD SANTIAGO
+                AZAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000435.html">MNIMB000435</a></td>
+                <td><a href="MNIMB000435.html">CENTRO DE SALUD CORTIJO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000440.html">MNIMB000440</a></td>
+                <td><a href="MNIMB000440.html">CENTRO DE SALUD
+                CONTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000452.html">MNIMB000452</a></td>
+                <td><a href="MNIMB000452.html">CENTRO DE SALUD
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000464.html">MNIMB000464</a></td>
+                <td><a href="MNIMB000464.html">CENTRO DE SALUD
+                PATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000476.html">MNIMB000476</a></td>
+                <td><a href="MNIMB000476.html">CENTRO DE SALUD
+                TEPUXTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000481.html">MNIMB000481</a></td>
+                <td><a href="MNIMB000481.html">CENTRO DE SALUD
+                TEPETONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000493.html">MNIMB000493</a></td>
+                <td><a href="MNIMB000493.html">CENTRO DE SALUD VENTA DE
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000505.html">MNIMB000505</a></td>
+                <td><a href="MNIMB000505.html">CENTRO DE SALUD
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000510.html">MNIMB000510</a></td>
+                <td><a href="MNIMB000510.html">CENTRO DE SALUD COPÁNDARO
+                DE GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000522.html">MNIMB000522</a></td>
+                <td><a href="MNIMB000522.html">CENTRO DE SALUD SAN
+                AGUSTÍN DEL MAÍZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000534.html">MNIMB000534</a></td>
+                <td><a href="MNIMB000534.html">CENTRO DE SALUD SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000546.html">MNIMB000546</a></td>
+                <td><a href="MNIMB000546.html">CENTRO DE SALUD
+                COTIJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000551.html">MNIMB000551</a></td>
+                <td><a href="MNIMB000551.html">UNIDAD MOVIL
+                COTIJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000563.html">MNIMB000563</a></td>
+                <td><a href="MNIMB000563.html">CENTRO DE SALUD BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000575.html">MNIMB000575</a></td>
+                <td><a href="MNIMB000575.html">CENTRO DE SALUD
+                CHUPICUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000580.html">MNIMB000580</a></td>
+                <td><a href="MNIMB000580.html">CENTRO DE SALUD SAN
+                AGUSTÍN DEL PULQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000592.html">MNIMB000592</a></td>
+                <td><a href="MNIMB000592.html">CENTRO DE SALUD CHARAPAN
+                (DR. MANUEL OVIEDO MOTA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000604.html">MNIMB000604</a></td>
+                <td><a href="MNIMB000604.html">CENTRO DE SALUD SAN
+                FELIPE DE LOS HERREROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000616.html">MNIMB000616</a></td>
+                <td><a href="MNIMB000616.html">CENTRO DE SALUD
+                CHARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000621.html">MNIMB000621</a></td>
+                <td><a href="MNIMB000621.html">CENTRO DE SALUD UNION DE
+                PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000633.html">MNIMB000633</a></td>
+                <td><a href="MNIMB000633.html">CENTRO DE SALUD
+                CHAVINDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000645.html">MNIMB000645</a></td>
+                <td><a href="MNIMB000645.html">CENTRO DE SALUD LA
+                CUESTITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000662.html">MNIMB000662</a></td>
+                <td><a href="MNIMB000662.html">CENTRO DE SALUD DE
+                CHILCHOTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000674.html">MNIMB000674</a></td>
+                <td><a href="MNIMB000674.html">CENTRO DE SALUD
+                HUECATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000686.html">MNIMB000686</a></td>
+                <td><a href="MNIMB000686.html">CENTRO DE SALUD LOS
+                NOGALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000691.html">MNIMB000691</a></td>
+                <td><a href="MNIMB000691.html">CENTRO DE SALUD
+                TANAQUILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000703.html">MNIMB000703</a></td>
+                <td><a href="MNIMB000703.html">CENTRO DE SALUD VILLA
+                VÍCTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000715.html">MNIMB000715</a></td>
+                <td><a href="MNIMB000715.html">UNIDAD MOVIL EL
+                LIMONCITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000720.html">MNIMB000720</a></td>
+                <td><a href="MNIMB000720.html">CENTRO DE SALUD
+                CHUCANDIRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000732.html">MNIMB000732</a></td>
+                <td><a href="MNIMB000732.html">CENTRO DE SALUD LAS
+                CRUCES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000744.html">MNIMB000744</a></td>
+                <td><a href="MNIMB000744.html">CENTRO DE SALUD EL
+                SALITRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000756.html">MNIMB000756</a></td>
+                <td><a href="MNIMB000756.html">CENTRO DE SALUD
+                CHURINTZIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000761.html">MNIMB000761</a></td>
+                <td><a href="MNIMB000761.html">CENTRO DE SALUD LA
+                NORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000773.html">MNIMB000773</a></td>
+                <td><a href="MNIMB000773.html">CENTRO DE SALUD
+                CHURUMUCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000790.html">MNIMB000790</a></td>
+                <td><a href="MNIMB000790.html">CENTRO DE SALUD EPITACIO
+                HUERTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000802.html">MNIMB000802</a></td>
+                <td><a href="MNIMB000802.html">CENTRO DE SALUD LOS
+                DOLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000814.html">MNIMB000814</a></td>
+                <td><a href="MNIMB000814.html">CENTRO DE SALUD SAN
+                ANTONIO MOLINOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000826.html">MNIMB000826</a></td>
+                <td><a href="MNIMB000826.html">CENTRO DE SALUD
+                ERONGARÍCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000831.html">MNIMB000831</a></td>
+                <td><a href="MNIMB000831.html">CENTRO DE SALUD
+                LOMBARDÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000843.html">MNIMB000843</a></td>
+                <td><a href="MNIMB000843.html">CENTRO DE SALUD
+                CAJONES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000855.html">MNIMB000855</a></td>
+                <td><a href="MNIMB000855.html">CENTRO DE SALUD SANTA
+                CASILDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000860.html">MNIMB000860</a></td>
+                <td><a href="MNIMB000860.html">CENTRO DE SALUD CIUDAD
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000872.html">MNIMB000872</a></td>
+                <td><a href="MNIMB000872.html">CENTRO DE SALUD
+                AGOSTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000884.html">MNIMB000884</a></td>
+                <td><a href="MNIMB000884.html">CENTRO DE SALUD EL
+                CARACOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000896.html">MNIMB000896</a></td>
+                <td><a href="MNIMB000896.html">CENTRO DE SALUD JOSÉ
+                MARÍA MORELOS (ZIRIPEO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000901.html">MNIMB000901</a></td>
+                <td><a href="MNIMB000901.html">CENTRO DE SALUD SAN
+                ANTONIO VILLALONGÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000913.html">MNIMB000913</a></td>
+                <td><a href="MNIMB000913.html">CENTRO DE SALUD LA
+                HUACANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000930.html">MNIMB000930</a></td>
+                <td><a href="MNIMB000930.html">CENTRO DE SALUD
+                ZICUIRAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000942.html">MNIMB000942</a></td>
+                <td><a href="MNIMB000942.html">CENTRO DE SALUD
+                HUANDACAREO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000954.html">MNIMB000954</a></td>
+                <td><a href="MNIMB000954.html">CENTRO DE SALUD LA
+                ESTANCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000966.html">MNIMB000966</a></td>
+                <td><a href="MNIMB000966.html">CENTRO DE SALUD SAN JOSÉ
+                CUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000971.html">MNIMB000971</a></td>
+                <td><a href="MNIMB000971.html">CENTRO DE SALUD HUANIQUEO
+                DE MORALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000983.html">MNIMB000983</a></td>
+                <td><a href="MNIMB000983.html">CENTRO DE SALUD SANTA
+                RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000995.html">MNIMB000995</a></td>
+                <td><a href="MNIMB000995.html">CENTRO DE SALUD
+                COMBURINDIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001000.html">MNIMB001000</a></td>
+                <td><a href="MNIMB001000.html">CENTRO DE SALUD
+                HUIRAMBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001012.html">MNIMB001012</a></td>
+                <td><a href="MNIMB001012.html">CENTRO DE SALUD
+                INDAPARAPEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001024.html">MNIMB001024</a></td>
+                <td><a href="MNIMB001024.html">CENTRO DE SALUD PLAN DE
+                LAS PALMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001036.html">MNIMB001036</a></td>
+                <td><a href="MNIMB001036.html">CENTRO DE SALUD
+                IRIMBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001041.html">MNIMB001041</a></td>
+                <td><a href="MNIMB001041.html">CENTRO DE SALUD SAN
+                LORENZO QUERÉNDARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001053.html">MNIMB001053</a></td>
+                <td><a href="MNIMB001053.html">CENTRO DE SALUD
+                TZINZINGAREO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001065.html">MNIMB001065</a></td>
+                <td><a href="MNIMB001065.html">CENTRO DE SALUD
+                IXTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001070.html">MNIMB001070</a></td>
+                <td><a href="MNIMB001070.html">CENTRO DE SALUD
+                JACONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001082.html">MNIMB001082</a></td>
+                <td><a href="MNIMB001082.html">CENTRO DE SALUD EL
+                PLATANAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001094.html">MNIMB001094</a></td>
+                <td><a href="MNIMB001094.html">CENTRO DE SALUD VILLA
+                JIMENEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001106.html">MNIMB001106</a></td>
+                <td><a href="MNIMB001106.html">CENTRO DE SALUD CAURÍO DE
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001111.html">MNIMB001111</a></td>
+                <td><a href="MNIMB001111.html">CENTRO DE SALUD
+                JIQUILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001123.html">MNIMB001123</a></td>
+                <td><a href="MNIMB001123.html">CENTRO DE SALUD JUNGAPEO
+                DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001135.html">MNIMB001135</a></td>
+                <td><a href="MNIMB001135.html">CENTRO DE SALUD EL
+                ESPINAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001140.html">MNIMB001140</a></td>
+                <td><a href="MNIMB001140.html">CENTRO DE SALUD LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001152.html">MNIMB001152</a></td>
+                <td><a href="MNIMB001152.html">CENTRO DE SALUD
+                LAGUNILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001164.html">MNIMB001164</a></td>
+                <td><a href="MNIMB001164.html">CENTRO DE SALUD VILLA
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001181.html">MNIMB001181</a></td>
+                <td><a href="MNIMB001181.html">UNIDAD MOVIL EL
+                CAPULIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001193.html">MNIMB001193</a></td>
+                <td><a href="MNIMB001193.html">UNIDAD MOVIL SANTA
+                CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001205.html">MNIMB001205</a></td>
+                <td><a href="MNIMB001205.html">CENTRO DE SALUD EL
+                AHIJADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001210.html">MNIMB001210</a></td>
+                <td><a href="MNIMB001210.html">CENTRO DE SALUD LA
+                CUMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001222.html">MNIMB001222</a></td>
+                <td><a href="MNIMB001222.html">CENTRO DE SALUD
+                BALBUENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001234.html">MNIMB001234</a></td>
+                <td><a href="MNIMB001234.html">CENTRO DE SALUD SANTIAGO
+                PURIATZICUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001246.html">MNIMB001246</a></td>
+                <td><a href="MNIMB001246.html">CENTRO DE SALUD
+                TUNGAREO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001251.html">MNIMB001251</a></td>
+                <td><a href="MNIMB001251.html">CENTRO DE SALUD SAN JUAN
+                YURÉCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001263.html">MNIMB001263</a></td>
+                <td><a href="MNIMB001263.html">CENTRO DE SALUD
+                TZIRITZICUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001275.html">MNIMB001275</a></td>
+                <td><a href="MNIMB001275.html">CENTRO DE SALUD SAN JOSÉ
+                DE GRACIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001280.html">MNIMB001280</a></td>
+                <td><a href="MNIMB001280.html">CENTRO DE SALUD EL
+                SABINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001304.html">MNIMB001304</a></td>
+                <td><a href="MNIMB001304.html">UNIDAD MOVIL LOS
+                AMATES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001316.html">MNIMB001316</a></td>
+                <td><a href="MNIMB001316.html">CENTRO DE SALUD
+                ACALPICAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001321.html">MNIMB001321</a></td>
+                <td><a href="MNIMB001321.html">CENTRO DE SALUD
+                BORDONAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001333.html">MNIMB001333</a></td>
+                <td><a href="MNIMB001333.html">CENTRO DE SALUD BUENOS
+                AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001345.html">MNIMB001345</a></td>
+                <td><a href="MNIMB001345.html">CENTRO DE SALUD CALETA DE
+                CAMPOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001350.html">MNIMB001350</a></td>
+                <td><a href="MNIMB001350.html">CENTRO DE SALUD LOS
+                COYOTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001362.html">MNIMB001362</a></td>
+                <td><a href="MNIMB001362.html">CENTRO DE SALUD LAS
+                GUACAMAYAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001374.html">MNIMB001374</a></td>
+                <td><a href="MNIMB001374.html">CENTRO DE SALUD EL
+                HABILLAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001386.html">MNIMB001386</a></td>
+                <td><a href="MNIMB001386.html">CENTRO DE SALUD LA
+                MIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001391.html">MNIMB001391</a></td>
+                <td><a href="MNIMB001391.html">CENTRO DE SALUD PLAYA
+                AZUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001432.html">MNIMB001432</a></td>
+                <td><a href="MNIMB001432.html">CENTRO DE SALUD CLARA
+                CORDOBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001444.html">MNIMB001444</a></td>
+                <td><a href="MNIMB001444.html">CENTRO DE SALUD
+                AMPLIACIÓN DEL PORVENIR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001456.html">MNIMB001456</a></td>
+                <td><a href="MNIMB001456.html">CENTRO DE SALUD SANTA
+                CECILIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001461.html">MNIMB001461</a></td>
+                <td><a href="MNIMB001461.html">CENTRO DE SALUD LOMAS DEL
+                DURAZNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001473.html">MNIMB001473</a></td>
+                <td><a href="MNIMB001473.html">CENTRO DE SALUD
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001485.html">MNIMB001485</a></td>
+                <td><a href="MNIMB001485.html">CENTRO DE SALUD EVA
+                SAMANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001490.html">MNIMB001490</a></td>
+                <td><a href="MNIMB001490.html">CENTRO DE SALUD TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001502.html">MNIMB001502</a></td>
+                <td><a href="MNIMB001502.html">CENTRO DE SALUD UNIÓN
+                ANTORCHISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001514.html">MNIMB001514</a></td>
+                <td><a href="MNIMB001514.html">CENTRO DE SALUD 5 DE
+                FEBRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001526.html">MNIMB001526</a></td>
+                <td><a href="MNIMB001526.html">CENTRO DE SALUD MORELIA
+                (DR. JUAN MANUEL GONZÁLEZ URUEÑA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001531.html">MNIMB001531</a></td>
+                <td><a href="MNIMB001531.html">CENTRO DE SALUD TENENCIA
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001543.html">MNIMB001543</a></td>
+                <td><a href="MNIMB001543.html">CENTRO DE SALUD
+                RESUMIDERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001555.html">MNIMB001555</a></td>
+                <td><a href="MNIMB001555.html">CENTRO DE SALUD
+                TEREMENDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001560.html">MNIMB001560</a></td>
+                <td><a href="MNIMB001560.html">CENTRO DE SALUD
+                TZINTZIMACATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001572.html">MNIMB001572</a></td>
+                <td><a href="MNIMB001572.html">CENTRO DE SALUD VILLA
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001584.html">MNIMB001584</a></td>
+                <td><a href="MNIMB001584.html">CENTRO DE SALUD LA
+                LUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001596.html">MNIMB001596</a></td>
+                <td><a href="MNIMB001596.html">CENTRO DE SALUD SAN
+                NICOLÁS TUMBASTATIRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001613.html">MNIMB001613</a></td>
+                <td><a href="MNIMB001613.html">CENTRO DE SALUD EL
+                CEÑIDOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001625.html">MNIMB001625</a></td>
+                <td><a href="MNIMB001625.html">CENTRO DE SALUD
+                GAMBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001630.html">MNIMB001630</a></td>
+                <td><a href="MNIMB001630.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS NAHUATZEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001642.html">MNIMB001642</a></td>
+                <td><a href="MNIMB001642.html">CENTRO DE SALUD
+                ARANTEPACUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001654.html">MNIMB001654</a></td>
+                <td><a href="MNIMB001654.html">CENTRO DE SALUD
+                COMACHUEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001666.html">MNIMB001666</a></td>
+                <td><a href="MNIMB001666.html">CENTRO DE SALUD SAN
+                ISIDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001671.html">MNIMB001671</a></td>
+                <td><a href="MNIMB001671.html">CENTRO DE SALUD
+                NOCUPETARO DE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001683.html">MNIMB001683</a></td>
+                <td><a href="MNIMB001683.html">UNIDAD MOVIL
+                MARÍANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001695.html">MNIMB001695</a></td>
+                <td><a href="MNIMB001695.html">CENTRO DE SALUD ESTANCIA
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001700.html">MNIMB001700</a></td>
+                <td><a href="MNIMB001700.html">CENTRO DE SALUD NUEVO
+                URECHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001712.html">MNIMB001712</a></td>
+                <td><a href="MNIMB001712.html">CENTRO DE SALUD
+                NUMARÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001724.html">MNIMB001724</a></td>
+                <td><a href="MNIMB001724.html">CENTRO DE SALUD DE
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001736.html">MNIMB001736</a></td>
+                <td><a href="MNIMB001736.html">CENTRO DE SALUD EL
+                ASOLEADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001741.html">MNIMB001741</a></td>
+                <td><a href="MNIMB001741.html">CENTRO DE SALUD
+                PAJACUARÁN (MAURILIO RODRÍGUEZ MORA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001753.html">MNIMB001753</a></td>
+                <td><a href="MNIMB001753.html">CENTRO DE SALUD LA
+                LUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001765.html">MNIMB001765</a></td>
+                <td><a href="MNIMB001765.html">CENTRO DE SALUD LA
+                CÓRDOBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001770.html">MNIMB001770</a></td>
+                <td><a href="MNIMB001770.html">CENTRO DE SALUD
+                PARÁCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001782.html">MNIMB001782</a></td>
+                <td><a href="MNIMB001782.html">CENTRO DE SALUD
+                ANTÚNEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001794.html">MNIMB001794</a></td>
+                <td><a href="MNIMB001794.html">CENTRO DE SALUD BUENOS
+                AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001806.html">MNIMB001806</a></td>
+                <td><a href="MNIMB001806.html">CENTRO DE SALUD
+                POMOCUARÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001811.html">MNIMB001811</a></td>
+                <td><a href="MNIMB001811.html">CENTRO DE SALUD
+                QUINCEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001823.html">MNIMB001823</a></td>
+                <td><a href="MNIMB001823.html">CENTRO DE SALUD DE
+                PÁTZCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001835.html">MNIMB001835</a></td>
+                <td><a href="MNIMB001835.html">CENTRO DE SALUD MÓDULO
+                LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001840.html">MNIMB001840</a></td>
+                <td><a href="MNIMB001840.html">CENTRO DE SALUD PÁTZCUARO
+                (VISTA DEL LAGO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001852.html">MNIMB001852</a></td>
+                <td><a href="MNIMB001852.html">CENTRO DE SALUD
+                CUANAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001864.html">MNIMB001864</a></td>
+                <td><a href="MNIMB001864.html">CENTRO DE SALUD SANTA
+                MARÍA HUIRAMANGARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001876.html">MNIMB001876</a></td>
+                <td><a href="MNIMB001876.html">CENTRO DE SALUD
+                PENJAMILLO DE DEGOLLADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001881.html">MNIMB001881</a></td>
+                <td><a href="MNIMB001881.html">CENTRO DE SALUD
+                ANCIHUACUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001893.html">MNIMB001893</a></td>
+                <td><a href="MNIMB001893.html">CENTRO DE SALUD EL
+                GUAYABO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001905.html">MNIMB001905</a></td>
+                <td><a href="MNIMB001905.html">CENTRO DE SALUD SAN
+                ANTONIO CARUPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001910.html">MNIMB001910</a></td>
+                <td><a href="MNIMB001910.html">CENTRO DE SALUD SANTA FE
+                DEL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001922.html">MNIMB001922</a></td>
+                <td><a href="MNIMB001922.html">CENTRO DE SALUD PERIBÁN
+                DE RAMOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001934.html">MNIMB001934</a></td>
+                <td><a href="MNIMB001934.html">CENTRO DE SALUD GILDARDO
+                MAGAÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001946.html">MNIMB001946</a></td>
+                <td><a href="MNIMB001946.html">CENTRO DE SALUD LOS
+                GUAJES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001951.html">MNIMB001951</a></td>
+                <td><a href="MNIMB001951.html">CENTRO DE SALUD PURÉPERO
+                (DR. PEDRO D. MTZ.)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001963.html">MNIMB001963</a></td>
+                <td><a href="MNIMB001963.html">CENTRO DE SALUD
+                PURUÁNDIRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001975.html">MNIMB001975</a></td>
+                <td><a href="MNIMB001975.html">CENTRO DE SALUD
+                BATUECAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB001980.html">MNIMB001980</a></td>
+                <td><a href="MNIMB001980.html">CENTRO DE SALUD
+                GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001992.html">MNIMB001992</a></td>
+                <td><a href="MNIMB001992.html">CENTRO DE SALUD EL
+                GRANGENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002004.html">MNIMB002004</a></td>
+                <td><a href="MNIMB002004.html">CENTRO DE SALUD ISAAC
+                ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002016.html">MNIMB002016</a></td>
+                <td><a href="MNIMB002016.html">CENTRO DE SALUD LAS
+                RANAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002021.html">MNIMB002021</a></td>
+                <td><a href="MNIMB002021.html">CENTRO DE SALUD SAN
+                MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002033.html">MNIMB002033</a></td>
+                <td><a href="MNIMB002033.html">CENTRO DE SALUD SAN PEDRO
+                (CARANO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002045.html">MNIMB002045</a></td>
+                <td><a href="MNIMB002045.html">CENTRO DE SALUD LAS
+                TORTUGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002050.html">MNIMB002050</a></td>
+                <td><a href="MNIMB002050.html">CENTRO DE SALUD
+                VILLACHUATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002062.html">MNIMB002062</a></td>
+                <td><a href="MNIMB002062.html">CENTRO DE SALUD
+                QUERÉNDARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002074.html">MNIMB002074</a></td>
+                <td><a href="MNIMB002074.html">CENTRO DE SALUD DE
+                COJUMATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002086.html">MNIMB002086</a></td>
+                <td><a href="MNIMB002086.html">CENTRO DE SALUD LOS REYES
+                DE SALGADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002103.html">MNIMB002103</a></td>
+                <td><a href="MNIMB002103.html">CENTRO DE SALUD SAN
+                LUCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002115.html">MNIMB002115</a></td>
+                <td><a href="MNIMB002115.html">CENTRO DE SALUD SANTA ANA
+                MAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002120.html">MNIMB002120</a></td>
+                <td><a href="MNIMB002120.html">CENTRO DE SALUD
+                HUACAO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002132.html">MNIMB002132</a></td>
+                <td><a href="MNIMB002132.html">CENTRO DE SALUD LA
+                LOBERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002144.html">MNIMB002144</a></td>
+                <td><a href="MNIMB002144.html">CENTRO DE SALUD SAN
+                RAFAEL DEL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002156.html">MNIMB002156</a></td>
+                <td><a href="MNIMB002156.html">CENTRO DE SALUD SANTA
+                CLARA DEL COBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002161.html">MNIMB002161</a></td>
+                <td><a href="MNIMB002161.html">CENTRO DE SALUD
+                SENGUIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002173.html">MNIMB002173</a></td>
+                <td><a href="MNIMB002173.html">CENTRO DE SALUD EL
+                TEJOCOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002185.html">MNIMB002185</a></td>
+                <td><a href="MNIMB002185.html">CENTRO DE SALUD SUSUPUATO
+                DE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002226.html">MNIMB002226</a></td>
+                <td><a href="MNIMB002226.html">CENTRO DE SALUD
+                TACÁMBARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002231.html">MNIMB002231</a></td>
+                <td><a href="MNIMB002231.html">CENTRO DE SALUD
+                PEDERNALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002243.html">MNIMB002243</a></td>
+                <td><a href="MNIMB002243.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS TANCÍTARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002255.html">MNIMB002255</a></td>
+                <td><a href="MNIMB002255.html">CENTRO DE SALUD SANTIAGO
+                TANGAMANDAPIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002260.html">MNIMB002260</a></td>
+                <td><a href="MNIMB002260.html">CENTRO DE SALUD
+                TANGANCÍCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002272.html">MNIMB002272</a></td>
+                <td><a href="MNIMB002272.html">CENTRO DE SALUD DÁMASO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002284.html">MNIMB002284</a></td>
+                <td><a href="MNIMB002284.html">CENTRO DE SALUD SAN
+                ANTONIO OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002296.html">MNIMB002296</a></td>
+                <td><a href="MNIMB002296.html">CENTRO DE SALUD VALLE DE
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002301.html">MNIMB002301</a></td>
+                <td><a href="MNIMB002301.html">CENTRO DE SALUD
+                TANHUATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002325.html">MNIMB002325</a></td>
+                <td><a href="MNIMB002325.html">CENTRO DE SALUD RANCHO
+                SECO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002330.html">MNIMB002330</a></td>
+                <td><a href="MNIMB002330.html">CENTRO DE SALUD
+                TARÍMBARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002342.html">MNIMB002342</a></td>
+                <td><a href="MNIMB002342.html">CENTRO DE SALUD CAÑADA
+                DEL HERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002354.html">MNIMB002354</a></td>
+                <td><a href="MNIMB002354.html">CENTRO DE SALUD
+                COTZIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002366.html">MNIMB002366</a></td>
+                <td><a href="MNIMB002366.html">CENTRO DE SALUD CUITZILLO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002371.html">MNIMB002371</a></td>
+                <td><a href="MNIMB002371.html">CENTRO DE SALUD CUTO DEL
+                PORVENIR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002383.html">MNIMB002383</a></td>
+                <td><a href="MNIMB002383.html">CENTRO DE SALUD MESÓN
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002395.html">MNIMB002395</a></td>
+                <td><a href="MNIMB002395.html">CENTRO DE SALUD LA
+                NORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002400.html">MNIMB002400</a></td>
+                <td><a href="MNIMB002400.html">CENTRO DE SALUD SAN PEDRO
+                DE LOS SAUCES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002412.html">MNIMB002412</a></td>
+                <td><a href="MNIMB002412.html">CENTRO DE SALUD
+                URUETARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002424.html">MNIMB002424</a></td>
+                <td><a href="MNIMB002424.html">CENTRO DE SALUD
+                TEPALCATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002436.html">MNIMB002436</a></td>
+                <td><a href="MNIMB002436.html">CENTRO DE SALUD
+                TINGAMBATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002441.html">MNIMB002441</a></td>
+                <td><a href="MNIMB002441.html">CENTRO DE SALUD SAN
+                FRANCISCO PICHATARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002453.html">MNIMB002453</a></td>
+                <td><a href="MNIMB002453.html">CENTRO DE SALUD
+                TINGÜINDIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002465.html">MNIMB002465</a></td>
+                <td><a href="MNIMB002465.html">CENTRO DE SALUD
+                TIQUICHEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002470.html">MNIMB002470</a></td>
+                <td><a href="MNIMB002470.html">UNIDAD MOVIL GUAYABO DE
+                CHAPIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002482.html">MNIMB002482</a></td>
+                <td><a href="MNIMB002482.html">CENTRO DE SALUD EL
+                LLANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002494.html">MNIMB002494</a></td>
+                <td><a href="MNIMB002494.html">CENTRO DE SALUD
+                PAPATZINDÁN DE ROMERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002506.html">MNIMB002506</a></td>
+                <td><a href="MNIMB002506.html">CENTRO DE SALUD
+                TLALPUJAHUA DE RAYON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002511.html">MNIMB002511</a></td>
+                <td><a href="MNIMB002511.html">CENTRO DE SALUD SAN
+                FRANCISCO DE LOS REYES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002523.html">MNIMB002523</a></td>
+                <td><a href="MNIMB002523.html">CENTRO DE SALUD SANTA
+                MARÍA DE LOS ÁNGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002535.html">MNIMB002535</a></td>
+                <td><a href="MNIMB002535.html">CENTRO DE SALUD
+                TLALPUJAHUILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002540.html">MNIMB002540</a></td>
+                <td><a href="MNIMB002540.html">CENTRO DE SALUD
+                TLAZAZALCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002552.html">MNIMB002552</a></td>
+                <td><a href="MNIMB002552.html">UNIDAD MOVIL
+                ACUMBARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002564.html">MNIMB002564</a></td>
+                <td><a href="MNIMB002564.html">CENTRO DE SALUD
+                ACUITZERAMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002576.html">MNIMB002576</a></td>
+                <td><a href="MNIMB002576.html">CENTRO DE SALUD LA
+                JABONERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002581.html">MNIMB002581</a></td>
+                <td><a href="MNIMB002581.html">CENTRO DE SALUD
+                TOCUMBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002593.html">MNIMB002593</a></td>
+                <td><a href="MNIMB002593.html">CENTRO DE SALUD SANTA
+                CLARA DE VALLADARES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002605.html">MNIMB002605</a></td>
+                <td><a href="MNIMB002605.html">CENTRO DE SALUD
+                TUMBISCATIO DE RUÍZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002622.html">MNIMB002622</a></td>
+                <td><a href="MNIMB002622.html">UNIDAD MOVIL MATA DE
+                PLATANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002646.html">MNIMB002646</a></td>
+                <td><a href="MNIMB002646.html">UNIDAD MOVIL
+                PETATAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002651.html">MNIMB002651</a></td>
+                <td><a href="MNIMB002651.html">CENTRO DE SALUD SAN
+                CRISTÓBAL DE LOS GUAJES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002663.html">MNIMB002663</a></td>
+                <td><a href="MNIMB002663.html">CENTRO DE SALUD
+                PURUARÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002675.html">MNIMB002675</a></td>
+                <td><a href="MNIMB002675.html">CENTRO DE SALUD SANTA
+                CRUZ DE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002680.html">MNIMB002680</a></td>
+                <td><a href="MNIMB002680.html">CENTRO DE SALUD
+                TUXPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002692.html">MNIMB002692</a></td>
+                <td><a href="MNIMB002692.html">CENTRO DE SALUD
+                TUZANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002704.html">MNIMB002704</a></td>
+                <td><a href="MNIMB002704.html">UNIDAD MOVIL GUAJES DE
+                TERAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002721.html">MNIMB002721</a></td>
+                <td><a href="MNIMB002721.html">CENTRO DE SALUD
+                TZINTZUNTZAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002733.html">MNIMB002733</a></td>
+                <td><a href="MNIMB002733.html">CENTRO DE SALUD
+                TZITZIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002745.html">MNIMB002745</a></td>
+                <td><a href="MNIMB002745.html">UNIDAD MOVIL
+                PATAMBARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002750.html">MNIMB002750</a></td>
+                <td><a href="MNIMB002750.html">CENTRO DE SALUD
+                TAFETAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002762.html">MNIMB002762</a></td>
+                <td><a href="MNIMB002762.html">UNIDAD MOVIL LA
+                CHATANICUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002786.html">MNIMB002786</a></td>
+                <td><a href="MNIMB002786.html">CENTRO DE SALUD URUAPAN
+                (DR. JOSÉ ALVAREZ AMEZQUITA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002791.html">MNIMB002791</a></td>
+                <td><a href="MNIMB002791.html">CENTRO DE SALUD
+                ANGAHUAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002803.html">MNIMB002803</a></td>
+                <td><a href="MNIMB002803.html">CENTRO DE SALUD
+                CALTZONTZIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002815.html">MNIMB002815</a></td>
+                <td><a href="MNIMB002815.html">CENTRO DE SALUD TOREO
+                ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002820.html">MNIMB002820</a></td>
+                <td><a href="MNIMB002820.html">CENTRO DE SALUD
+                VENUSTIANO CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002832.html">MNIMB002832</a></td>
+                <td><a href="MNIMB002832.html">CENTRO DE SALUD EL
+                FORTÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002844.html">MNIMB002844</a></td>
+                <td><a href="MNIMB002844.html">CENTRO DE SALUD LA
+                PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002856.html">MNIMB002856</a></td>
+                <td><a href="MNIMB002856.html">CENTRO DE SALUD
+                VILLAMAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002861.html">MNIMB002861</a></td>
+                <td><a href="MNIMB002861.html">CENTRO DE SALUD VISTA
+                HERMOSA DE NEGRETE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002873.html">MNIMB002873</a></td>
+                <td><a href="MNIMB002873.html">CENTRO DE SALUD EL
+                ALVAREÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002885.html">MNIMB002885</a></td>
+                <td><a href="MNIMB002885.html">CENTRO DE SALUD LA
+                ANGOSTURA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002890.html">MNIMB002890</a></td>
+                <td><a href="MNIMB002890.html">CENTRO DE SALUD
+                YURECUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002902.html">MNIMB002902</a></td>
+                <td><a href="MNIMB002902.html">CENTRO DE SALUD
+                ZACAPU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002914.html">MNIMB002914</a></td>
+                <td><a href="MNIMB002914.html">CENTRO DE SALUD COL.
+                ERÉNDIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002926.html">MNIMB002926</a></td>
+                <td><a href="MNIMB002926.html">CENTRO DE SALUD
+                TIRINDARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002943.html">MNIMB002943</a></td>
+                <td><a href="MNIMB002943.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES UNEME-CECOSAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002955.html">MNIMB002955</a></td>
+                <td><a href="MNIMB002955.html">CENTRO DE SALUD ARÍO DE
+                RAYÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002960.html">MNIMB002960</a></td>
+                <td><a href="MNIMB002960.html">CENTRO DE SALUD LA
+                SAUCEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002972.html">MNIMB002972</a></td>
+                <td><a href="MNIMB002972.html">CENTRO DE SALUD
+                ZINAPARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002984.html">MNIMB002984</a></td>
+                <td><a href="MNIMB002984.html">CENTRO DE SALUD
+                ZINAPECUARO DE FIGUEROA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002996.html">MNIMB002996</a></td>
+                <td><a href="MNIMB002996.html">CENTRO DE SALUD VALLE DE
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003001.html">MNIMB003001</a></td>
+                <td><a href="MNIMB003001.html">CENTRO DE SALUD
+                ZIRACUARETIRO (DR. JOSÉ FIGUEROA O)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003025.html">MNIMB003025</a></td>
+                <td><a href="MNIMB003025.html">CENTRO DE SALUD
+                ZITACUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003030.html">MNIMB003030</a></td>
+                <td><a href="MNIMB003030.html">CENTRO DE SALUD PASTOR
+                ORTÍZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003042.html">MNIMB003042</a></td>
+                <td><a href="MNIMB003042.html">CENTRO DE SALUD HÉROES DE
+                CHAPULTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003054.html">MNIMB003054</a></td>
+                <td><a href="MNIMB003054.html">CENTRO DE SALUD ALVARO
+                OBREGÓN (SINGUIO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003066.html">MNIMB003066</a></td>
+                <td><a href="MNIMB003066.html">CENTRO DE SALUD LLANO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003071.html">MNIMB003071</a></td>
+                <td><a href="MNIMB003071.html">CENTRO DE SALUD VALLE DE
+                LOS MANANTIALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003083.html">MNIMB003083</a></td>
+                <td><a href="MNIMB003083.html">CENTRO DE SALUD
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003095.html">MNIMB003095</a></td>
+                <td><a href="MNIMB003095.html">CENTRO DE SALUD EL
+                GÜIRÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003100.html">MNIMB003100</a></td>
+                <td><a href="MNIMB003100.html">CENTRO DE SALUD RINCON DE
+                SAN ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003112.html">MNIMB003112</a></td>
+                <td><a href="MNIMB003112.html">CENTRO DE SALUD
+                TELONZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003124.html">MNIMB003124</a></td>
+                <td><a href="MNIMB003124.html">CENTRO DE SALUD PUENTE DE
+                TIERRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003136.html">MNIMB003136</a></td>
+                <td><a href="MNIMB003136.html">CENTRO DE SALUD LA
+                ESTANCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003141.html">MNIMB003141</a></td>
+                <td><a href="MNIMB003141.html">CENTRO DE SALUD COENEO DE
+                LA LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003153.html">MNIMB003153</a></td>
+                <td><a href="MNIMB003153.html">CENTRO DE SALUD J.
+                TRINIDAD REGALADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003165.html">MNIMB003165</a></td>
+                <td><a href="MNIMB003165.html">CENTRO DE SALUD LA
+                LUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003170.html">MNIMB003170</a></td>
+                <td><a href="MNIMB003170.html">CENTRO DE SALUD
+                PARAMUÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003182.html">MNIMB003182</a></td>
+                <td><a href="MNIMB003182.html">CENTRO DE SALUD SAN
+                GREGORIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003194.html">MNIMB003194</a></td>
+                <td><a href="MNIMB003194.html">CENTRO DE SALUD OJO DE
+                AGUA DE CHUPIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003211.html">MNIMB003211</a></td>
+                <td><a href="MNIMB003211.html">CENTRO DE SALUD NUEVO
+                RODEO (EL RODEO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003223.html">MNIMB003223</a></td>
+                <td><a href="MNIMB003223.html">CENTRO DE SALUD
+                CONDEMBARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003235.html">MNIMB003235</a></td>
+                <td><a href="MNIMB003235.html">CENTRO DE SALUD
+                TARETAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003240.html">MNIMB003240</a></td>
+                <td><a href="MNIMB003240.html">CENTRO DE SALUD
+                TOMENDAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003252.html">MNIMB003252</a></td>
+                <td><a href="MNIMB003252.html">CENTRO DE SALUD
+                CUTZATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003264.html">MNIMB003264</a></td>
+                <td><a href="MNIMB003264.html">CENTRO DE SALUD COFRADÍA
+                DE OSTULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003281.html">MNIMB003281</a></td>
+                <td><a href="MNIMB003281.html">CENTRO DE SALUD LA ORILLA
+                (LA ORILLITA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003293.html">MNIMB003293</a></td>
+                <td><a href="MNIMB003293.html">CENTRO DE SALUD EL
+                AGUACATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003305.html">MNIMB003305</a></td>
+                <td><a href="MNIMB003305.html">CENTRO DE SALUD SAN
+                FRANCISCO CURUNGUEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003310.html">MNIMB003310</a></td>
+                <td><a href="MNIMB003310.html">CENTRO DE SALUD LA
+                ENCARNACIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003322.html">MNIMB003322</a></td>
+                <td><a href="MNIMB003322.html">CENTRO DE SALUD EL
+                AGUACATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003334.html">MNIMB003334</a></td>
+                <td><a href="MNIMB003334.html">CENTRO DE SALUD SAN
+                ISIDRO ALTA HUERTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003346.html">MNIMB003346</a></td>
+                <td><a href="MNIMB003346.html">CENTRO DE SALUD MATA DE
+                PINOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003351.html">MNIMB003351</a></td>
+                <td><a href="MNIMB003351.html">CENTRO DE SALUD LOS
+                POZOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003363.html">MNIMB003363</a></td>
+                <td><a href="MNIMB003363.html">CENTRO DE SALUD SAN LUCAS
+                HUARIRAPEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003375.html">MNIMB003375</a></td>
+                <td><a href="MNIMB003375.html">CENTRO DE SALUD
+                TACUPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003380.html">MNIMB003380</a></td>
+                <td><a href="MNIMB003380.html">CENTRO DE SALUD LA
+                ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003392.html">MNIMB003392</a></td>
+                <td><a href="MNIMB003392.html">CENTRO DE SALUD DE
+                CHURINTZIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003404.html">MNIMB003404</a></td>
+                <td><a href="MNIMB003404.html">CENTRO DE SALUD LOS
+                PILARES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003416.html">MNIMB003416</a></td>
+                <td><a href="MNIMB003416.html">CENTRO DE SALUD AGUA
+                SALADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003421.html">MNIMB003421</a></td>
+                <td><a href="MNIMB003421.html">CENTRO DE SALUD EL
+                GIGANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003433.html">MNIMB003433</a></td>
+                <td><a href="MNIMB003433.html">CENTRO DE SALUD SAN
+                LORENZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003445.html">MNIMB003445</a></td>
+                <td><a href="MNIMB003445.html">CENTRO DE SALUD EL
+                PLATANILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003450.html">MNIMB003450</a></td>
+                <td><a href="MNIMB003450.html">CENTRO DE SALUD ESTACIÓN
+                QUERÉNDARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003462.html">MNIMB003462</a></td>
+                <td><a href="MNIMB003462.html">CENTRO DE SALUD PASO DE
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003474.html">MNIMB003474</a></td>
+                <td><a href="MNIMB003474.html">CENTRO DE SALUD
+                TARECUATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003486.html">MNIMB003486</a></td>
+                <td><a href="MNIMB003486.html">CENTRO DE SALUD FRANCISCO
+                SERRATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003491.html">MNIMB003491</a></td>
+                <td><a href="MNIMB003491.html">CENTRO DE SALUD
+                ACATEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003503.html">MNIMB003503</a></td>
+                <td><a href="MNIMB003503.html">CENTRO DE SALUD
+                UREQUIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003515.html">MNIMB003515</a></td>
+                <td><a href="MNIMB003515.html">CENTRO DE SALUD
+                AHUIRAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003520.html">MNIMB003520</a></td>
+                <td><a href="MNIMB003520.html">CENTRO DE SALUD EL
+                COLORADO (ZERECUATO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003556.html">MNIMB003556</a></td>
+                <td><a href="MNIMB003556.html">CENTRO DE SALUD CENOBIO
+                MORENO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003561.html">MNIMB003561</a></td>
+                <td><a href="MNIMB003561.html">CENTRO DE SALUD
+                USPERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003573.html">MNIMB003573</a></td>
+                <td><a href="MNIMB003573.html">CENTRO DE SALUD
+                PINZANDARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003585.html">MNIMB003585</a></td>
+                <td><a href="MNIMB003585.html">CENTRO DE SALUD LA
+                TEPUZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003602.html">MNIMB003602</a></td>
+                <td><a href="MNIMB003602.html">CENTRO DE SALUD
+                PERIFERICO SATELITE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003614.html">MNIMB003614</a></td>
+                <td><a href="MNIMB003614.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS HUETAMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003626.html">MNIMB003626</a></td>
+                <td><a href="MNIMB003626.html">CENTRO DE SALUD LA
+                JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003631.html">MNIMB003631</a></td>
+                <td><a href="MNIMB003631.html">CENTRO DE SALUD
+                PURECHUCHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003643.html">MNIMB003643</a></td>
+                <td><a href="MNIMB003643.html">CENTRO DE SALUD LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003655.html">MNIMB003655</a></td>
+                <td><a href="MNIMB003655.html">CENTRO DE SALUD ZAPOTE DE
+                GOMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003672.html">MNIMB003672</a></td>
+                <td><a href="MNIMB003672.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS CUITZEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003684.html">MNIMB003684</a></td>
+                <td><a href="MNIMB003684.html">CENTRO DE SALUD DE
+                ECUANDUREO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003696.html">MNIMB003696</a></td>
+                <td><a href="MNIMB003696.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DE QUIROGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003701.html">MNIMB003701</a></td>
+                <td><a href="MNIMB003701.html">CENTRO DE SALUD
+                CHUPIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003713.html">MNIMB003713</a></td>
+                <td><a href="MNIMB003713.html">CENTRO DE SALUD DE
+                TURICATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003730.html">MNIMB003730</a></td>
+                <td><a href="MNIMB003730.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACION TEMPRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003742.html">MNIMB003742</a></td>
+                <td><a href="MNIMB003742.html">CENTRO DE SALUD
+                SAHUAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003754.html">MNIMB003754</a></td>
+                <td><a href="MNIMB003754.html">CENTRO DE SALUD LA
+                MINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003766.html">MNIMB003766</a></td>
+                <td><a href="MNIMB003766.html">CENTRO DE SALUD LA
+                QUEMADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003771.html">MNIMB003771</a></td>
+                <td><a href="MNIMB003771.html">CENTRO DE SALUD
+                MAGALLANES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003795.html">MNIMB003795</a></td>
+                <td><a href="MNIMB003795.html">CENTRO DE SALUD
+                ZAPOTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003800.html">MNIMB003800</a></td>
+                <td><a href="MNIMB003800.html">CENTRO DE SALUD
+                HUÁNCITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003812.html">MNIMB003812</a></td>
+                <td><a href="MNIMB003812.html">CENTRO DE SALUD
+                ZOPOCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003824.html">MNIMB003824</a></td>
+                <td><a href="MNIMB003824.html">CENTRO DE SALUD EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003836.html">MNIMB003836</a></td>
+                <td><a href="MNIMB003836.html">CENTRO DE SALUD
+                MANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003841.html">MNIMB003841</a></td>
+                <td><a href="MNIMB003841.html">CENTRO DE SALUD EL
+                PEDREGAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003853.html">MNIMB003853</a></td>
+                <td><a href="MNIMB003853.html">CENTRO DE SALUD SAN JUAN
+                DE VIÑA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003865.html">MNIMB003865</a></td>
+                <td><a href="MNIMB003865.html">CENTRO DE SALUD
+                ZIRIMICUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003870.html">MNIMB003870</a></td>
+                <td><a href="MNIMB003870.html">CENTRO DE SALUD EL
+                FRESNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003882.html">MNIMB003882</a></td>
+                <td><a href="MNIMB003882.html">CENTRO DE SALUD
+                MANCERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003894.html">MNIMB003894</a></td>
+                <td><a href="MNIMB003894.html">CENTRO DE SALUD SAN JUAN
+                DEL FUERTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003906.html">MNIMB003906</a></td>
+                <td><a href="MNIMB003906.html">CENTRO DE SALUD
+                TARIMORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004005.html">MNIMB004005</a></td>
+                <td><a href="MNIMB004005.html">CENTRO DE SALUD
+                TACURO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004010.html">MNIMB004010</a></td>
+                <td><a href="MNIMB004010.html">CENTRO DE SALUD ZAMORA
+                VALENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004022.html">MNIMB004022</a></td>
+                <td><a href="MNIMB004022.html">CENTRO DE SALUD
+                CUMUATO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004034.html">MNIMB004034</a></td>
+                <td><a href="MNIMB004034.html">CENTRO DE SALUD SAN
+                NICOLAS TARIMORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004046.html">MNIMB004046</a></td>
+                <td><a href="MNIMB004046.html">CENTRO DE SALUD
+                CORONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004051.html">MNIMB004051</a></td>
+                <td><a href="MNIMB004051.html">UNIDAD MEDICA MOVIL
+                FAMILIAR SAN RAFAEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004063.html">MNIMB004063</a></td>
+                <td><a href="MNIMB004063.html">CARAVANA SANTA
+                CLARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004075.html">MNIMB004075</a></td>
+                <td><a href="MNIMB004075.html">UNIDAD MEDICA MOVIL
+                PIEDRA VERDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004080.html">MNIMB004080</a></td>
+                <td><a href="MNIMB004080.html">CARAVANA AQUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004092.html">MNIMB004092</a></td>
+                <td><a href="MNIMB004092.html">CENTRO DE SALUD LAS
+                TABLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004104.html">MNIMB004104</a></td>
+                <td><a href="MNIMB004104.html">CENTRO DE SALUD SAN
+                ANTONIO TIERRAS BLANCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004116.html">MNIMB004116</a></td>
+                <td><a href="MNIMB004116.html">CENTRO DE SALUD EL
+                TRIUNFO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004121.html">MNIMB004121</a></td>
+                <td><a href="MNIMB004121.html">CENTRO DE SALUD
+                MONTELEON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004133.html">MNIMB004133</a></td>
+                <td><a href="MNIMB004133.html">CENTRO DE SALUD EL
+                CALABOZO PRIMERA FRACCION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004145.html">MNIMB004145</a></td>
+                <td><a href="MNIMB004145.html">CENTRO DE SALUD EL
+                HUERFANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004150.html">MNIMB004150</a></td>
+                <td><a href="MNIMB004150.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS GRAL. LAZARO CARDENAS DEL
+                RIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004162.html">MNIMB004162</a></td>
+                <td><a href="MNIMB004162.html">CENTRO DE SALUD AQUILES
+                SERDAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004191.html">MNIMB004191</a></td>
+                <td><a href="MNIMB004191.html">CARAVANA SAN
+                BERNARDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004232.html">MNIMB004232</a></td>
+                <td><a href="MNIMB004232.html">CARAVANA MULTIRUTA
+                ZITACUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004256.html">MNIMB004256</a></td>
+                <td><a href="MNIMB004256.html">CARAVANA EL
+                MIRADOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004261.html">MNIMB004261</a></td>
+                <td><a href="MNIMB004261.html">CARAVANA OJO
+                ZARCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004273.html">MNIMB004273</a></td>
+                <td><a href="MNIMB004273.html">CARAVANA LA SOLEDAD
+                ORIENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004285.html">MNIMB004285</a></td>
+                <td><a href="MNIMB004285.html">CARAVANA MULTIRUTA
+                URUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004331.html">MNIMB004331</a></td>
+                <td><a href="MNIMB004331.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MORELIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004343.html">MNIMB004343</a></td>
+                <td><a href="MNIMB004343.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ZITÁCUARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004355.html">MNIMB004355</a></td>
+                <td><a href="MNIMB004355.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES URUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004360.html">MNIMB004360</a></td>
+                <td><a href="MNIMB004360.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004372.html">MNIMB004372</a></td>
+                <td><a href="MNIMB004372.html">CENTRO DE SALUD EJIDO DE
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004384.html">MNIMB004384</a></td>
+                <td><a href="MNIMB004384.html">CENTRO DE SALUD EL
+                CUENQUEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004396.html">MNIMB004396</a></td>
+                <td><a href="MNIMB004396.html">CENTRO DE SALUD
+                PALOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004763.html">MNIMB004763</a></td>
+                <td><a href="MNIMB004763.html">CENTRO DE SALUD LA PIEDAD
+                (GUADALUPE MATEOS Y VEGA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB004775.html">MNIMB004775</a></td>
+                <td><a href="MNIMB004775.html">CENTRO DE SALUD BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB004780.html">MNIMB004780</a></td>
+                <td><a href="MNIMB004780.html">CENTRO DE SALUD COPÁNDARO
+                (SANTIAGO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000201.html">MNIMB000201</a></td>
+                <td><a href="MNIMB000201.html">UNIDAD MOVIL
+                AGOSTADERO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000324.html">MNIMB000324</a></td>
+                <td><a href="MNIMB000324.html">UNIDAD MOVIL EL
+                SAUZ</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB000336.html">MNIMB000336</a></td>
+                <td><a href="MNIMB000336.html">UNIDAD MOVIL
+                ANAMBO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB000365.html">MNIMB000365</a></td>
+                <td><a href="MNIMB000365.html">UNIDAD MOVIL SANTA MARÍA
+                MIRAMAR</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB001176.html">MNIMB001176</a></td>
+                <td><a href="MNIMB001176.html">UNIDAD MOVIL EL
+                BOSQUE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002202.html">MNIMB002202</a></td>
+                <td><a href="MNIMB002202.html">UNIDAD MOVIL EL
+                TERRERO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002214.html">MNIMB002214</a></td>
+                <td><a href="MNIMB002214.html">UNIDAD MOVIL HOYAS
+                ALTAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002313.html">MNIMB002313</a></td>
+                <td><a href="MNIMB002313.html">CENTRO DE SALUD TINAJA DE
+                VARGAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002610.html">MNIMB002610</a></td>
+                <td><a href="MNIMB002610.html">UNIDAD MOVIL TIERRA DE
+                JUÁREZ</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB002634.html">MNIMB002634</a></td>
+                <td><a href="MNIMB002634.html">UNIDAD MOVIL
+                ATIJO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB002716.html">MNIMB002716</a></td>
+                <td><a href="MNIMB002716.html">UNIDAD MOVIL JUNTAS DEL
+                TANQUE</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003206.html">MNIMB003206</a></td>
+                <td><a href="MNIMB003206.html">UNIDAD MOVIL LOS
+                MAGUEYES</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MNIMB003276.html">MNIMB003276</a></td>
+                <td><a href="MNIMB003276.html">CENTRO DE SALUD CUILALA
+                DE HIDALGO</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MNIMB003783.html">MNIMB003783</a></td>
+                <td><a href="MNIMB003783.html">CENTRO DE SALUD LA
+                MORA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="figures/mapa_entidad/primer_nivel_michoacan.png"
+                id="fig:mapa-primer_nivel-michoacan"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
