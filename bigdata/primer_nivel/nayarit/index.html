@@ -1,0 +1,1738 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#nayarit">NAYARIT</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="nayarit">NAYARIT</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="NTIMB000032.html">NTIMB000032</a></td>
+                <td><a href="NTIMB000032.html">EL AGUAJE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000044.html">NTIMB000044</a></td>
+                <td><a href="NTIMB000044.html">CERRO BOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000056.html">NTIMB000056</a></td>
+                <td><a href="NTIMB000056.html">LA GUÁSIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000061.html">NTIMB000061</a></td>
+                <td><a href="NTIMB000061.html">MOTAJE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000073.html">NTIMB000073</a></td>
+                <td><a href="NTIMB000073.html">EL RECODO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000085.html">NTIMB000085</a></td>
+                <td><a href="NTIMB000085.html">SAN DIEGO DE
+                ALCALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000090.html">NTIMB000090</a></td>
+                <td><a href="NTIMB000090.html">SAN MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000102.html">NTIMB000102</a></td>
+                <td><a href="NTIMB000102.html">SANTA CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000114.html">NTIMB000114</a></td>
+                <td><a href="NTIMB000114.html">SAYULILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000126.html">NTIMB000126</a></td>
+                <td><a href="NTIMB000126.html">VALLE DE LA
+                URRACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000131.html">NTIMB000131</a></td>
+                <td><a href="NTIMB000131.html">EL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000143.html">NTIMB000143</a></td>
+                <td><a href="NTIMB000143.html">AHUACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000155.html">NTIMB000155</a></td>
+                <td><a href="NTIMB000155.html">HERIBERTO JARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000160.html">NTIMB000160</a></td>
+                <td><a href="NTIMB000160.html">SANTA ISABEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000172.html">NTIMB000172</a></td>
+                <td><a href="NTIMB000172.html">TETITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000184.html">NTIMB000184</a></td>
+                <td><a href="NTIMB000184.html">UZETA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000196.html">NTIMB000196</a></td>
+                <td><a href="NTIMB000196.html">BARRANCA DEL ORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000201.html">NTIMB000201</a></td>
+                <td><a href="NTIMB000201.html">LOS CERRITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000213.html">NTIMB000213</a></td>
+                <td><a href="NTIMB000213.html">JESÚS MARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000225.html">NTIMB000225</a></td>
+                <td><a href="NTIMB000225.html">MEZQUITES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000230.html">NTIMB000230</a></td>
+                <td><a href="NTIMB000230.html">LA YERBABUENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000242.html">NTIMB000242</a></td>
+                <td><a href="NTIMB000242.html">COMPOSTELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000254.html">NTIMB000254</a></td>
+                <td><a href="NTIMB000254.html">EL CAPOMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000266.html">NTIMB000266</a></td>
+                <td><a href="NTIMB000266.html">FELIPE CARRILLO
+                PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000271.html">NTIMB000271</a></td>
+                <td><a href="NTIMB000271.html">IXTAPA DE LA
+                CONCEPCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000283.html">NTIMB000283</a></td>
+                <td><a href="NTIMB000283.html">MAZATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000295.html">NTIMB000295</a></td>
+                <td><a href="NTIMB000295.html">EL MONTEÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000300.html">NTIMB000300</a></td>
+                <td><a href="NTIMB000300.html">PARANAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000312.html">NTIMB000312</a></td>
+                <td><a href="NTIMB000312.html">ZACUALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000324.html">NTIMB000324</a></td>
+                <td><a href="NTIMB000324.html">ZAPOTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000336.html">NTIMB000336</a></td>
+                <td><a href="NTIMB000336.html">HUAJICORI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000341.html">NTIMB000341</a></td>
+                <td><a href="NTIMB000341.html">SANTA MARÍA DE
+                PICACHOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000365.html">NTIMB000365</a></td>
+                <td><a href="NTIMB000365.html">SAN JOSÉ DE
+                GRACIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000370.html">NTIMB000370</a></td>
+                <td><a href="NTIMB000370.html">EL TERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000382.html">NTIMB000382</a></td>
+                <td><a href="NTIMB000382.html">COAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000394.html">NTIMB000394</a></td>
+                <td><a href="NTIMB000394.html">COFRADÍA DE
+                JUANACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000406.html">NTIMB000406</a></td>
+                <td><a href="NTIMB000406.html">ROSA BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000411.html">NTIMB000411</a></td>
+                <td><a href="NTIMB000411.html">SANTA FE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000423.html">NTIMB000423</a></td>
+                <td><a href="NTIMB000423.html">XALISCO, COL. LOMAS
+                VERDES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000435.html">NTIMB000435</a></td>
+                <td><a href="NTIMB000435.html">COFRADÍA DE
+                CHOCOLÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000440.html">NTIMB000440</a></td>
+                <td><a href="NTIMB000440.html">EL CUARENTEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000452.html">NTIMB000452</a></td>
+                <td><a href="NTIMB000452.html">LA CURVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000464.html">NTIMB000464</a></td>
+                <td><a href="NTIMB000464.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000476.html">NTIMB000476</a></td>
+                <td><a href="NTIMB000476.html">PANTANAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000481.html">NTIMB000481</a></td>
+                <td><a href="NTIMB000481.html">TESTERAZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000493.html">NTIMB000493</a></td>
+                <td><a href="NTIMB000493.html">TRIGOMIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000505.html">NTIMB000505</a></td>
+                <td><a href="NTIMB000505.html">SAN ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000522.html">NTIMB000522</a></td>
+                <td><a href="NTIMB000522.html">MESA DEL NAYAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000534.html">NTIMB000534</a></td>
+                <td><a href="NTIMB000534.html">SAN JUAN PEYOTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000546.html">NTIMB000546</a></td>
+                <td><a href="NTIMB000546.html">SANTA TERESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000563.html">NTIMB000563</a></td>
+                <td><a href="NTIMB000563.html">LA BOQUITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000575.html">NTIMB000575</a></td>
+                <td><a href="NTIMB000575.html">COFRADÍA DE
+                CUYUTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000580.html">NTIMB000580</a></td>
+                <td><a href="NTIMB000580.html">COLONIA DIECIOCHO DE
+                MARZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000592.html">NTIMB000592</a></td>
+                <td><a href="NTIMB000592.html">CHILAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000604.html">NTIMB000604</a></td>
+                <td><a href="NTIMB000604.html">PERICOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000616.html">NTIMB000616</a></td>
+                <td><a href="NTIMB000616.html">EL PESCADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000621.html">NTIMB000621</a></td>
+                <td><a href="NTIMB000621.html">LAS PILAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000633.html">NTIMB000633</a></td>
+                <td><a href="NTIMB000633.html">PIMIENTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000645.html">NTIMB000645</a></td>
+                <td><a href="NTIMB000645.html">SAN VICENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000650.html">NTIMB000650</a></td>
+                <td><a href="NTIMB000650.html">EL TAMARINDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000662.html">NTIMB000662</a></td>
+                <td><a href="NTIMB000662.html">ZOMATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000674.html">NTIMB000674</a></td>
+                <td><a href="NTIMB000674.html">FRANCISCO VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000686.html">NTIMB000686</a></td>
+                <td><a href="NTIMB000686.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS RUÍZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000691.html">NTIMB000691</a></td>
+                <td><a href="NTIMB000691.html">CORDÓN DE
+                JILGUERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000703.html">NTIMB000703</a></td>
+                <td><a href="NTIMB000703.html">HEROICO BATALLÓN DE SAN
+                BLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000715.html">NTIMB000715</a></td>
+                <td><a href="NTIMB000715.html">VADO DE SAN
+                PEDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000720.html">NTIMB000720</a></td>
+                <td><a href="NTIMB000720.html">SAN BLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000732.html">NTIMB000732</a></td>
+                <td><a href="NTIMB000732.html">ATICAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000744.html">NTIMB000744</a></td>
+                <td><a href="NTIMB000744.html">AUTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000756.html">NTIMB000756</a></td>
+                <td><a href="NTIMB000756.html">EL CORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000761.html">NTIMB000761</a></td>
+                <td><a href="NTIMB000761.html">CHACALILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000773.html">NTIMB000773</a></td>
+                <td><a href="NTIMB000773.html">LA GOMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000785.html">NTIMB000785</a></td>
+                <td><a href="NTIMB000785.html">GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000790.html">NTIMB000790</a></td>
+                <td><a href="NTIMB000790.html">HUARISTEMBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000802.html">NTIMB000802</a></td>
+                <td><a href="NTIMB000802.html">EL LLANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000814.html">NTIMB000814</a></td>
+                <td><a href="NTIMB000814.html">MECATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000826.html">NTIMB000826</a></td>
+                <td><a href="NTIMB000826.html">NAVARRETE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000831.html">NTIMB000831</a></td>
+                <td><a href="NTIMB000831.html">PINTADEÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000843.html">NTIMB000843</a></td>
+                <td><a href="NTIMB000843.html">REFORMA AGRARIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000855.html">NTIMB000855</a></td>
+                <td><a href="NTIMB000855.html">AMADO NERVO (EL
+                CONDE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000860.html">NTIMB000860</a></td>
+                <td><a href="NTIMB000860.html">TEPETILTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000872.html">NTIMB000872</a></td>
+                <td><a href="NTIMB000872.html">TEQUILITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000884.html">NTIMB000884</a></td>
+                <td><a href="NTIMB000884.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS SANTA MARÍA DEL ORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000896.html">NTIMB000896</a></td>
+                <td><a href="NTIMB000896.html">COLONIA EL
+                AHUALAMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000901.html">NTIMB000901</a></td>
+                <td><a href="NTIMB000901.html">CERRO BLANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000913.html">NTIMB000913</a></td>
+                <td><a href="NTIMB000913.html">LAS CUEVAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000925.html">NTIMB000925</a></td>
+                <td><a href="NTIMB000925.html">LA LABOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000930.html">NTIMB000930</a></td>
+                <td><a href="NTIMB000930.html">PLATANITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000942.html">NTIMB000942</a></td>
+                <td><a href="NTIMB000942.html">AMAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000954.html">NTIMB000954</a></td>
+                <td><a href="NTIMB000954.html">BOCA DE CAMICHÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000966.html">NTIMB000966</a></td>
+                <td><a href="NTIMB000966.html">EL BOTADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000971.html">NTIMB000971</a></td>
+                <td><a href="NTIMB000971.html">CAÑADA DEL
+                TABACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB000983.html">NTIMB000983</a></td>
+                <td><a href="NTIMB000983.html">EL CAPOMAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB000995.html">NTIMB000995</a></td>
+                <td><a href="NTIMB000995.html">EL CORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001000.html">NTIMB001000</a></td>
+                <td><a href="NTIMB001000.html">POZO DE IBARRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001012.html">NTIMB001012</a></td>
+                <td><a href="NTIMB001012.html">MEXCALTITÁN DE
+                URIBE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001024.html">NTIMB001024</a></td>
+                <td><a href="NTIMB001024.html">LOS OTATES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001036.html">NTIMB001036</a></td>
+                <td><a href="NTIMB001036.html">VADO DEL CORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001041.html">NTIMB001041</a></td>
+                <td><a href="NTIMB001041.html">PASO REAL DE
+                CAHUIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001053.html">NTIMB001053</a></td>
+                <td><a href="NTIMB001053.html">LA PRESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001065.html">NTIMB001065</a></td>
+                <td><a href="NTIMB001065.html">PUERTA DE MANGOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001070.html">NTIMB001070</a></td>
+                <td><a href="NTIMB001070.html">SAN ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001082.html">NTIMB001082</a></td>
+                <td><a href="NTIMB001082.html">SAUTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001094.html">NTIMB001094</a></td>
+                <td><a href="NTIMB001094.html">SENTISPAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001106.html">NTIMB001106</a></td>
+                <td><a href="NTIMB001106.html">EL TAMBOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001111.html">NTIMB001111</a></td>
+                <td><a href="NTIMB001111.html">VALLE LERMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001123.html">NTIMB001123</a></td>
+                <td><a href="NTIMB001123.html">VALLE MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001135.html">NTIMB001135</a></td>
+                <td><a href="NTIMB001135.html">VILLA JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001140.html">NTIMB001140</a></td>
+                <td><a href="NTIMB001140.html">YAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001152.html">NTIMB001152</a></td>
+                <td><a href="NTIMB001152.html">ATOTONILCO (FILO
+                NUEVO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001164.html">NTIMB001164</a></td>
+                <td><a href="NTIMB001164.html">EL LIMÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001176.html">NTIMB001176</a></td>
+                <td><a href="NTIMB001176.html">EL MACHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001181.html">NTIMB001181</a></td>
+                <td><a href="NTIMB001181.html">MILPAS VIEJAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001193.html">NTIMB001193</a></td>
+                <td><a href="NTIMB001193.html">NOVILLERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001205.html">NTIMB001205</a></td>
+                <td><a href="NTIMB001205.html">QUIMICHIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001210.html">NTIMB001210</a></td>
+                <td><a href="NTIMB001210.html">RÍO VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001222.html">NTIMB001222</a></td>
+                <td><a href="NTIMB001222.html">SAN FELIPE
+                AZTATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001234.html">NTIMB001234</a></td>
+                <td><a href="NTIMB001234.html">TIERRA GENEROSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001251.html">NTIMB001251</a></td>
+                <td><a href="NTIMB001251.html">TEPIC, COL. FLORES
+                MAGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001263.html">NTIMB001263</a></td>
+                <td><a href="NTIMB001263.html">TEPIC, COL.
+                VENCEREMOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001275.html">NTIMB001275</a></td>
+                <td><a href="NTIMB001275.html">TEPIC, COL. TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001280.html">NTIMB001280</a></td>
+                <td><a href="NTIMB001280.html">TEPIC, COL. 26 DE
+                SEPTIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001292.html">NTIMB001292</a></td>
+                <td><a href="NTIMB001292.html">TEPIC, COL.
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001304.html">NTIMB001304</a></td>
+                <td><a href="NTIMB001304.html">TEPIC, COL. CUESTA
+                BARRÍOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001316.html">NTIMB001316</a></td>
+                <td><a href="NTIMB001316.html">TEPIC, COL.
+                PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001321.html">NTIMB001321</a></td>
+                <td><a href="NTIMB001321.html">TEPIC, COL. VALLE DE
+                MATATIPAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001333.html">NTIMB001333</a></td>
+                <td><a href="NTIMB001333.html">TEPIC, COL. RESERVA
+                TERRITORIAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001345.html">NTIMB001345</a></td>
+                <td><a href="NTIMB001345.html">TEPIC, COL. 2 DE
+                AGOSTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001350.html">NTIMB001350</a></td>
+                <td><a href="NTIMB001350.html">TEPIC (JUAN
+                ESCUTIA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001362.html">NTIMB001362</a></td>
+                <td><a href="NTIMB001362.html">EL AHUACATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001374.html">NTIMB001374</a></td>
+                <td><a href="NTIMB001374.html">ATONALISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001386.html">NTIMB001386</a></td>
+                <td><a href="NTIMB001386.html">BELLAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001391.html">NTIMB001391</a></td>
+                <td><a href="NTIMB001391.html">CALERAS DE
+                COFRADOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001403.html">NTIMB001403</a></td>
+                <td><a href="NTIMB001403.html">COLONIA 6 DE
+                ENERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001415.html">NTIMB001415</a></td>
+                <td><a href="NTIMB001415.html">COLORADO DE LA
+                MORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001420.html">NTIMB001420</a></td>
+                <td><a href="NTIMB001420.html">EL ESPINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001432.html">NTIMB001432</a></td>
+                <td><a href="NTIMB001432.html">FRANCISCO I.
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001444.html">NTIMB001444</a></td>
+                <td><a href="NTIMB001444.html">LO DE LAMEDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001456.html">NTIMB001456</a></td>
+                <td><a href="NTIMB001456.html">SAN ANDRÉS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001461.html">NTIMB001461</a></td>
+                <td><a href="NTIMB001461.html">SAN LUIS DE
+                LOZADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001473.html">NTIMB001473</a></td>
+                <td><a href="NTIMB001473.html">SALVADOR ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001490.html">NTIMB001490</a></td>
+                <td><a href="NTIMB001490.html">TUXPAN, COLONIA PUEBLO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001502.html">NTIMB001502</a></td>
+                <td><a href="NTIMB001502.html">COAMILES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001514.html">NTIMB001514</a></td>
+                <td><a href="NTIMB001514.html">PALMA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001526.html">NTIMB001526</a></td>
+                <td><a href="NTIMB001526.html">PEÑAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001531.html">NTIMB001531</a></td>
+                <td><a href="NTIMB001531.html">UNIÓN DE
+                CORRIENTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001543.html">NTIMB001543</a></td>
+                <td><a href="NTIMB001543.html">LA YESCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001555.html">NTIMB001555</a></td>
+                <td><a href="NTIMB001555.html">HUAJIMIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001572.html">NTIMB001572</a></td>
+                <td><a href="NTIMB001572.html">VALLE DE
+                BANDERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001584.html">NTIMB001584</a></td>
+                <td><a href="NTIMB001584.html">BUCERÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001596.html">NTIMB001596</a></td>
+                <td><a href="NTIMB001596.html">EL COATANTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001601.html">NTIMB001601</a></td>
+                <td><a href="NTIMB001601.html">LA CRUZ DE
+                HUANACAXTLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001613.html">NTIMB001613</a></td>
+                <td><a href="NTIMB001613.html">FORTUNA DE VALLEJO (LA
+                GLORIA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001625.html">NTIMB001625</a></td>
+                <td><a href="NTIMB001625.html">HIGUERA BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001630.html">NTIMB001630</a></td>
+                <td><a href="NTIMB001630.html">LAS JARRETADERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001642.html">NTIMB001642</a></td>
+                <td><a href="NTIMB001642.html">LO DE MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001666.html">NTIMB001666</a></td>
+                <td><a href="NTIMB001666.html">SAN JOSÉ DEL
+                VALLE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001671.html">NTIMB001671</a></td>
+                <td><a href="NTIMB001671.html">SAN JUAN DE
+                ABAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001683.html">NTIMB001683</a></td>
+                <td><a href="NTIMB001683.html">SAN VICENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001695.html">NTIMB001695</a></td>
+                <td><a href="NTIMB001695.html">SAYULITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001700.html">NTIMB001700</a></td>
+                <td><a href="NTIMB001700.html">FRACCIÓNAMIENTO EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001712.html">NTIMB001712</a></td>
+                <td><a href="NTIMB001712.html">JOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001736.html">NTIMB001736</a></td>
+                <td><a href="NTIMB001736.html">EL TIZATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001741.html">NTIMB001741</a></td>
+                <td><a href="NTIMB001741.html">PUERTA DE
+                PALAPARES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001753.html">NTIMB001753</a></td>
+                <td><a href="NTIMB001753.html">LA GLORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001770.html">NTIMB001770</a></td>
+                <td><a href="NTIMB001770.html">ROSAMORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001782.html">NTIMB001782</a></td>
+                <td><a href="NTIMB001782.html">SAN MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001794.html">NTIMB001794</a></td>
+                <td><a href="NTIMB001794.html">EL LIMÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001806.html">NTIMB001806</a></td>
+                <td><a href="NTIMB001806.html">CAMPO DE LOS
+                LIMONES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001811.html">NTIMB001811</a></td>
+                <td><a href="NTIMB001811.html">CENTRO DE SALUD MENTAL
+                TEPIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001823.html">NTIMB001823</a></td>
+                <td><a href="NTIMB001823.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACION TEMPRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001835.html">NTIMB001835</a></td>
+                <td><a href="NTIMB001835.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS XALISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001840.html">NTIMB001840</a></td>
+                <td><a href="NTIMB001840.html">CENTRO DE SALUD DE
+                NARANJITO DE COPAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001852.html">NTIMB001852</a></td>
+                <td><a href="NTIMB001852.html">CENTRO DE SALUD DE LLANO
+                DE LA CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001864.html">NTIMB001864</a></td>
+                <td><a href="NTIMB001864.html">CENTRO DE SALUD DE
+                JALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001876.html">NTIMB001876</a></td>
+                <td><a href="NTIMB001876.html">CENTRO DE SALUD DE SAN
+                PEDRO LAGUNILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001881.html">NTIMB001881</a></td>
+                <td><a href="NTIMB001881.html">CARAVANA SAYCOTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001893.html">NTIMB001893</a></td>
+                <td><a href="NTIMB001893.html">CARAVANA LOS
+                FIERROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001905.html">NTIMB001905</a></td>
+                <td><a href="NTIMB001905.html">CARAVANA EL
+                NOVILLERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001910.html">NTIMB001910</a></td>
+                <td><a href="NTIMB001910.html">CARAVANA LA COFRADIA DE
+                BUENOS AIRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001922.html">NTIMB001922</a></td>
+                <td><a href="NTIMB001922.html">CARAVANA MESITA DE
+                HUICHOLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001934.html">NTIMB001934</a></td>
+                <td><a href="NTIMB001934.html">CARAVANA EL CARRIZAL DE
+                LAS VIGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001946.html">NTIMB001946</a></td>
+                <td><a href="NTIMB001946.html">CARAVANA LOS
+                ENCINOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001951.html">NTIMB001951</a></td>
+                <td><a href="NTIMB001951.html">CARAVANA
+                HUIZACHES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001963.html">NTIMB001963</a></td>
+                <td><a href="NTIMB001963.html">CARAVANA ARROYO DE
+                CAÑAVERAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001975.html">NTIMB001975</a></td>
+                <td><a href="NTIMB001975.html">CARAVANA ARROYO DE
+                CAMARONES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB001980.html">NTIMB001980</a></td>
+                <td><a href="NTIMB001980.html">CARAVANA EL
+                COLORIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001992.html">NTIMB001992</a></td>
+                <td><a href="NTIMB001992.html">CARAVANA TIPO 0
+                COYUNQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002004.html">NTIMB002004</a></td>
+                <td><a href="NTIMB002004.html">CARAVANA SANTA
+                BÁRBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002016.html">NTIMB002016</a></td>
+                <td><a href="NTIMB002016.html">CARAVANA SANTA
+                ANITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002021.html">NTIMB002021</a></td>
+                <td><a href="NTIMB002021.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS JALCOCOTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002033.html">NTIMB002033</a></td>
+                <td><a href="NTIMB002033.html">SAN PEDRO
+                IXCATAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002045.html">NTIMB002045</a></td>
+                <td><a href="NTIMB002045.html">LIMA DE ABAJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002050.html">NTIMB002050</a></td>
+                <td><a href="NTIMB002050.html">EL PORVENIR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002062.html">NTIMB002062</a></td>
+                <td><a href="NTIMB002062.html">ROSARITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002091.html">NTIMB002091</a></td>
+                <td><a href="NTIMB002091.html">CARAVANA LA COFRADÍA
+                UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002103.html">NTIMB002103</a></td>
+                <td><a href="NTIMB002103.html">CARAVANA TIPO I EL
+                MAGUEY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002115.html">NTIMB002115</a></td>
+                <td><a href="NTIMB002115.html">CARAVANA TIPO II RANCHO
+                VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002120.html">NTIMB002120</a></td>
+                <td><a href="NTIMB002120.html">CARAVANA TIPO II EL
+                SAUCITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002132.html">NTIMB002132</a></td>
+                <td><a href="NTIMB002132.html">CARAVANA TIPO II
+                HUERTITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002144.html">NTIMB002144</a></td>
+                <td><a href="NTIMB002144.html">CARAVANA JESÚS MARÍA
+                TELEMEDICINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002156.html">NTIMB002156</a></td>
+                <td><a href="NTIMB002156.html">CARAVANA EL
+                CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002161.html">NTIMB002161</a></td>
+                <td><a href="NTIMB002161.html">SANTA BÁRBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002173.html">NTIMB002173</a></td>
+                <td><a href="NTIMB002173.html">ARROYO DE
+                CAMARONES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002185.html">NTIMB002185</a></td>
+                <td><a href="NTIMB002185.html">POTRERO DE LA
+                PALMITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002190.html">NTIMB002190</a></td>
+                <td><a href="NTIMB002190.html">LAS HIGUERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002214.html">NTIMB002214</a></td>
+                <td><a href="NTIMB002214.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES COMPOSTELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002226.html">NTIMB002226</a></td>
+                <td><a href="NTIMB002226.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES IXTLÁN DEL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002231.html">NTIMB002231</a></td>
+                <td><a href="NTIMB002231.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN BLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002243.html">NTIMB002243</a></td>
+                <td><a href="NTIMB002243.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TEPIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002255.html">NTIMB002255</a></td>
+                <td><a href="NTIMB002255.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EL TONDOROQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002272.html">NTIMB002272</a></td>
+                <td><a href="NTIMB002272.html">CENTRO INTEGRAL DE SALUD
+                MENTAL IXTLÁN DEL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002284.html">NTIMB002284</a></td>
+                <td><a href="NTIMB002284.html">CENTRO DE SALUD MENTAL EL
+                TONDOROQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002296.html">NTIMB002296</a></td>
+                <td><a href="NTIMB002296.html">LA COFRADÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002301.html">NTIMB002301</a></td>
+                <td><a href="NTIMB002301.html">UNIDAD DE SOBREPESO,
+                RIESGO CARDIOVASCULAR Y DIABETES MELLITUS (SORID
+                TEPIC)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002313.html">NTIMB002313</a></td>
+                <td><a href="NTIMB002313.html">CHACALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002325.html">NTIMB002325</a></td>
+                <td><a href="NTIMB002325.html">CARAVANA EL
+                CANGREJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002330.html">NTIMB002330</a></td>
+                <td><a href="NTIMB002330.html">CARAVANA EL
+                ROBLITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002342.html">NTIMB002342</a></td>
+                <td><a href="NTIMB002342.html">CARAVANA GUINEA DE
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002354.html">NTIMB002354</a></td>
+                <td><a href="NTIMB002354.html">CARAVANA
+                VENTANILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002366.html">NTIMB002366</a></td>
+                <td><a href="NTIMB002366.html">CARAVANA LAS
+                PALMILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002371.html">NTIMB002371</a></td>
+                <td><a href="NTIMB002371.html">CARAVANA LA
+                YESCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002383.html">NTIMB002383</a></td>
+                <td><a href="NTIMB002383.html">CARAVANA LA YESCA
+                TELEMEDICINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002395.html">NTIMB002395</a></td>
+                <td><a href="NTIMB002395.html">CARAVANA AMATLÁN DE
+                JORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002400.html">NTIMB002400</a></td>
+                <td><a href="NTIMB002400.html">CARAVANA
+                GUANACASTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002412.html">NTIMB002412</a></td>
+                <td><a href="NTIMB002412.html">CARAVANA
+                TATEPUSCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002424.html">NTIMB002424</a></td>
+                <td><a href="NTIMB002424.html">CARAVANA EL
+                CIRUELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002436.html">NTIMB002436</a></td>
+                <td><a href="NTIMB002436.html">CARAVANA EL
+                COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002441.html">NTIMB002441</a></td>
+                <td><a href="NTIMB002441.html">CARAVANA LA
+                ESTANCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002453.html">NTIMB002453</a></td>
+                <td><a href="NTIMB002453.html">CARAVANA
+                HUITALOTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002465.html">NTIMB002465</a></td>
+                <td><a href="NTIMB002465.html">CARAVANA EL
+                RIYITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002470.html">NTIMB002470</a></td>
+                <td><a href="NTIMB002470.html">CARAVANA ZONTECO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002482.html">NTIMB002482</a></td>
+                <td><a href="NTIMB002482.html">CARAVANA LA
+                MURALLITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002494.html">NTIMB002494</a></td>
+                <td><a href="NTIMB002494.html">CARAVANA CORRAL DE
+                PIEDRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002506.html">NTIMB002506</a></td>
+                <td><a href="NTIMB002506.html">CARAVANA LA MAJADA
+                (RUÍZ)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002511.html">NTIMB002511</a></td>
+                <td><a href="NTIMB002511.html">CARAVANA HUICOT</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002535.html">NTIMB002535</a></td>
+                <td><a href="NTIMB002535.html">UNIDAD DE SOBREPESO,
+                RIESGO CARDIOVASCULAR Y DIABETES MELLITUS (SORID
+                COMPOSTELA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002552.html">NTIMB002552</a></td>
+                <td><a href="NTIMB002552.html">ESTACION NANCHI
+                (PEÑASQUILLO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002564.html">NTIMB002564</a></td>
+                <td><a href="NTIMB002564.html">CARAVANA CIÉNEGA DE SAN
+                FELIPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002576.html">NTIMB002576</a></td>
+                <td><a href="NTIMB002576.html">VALLE DORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002581.html">NTIMB002581</a></td>
+                <td><a href="NTIMB002581.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS LA PEÑITA DE JALTEMBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002593.html">NTIMB002593</a></td>
+                <td><a href="NTIMB002593.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS AMATLÁN DE CAÑAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002605.html">NTIMB002605</a></td>
+                <td><a href="NTIMB002605.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS SANTIAGO IXCUINTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002610.html">NTIMB002610</a></td>
+                <td><a href="NTIMB002610.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS VILLA HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002651.html">NTIMB002651</a></td>
+                <td><a href="NTIMB002651.html">CINCO DE MAYO (EL
+                CIRUELO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002663.html">NTIMB002663</a></td>
+                <td><a href="NTIMB002663.html">CARAVANA MESA DE
+                CHAPALILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002675.html">NTIMB002675</a></td>
+                <td><a href="NTIMB002675.html">LOS ARRAYANES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002692.html">NTIMB002692</a></td>
+                <td><a href="NTIMB002692.html">ARROYO DE
+                SANTIAGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002704.html">NTIMB002704</a></td>
+                <td><a href="NTIMB002704.html">GUÁSIMA DEL
+                METATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002716.html">NTIMB002716</a></td>
+                <td><a href="NTIMB002716.html">CENTRO DE SALUD EL
+                FILO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002721.html">NTIMB002721</a></td>
+                <td><a href="NTIMB002721.html">CENTRO DE SALUD
+                MOJARRITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002733.html">NTIMB002733</a></td>
+                <td><a href="NTIMB002733.html">CENTRO DE SALUD CASAS
+                COLORADAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002750.html">NTIMB002750</a></td>
+                <td><a href="NTIMB002750.html">CENTRO DE SALUD MENTAL
+                TUXPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002762.html">NTIMB002762</a></td>
+                <td><a href="NTIMB002762.html">MEZCALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002774.html">NTIMB002774</a></td>
+                <td><a href="NTIMB002774.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TUXPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB001560.html">NTIMB001560</a></td>
+                <td><a href="NTIMB001560.html">POPOTA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002074.html">NTIMB002074</a></td>
+                <td><a href="NTIMB002074.html">CENTRO DE SALUD MENTAL
+                TUXPAN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="NTIMB002260.html">NTIMB002260</a></td>
+                <td><a href="NTIMB002260.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TUXPAN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="NTIMB002680.html">NTIMB002680</a></td>
+                <td><a href="NTIMB002680.html">MESA DE LOS
+                HUICHOLES</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_nayarit.png"
+                id="fig:mapa-primer_nivel-nayarit"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
