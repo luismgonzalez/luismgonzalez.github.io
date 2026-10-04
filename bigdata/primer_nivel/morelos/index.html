@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#morelos">MORELOS</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="morelos">MORELOS</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="MSIMB000012.html">MSIMB000012</a></td>
+                <td><a href="MSIMB000012.html">CENTRO DE SALUD
+                CASAHUATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000024.html">MSIMB000024</a></td>
+                <td><a href="MSIMB000024.html">CENTRO DE SALUD
+                HUAJINTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000036.html">MSIMB000036</a></td>
+                <td><a href="MSIMB000036.html">CENTRO DE SALUD RANCHO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000041.html">MSIMB000041</a></td>
+                <td><a href="MSIMB000041.html">CENTRO DE SALUD SAN
+                GABRIEL LAS PALMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000053.html">MSIMB000053</a></td>
+                <td><a href="MSIMB000053.html">CENTRO DE SALUD
+                AXOCHIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000065.html">MSIMB000065</a></td>
+                <td><a href="MSIMB000065.html">CENTRO DE SALUD
+                ATLACAHUALOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000070.html">MSIMB000070</a></td>
+                <td><a href="MSIMB000070.html">CENTRO DE SALUD JOAQUÍN
+                CAMAÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000082.html">MSIMB000082</a></td>
+                <td><a href="MSIMB000082.html">CENTRO DE SALUD MARCELINO
+                RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000094.html">MSIMB000094</a></td>
+                <td><a href="MSIMB000094.html">CENTRO DE SALUD
+                QUEBRANTADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000106.html">MSIMB000106</a></td>
+                <td><a href="MSIMB000106.html">CENTRO DE SALUD
+                TELIXTAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000111.html">MSIMB000111</a></td>
+                <td><a href="MSIMB000111.html">CENTRO DE SALUD
+                TLALAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000123.html">MSIMB000123</a></td>
+                <td><a href="MSIMB000123.html">CENTRO DE SALUD CD.
+                AYALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000135.html">MSIMB000135</a></td>
+                <td><a href="MSIMB000135.html">CENTRO DE SALUD ABELARDO
+                L. RODRÍGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000140.html">MSIMB000140</a></td>
+                <td><a href="MSIMB000140.html">CENTRO DE SALUD SAN PEDRO
+                APATLACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000152.html">MSIMB000152</a></td>
+                <td><a href="MSIMB000152.html">CENTRO DE SALUD
+                CHINAMECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000164.html">MSIMB000164</a></td>
+                <td><a href="MSIMB000164.html">CENTRO DE SALUD
+                XALOSTOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000176.html">MSIMB000176</a></td>
+                <td><a href="MSIMB000176.html">CENTRO DE SALUD
+                MOYOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000181.html">MSIMB000181</a></td>
+                <td><a href="MSIMB000181.html">CENTRO DE SALUD SAN JUAN
+                AHUEHUEYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000193.html">MSIMB000193</a></td>
+                <td><a href="MSIMB000193.html">CENTRO DE SALUD
+                TECOMALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000205.html">MSIMB000205</a></td>
+                <td><a href="MSIMB000205.html">CENTRO DE SALUD
+                TLAYECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000210.html">MSIMB000210</a></td>
+                <td><a href="MSIMB000210.html">CENTRO DE SALUD EL
+                VERGEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000222.html">MSIMB000222</a></td>
+                <td><a href="MSIMB000222.html">CENTRO DE SALUD
+                ANENECUILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000234.html">MSIMB000234</a></td>
+                <td><a href="MSIMB000234.html">CENTRO DE SALUD
+                APANZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000246.html">MSIMB000246</a></td>
+                <td><a href="MSIMB000246.html">CENTRO DE SALUD
+                COCOYOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000251.html">MSIMB000251</a></td>
+                <td><a href="MSIMB000251.html">CENTRO DE SALUD COLONIA
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000263.html">MSIMB000263</a></td>
+                <td><a href="MSIMB000263.html">CENTRO DE SALUD
+                CHAVARRÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000275.html">MSIMB000275</a></td>
+                <td><a href="MSIMB000275.html">CENTRO DE SALUD
+                MICHAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000280.html">MSIMB000280</a></td>
+                <td><a href="MSIMB000280.html">CENTRO DE SALUD
+                TILANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000304.html">MSIMB000304</a></td>
+                <td><a href="MSIMB000304.html">CENTRO DE SALUD
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000316.html">MSIMB000316</a></td>
+                <td><a href="MSIMB000316.html">CENTRO DE SALUD EUSEBIO
+                JÁUREGUI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000321.html">MSIMB000321</a></td>
+                <td><a href="MSIMB000321.html">CENTRO DE SALUD
+                HERMENEGILDO GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000333.html">MSIMB000333</a></td>
+                <td><a href="MSIMB000333.html">CENTRO DE SALUD
+                CUAUTLIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000345.html">MSIMB000345</a></td>
+                <td><a href="MSIMB000345.html">CENTRO DE SALUD
+                CUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000350.html">MSIMB000350</a></td>
+                <td><a href="MSIMB000350.html">CENTRO DE SALUD EL
+                HOSPITAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000362.html">MSIMB000362</a></td>
+                <td><a href="MSIMB000362.html">CENTRO DE SALUD
+                PUXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000374.html">MSIMB000374</a></td>
+                <td><a href="MSIMB000374.html">CENTRO DE SALUD
+                TETELCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000391.html">MSIMB000391</a></td>
+                <td><a href="MSIMB000391.html">CENTRO DE SALUD
+                AMPLIACIÓN LAGUNILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000403.html">MSIMB000403</a></td>
+                <td><a href="MSIMB000403.html">CENTRO DE SALUD BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000415.html">MSIMB000415</a></td>
+                <td><a href="MSIMB000415.html">CENTRO DE SALUD COL.
+                EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000420.html">MSIMB000420</a></td>
+                <td><a href="MSIMB000420.html">CENTRO DE SALUD LAGUNILLA
+                DEL SALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000432.html">MSIMB000432</a></td>
+                <td><a href="MSIMB000432.html">CENTRO DE SALUD LÁZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000444.html">MSIMB000444</a></td>
+                <td><a href="MSIMB000444.html">CENTRO DE SALUD
+                OCOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000456.html">MSIMB000456</a></td>
+                <td><a href="MSIMB000456.html">CENTRO DE SALUD ALTA
+                VISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000461.html">MSIMB000461</a></td>
+                <td><a href="MSIMB000461.html">CENTRO DE SALUD SAN
+                MIGUEL ACAPANTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000473.html">MSIMB000473</a></td>
+                <td><a href="MSIMB000473.html">CENTRO DE SALUD
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000485.html">MSIMB000485</a></td>
+                <td><a href="MSIMB000485.html">CENTRO DE SALUD
+                CHAMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000490.html">MSIMB000490</a></td>
+                <td><a href="MSIMB000490.html">CENTRO DE SALUD LOMAS DE
+                CORTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000502.html">MSIMB000502</a></td>
+                <td><a href="MSIMB000502.html">CENTRO DE SALUD PLAN DE
+                AYALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000514.html">MSIMB000514</a></td>
+                <td><a href="MSIMB000514.html">CENTRO DE SALUD SAN
+                CRISTÓBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000526.html">MSIMB000526</a></td>
+                <td><a href="MSIMB000526.html">CENTRO DE SALUD
+                AHUATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000531.html">MSIMB000531</a></td>
+                <td><a href="MSIMB000531.html">CENTRO DE SALUD ANTONIO
+                BARONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000543.html">MSIMB000543</a></td>
+                <td><a href="MSIMB000543.html">CENTRO DE SALUD
+                REVOLUCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000555.html">MSIMB000555</a></td>
+                <td><a href="MSIMB000555.html">CENTRO DE SALUD
+                SATÉLITE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000560.html">MSIMB000560</a></td>
+                <td><a href="MSIMB000560.html">CENTRO DE SALUD
+                CUERNAVACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000572.html">MSIMB000572</a></td>
+                <td><a href="MSIMB000572.html">CENTRO DE SALUD BUENA
+                VISTA DEL MONTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000584.html">MSIMB000584</a></td>
+                <td><a href="MSIMB000584.html">CENTRO DE SALUD EL
+                CAPIRI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000596.html">MSIMB000596</a></td>
+                <td><a href="MSIMB000596.html">CENTRO DE SALUD
+                TEPETZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000601.html">MSIMB000601</a></td>
+                <td><a href="MSIMB000601.html">CENTRO DE SALUD
+                TETECALITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000613.html">MSIMB000613</a></td>
+                <td><a href="MSIMB000613.html">CENTRO DE SALUD
+                TEZOYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000625.html">MSIMB000625</a></td>
+                <td><a href="MSIMB000625.html">CENTRO DE SALUD TRES DE
+                MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000630.html">MSIMB000630</a></td>
+                <td><a href="MSIMB000630.html">CENTRO DE SALUD
+                HUITZILAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000642.html">MSIMB000642</a></td>
+                <td><a href="MSIMB000642.html">CENTRO DE SALUD
+                COAJOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000654.html">MSIMB000654</a></td>
+                <td><a href="MSIMB000654.html">CENTRO DE SALUD TRES
+                MARÍAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000666.html">MSIMB000666</a></td>
+                <td><a href="MSIMB000666.html">CENTRO DE SALUD
+                JANTETELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000671.html">MSIMB000671</a></td>
+                <td><a href="MSIMB000671.html">CENTRO DE SALUD
+                AMAYUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000683.html">MSIMB000683</a></td>
+                <td><a href="MSIMB000683.html">CENTRO DE SALUD
+                CHALCATZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000695.html">MSIMB000695</a></td>
+                <td><a href="MSIMB000695.html">CENTRO DE SALUD
+                TENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000700.html">MSIMB000700</a></td>
+                <td><a href="MSIMB000700.html">CENTRO DE SALUD
+                TLAHUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000712.html">MSIMB000712</a></td>
+                <td><a href="MSIMB000712.html">CENTRO DE SALUD JOSÉ
+                LÓPEZ PORTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000724.html">MSIMB000724</a></td>
+                <td><a href="MSIMB000724.html">CENTRO DE SALUD JOSÉ G.
+                PARRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000736.html">MSIMB000736</a></td>
+                <td><a href="MSIMB000736.html">CENTRO DE SALUD LOMAS DE
+                JIUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000741.html">MSIMB000741</a></td>
+                <td><a href="MSIMB000741.html">CENTRO DE SALUD JARDÍN
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000753.html">MSIMB000753</a></td>
+                <td><a href="MSIMB000753.html">CENTRO DE SALUD
+                HUIZACHERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000765.html">MSIMB000765</a></td>
+                <td><a href="MSIMB000765.html">CENTRO DE SALUD OTILIO
+                MONTAÑO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000770.html">MSIMB000770</a></td>
+                <td><a href="MSIMB000770.html">CENTRO DE SALUD CALERA
+                CHICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000782.html">MSIMB000782</a></td>
+                <td><a href="MSIMB000782.html">CENTRO DE SALUD
+                PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000794.html">MSIMB000794</a></td>
+                <td><a href="MSIMB000794.html">CENTRO DE SALUD COLONIA
+                INDEPENDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000811.html">MSIMB000811</a></td>
+                <td><a href="MSIMB000811.html">CENTRO DE SALUD
+                PANCHIMALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000823.html">MSIMB000823</a></td>
+                <td><a href="MSIMB000823.html">CENTRO DE SALUD
+                JOJUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000835.html">MSIMB000835</a></td>
+                <td><a href="MSIMB000835.html">CENTRO DE SALUD
+                HIGUERÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000840.html">MSIMB000840</a></td>
+                <td><a href="MSIMB000840.html">CENTRO DE SALUD PEDRO
+                AMARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000852.html">MSIMB000852</a></td>
+                <td><a href="MSIMB000852.html">CENTRO DE SALUD VICENTE
+                ARANDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000864.html">MSIMB000864</a></td>
+                <td><a href="MSIMB000864.html">CENTRO DE SALUD
+                JONACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000876.html">MSIMB000876</a></td>
+                <td><a href="MSIMB000876.html">CENTRO DE SALUD
+                AMACUITLAPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000881.html">MSIMB000881</a></td>
+                <td><a href="MSIMB000881.html">CENTRO DE SALUD
+                TETELILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000893.html">MSIMB000893</a></td>
+                <td><a href="MSIMB000893.html">CENTRO DE SALUD
+                TLAYCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000905.html">MSIMB000905</a></td>
+                <td><a href="MSIMB000905.html">CENTRO DE SALUD
+                MAZATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000910.html">MSIMB000910</a></td>
+                <td><a href="MSIMB000910.html">CENTRO DE SALUD
+                CUAUCHICHINOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000922.html">MSIMB000922</a></td>
+                <td><a href="MSIMB000922.html">CENTRO DE SALUD
+                MIACATLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000934.html">MSIMB000934</a></td>
+                <td><a href="MSIMB000934.html">CENTRO DE SALUD
+                PALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000946.html">MSIMB000946</a></td>
+                <td><a href="MSIMB000946.html">CENTRO DE SALUD
+                OCUITUCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000951.html">MSIMB000951</a></td>
+                <td><a href="MSIMB000951.html">CENTRO DE SALUD
+                HUECAHUASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000963.html">MSIMB000963</a></td>
+                <td><a href="MSIMB000963.html">CENTRO DE SALUD
+                JUMILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000975.html">MSIMB000975</a></td>
+                <td><a href="MSIMB000975.html">CENTRO DE SALUD
+                OCOXALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB000980.html">MSIMB000980</a></td>
+                <td><a href="MSIMB000980.html">CENTRO DE SALUD
+                AHUEHUETZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB000992.html">MSIMB000992</a></td>
+                <td><a href="MSIMB000992.html">CENTRO DE SALUD LA
+                TIGRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001004.html">MSIMB001004</a></td>
+                <td><a href="MSIMB001004.html">CENTRO DE SALUD SAN JOSÉ
+                VISTA HERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001016.html">MSIMB001016</a></td>
+                <td><a href="MSIMB001016.html">CENTRO DE SALUD
+                XOXOCOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001021.html">MSIMB001021</a></td>
+                <td><a href="MSIMB001021.html">CENTRO DE SALUD PUEBLO
+                VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001033.html">MSIMB001033</a></td>
+                <td><a href="MSIMB001033.html">CENTRO DE SALUD LA
+                NOPALERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001045.html">MSIMB001045</a></td>
+                <td><a href="MSIMB001045.html">CENTRO DE SALUD LOMAS DEL
+                CARRIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001050.html">MSIMB001050</a></td>
+                <td><a href="MSIMB001050.html">CENTRO DE SALUD ALTA
+                PALMIRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001062.html">MSIMB001062</a></td>
+                <td><a href="MSIMB001062.html">CENTRO DE SALUD VILLA DE
+                LAS FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001074.html">MSIMB001074</a></td>
+                <td><a href="MSIMB001074.html">CENTRO DE SALUD DIEZ DE
+                ABRIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001086.html">MSIMB001086</a></td>
+                <td><a href="MSIMB001086.html">CENTRO DE SALUD
+                ACATLIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001091.html">MSIMB001091</a></td>
+                <td><a href="MSIMB001091.html">CENTRO DE SALUD
+                TEMIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001103.html">MSIMB001103</a></td>
+                <td><a href="MSIMB001103.html">CENTRO DE SALUD
+                TETLAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001115.html">MSIMB001115</a></td>
+                <td><a href="MSIMB001115.html">CENTRO DE SALUD
+                ATOTONILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001120.html">MSIMB001120</a></td>
+                <td><a href="MSIMB001120.html">CENTRO DE SALUD
+                HUITCHILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001132.html">MSIMB001132</a></td>
+                <td><a href="MSIMB001132.html">CENTRO DE SALUD IXTLILCO
+                EL CHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001144.html">MSIMB001144</a></td>
+                <td><a href="MSIMB001144.html">CENTRO DE SALUD IXTLILCO
+                EL GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001156.html">MSIMB001156</a></td>
+                <td><a href="MSIMB001156.html">CENTRO DE SALUD LOS
+                SAUCES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001161.html">MSIMB001161</a></td>
+                <td><a href="MSIMB001161.html">CENTRO DE SALUD
+                ZACAPALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001173.html">MSIMB001173</a></td>
+                <td><a href="MSIMB001173.html">CENTRO DE SALUD
+                TEPOZTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001185.html">MSIMB001185</a></td>
+                <td><a href="MSIMB001185.html">CENTRO DE SALUD AMATLÁN
+                DE QUETZALCÓATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001190.html">MSIMB001190</a></td>
+                <td><a href="MSIMB001190.html">CENTRO DE SALUD SAN
+                ANDRÉS DE LA CAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001202.html">MSIMB001202</a></td>
+                <td><a href="MSIMB001202.html">CENTRO DE SALUD SANTA
+                CATARINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001214.html">MSIMB001214</a></td>
+                <td><a href="MSIMB001214.html">CENTRO DE SALUD SANTIAGO
+                TEPETLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001226.html">MSIMB001226</a></td>
+                <td><a href="MSIMB001226.html">CENTRO DE SALUD SANTO
+                DOMINGO OCOTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001231.html">MSIMB001231</a></td>
+                <td><a href="MSIMB001231.html">CENTRO DE SALUD SAN JUAN
+                TLACOTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001255.html">MSIMB001255</a></td>
+                <td><a href="MSIMB001255.html">CENTRO DE SALUD
+                TETECALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001260.html">MSIMB001260</a></td>
+                <td><a href="MSIMB001260.html">CENTRO DE SALUD
+                CONTLALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001272.html">MSIMB001272</a></td>
+                <td><a href="MSIMB001272.html">CENTRO DE SALUD
+                CUAUTLITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001284.html">MSIMB001284</a></td>
+                <td><a href="MSIMB001284.html">CENTRO DE SALUD TETELA
+                DEL VOLCÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001296.html">MSIMB001296</a></td>
+                <td><a href="MSIMB001296.html">CENTRO DE SALUD
+                HUEYAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001301.html">MSIMB001301</a></td>
+                <td><a href="MSIMB001301.html">CENTRO DE SALUD
+                TLALMIMILULPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001313.html">MSIMB001313</a></td>
+                <td><a href="MSIMB001313.html">CENTRO DE SALUD
+                TLALTIZAPÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001325.html">MSIMB001325</a></td>
+                <td><a href="MSIMB001325.html">CENTRO DE SALUD
+                ACAMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001330.html">MSIMB001330</a></td>
+                <td><a href="MSIMB001330.html">CENTRO DE SALUD BARRANCA
+                HONDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001342.html">MSIMB001342</a></td>
+                <td><a href="MSIMB001342.html">CENTRO DE SALUD SAN PABLO
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001354.html">MSIMB001354</a></td>
+                <td><a href="MSIMB001354.html">CENTRO DE SALUD
+                TICUMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001366.html">MSIMB001366</a></td>
+                <td><a href="MSIMB001366.html">CENTRO DE SALUD
+                TLAQUILTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001371.html">MSIMB001371</a></td>
+                <td><a href="MSIMB001371.html">CENTRO DE SALUD
+                COAXITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001383.html">MSIMB001383</a></td>
+                <td><a href="MSIMB001383.html">CENTRO DE SALUD
+                HUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001395.html">MSIMB001395</a></td>
+                <td><a href="MSIMB001395.html">CENTRO DE SALUD LA
+                MEZQUITERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001400.html">MSIMB001400</a></td>
+                <td><a href="MSIMB001400.html">CENTRO DE SALUD
+                NEXPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001412.html">MSIMB001412</a></td>
+                <td><a href="MSIMB001412.html">CENTRO DE SALUD
+                QUILAMULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001424.html">MSIMB001424</a></td>
+                <td><a href="MSIMB001424.html">CENTRO DE SALUD SAN JOSÉ
+                DE PALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001436.html">MSIMB001436</a></td>
+                <td><a href="MSIMB001436.html">CENTRO DE SALUD VALLE DE
+                VÁZQUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001441.html">MSIMB001441</a></td>
+                <td><a href="MSIMB001441.html">CENTRO DE SALUD
+                XICATLACOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001453.html">MSIMB001453</a></td>
+                <td><a href="MSIMB001453.html">CENTRO DE SALUD
+                XOCHIPALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001465.html">MSIMB001465</a></td>
+                <td><a href="MSIMB001465.html">CENTRO DE SALUD
+                TLAYACAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001470.html">MSIMB001470</a></td>
+                <td><a href="MSIMB001470.html">CENTRO DE SALUD
+                AMATLIPAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001482.html">MSIMB001482</a></td>
+                <td><a href="MSIMB001482.html">CENTRO DE SALUD SAN
+                ANDRÉS CUAUHTEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001494.html">MSIMB001494</a></td>
+                <td><a href="MSIMB001494.html">CENTRO DE SALUD SAN JOSÉ
+                DE LOS LAURELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001506.html">MSIMB001506</a></td>
+                <td><a href="MSIMB001506.html">CENTRO DE SALUD
+                NACATONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001511.html">MSIMB001511</a></td>
+                <td><a href="MSIMB001511.html">CENTRO DE SALUD LAS
+                VIVIANAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001523.html">MSIMB001523</a></td>
+                <td><a href="MSIMB001523.html">CENTRO DE SALUD
+                TOTOLAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001535.html">MSIMB001535</a></td>
+                <td><a href="MSIMB001535.html">CENTRO DE SALUD
+                NEPOPUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001540.html">MSIMB001540</a></td>
+                <td><a href="MSIMB001540.html">CENTRO DE SALUD
+                ALPUYECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001552.html">MSIMB001552</a></td>
+                <td><a href="MSIMB001552.html">CENTRO DE SALUD
+                ATLACHOLOAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001564.html">MSIMB001564</a></td>
+                <td><a href="MSIMB001564.html">CENTRO DE SALUD
+                CHICONCUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001576.html">MSIMB001576</a></td>
+                <td><a href="MSIMB001576.html">CENTRO DE SALUD UNIDAD
+                MORELOS 2A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001581.html">MSIMB001581</a></td>
+                <td><a href="MSIMB001581.html">CENTRO DE SALUD U.H.J.
+                MA.MORELOS Y PAVÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001593.html">MSIMB001593</a></td>
+                <td><a href="MSIMB001593.html">CENTRO DE SALUD LAS
+                TETILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001605.html">MSIMB001605</a></td>
+                <td><a href="MSIMB001605.html">CENTRO DE SALUD
+                YAUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001610.html">MSIMB001610</a></td>
+                <td><a href="MSIMB001610.html">CENTRO DE SALUD
+                COCOYOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001622.html">MSIMB001622</a></td>
+                <td><a href="MSIMB001622.html">CENTRO DE SALUD MIGUEL
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001634.html">MSIMB001634</a></td>
+                <td><a href="MSIMB001634.html">CENTRO DE SALUD LA
+                JOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001646.html">MSIMB001646</a></td>
+                <td><a href="MSIMB001646.html">CENTRO DE SALUD
+                YECAPIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001651.html">MSIMB001651</a></td>
+                <td><a href="MSIMB001651.html">CENTRO DE SALUD
+                ACHICHIPICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001663.html">MSIMB001663</a></td>
+                <td><a href="MSIMB001663.html">CENTRO DE SALUD
+                HUEXCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001675.html">MSIMB001675</a></td>
+                <td><a href="MSIMB001675.html">CENTRO DE SALUD JUAN
+                MORALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001680.html">MSIMB001680</a></td>
+                <td><a href="MSIMB001680.html">CENTRO DE SALUD
+                TECAJEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001692.html">MSIMB001692</a></td>
+                <td><a href="MSIMB001692.html">CENTRO DE SALUD
+                XOCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001704.html">MSIMB001704</a></td>
+                <td><a href="MSIMB001704.html">CENTRO DE SALUD ADOLFO
+                LÓPEZ MATEOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001716.html">MSIMB001716</a></td>
+                <td><a href="MSIMB001716.html">CENTRO DE SALUD
+                ZACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001721.html">MSIMB001721</a></td>
+                <td><a href="MSIMB001721.html">CENTRO DE SALUD
+                ZACUALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001733.html">MSIMB001733</a></td>
+                <td><a href="MSIMB001733.html">CENTRO DE SALUD
+                TLACOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001745.html">MSIMB001745</a></td>
+                <td><a href="MSIMB001745.html">CENTRO DE SALUD
+                TEMOAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001750.html">MSIMB001750</a></td>
+                <td><a href="MSIMB001750.html">CENTRO DE SALUD
+                AMILCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001762.html">MSIMB001762</a></td>
+                <td><a href="MSIMB001762.html">CENTRO DE SALUD
+                HUAZULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001774.html">MSIMB001774</a></td>
+                <td><a href="MSIMB001774.html">CENTRO DE SALUD
+                POPOTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001786.html">MSIMB001786</a></td>
+                <td><a href="MSIMB001786.html">CENTRO DE SALUD LA
+                TOMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001791.html">MSIMB001791</a></td>
+                <td><a href="MSIMB001791.html">CENTRO DE SALUD
+                AMACUZAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001803.html">MSIMB001803</a></td>
+                <td><a href="MSIMB001803.html">CENTRO DE SALUD
+                XOCHITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001815.html">MSIMB001815</a></td>
+                <td><a href="MSIMB001815.html">CENTRO DE SALUD
+                TEPALCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001832.html">MSIMB001832</a></td>
+                <td><a href="MSIMB001832.html">CENTRO DE SALUD
+                TEHUIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001873.html">MSIMB001873</a></td>
+                <td><a href="MSIMB001873.html">CARAVANA UNIDAD MÓVIL
+                200</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001885.html">MSIMB001885</a></td>
+                <td><a href="MSIMB001885.html">CARAVANA UNIDAD MÓVIL
+                301</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001890.html">MSIMB001890</a></td>
+                <td><a href="MSIMB001890.html">CARAVANA UNIDAD MÓVIL
+                302</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001902.html">MSIMB001902</a></td>
+                <td><a href="MSIMB001902.html">CARAVANA UNIDAD MÓVIL
+                303</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001914.html">MSIMB001914</a></td>
+                <td><a href="MSIMB001914.html">CARAVANA UNIDAD MÓVIL
+                TEMIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001926.html">MSIMB001926</a></td>
+                <td><a href="MSIMB001926.html">CARAVANA UNIDAD MÓVIL
+                JOJUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001931.html">MSIMB001931</a></td>
+                <td><a href="MSIMB001931.html">CARAVANA UNIDAD MÓVIL
+                406</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001943.html">MSIMB001943</a></td>
+                <td><a href="MSIMB001943.html">UNEME ENFERMEDADES
+                CRÓNICAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001955.html">MSIMB001955</a></td>
+                <td><a href="MSIMB001955.html">UNEME ENFERMEDADES
+                CRÓNICAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001960.html">MSIMB001960</a></td>
+                <td><a href="MSIMB001960.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CUERNAVACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001972.html">MSIMB001972</a></td>
+                <td><a href="MSIMB001972.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ZACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB001984.html">MSIMB001984</a></td>
+                <td><a href="MSIMB001984.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CUAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB001996.html">MSIMB001996</a></td>
+                <td><a href="MSIMB001996.html">UNEME CENTRO INTEGRAL DE
+                SALUD MENTAL (CISAME)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002001.html">MSIMB002001</a></td>
+                <td><a href="MSIMB002001.html">CENTRO DE SALUD SANTA
+                ROSA 30</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002013.html">MSIMB002013</a></td>
+                <td><a href="MSIMB002013.html">CENTRO DE SALUD
+                TENEXTEPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002025.html">MSIMB002025</a></td>
+                <td><a href="MSIMB002025.html">CENTRO DE SALUD
+                CUENTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002030.html">MSIMB002030</a></td>
+                <td><a href="MSIMB002030.html">CENTRO DE SALUD
+                CASAHUATLÁN II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002042.html">MSIMB002042</a></td>
+                <td><a href="MSIMB002042.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES JIUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002054.html">MSIMB002054</a></td>
+                <td><a href="MSIMB002054.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TEMIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002066.html">MSIMB002066</a></td>
+                <td><a href="MSIMB002066.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES XOCHITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002071.html">MSIMB002071</a></td>
+                <td><a href="MSIMB002071.html">CENTRO DE SALUD
+                OAXTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002083.html">MSIMB002083</a></td>
+                <td><a href="MSIMB002083.html">CENTRO DE SALUD SANTA MA.
+                AHUACATITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002095.html">MSIMB002095</a></td>
+                <td><a href="MSIMB002095.html">CENTRO DE SALUD
+                TLALTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002100.html">MSIMB002100</a></td>
+                <td><a href="MSIMB002100.html">CENTRO DE SALUD COATLAN
+                DEL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002136.html">MSIMB002136</a></td>
+                <td><a href="MSIMB002136.html">CENTRO DE ATENCIÓN
+                INTEGRAL PARA LA SALUD DEL ADOLESCENTE (CAISA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002141.html">MSIMB002141</a></td>
+                <td><a href="MSIMB002141.html">CENTRO DE SALUD
+                OACALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002153.html">MSIMB002153</a></td>
+                <td><a href="MSIMB002153.html">CENTRO DE SALUD
+                TILZAPOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002165.html">MSIMB002165</a></td>
+                <td><a href="MSIMB002165.html">CENTRO DE SALUD SAN
+                RAFAEL ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002170.html">MSIMB002170</a></td>
+                <td><a href="MSIMB002170.html">CENTRO DE SALUD EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002182.html">MSIMB002182</a></td>
+                <td><a href="MSIMB002182.html">CENTRO DE SALUD
+                COATETELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002194.html">MSIMB002194</a></td>
+                <td><a href="MSIMB002194.html">CENTRO DE SALUD
+                ATLATLAHUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002206.html">MSIMB002206</a></td>
+                <td><a href="MSIMB002206.html">CENTRO SYGUE
+                CUERNAVACA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002211.html">MSIMB002211</a></td>
+                <td><a href="MSIMB002211.html">CENTRO SYGUE
+                ZACATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002223.html">MSIMB002223</a></td>
+                <td><a href="MSIMB002223.html">CENTRO SYGUE
+                TETELCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002240.html">MSIMB002240</a></td>
+                <td><a href="MSIMB002240.html">CENTRO DE SALUD
+                TEQUESQUITENGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002252.html">MSIMB002252</a></td>
+                <td><a href="MSIMB002252.html">SINDIS (SERVICIOS
+                INTEGRALES PARA LA PREVENCIÓN Y ATENCIÓN DE LA
+                DISCAPACIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002264.html">MSIMB002264</a></td>
+                <td><a href="MSIMB002264.html">CENTRO DE SALUD FELIPE
+                NERI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002276.html">MSIMB002276</a></td>
+                <td><a href="MSIMB002276.html">CENTRO DE SALUD
+                CHIPITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002281.html">MSIMB002281</a></td>
+                <td><a href="MSIMB002281.html">CENTRO DE SALUD
+                TEJALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002293.html">MSIMB002293</a></td>
+                <td><a href="MSIMB002293.html">CENTRO DE SALUD
+                TLALNEPANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002305.html">MSIMB002305</a></td>
+                <td><a href="MSIMB002305.html">CENTRO INTEGRAL DE SALUD
+                MENTAL CISAME ZACATEPEC. DADA DE ALTA ENERO
+                2015</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002310.html">MSIMB002310</a></td>
+                <td><a href="MSIMB002310.html">CENTRO DE SALUD IGNACIO
+                BASTIDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002322.html">MSIMB002322</a></td>
+                <td><a href="MSIMB002322.html">CENTRO DE SALUD PEÑA
+                FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002334.html">MSIMB002334</a></td>
+                <td><a href="MSIMB002334.html">CENTRO INTEGRAL DE SALUD
+                MENTAL EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002363.html">MSIMB002363</a></td>
+                <td><a href="MSIMB002363.html">CENTRO DE SALUD
+                AJUCHITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002375.html">MSIMB002375</a></td>
+                <td><a href="MSIMB002375.html">CENTRO DE SALUD
+                TLATENCHI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002380.html">MSIMB002380</a></td>
+                <td><a href="MSIMB002380.html">CENTRO DE SALUD SAN
+                CARLOS (LOS ARCOS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002392.html">MSIMB002392</a></td>
+                <td><a href="MSIMB002392.html">SALUD Y GÉNERO UNIDAD
+                ESPECIALIZADA SYGUE TEMIXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002404.html">MSIMB002404</a></td>
+                <td><a href="MSIMB002404.html">UNIDAD MÓVIL DE ATENCIÓN
+                INTEGRAL PARA LA SALUD DEL ADOLESCENTE
+                (CAISA-MÓVIL)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002421.html">MSIMB002421</a></td>
+                <td><a href="MSIMB002421.html">CIUDAD SALUD
+                MUJER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="MSIMB002491.html">MSIMB002491</a></td>
+                <td><a href="MSIMB002491.html">CENTRO DE SALUD
+                TEMIMILCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="MSIMB002503.html">MSIMB002503</a></td>
+                <td><a href="MSIMB002503.html">CENTRO DE SALUD
+                JIUTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_morelos.png"
+                id="fig:mapa-primer_nivel-morelos"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
