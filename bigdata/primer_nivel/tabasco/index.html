@@ -1,0 +1,3343 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#tabasco">TABASCO</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="tabasco">TABASCO</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="TCIMB000021.html">TCIMB000021</a></td>
+                <td><a href="TCIMB000021.html">C.S. EL ÁGUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000033.html">TCIMB000033</a></td>
+                <td><a href="TCIMB000033.html">C.S. APATZINGAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000045.html">TCIMB000045</a></td>
+                <td><a href="TCIMB000045.html">C.S. SAN PEDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000050.html">TCIMB000050</a></td>
+                <td><a href="TCIMB000050.html">C.S. EL CAPULÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000062.html">TCIMB000062</a></td>
+                <td><a href="TCIMB000062.html">C.S. VILLA
+                QUETZALCOATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000074.html">TCIMB000074</a></td>
+                <td><a href="TCIMB000074.html">C.S. MACTUN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000086.html">TCIMB000086</a></td>
+                <td><a href="TCIMB000086.html">C.S. MULTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000091.html">TCIMB000091</a></td>
+                <td><a href="TCIMB000091.html">C.S.
+                NETZAHUALCOYOTL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000103.html">TCIMB000103</a></td>
+                <td><a href="TCIMB000103.html">C.S. EL PIPILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000115.html">TCIMB000115</a></td>
+                <td><a href="TCIMB000115.html">C.S. LA PITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000120.html">TCIMB000120</a></td>
+                <td><a href="TCIMB000120.html">CENTRO DE SALUD CON 3
+                NÚCLEOS BÁSICOS VILLA EL TRIUNFO. BALANCAN.
+                TABASCO.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000132.html">TCIMB000132</a></td>
+                <td><a href="TCIMB000132.html">C.S. VICENTE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000144.html">TCIMB000144</a></td>
+                <td><a href="TCIMB000144.html">C.S.
+                CONSTITUCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000156.html">TCIMB000156</a></td>
+                <td><a href="TCIMB000156.html">C.S. ARENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000161.html">TCIMB000161</a></td>
+                <td><a href="TCIMB000161.html">C.S. EL PICHI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000173.html">TCIMB000173</a></td>
+                <td><a href="TCIMB000173.html">C.S. LÓPEZ
+                MATEOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000185.html">TCIMB000185</a></td>
+                <td><a href="TCIMB000185.html">C.S. EL CHAMIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000202.html">TCIMB000202</a></td>
+                <td><a href="TCIMB000202.html">C.S. CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000214.html">TCIMB000214</a></td>
+                <td><a href="TCIMB000214.html">C.S. POB. C-11 JOSÉ MARÍA
+                MORELOS Y PAVÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000226.html">TCIMB000226</a></td>
+                <td><a href="TCIMB000226.html">C.S. POB. C-15 ADOLFO
+                LÓPEZ MATEO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000231.html">TCIMB000231</a></td>
+                <td><a href="TCIMB000231.html">C.S. RA. ARROYO HONDO
+                SANTA TERESA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000243.html">TCIMB000243</a></td>
+                <td><a href="TCIMB000243.html">C.S. EJ. AZUCENA 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000255.html">TCIMB000255</a></td>
+                <td><a href="TCIMB000255.html">C.S. VILLA Y PUERTO
+                SÁNCHEZ MAGALLANES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000260.html">TCIMB000260</a></td>
+                <td><a href="TCIMB000260.html">C.S. POB. C-28</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000272.html">TCIMB000272</a></td>
+                <td><a href="TCIMB000272.html">C.S. POB. C-16 E.
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000284.html">TCIMB000284</a></td>
+                <td><a href="TCIMB000284.html">C.S. VILLA BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000296.html">TCIMB000296</a></td>
+                <td><a href="TCIMB000296.html">C.S POBLADO C-09
+                FRANCISCO I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000301.html">TCIMB000301</a></td>
+                <td><a href="TCIMB000301.html">C.S POBLADO
+                CUAUHTÉMOCZIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000313.html">TCIMB000313</a></td>
+                <td><a href="TCIMB000313.html">C.S. POBLADO
+                C-10</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000325.html">TCIMB000325</a></td>
+                <td><a href="TCIMB000325.html">C.S. RA. ENCRUCIJADA 3RA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000330.html">TCIMB000330</a></td>
+                <td><a href="TCIMB000330.html">C.S. EJ. EL
+                GOLPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000342.html">TCIMB000342</a></td>
+                <td><a href="TCIMB000342.html">C.S. POB. IGNACIO
+                GUTIERREZ GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000354.html">TCIMB000354</a></td>
+                <td><a href="TCIMB000354.html">C.S. EJ. HABANERO 1RA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000366.html">TCIMB000366</a></td>
+                <td><a href="TCIMB000366.html">C.S. COL. MELCHOR
+                OCAMPO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000371.html">TCIMB000371</a></td>
+                <td><a href="TCIMB000371.html">C.S. POB. MIGUEL HIDALGO
+                2DA. SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000383.html">TCIMB000383</a></td>
+                <td><a href="TCIMB000383.html">C.S. RA. NARANJEÑO 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000395.html">TCIMB000395</a></td>
+                <td><a href="TCIMB000395.html">C.S. EJ. OJOSHAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000400.html">TCIMB000400</a></td>
+                <td><a href="TCIMB000400.html">C.S. POBLADO C-23
+                VENUSTIANO CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000412.html">TCIMB000412</a></td>
+                <td><a href="TCIMB000412.html">C.S. COL. JACINTO
+                LÓPEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000424.html">TCIMB000424</a></td>
+                <td><a href="TCIMB000424.html">C.S. POBLADO C-27 ING.
+                EDUARDO CHÁVEZ R.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000436.html">TCIMB000436</a></td>
+                <td><a href="TCIMB000436.html">C.S. RA. SANTA ANA 1RA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000441.html">TCIMB000441</a></td>
+                <td><a href="TCIMB000441.html">C.S. RA. SANTA ANA 2DA.
+                SECC. B</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000453.html">TCIMB000453</a></td>
+                <td><a href="TCIMB000453.html">C.S. ING. SANTA
+                ROSALÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000465.html">TCIMB000465</a></td>
+                <td><a href="TCIMB000465.html">C.S. EJ. SANTUARIO 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000470.html">TCIMB000470</a></td>
+                <td><a href="TCIMB000470.html">C.S. POB. C-29 VICENTE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000482.html">TCIMB000482</a></td>
+                <td><a href="TCIMB000482.html">C.S. POBLADO C-14
+                PLUTARCO ELÍAS CALLES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000494.html">TCIMB000494</a></td>
+                <td><a href="TCIMB000494.html">C.S. POBLADO C-20 MIGUEL
+                HIDALGO Y COSTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000506.html">TCIMB000506</a></td>
+                <td><a href="TCIMB000506.html">C.S. EJ. AZUCENA 4TA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000511.html">TCIMB000511</a></td>
+                <td><a href="TCIMB000511.html">C.S. POBLADO C-22 LIC.
+                JOSÉ MARÍA PINO SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000523.html">TCIMB000523</a></td>
+                <td><a href="TCIMB000523.html">C.S. POBLADO
+                C-17</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000535.html">TCIMB000535</a></td>
+                <td><a href="TCIMB000535.html">C.S. COL. ÁLVARO
+                OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000540.html">TCIMB000540</a></td>
+                <td><a href="TCIMB000540.html">C. S. RA. BENITO
+                JUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000552.html">TCIMB000552</a></td>
+                <td><a href="TCIMB000552.html">C. S. EJ BENITO
+                JUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000564.html">TCIMB000564</a></td>
+                <td><a href="TCIMB000564.html">C.S. BOCA DE
+                CHILAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000576.html">TCIMB000576</a></td>
+                <td><a href="TCIMB000576.html">C. S. VILLA
+                CUAUHTEMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000581.html">TCIMB000581</a></td>
+                <td><a href="TCIMB000581.html">C.S. RA. CHICHICASTLE
+                1A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000593.html">TCIMB000593</a></td>
+                <td><a href="TCIMB000593.html">C. S. RA. CHILAPA
+                M/IZQUIERDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000605.html">TCIMB000605</a></td>
+                <td><a href="TCIMB000605.html">C. S. EJ LA
+                ESTRELLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000610.html">TCIMB000610</a></td>
+                <td><a href="TCIMB000610.html">C. S. EJ. FELIPE CARRILLO
+                PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000622.html">TCIMB000622</a></td>
+                <td><a href="TCIMB000622.html">CENTRO DE SALUD C.S.R.D.1
+                N.B. POBLADO FCO. I. MADERO CENTLA TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000634.html">TCIMB000634</a></td>
+                <td><a href="TCIMB000634.html">C. S. COL GOBERNADOR
+                CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000646.html">TCIMB000646</a></td>
+                <td><a href="TCIMB000646.html">C. S. VILLA IGNACIO
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000651.html">TCIMB000651</a></td>
+                <td><a href="TCIMB000651.html">CENTRO DE SALUD R/A
+                JALAPITA 1RA. SECC CENTLA TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000663.html">TCIMB000663</a></td>
+                <td><a href="TCIMB000663.html">C. S. RA. LIBERTAD DE
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000675.html">TCIMB000675</a></td>
+                <td><a href="TCIMB000675.html">C.S. EJ. NUEVO
+                CENTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000680.html">TCIMB000680</a></td>
+                <td><a href="TCIMB000680.html">CENTRO DE SALUD POBLADO
+                QUINTÍN ARAUZ CENTLA TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000692.html">TCIMB000692</a></td>
+                <td><a href="TCIMB000692.html">C.S. RA. TABASQUILLO
+                1A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000704.html">TCIMB000704</a></td>
+                <td><a href="TCIMB000704.html">CESSA VICENTE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000716.html">TCIMB000716</a></td>
+                <td><a href="TCIMB000716.html">C. S. EJ LA
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000721.html">TCIMB000721</a></td>
+                <td><a href="TCIMB000721.html">C. S. EJ LA
+                SABANAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000733.html">TCIMB000733</a></td>
+                <td><a href="TCIMB000733.html">C. S. RA. LA MIXTECA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000745.html">TCIMB000745</a></td>
+                <td><a href="TCIMB000745.html">C. S. COL. ADOLFO LOPEZ
+                MATEOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000750.html">TCIMB000750</a></td>
+                <td><a href="TCIMB000750.html">C. S. EJ CONSTANCIA Y
+                VENECIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000820.html">TCIMB000820</a></td>
+                <td><a href="TCIMB000820.html">C.S. CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000832.html">TCIMB000832</a></td>
+                <td><a href="TCIMB000832.html">C.S. SABINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000844.html">TCIMB000844</a></td>
+                <td><a href="TCIMB000844.html">C.S. 1RO DE MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000856.html">TCIMB000856</a></td>
+                <td><a href="TCIMB000856.html">C.S. COL. CASA
+                BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000861.html">TCIMB000861</a></td>
+                <td><a href="TCIMB000861.html">CESSA GAVIOTAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000873.html">TCIMB000873</a></td>
+                <td><a href="TCIMB000873.html">CESSA TAMULTE
+                DELICIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000885.html">TCIMB000885</a></td>
+                <td><a href="TCIMB000885.html">CESSA TIERRA
+                COLORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000890.html">TCIMB000890</a></td>
+                <td><a href="TCIMB000890.html">CESSA MAXIMILIANO
+                DORANTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000902.html">TCIMB000902</a></td>
+                <td><a href="TCIMB000902.html">C.S. ACACHAPAN Y COLMENA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000914.html">TCIMB000914</a></td>
+                <td><a href="TCIMB000914.html">C.S. ACACHAPAN Y COLMENA
+                5TA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000926.html">TCIMB000926</a></td>
+                <td><a href="TCIMB000926.html">C.S. ANACLETO CANABAL
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000931.html">TCIMB000931</a></td>
+                <td><a href="TCIMB000931.html">C.S. AZTLAN 1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000943.html">TCIMB000943</a></td>
+                <td><a href="TCIMB000943.html">C.S. AZTLAN 2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000955.html">TCIMB000955</a></td>
+                <td><a href="TCIMB000955.html">C.S. BOQUERON
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000960.html">TCIMB000960</a></td>
+                <td><a href="TCIMB000960.html">C.S. BUENA VISTA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000972.html">TCIMB000972</a></td>
+                <td><a href="TCIMB000972.html">C.S. BUENA VISTA RIO
+                NUEVO 1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB000984.html">TCIMB000984</a></td>
+                <td><a href="TCIMB000984.html">C.S. BUENA VISTA RIO
+                NUEVO 3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB000996.html">TCIMB000996</a></td>
+                <td><a href="TCIMB000996.html">C.S. CORREGIDORA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001001.html">TCIMB001001</a></td>
+                <td><a href="TCIMB001001.html">C.S. CORREGIDORA
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001013.html">TCIMB001013</a></td>
+                <td><a href="TCIMB001013.html">C.S. DOS MONTES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001025.html">TCIMB001025</a></td>
+                <td><a href="TCIMB001025.html">C.S. GONZÁLEZ
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001030.html">TCIMB001030</a></td>
+                <td><a href="TCIMB001030.html">C.S. GUINEO 1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001042.html">TCIMB001042</a></td>
+                <td><a href="TCIMB001042.html">C.S. HUASTECA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001054.html">TCIMB001054</a></td>
+                <td><a href="TCIMB001054.html">C.S. IXTACOMITÁN
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001066.html">TCIMB001066</a></td>
+                <td><a href="TCIMB001066.html">C.S. LA VUELTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001071.html">TCIMB001071</a></td>
+                <td><a href="TCIMB001071.html">C.S. JOLOCHERO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001083.html">TCIMB001083</a></td>
+                <td><a href="TCIMB001083.html">C.S. LAZARO CÁRDENAS
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001095.html">TCIMB001095</a></td>
+                <td><a href="TCIMB001095.html">C.S. LAZARO CÁRDENAS
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001100.html">TCIMB001100</a></td>
+                <td><a href="TCIMB001100.html">CESSA LUIS GIL
+                PEREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001112.html">TCIMB001112</a></td>
+                <td><a href="TCIMB001112.html">C.S. MATILLAS
+                4TA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001124.html">TCIMB001124</a></td>
+                <td><a href="TCIMB001124.html">C.S. MEDELLÍN Y PIGUA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001136.html">TCIMB001136</a></td>
+                <td><a href="TCIMB001136.html">C.S. MEDELLÍN Y PIGUA
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001141.html">TCIMB001141</a></td>
+                <td><a href="TCIMB001141.html">C.S. MIGUEL HIDALGO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001153.html">TCIMB001153</a></td>
+                <td><a href="TCIMB001153.html">C.S. PABLO L
+                SIDAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001165.html">TCIMB001165</a></td>
+                <td><a href="TCIMB001165.html">C.S. CORONEL
+                TRACONIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001170.html">TCIMB001170</a></td>
+                <td><a href="TCIMB001170.html">C.S. PLATANO Y CACAO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001182.html">TCIMB001182</a></td>
+                <td><a href="TCIMB001182.html">C.S. PUEBLO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001194.html">TCIMB001194</a></td>
+                <td><a href="TCIMB001194.html">C.S. RÍO TINTO
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001206.html">TCIMB001206</a></td>
+                <td><a href="TCIMB001206.html">C.S. RÍO VIEJO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001211.html">TCIMB001211</a></td>
+                <td><a href="TCIMB001211.html">C.S. VILLA PLAYAS DEL
+                ROSARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001223.html">TCIMB001223</a></td>
+                <td><a href="TCIMB001223.html">C.S. TIERRA AMARILLA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001235.html">TCIMB001235</a></td>
+                <td><a href="TCIMB001235.html">C.S. TORNO LARGO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001240.html">TCIMB001240</a></td>
+                <td><a href="TCIMB001240.html">C.S. VILLA
+                MACULTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001252.html">TCIMB001252</a></td>
+                <td><a href="TCIMB001252.html">C.S. TAMULTE DE LAS
+                SABANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001264.html">TCIMB001264</a></td>
+                <td><a href="TCIMB001264.html">C.S. LA MANGA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001276.html">TCIMB001276</a></td>
+                <td><a href="TCIMB001276.html">C.S. NUEVA
+                CONSTITUCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001281.html">TCIMB001281</a></td>
+                <td><a href="TCIMB001281.html">C.S.U.
+                COMALCALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001293.html">TCIMB001293</a></td>
+                <td><a href="TCIMB001293.html">C.S.U. VILLA
+                ALDAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001305.html">TCIMB001305</a></td>
+                <td><a href="TCIMB001305.html">C.S. ARENA 1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001310.html">TCIMB001310</a></td>
+                <td><a href="TCIMB001310.html">C.S. ARENA 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001322.html">TCIMB001322</a></td>
+                <td><a href="TCIMB001322.html">C.S. CARLOS GREENE
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001334.html">TCIMB001334</a></td>
+                <td><a href="TCIMB001334.html">C.S. CUPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001346.html">TCIMB001346</a></td>
+                <td><a href="TCIMB001346.html">C.S. CHICHICAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001351.html">TCIMB001351</a></td>
+                <td><a href="TCIMB001351.html">C.S. EMILIANO ZAPATA
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001363.html">TCIMB001363</a></td>
+                <td><a href="TCIMB001363.html">C.S. FCO. I. MADERO
+                2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001375.html">TCIMB001375</a></td>
+                <td><a href="TCIMB001375.html">C.S. GUAYO 1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001380.html">TCIMB001380</a></td>
+                <td><a href="TCIMB001380.html">C.S. IGNACIO GUTIÉRREZ
+                GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001392.html">TCIMB001392</a></td>
+                <td><a href="TCIMB001392.html">C.S. ZARAGOZA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001404.html">TCIMB001404</a></td>
+                <td><a href="TCIMB001404.html">C.S. INDEPENDENCIA
+                2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001416.html">TCIMB001416</a></td>
+                <td><a href="TCIMB001416.html">C.S. JOSÉ MARÍA PINO
+                SUÁREZ 1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001421.html">TCIMB001421</a></td>
+                <td><a href="TCIMB001421.html">C.S. JOSÉ MARÍA PINO
+                SUÁREZ 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001433.html">TCIMB001433</a></td>
+                <td><a href="TCIMB001433.html">C.S. LEÓN ZARATE
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001445.html">TCIMB001445</a></td>
+                <td><a href="TCIMB001445.html">C.S.U MIGUEL
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001450.html">TCIMB001450</a></td>
+                <td><a href="TCIMB001450.html">C.S. NORTE 1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001462.html">TCIMB001462</a></td>
+                <td><a href="TCIMB001462.html">C.S. OCCIDENTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001474.html">TCIMB001474</a></td>
+                <td><a href="TCIMB001474.html">C.S. ORIENTE
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001486.html">TCIMB001486</a></td>
+                <td><a href="TCIMB001486.html">C.S. PATASTAL
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001491.html">TCIMB001491</a></td>
+                <td><a href="TCIMB001491.html">C.S. PROGRESO TULAR
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001503.html">TCIMB001503</a></td>
+                <td><a href="TCIMB001503.html">C.S. SARGENTO LÓPEZ
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001515.html">TCIMB001515</a></td>
+                <td><a href="TCIMB001515.html">C.S. SARGENTO LÓPEZ
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001520.html">TCIMB001520</a></td>
+                <td><a href="TCIMB001520.html">C.S. SUR 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001532.html">TCIMB001532</a></td>
+                <td><a href="TCIMB001532.html">C.S. ZAPOTAL 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001544.html">TCIMB001544</a></td>
+                <td><a href="TCIMB001544.html">C.S. ARROYO HONDO
+                2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001556.html">TCIMB001556</a></td>
+                <td><a href="TCIMB001556.html">C.S. LAZARO CÁRDENAS
+                2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001573.html">TCIMB001573</a></td>
+                <td><a href="TCIMB001573.html">C.S.U. CUNDUACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001585.html">TCIMB001585</a></td>
+                <td><a href="TCIMB001585.html">C.S. AMADO GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001590.html">TCIMB001590</a></td>
+                <td><a href="TCIMB001590.html">C.S.U. CARLOS ROVIROSA
+                (TULIPAN)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001602.html">TCIMB001602</a></td>
+                <td><a href="TCIMB001602.html">C.S. JAHUACTAL (CEIBA
+                1RA.)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001614.html">TCIMB001614</a></td>
+                <td><a href="TCIMB001614.html">C.S. CUCUYULAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001626.html">TCIMB001626</a></td>
+                <td><a href="TCIMB001626.html">C.S. CUMUAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001631.html">TCIMB001631</a></td>
+                <td><a href="TCIMB001631.html">C.S. CUMUAPA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001643.html">TCIMB001643</a></td>
+                <td><a href="TCIMB001643.html">C.S. LA CHONITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001655.html">TCIMB001655</a></td>
+                <td><a href="TCIMB001655.html">C.S. DOS CEIBAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001660.html">TCIMB001660</a></td>
+                <td><a href="TCIMB001660.html">C.S. CARRILLO
+                PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001672.html">TCIMB001672</a></td>
+                <td><a href="TCIMB001672.html">C.S. GREGORIO
+                MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001684.html">TCIMB001684</a></td>
+                <td><a href="TCIMB001684.html">C.S. HUIMANGO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001696.html">TCIMB001696</a></td>
+                <td><a href="TCIMB001696.html">C.S. HUIMANGO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001701.html">TCIMB001701</a></td>
+                <td><a href="TCIMB001701.html">C.S. PINO SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001713.html">TCIMB001713</a></td>
+                <td><a href="TCIMB001713.html">C.S. LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001725.html">TCIMB001725</a></td>
+                <td><a href="TCIMB001725.html">C.S. LA LUCHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001730.html">TCIMB001730</a></td>
+                <td><a href="TCIMB001730.html">C.S. MIAHUATLAN
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001742.html">TCIMB001742</a></td>
+                <td><a href="TCIMB001742.html">C.S. MONTE
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001754.html">TCIMB001754</a></td>
+                <td><a href="TCIMB001754.html">C.S. 11 DE
+                FEBRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001766.html">TCIMB001766</a></td>
+                <td><a href="TCIMB001766.html">C.S. PIEDRA 2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001771.html">TCIMB001771</a></td>
+                <td><a href="TCIMB001771.html">C.S. PIEDRA 4TA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001783.html">TCIMB001783</a></td>
+                <td><a href="TCIMB001783.html">C.S. PLATANO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001795.html">TCIMB001795</a></td>
+                <td><a href="TCIMB001795.html">C.S. RANCHO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001800.html">TCIMB001800</a></td>
+                <td><a href="TCIMB001800.html">C.S. REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001812.html">TCIMB001812</a></td>
+                <td><a href="TCIMB001812.html">C.S. TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001824.html">TCIMB001824</a></td>
+                <td><a href="TCIMB001824.html">C.S. YOLOXOCHITL
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001836.html">TCIMB001836</a></td>
+                <td><a href="TCIMB001836.html">C.S. SANTA LUCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001853.html">TCIMB001853</a></td>
+                <td><a href="TCIMB001853.html">CENTRO DE SALUD CON DOS
+                NUCLEOS BASICOS CHABLE, EMILIANO ZAPATA,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001865.html">TCIMB001865</a></td>
+                <td><a href="TCIMB001865.html">C.S. POCVICUC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001882.html">TCIMB001882</a></td>
+                <td><a href="TCIMB001882.html">C.S. ALTO AMACOHITE 3A.
+                SECC. RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001894.html">TCIMB001894</a></td>
+                <td><a href="TCIMB001894.html">C.S. BLASILLO 1A. SECC.
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001906.html">TCIMB001906</a></td>
+                <td><a href="TCIMB001906.html">C.S. CAOBANAL 1A.
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001911.html">TCIMB001911</a></td>
+                <td><a href="TCIMB001911.html">C.S. EL DESECHO
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001923.html">TCIMB001923</a></td>
+                <td><a href="TCIMB001923.html">C.S. COL. LAS
+                FLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001935.html">TCIMB001935</a></td>
+                <td><a href="TCIMB001935.html">C.S. COL. FRANCISCO MTZ.
+                GAYTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001940.html">TCIMB001940</a></td>
+                <td><a href="TCIMB001940.html">C.S. COL. FRANCISCO
+                RUEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001952.html">TCIMB001952</a></td>
+                <td><a href="TCIMB001952.html">C.S. COL. GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001964.html">TCIMB001964</a></td>
+                <td><a href="TCIMB001964.html">C.S. HUAPACAL 1A. SECC.
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001976.html">TCIMB001976</a></td>
+                <td><a href="TCIMB001976.html">C.S. IGNACIO GUTIÉRREZ
+                3A. SECC. EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB001981.html">TCIMB001981</a></td>
+                <td><a href="TCIMB001981.html">C.S. MACAYO Y NARANJO
+                2DA. SECC. RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB001993.html">TCIMB001993</a></td>
+                <td><a href="TCIMB001993.html">C.S. COL. MANUEL SANCHEZ
+                MARMOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002005.html">TCIMB002005</a></td>
+                <td><a href="TCIMB002005.html">C.S. POB.
+                MECATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002010.html">TCIMB002010</a></td>
+                <td><a href="TCIMB002010.html">C.S. LOS NARANJOS 1A
+                SECC. RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002022.html">TCIMB002022</a></td>
+                <td><a href="TCIMB002022.html">CENTRO DE SALUD CON 2
+                NÚCLEOS BÁSICOS OCUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002034.html">TCIMB002034</a></td>
+                <td><a href="TCIMB002034.html">C.S. OTRA BANDA 2DA.
+                SECC. EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002046.html">TCIMB002046</a></td>
+                <td><a href="TCIMB002046.html">C.S. PALO MULATO
+                EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002051.html">TCIMB002051</a></td>
+                <td><a href="TCIMB002051.html">C.S. PAREDON 1A SECC.
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002063.html">TCIMB002063</a></td>
+                <td><a href="TCIMB002063.html">C.S. PEDREGAL MOCTEZUMA
+                1A. SECC. EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002075.html">TCIMB002075</a></td>
+                <td><a href="TCIMB002075.html">C.S. TIERRA NUEVA 3A
+                SECC. RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002080.html">TCIMB002080</a></td>
+                <td><a href="TCIMB002080.html">C.S. PEDREGALITO 1A
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002092.html">TCIMB002092</a></td>
+                <td><a href="TCIMB002092.html">C.S. PEJELAGARTERO
+                PLATAFORMA EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002104.html">TCIMB002104</a></td>
+                <td><a href="TCIMB002104.html">C.S. VILLA SAN
+                MANUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002116.html">TCIMB002116</a></td>
+                <td><a href="TCIMB002116.html">C.S. TIERRA NUEVA 2A
+                SECC. RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002121.html">TCIMB002121</a></td>
+                <td><a href="TCIMB002121.html">C.S. TRES BOCAS 1A SECC.
+                RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002133.html">TCIMB002133</a></td>
+                <td><a href="TCIMB002133.html">C.S. POB. C-31 GRAL.
+                FRANCISCO VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002145.html">TCIMB002145</a></td>
+                <td><a href="TCIMB002145.html">C.S. POB. C-32 FCO.
+                TRUJILLO GURRIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002150.html">TCIMB002150</a></td>
+                <td><a href="TCIMB002150.html">C.S. POB. C-34 BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002162.html">TCIMB002162</a></td>
+                <td><a href="TCIMB002162.html">C.S. POBLADO C-40 ERNESTO
+                AGUIRRE COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002174.html">TCIMB002174</a></td>
+                <td><a href="TCIMB002174.html">C.S. POBLADO C-41 CARLOS
+                A. MADRAZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002186.html">TCIMB002186</a></td>
+                <td><a href="TCIMB002186.html">C.S. CHIMALAPA 2DA. SECC.
+                EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002191.html">TCIMB002191</a></td>
+                <td><a href="TCIMB002191.html">C.S. LAS PIEDRAS
+                EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002203.html">TCIMB002203</a></td>
+                <td><a href="TCIMB002203.html">CENTRO DE SALUD CON 1
+                NUCLEO BASICO PASO DE LA MINA 2DA. SEC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002215.html">TCIMB002215</a></td>
+                <td><a href="TCIMB002215.html">C.S. BLASILLO 2A. SECC.
+                EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002220.html">TCIMB002220</a></td>
+                <td><a href="TCIMB002220.html">C.S. JOSÉ MARÍA MORELOS Y
+                PAVÓN COL.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002232.html">TCIMB002232</a></td>
+                <td><a href="TCIMB002232.html">C.S. JOSÉ MERCEDES GAMAS
+                1A. COL.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002244.html">TCIMB002244</a></td>
+                <td><a href="TCIMB002244.html">C.S. PEJELAGARTERO LOS
+                PINOS EJ.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002256.html">TCIMB002256</a></td>
+                <td><a href="TCIMB002256.html">C.S. POB. C-25 ISIDRO
+                CORTES RUEDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002261.html">TCIMB002261</a></td>
+                <td><a href="TCIMB002261.html">C.S. PASO DE LA MINA 1A
+                SECC. RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002285.html">TCIMB002285</a></td>
+                <td><a href="TCIMB002285.html">C.S. ASTAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002290.html">TCIMB002290</a></td>
+                <td><a href="TCIMB002290.html">C.S. COLONIA BENITO
+                GONZÁLEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002302.html">TCIMB002302</a></td>
+                <td><a href="TCIMB002302.html">C.S. RA. CALICANTO 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002314.html">TCIMB002314</a></td>
+                <td><a href="TCIMB002314.html">C.S. CHIPILINAR 1RA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002326.html">TCIMB002326</a></td>
+                <td><a href="TCIMB002326.html">C.S. FRANCISCO J.
+                SANTAMARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002331.html">TCIMB002331</a></td>
+                <td><a href="TCIMB002331.html">C.S. SAN JUAN EL
+                ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002343.html">TCIMB002343</a></td>
+                <td><a href="TCIMB002343.html">C.S. SAN MIGUEL
+                AFUERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002355.html">TCIMB002355</a></td>
+                <td><a href="TCIMB002355.html">C.S. RA. GUANAL 1RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002360.html">TCIMB002360</a></td>
+                <td><a href="TCIMB002360.html">C.S. POBLADO AQUILES
+                SERDAN 1RA.SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002372.html">TCIMB002372</a></td>
+                <td><a href="TCIMB002372.html">C.S. HUACTA TEQUILA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002384.html">TCIMB002384</a></td>
+                <td><a href="TCIMB002384.html">C.S. RA. VÍCTOR FERNÁNDEZ
+                MANERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002401.html">TCIMB002401</a></td>
+                <td><a href="TCIMB002401.html">C.S. BENITO JUÁREZ
+                2A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002413.html">TCIMB002413</a></td>
+                <td><a href="TCIMB002413.html">C.S. POB.
+                BOQUIAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002425.html">TCIMB002425</a></td>
+                <td><a href="TCIMB002425.html">C.S. GALEANA 2A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002430.html">TCIMB002430</a></td>
+                <td><a href="TCIMB002430.html">C.S. EJ.
+                IQUINUAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002442.html">TCIMB002442</a></td>
+                <td><a href="TCIMB002442.html">C.S. VILLA
+                JALUPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002454.html">TCIMB002454</a></td>
+                <td><a href="TCIMB002454.html">C.S. NICOLÁS
+                BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002466.html">TCIMB002466</a></td>
+                <td><a href="TCIMB002466.html">C.S. REFORMA 2A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002471.html">TCIMB002471</a></td>
+                <td><a href="TCIMB002471.html">C.S. POB.
+                SOYATACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002483.html">TCIMB002483</a></td>
+                <td><a href="TCIMB002483.html">C.S. TIERRA ADENTRO
+                1A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002495.html">TCIMB002495</a></td>
+                <td><a href="TCIMB002495.html">C.S. VICENTE GUERRERO
+                1A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002500.html">TCIMB002500</a></td>
+                <td><a href="TCIMB002500.html">C.S. EJ. AYAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002512.html">TCIMB002512</a></td>
+                <td><a href="TCIMB002512.html">C.S. BOCA DE SAN
+                JERONIMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002524.html">TCIMB002524</a></td>
+                <td><a href="TCIMB002524.html">C.S. BOCA DE SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002536.html">TCIMB002536</a></td>
+                <td><a href="TCIMB002536.html">C.S. COCOYOLAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002541.html">TCIMB002541</a></td>
+                <td><a href="TCIMB002541.html">C.S. ESQUIPULAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002553.html">TCIMB002553</a></td>
+                <td><a href="TCIMB002553.html">C.S. FEDERICO
+                ÁLVAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002565.html">TCIMB002565</a></td>
+                <td><a href="TCIMB002565.html">C.S. MONTE
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002570.html">TCIMB002570</a></td>
+                <td><a href="TCIMB002570.html">C.S. PLAYA LARGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002582.html">TCIMB002582</a></td>
+                <td><a href="TCIMB002582.html">C.S. TORNO LARGO
+                1A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002594.html">TCIMB002594</a></td>
+                <td><a href="TCIMB002594.html">C.S. TORNO LARGO 2A
+                B</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002606.html">TCIMB002606</a></td>
+                <td><a href="TCIMB002606.html">C.S. SANTA RITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002623.html">TCIMB002623</a></td>
+                <td><a href="TCIMB002623.html">CESSA MACUSPANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002635.html">TCIMB002635</a></td>
+                <td><a href="TCIMB002635.html">C.S. ALCALDE
+                MAYOR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002640.html">TCIMB002640</a></td>
+                <td><a href="TCIMB002640.html">CENTRO DE SALUD 3 N.B.
+                COL. BELÉN MAC. TAB.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002652.html">TCIMB002652</a></td>
+                <td><a href="TCIMB002652.html">C.S. BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002664.html">TCIMB002664</a></td>
+                <td><a href="TCIMB002664.html">C.S. BITZAL 4TA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002676.html">TCIMB002676</a></td>
+                <td><a href="TCIMB002676.html">CENTRO DE SALUD R/A
+                BONANZA 1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002681.html">TCIMB002681</a></td>
+                <td><a href="TCIMB002681.html">C.S. BUENAVISTA
+                APASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002693.html">TCIMB002693</a></td>
+                <td><a href="TCIMB002693.html">C.S. EL CONGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002705.html">TCIMB002705</a></td>
+                <td><a href="TCIMB002705.html">C.S. CORRALILLO 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002710.html">TCIMB002710</a></td>
+                <td><a href="TCIMB002710.html">C.S. CHIVALITO 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002722.html">TCIMB002722</a></td>
+                <td><a href="TCIMB002722.html">C.S. EJIDO
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002734.html">TCIMB002734</a></td>
+                <td><a href="TCIMB002734.html">C.S. GUILLERMO
+                PRIETO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002746.html">TCIMB002746</a></td>
+                <td><a href="TCIMB002746.html">C.S. MIGUEL HIDALGO 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002751.html">TCIMB002751</a></td>
+                <td><a href="TCIMB002751.html">C.S. JOSÉ COLOMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002763.html">TCIMB002763</a></td>
+                <td><a href="TCIMB002763.html">C.S. JOSÉ MARÍA PINO
+                SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002775.html">TCIMB002775</a></td>
+                <td><a href="TCIMB002775.html">C.S. LIMBANO
+                BLANDIN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002780.html">TCIMB002780</a></td>
+                <td><a href="TCIMB002780.html">C.S. MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002792.html">TCIMB002792</a></td>
+                <td><a href="TCIMB002792.html">C.S. LAS PALOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002804.html">TCIMB002804</a></td>
+                <td><a href="TCIMB002804.html">C.S. CD. PEMEX</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002816.html">TCIMB002816</a></td>
+                <td><a href="TCIMB002816.html">C.S. CAPARROSO 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002821.html">TCIMB002821</a></td>
+                <td><a href="TCIMB002821.html">C.S. RAMÓN
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002833.html">TCIMB002833</a></td>
+                <td><a href="TCIMB002833.html">C.S. SANTUARIO
+                1RA.SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002845.html">TCIMB002845</a></td>
+                <td><a href="TCIMB002845.html">C.S. TEPETITAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002850.html">TCIMB002850</a></td>
+                <td><a href="TCIMB002850.html">C.S. TIERRA
+                COLORADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002862.html">TCIMB002862</a></td>
+                <td><a href="TCIMB002862.html">CENTRO DE SALUD C. POB.
+                VENUSTIANO CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002874.html">TCIMB002874</a></td>
+                <td><a href="TCIMB002874.html">C.S. VERNET 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002886.html">TCIMB002886</a></td>
+                <td><a href="TCIMB002886.html">C.S. VERNET 3RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002891.html">TCIMB002891</a></td>
+                <td><a href="TCIMB002891.html">C.S. ZOPO NORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002903.html">TCIMB002903</a></td>
+                <td><a href="TCIMB002903.html">C.S. CHILAPILLA 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002915.html">TCIMB002915</a></td>
+                <td><a href="TCIMB002915.html">C.S. LA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002932.html">TCIMB002932</a></td>
+                <td><a href="TCIMB002932.html">C.S. EL TRIUNFO 2DA.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002944.html">TCIMB002944</a></td>
+                <td><a href="TCIMB002944.html">C.S. VIRGINIO
+                CHAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002956.html">TCIMB002956</a></td>
+                <td><a href="TCIMB002956.html">C.S. BUENA VISTA
+                PUXCATAN, NICOLÁS BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002973.html">TCIMB002973</a></td>
+                <td><a href="TCIMB002973.html">C.S. EJ.ARROYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB002985.html">TCIMB002985</a></td>
+                <td><a href="TCIMB002985.html">C.S. CORRIENTE 1A.
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB002990.html">TCIMB002990</a></td>
+                <td><a href="TCIMB002990.html">C.S. POB.
+                GUATACALCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003002.html">TCIMB003002</a></td>
+                <td><a href="TCIMB003002.html">C.S. POB.
+                GUAYTALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003014.html">TCIMB003014</a></td>
+                <td><a href="TCIMB003014.html">C.S. RA. JIMÉNEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003026.html">TCIMB003026</a></td>
+                <td><a href="TCIMB003026.html">C.S. LOMITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003031.html">TCIMB003031</a></td>
+                <td><a href="TCIMB003031.html">C.S. POB.
+                MAZATEUPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003043.html">TCIMB003043</a></td>
+                <td><a href="TCIMB003043.html">C.S. OLCOATITAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003055.html">TCIMB003055</a></td>
+                <td><a href="TCIMB003055.html">CENTRO DE SALUD
+                OXIACAQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003060.html">TCIMB003060</a></td>
+                <td><a href="TCIMB003060.html">C.S. SAMARKANDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003072.html">TCIMB003072</a></td>
+                <td><a href="TCIMB003072.html">CENTRO DE SALUD
+                SANDIAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003084.html">TCIMB003084</a></td>
+                <td><a href="TCIMB003084.html">C.S. RA. TAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003096.html">TCIMB003096</a></td>
+                <td><a href="TCIMB003096.html">C.S. EL TIGRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003101.html">TCIMB003101</a></td>
+                <td><a href="TCIMB003101.html">C.S. POB. TUCTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003113.html">TCIMB003113</a></td>
+                <td><a href="TCIMB003113.html">C.S. EJ. CANTEMOC
+                1A.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003125.html">TCIMB003125</a></td>
+                <td><a href="TCIMB003125.html">CENTRO DE SALUD BOSQUES
+                DE SALOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003130.html">TCIMB003130</a></td>
+                <td><a href="TCIMB003130.html">C.S. POB.
+                TAPOTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003142.html">TCIMB003142</a></td>
+                <td><a href="TCIMB003142.html">C. S. FRACC. LA
+                SELVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003154.html">TCIMB003154</a></td>
+                <td><a href="TCIMB003154.html">C.S. AQUILES
+                SERDAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003166.html">TCIMB003166</a></td>
+                <td><a href="TCIMB003166.html">C.S. PUERTO
+                CEIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003171.html">TCIMB003171</a></td>
+                <td><a href="TCIMB003171.html">C.S. LAS FLORES 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003183.html">TCIMB003183</a></td>
+                <td><a href="TCIMB003183.html">C.S. EL BELLOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003195.html">TCIMB003195</a></td>
+                <td><a href="TCIMB003195.html">C.S. LIBERTAD 1RA.
+                SECCIÓN (EL CHIVERO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003200.html">TCIMB003200</a></td>
+                <td><a href="TCIMB003200.html">CENTRO DE SALUD CON 3
+                NÚCLEOS BÁSICOS FRANCISCO I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003212.html">TCIMB003212</a></td>
+                <td><a href="TCIMB003212.html">CENTRO DE SALUD CON 3
+                NÚCLEOS BÁSICOS MOCTEZUMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003224.html">TCIMB003224</a></td>
+                <td><a href="TCIMB003224.html">C.S. NICOLÁS BRAVO 1RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003236.html">TCIMB003236</a></td>
+                <td><a href="TCIMB003236.html">C.S. GUANO SOLO (EL
+                COQUITO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003241.html">TCIMB003241</a></td>
+                <td><a href="TCIMB003241.html">C.S. UNIÓN 2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003270.html">TCIMB003270</a></td>
+                <td><a href="TCIMB003270.html">C.S. AGUA BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003282.html">TCIMB003282</a></td>
+                <td><a href="TCIMB003282.html">C.S. BARREAL
+                CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003294.html">TCIMB003294</a></td>
+                <td><a href="TCIMB003294.html">C.S. CERRO BLANCO
+                2A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003306.html">TCIMB003306</a></td>
+                <td><a href="TCIMB003306.html">C.S. CERRO BLANCO
+                4TA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003311.html">TCIMB003311</a></td>
+                <td><a href="TCIMB003311.html">C.S. CUITLÁHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003323.html">TCIMB003323</a></td>
+                <td><a href="TCIMB003323.html">C.S. GUAYAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003335.html">TCIMB003335</a></td>
+                <td><a href="TCIMB003335.html">C.S. LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003340.html">TCIMB003340</a></td>
+                <td><a href="TCIMB003340.html">C.S. FCO I MADERO
+                1A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003352.html">TCIMB003352</a></td>
+                <td><a href="TCIMB003352.html">C.S. FCO I MADERO
+                2A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003364.html">TCIMB003364</a></td>
+                <td><a href="TCIMB003364.html">C.S. LAZARO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003376.html">TCIMB003376</a></td>
+                <td><a href="TCIMB003376.html">C.S. OXOLOTAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003381.html">TCIMB003381</a></td>
+                <td><a href="TCIMB003381.html">C.S. POCHITOCAL
+                4A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003393.html">TCIMB003393</a></td>
+                <td><a href="TCIMB003393.html">C.S. CEIBA PUYACATENGO
+                1A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003405.html">TCIMB003405</a></td>
+                <td><a href="TCIMB003405.html">C.S. PUXCATAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003410.html">TCIMB003410</a></td>
+                <td><a href="TCIMB003410.html">C.S. RAYA
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003422.html">TCIMB003422</a></td>
+                <td><a href="TCIMB003422.html">C.S. TAPIJULAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003434.html">TCIMB003434</a></td>
+                <td><a href="TCIMB003434.html">C.S. LA PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003451.html">TCIMB003451</a></td>
+                <td><a href="TCIMB003451.html">C.S. TEAPA (COL. LA
+                SIERRA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003463.html">TCIMB003463</a></td>
+                <td><a href="TCIMB003463.html">C.S. ANDRES QUINTANA
+                ROO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003475.html">TCIMB003475</a></td>
+                <td><a href="TCIMB003475.html">C.S. IGNACIO ALLENDE 2A
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003492.html">TCIMB003492</a></td>
+                <td><a href="TCIMB003492.html">C.S. JOSÉ MA. MORELOS 1A
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003504.html">TCIMB003504</a></td>
+                <td><a href="TCIMB003504.html">C.S. MINA Y
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003516.html">TCIMB003516</a></td>
+                <td><a href="TCIMB003516.html">C.S. MARÍANO PEDRERO 3A
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003521.html">TCIMB003521</a></td>
+                <td><a href="TCIMB003521.html">C.S. MIGUEL HIDALGO 2A
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003533.html">TCIMB003533</a></td>
+                <td><a href="TCIMB003533.html">C.S. NICOLA BRAVO 2DA
+                SCC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003545.html">TCIMB003545</a></td>
+                <td><a href="TCIMB003545.html">C.S. VICENTE GUERRERO
+                LERMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003550.html">TCIMB003550</a></td>
+                <td><a href="TCIMB003550.html">C.S. H. GALEANA 3A
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003562.html">TCIMB003562</a></td>
+                <td><a href="TCIMB003562.html">C.S. ARCADIO
+                ZENTELLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003574.html">TCIMB003574</a></td>
+                <td><a href="TCIMB003574.html">C.S. MANUEL BUELTA Y
+                RAYON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003591.html">TCIMB003591</a></td>
+                <td><a href="TCIMB003591.html">C.S. ARENA DE
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003603.html">TCIMB003603</a></td>
+                <td><a href="TCIMB003603.html">C.S. BENITO JUÁREZ 1RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003615.html">TCIMB003615</a></td>
+                <td><a href="TCIMB003615.html">C.S. BOCA DEL
+                CERRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003620.html">TCIMB003620</a></td>
+                <td><a href="TCIMB003620.html">C.S. CORREGIDORA
+                ORTIZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003632.html">TCIMB003632</a></td>
+                <td><a href="TCIMB003632.html">C.S. EMILIANO ZAPATA 2DA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003644.html">TCIMB003644</a></td>
+                <td><a href="TCIMB003644.html">C.S. ESPERANZA
+                NORTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003656.html">TCIMB003656</a></td>
+                <td><a href="TCIMB003656.html">C.S. ESTAPILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003661.html">TCIMB003661</a></td>
+                <td><a href="TCIMB003661.html">C.S. GUAYACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003673.html">TCIMB003673</a></td>
+                <td><a href="TCIMB003673.html">C.S. LA ISLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003685.html">TCIMB003685</a></td>
+                <td><a href="TCIMB003685.html">C.S. PINO SUAREZ 1RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003690.html">TCIMB003690</a></td>
+                <td><a href="TCIMB003690.html">C.S. NUEVO
+                MÉXICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003702.html">TCIMB003702</a></td>
+                <td><a href="TCIMB003702.html">C.S. LA PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003714.html">TCIMB003714</a></td>
+                <td><a href="TCIMB003714.html">C.S. RANCHO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003726.html">TCIMB003726</a></td>
+                <td><a href="TCIMB003726.html">C.S. SANTO TOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003731.html">TCIMB003731</a></td>
+                <td><a href="TCIMB003731.html">C.S. USUMACINTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003743.html">TCIMB003743</a></td>
+                <td><a href="TCIMB003743.html">C.S. JAVIER ROJO
+                GÓMEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003755.html">TCIMB003755</a></td>
+                <td><a href="TCIMB003755.html">C.S. EL REPASTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003760.html">TCIMB003760</a></td>
+                <td><a href="TCIMB003760.html">C.S. REFORMA
+                (PROVINCIA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003772.html">TCIMB003772</a></td>
+                <td><a href="TCIMB003772.html">C.S AMPLIACIÓN LOS
+                CAÑALES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003784.html">TCIMB003784</a></td>
+                <td><a href="TCIMB003784.html">C.S. IGNACIO
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003796.html">TCIMB003796</a></td>
+                <td><a href="TCIMB003796.html">C.S. SIMÓN SARLAT (COL
+                CAPORROSA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003801.html">TCIMB003801</a></td>
+                <td><a href="TCIMB003801.html">CENTRO DE SALUD BRISAS
+                DEL CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003813.html">TCIMB003813</a></td>
+                <td><a href="TCIMB003813.html">C.S. FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003825.html">TCIMB003825</a></td>
+                <td><a href="TCIMB003825.html">C.S. BENITO
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003830.html">TCIMB003830</a></td>
+                <td><a href="TCIMB003830.html">C.S. PAILEBOTH</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003842.html">TCIMB003842</a></td>
+                <td><a href="TCIMB003842.html">C.S. CALZADA 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003854.html">TCIMB003854</a></td>
+                <td><a href="TCIMB003854.html">C.S. SINALOA 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003866.html">TCIMB003866</a></td>
+                <td><a href="TCIMB003866.html">C.S. POB. C-21 LIC.
+                BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003871.html">TCIMB003871</a></td>
+                <td><a href="TCIMB003871.html">C.S. POZA
+                REDONDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003883.html">TCIMB003883</a></td>
+                <td><a href="TCIMB003883.html">C.S. RÍO SECO Y MONTAÑA
+                2DA. SECCION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003895.html">TCIMB003895</a></td>
+                <td><a href="TCIMB003895.html">C.S. ÁLVARO
+                JIMBAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003900.html">TCIMB003900</a></td>
+                <td><a href="TCIMB003900.html">C.S. ESTANZUELA
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003912.html">TCIMB003912</a></td>
+                <td><a href="TCIMB003912.html">C.S. MIRAFLORES 3RA
+                (CHIQUIGUA 2DA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003924.html">TCIMB003924</a></td>
+                <td><a href="TCIMB003924.html">C.S. TORNO LARGO
+                3RA..</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003936.html">TCIMB003936</a></td>
+                <td><a href="TCIMB003936.html">C.S. LA CRUZ DEL
+                BAJIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003941.html">TCIMB003941</a></td>
+                <td><a href="TCIMB003941.html">C.S. GREGORIO MÉNDEZ
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003953.html">TCIMB003953</a></td>
+                <td><a href="TCIMB003953.html">C.S. NORTE 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003965.html">TCIMB003965</a></td>
+                <td><a href="TCIMB003965.html">C.S. ORIENTE 3RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003970.html">TCIMB003970</a></td>
+                <td><a href="TCIMB003970.html">C.S. SUR 1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003982.html">TCIMB003982</a></td>
+                <td><a href="TCIMB003982.html">C.S. HUIMANGO 2DA LA
+                MONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB003994.html">TCIMB003994</a></td>
+                <td><a href="TCIMB003994.html">C.S. EJIDO
+                BUENAVENTURA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004006.html">TCIMB004006</a></td>
+                <td><a href="TCIMB004006.html">C.S. LA PIEDRA
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004011.html">TCIMB004011</a></td>
+                <td><a href="TCIMB004011.html">C.S. PECHUCALCO 2DA O LAS
+                CRUCES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004023.html">TCIMB004023</a></td>
+                <td><a href="TCIMB004023.html">C.S. EL MOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004035.html">TCIMB004035</a></td>
+                <td><a href="TCIMB004035.html">C.S. AGUACATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004040.html">TCIMB004040</a></td>
+                <td><a href="TCIMB004040.html">CENTRO DE SALUD CON UN
+                NUCLEO BASICO TRES LETRAS, EMILIANO ZAPATA,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004052.html">TCIMB004052</a></td>
+                <td><a href="TCIMB004052.html">C.S. OSTITAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004064.html">TCIMB004064</a></td>
+                <td><a href="TCIMB004064.html">C.S. C-33 20 DE
+                NOVIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004076.html">TCIMB004076</a></td>
+                <td><a href="TCIMB004076.html">C.S. CHICHONAL
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004081.html">TCIMB004081</a></td>
+                <td><a href="TCIMB004081.html">C.S. HUAPACAL
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004093.html">TCIMB004093</a></td>
+                <td><a href="TCIMB004093.html">C.S. SAN MARCOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004105.html">TCIMB004105</a></td>
+                <td><a href="TCIMB004105.html">C.S. PUEBLO
+                VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004110.html">TCIMB004110</a></td>
+                <td><a href="TCIMB004110.html">C.S. EL RÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004122.html">TCIMB004122</a></td>
+                <td><a href="TCIMB004122.html">C.S. SAN ELPIDIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004134.html">TCIMB004134</a></td>
+                <td><a href="TCIMB004134.html">C.S. 1 N.B.
+                PITAHAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004146.html">TCIMB004146</a></td>
+                <td><a href="TCIMB004146.html">C.S. NUEVA DIVISIÓN DEL
+                BAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004151.html">TCIMB004151</a></td>
+                <td><a href="TCIMB004151.html">C.S. LAS FERIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004163.html">TCIMB004163</a></td>
+                <td><a href="TCIMB004163.html">C.S. SAN ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004175.html">TCIMB004175</a></td>
+                <td><a href="TCIMB004175.html">C.S. EL MANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004180.html">TCIMB004180</a></td>
+                <td><a href="TCIMB004180.html">C.S. BAJO TULIJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004192.html">TCIMB004192</a></td>
+                <td><a href="TCIMB004192.html">C.S. BUERGOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004204.html">TCIMB004204</a></td>
+                <td><a href="TCIMB004204.html">C.S. MONTE LARGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004216.html">TCIMB004216</a></td>
+                <td><a href="TCIMB004216.html">C.S. PEDRO C.
+                COLORADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004221.html">TCIMB004221</a></td>
+                <td><a href="TCIMB004221.html">C.S. TRINIDAD
+                MALPICA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004233.html">TCIMB004233</a></td>
+                <td><a href="TCIMB004233.html">C.S. UNIÓN Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004245.html">TCIMB004245</a></td>
+                <td><a href="TCIMB004245.html">C.S. BANDERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004250.html">TCIMB004250</a></td>
+                <td><a href="TCIMB004250.html">C.S. ARROYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004262.html">TCIMB004262</a></td>
+                <td><a href="TCIMB004262.html">CENTRO DE SALUD EL
+                CEDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004274.html">TCIMB004274</a></td>
+                <td><a href="TCIMB004274.html">C.S. GUASIMO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004286.html">TCIMB004286</a></td>
+                <td><a href="TCIMB004286.html">C.S. PINO SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004291.html">TCIMB004291</a></td>
+                <td><a href="TCIMB004291.html">C.S. CHICOZAPOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004303.html">TCIMB004303</a></td>
+                <td><a href="TCIMB004303.html">C.S. EL ZAPOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004315.html">TCIMB004315</a></td>
+                <td><a href="TCIMB004315.html">C.S. BUENAVISTA
+                VEINTITRES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004320.html">TCIMB004320</a></td>
+                <td><a href="TCIMB004320.html">C.S. EJIDO MIGUEL HIDALGO
+                Y COSTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004332.html">TCIMB004332</a></td>
+                <td><a href="TCIMB004332.html">CENTRO DE SALUD 20 DE
+                NOVIEMBRE, LA CUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004344.html">TCIMB004344</a></td>
+                <td><a href="TCIMB004344.html">C.S. AQUILES SERDAN 3RA.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004356.html">TCIMB004356</a></td>
+                <td><a href="TCIMB004356.html">C.S. HERMENEGILDO GALEANA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004361.html">TCIMB004361</a></td>
+                <td><a href="TCIMB004361.html">C.S. BITZAL 1RA
+                .SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004373.html">TCIMB004373</a></td>
+                <td><a href="TCIMB004373.html">C.S. ACACHAPAN Y COLMENA
+                1A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004385.html">TCIMB004385</a></td>
+                <td><a href="TCIMB004385.html">C.S. ANACLETO CANABAL
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004390.html">TCIMB004390</a></td>
+                <td><a href="TCIMB004390.html">C.S. GONZÁLEZ 1RA. PUNTA
+                BRAVA (LA GLORIA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004402.html">TCIMB004402</a></td>
+                <td><a href="TCIMB004402.html">C.S. RÌO TINTO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004414.html">TCIMB004414</a></td>
+                <td><a href="TCIMB004414.html">C.S. BOQUERON
+                4TA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004426.html">TCIMB004426</a></td>
+                <td><a href="TCIMB004426.html">C.S. CORREGIDORA
+                5TA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004431.html">TCIMB004431</a></td>
+                <td><a href="TCIMB004431.html">C.S. MEDELLÍN Y MADERO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004443.html">TCIMB004443</a></td>
+                <td><a href="TCIMB004443.html">C.S. EJIDO
+                CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004455.html">TCIMB004455</a></td>
+                <td><a href="TCIMB004455.html">C.S. MEDELLÍN Y PIGUA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004460.html">TCIMB004460</a></td>
+                <td><a href="TCIMB004460.html">C.S. GONZÁLEZ
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004472.html">TCIMB004472</a></td>
+                <td><a href="TCIMB004472.html">C.S. PLATANO Y CACAO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004484.html">TCIMB004484</a></td>
+                <td><a href="TCIMB004484.html">C.S. EMILIANO
+                ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004496.html">TCIMB004496</a></td>
+                <td><a href="TCIMB004496.html">C.S. GONZÁLEZ
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004501.html">TCIMB004501</a></td>
+                <td><a href="TCIMB004501.html">C.S. HUAPINOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004513.html">TCIMB004513</a></td>
+                <td><a href="TCIMB004513.html">C.S. EL MANZANO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004525.html">TCIMB004525</a></td>
+                <td><a href="TCIMB004525.html">C.S. TUMBULUSHAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004530.html">TCIMB004530</a></td>
+                <td><a href="TCIMB004530.html">C.S. ACACHAPAN Y COLMENA
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004542.html">TCIMB004542</a></td>
+                <td><a href="TCIMB004542.html">C.S. EL CORCHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004554.html">TCIMB004554</a></td>
+                <td><a href="TCIMB004554.html">C.S. COCOYOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004566.html">TCIMB004566</a></td>
+                <td><a href="TCIMB004566.html">C.S. MIRAFLORES
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004571.html">TCIMB004571</a></td>
+                <td><a href="TCIMB004571.html">C.S. ISMATE Y
+                CHILAPILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004583.html">TCIMB004583</a></td>
+                <td><a href="TCIMB004583.html">C.S. BARRANCA Y AMATE
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004595.html">TCIMB004595</a></td>
+                <td><a href="TCIMB004595.html">C.S. LA CEIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004600.html">TCIMB004600</a></td>
+                <td><a href="TCIMB004600.html">C.S. EL ESPINO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004612.html">TCIMB004612</a></td>
+                <td><a href="TCIMB004612.html">C.S. LOMAS DE
+                OCUILZAPOTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004624.html">TCIMB004624</a></td>
+                <td><a href="TCIMB004624.html">C.S. IXTACOMITÁN
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004636.html">TCIMB004636</a></td>
+                <td><a href="TCIMB004636.html">C.S. LAGARTERA
+                3RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004641.html">TCIMB004641</a></td>
+                <td><a href="TCIMB004641.html">C.S. PASO DE CUPILCO
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004653.html">TCIMB004653</a></td>
+                <td><a href="TCIMB004653.html">C.S. EJIDO
+                POMOCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004665.html">TCIMB004665</a></td>
+                <td><a href="TCIMB004665.html">CESSA BUENA VISTA ZONA
+                INDIGENA YOKOT´AN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004670.html">TCIMB004670</a></td>
+                <td><a href="TCIMB004670.html">C.S OCCIDENTE (SAN
+                FRANCISCO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004682.html">TCIMB004682</a></td>
+                <td><a href="TCIMB004682.html">CENTRO DE SALUD CON 2
+                NÚCLEOS BÁSICOS POB. TECOLUTA 2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004694.html">TCIMB004694</a></td>
+                <td><a href="TCIMB004694.html">CENTRO DE SALUD CON UN
+                NÚCLEO BÁSICO EJ. PARAÍSO EL TINTO, BALANCÁN ,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004706.html">TCIMB004706</a></td>
+                <td><a href="TCIMB004706.html">CENTRO DE SALUD CON 2
+                NÚCLEOS BÁSICOS POB. SIMÓN SARLAT, CENTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004711.html">TCIMB004711</a></td>
+                <td><a href="TCIMB004711.html">CENTRO DE SALUD CON UN
+                NUCLEO BASICO GREGORIO MENDEZ , EMILIANO ZAPATA,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004723.html">TCIMB004723</a></td>
+                <td><a href="TCIMB004723.html">CENTRO DE SALUD CON UN
+                NÚCLEO BÁSICO POB. CULICO 1A SECC. CUNDUACAN,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004735.html">TCIMB004735</a></td>
+                <td><a href="TCIMB004735.html">CENTRO DE SALUD CON UN
+                NUCLEO BASICO CHACAMA, EMILIANO ZAPATA, TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004740.html">TCIMB004740</a></td>
+                <td><a href="TCIMB004740.html">CENTRO DE SALUD LOMAS
+                ALEGRES DE 1 NB</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004752.html">TCIMB004752</a></td>
+                <td><a href="TCIMB004752.html">CENTRO DE SALUD CON UN
+                NÚCLEO BÁSICO COL. LA HULERÍA, BALANCAN,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004764.html">TCIMB004764</a></td>
+                <td><a href="TCIMB004764.html">C.S. POB.
+                TECOMINOACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004776.html">TCIMB004776</a></td>
+                <td><a href="TCIMB004776.html">CENTRO DE SALUD CON UN
+                NÚCLEO BÁSICO RA. CACAHUATALILLO, MACUSPANA,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004781.html">TCIMB004781</a></td>
+                <td><a href="TCIMB004781.html">CENTRO DE SALUD CON 1
+                NÚCLEO BÁSICO EJ. EL TULAR, CUNDUACAN, TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004793.html">TCIMB004793</a></td>
+                <td><a href="TCIMB004793.html">CENTRO DE SALUD CON 1N.
+                BÁSICO POB. XICOTENCATL TACOTALPA, TABASCO.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004805.html">TCIMB004805</a></td>
+                <td><a href="TCIMB004805.html">CENTRO DE SALUD CON UN
+                NÚCLEO BÁSICO RA. MONTE ADENTRO 1RA. SECC. MACUSPANA,
+                TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004810.html">TCIMB004810</a></td>
+                <td><a href="TCIMB004810.html">C.S. AQUILES
+                SERDAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004822.html">TCIMB004822</a></td>
+                <td><a href="TCIMB004822.html">C.S. CHACALAPA 1RA
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004834.html">TCIMB004834</a></td>
+                <td><a href="TCIMB004834.html">C.S. SANTA LUCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004846.html">TCIMB004846</a></td>
+                <td><a href="TCIMB004846.html">CENTRO DE SALUD CON DOS
+                NUCLEOS BASICOS POB.REDENCION DEL CAMPESINO,
+                TENOSIQUE,TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004851.html">TCIMB004851</a></td>
+                <td><a href="TCIMB004851.html">C.S. MECOACAN 2A (SAN
+                LORENZO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004863.html">TCIMB004863</a></td>
+                <td><a href="TCIMB004863.html">C.S. SANTUARIO 1RA.
+                SECCION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004880.html">TCIMB004880</a></td>
+                <td><a href="TCIMB004880.html">C.S. VILLA
+                OCUILTZAPOTLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004892.html">TCIMB004892</a></td>
+                <td><a href="TCIMB004892.html">C.S. LOS PAJAROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004904.html">TCIMB004904</a></td>
+                <td><a href="TCIMB004904.html">C.S. JOSE MA. PINO
+                SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004916.html">TCIMB004916</a></td>
+                <td><a href="TCIMB004916.html">C.S. SAN JOSE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004921.html">TCIMB004921</a></td>
+                <td><a href="TCIMB004921.html">C.S. POB.
+                MECOACAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004933.html">TCIMB004933</a></td>
+                <td><a href="TCIMB004933.html">C.S. JUAN ALDAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004950.html">TCIMB004950</a></td>
+                <td><a href="TCIMB004950.html">C.S.U. COCOHITAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004962.html">TCIMB004962</a></td>
+                <td><a href="TCIMB004962.html">C.S MIRAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004974.html">TCIMB004974</a></td>
+                <td><a href="TCIMB004974.html">CENTRO DE SALUD SALOYA
+                1A</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB004986.html">TCIMB004986</a></td>
+                <td><a href="TCIMB004986.html">CENTRO DE SALUD POB.
+                AYAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB004991.html">TCIMB004991</a></td>
+                <td><a href="TCIMB004991.html">CESSA LA MANGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005003.html">TCIMB005003</a></td>
+                <td><a href="TCIMB005003.html">C.S. VILLA
+                CHONTALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005015.html">TCIMB005015</a></td>
+                <td><a href="TCIMB005015.html">C.S. MANATINERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005032.html">TCIMB005032</a></td>
+                <td><a href="TCIMB005032.html">C.S. SAN NICOLÁS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005044.html">TCIMB005044</a></td>
+                <td><a href="TCIMB005044.html">C.S. SAN ISIDRO
+                1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005056.html">TCIMB005056</a></td>
+                <td><a href="TCIMB005056.html">C.S. SALOYA 2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005061.html">TCIMB005061</a></td>
+                <td><a href="TCIMB005061.html">C.S. EMILIANO ZAPATA 1RA
+                SECC.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005073.html">TCIMB005073</a></td>
+                <td><a href="TCIMB005073.html">C.S. FRANCISCO. I MADERO
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005085.html">TCIMB005085</a></td>
+                <td><a href="TCIMB005085.html">C.S. PEDRO A.
+                GONZALEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005090.html">TCIMB005090</a></td>
+                <td><a href="TCIMB005090.html">C.S. FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005102.html">TCIMB005102</a></td>
+                <td><a href="TCIMB005102.html">C.S. EL POCHOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005114.html">TCIMB005114</a></td>
+                <td><a href="TCIMB005114.html">C.S. JOSÉ MA. MORELOS Y
+                PAVÓN (STA RITA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005126.html">TCIMB005126</a></td>
+                <td><a href="TCIMB005126.html">C.S. SAN JOSÉ
+                GAVIOTAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005131.html">TCIMB005131</a></td>
+                <td><a href="TCIMB005131.html">C.S. STA. ROSA
+                1RA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005143.html">TCIMB005143</a></td>
+                <td><a href="TCIMB005143.html">C.S. COL.
+                MORELIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005155.html">TCIMB005155</a></td>
+                <td><a href="TCIMB005155.html">C.S. COL.
+                TEJERIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005160.html">TCIMB005160</a></td>
+                <td><a href="TCIMB005160.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005172.html">TCIMB005172</a></td>
+                <td><a href="TCIMB005172.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES FRONTERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005184.html">TCIMB005184</a></td>
+                <td><a href="TCIMB005184.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CENTRO VILLA HERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005196.html">TCIMB005196</a></td>
+                <td><a href="TCIMB005196.html">UNEME ENFERMEDADES
+                CRÓNICAS DE VILLAHERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005201.html">TCIMB005201</a></td>
+                <td><a href="TCIMB005201.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CUNDUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005213.html">TCIMB005213</a></td>
+                <td><a href="TCIMB005213.html">UNEME ENFERMEDADES
+                CRÓNICAS DE CUNDUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005225.html">TCIMB005225</a></td>
+                <td><a href="TCIMB005225.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005230.html">TCIMB005230</a></td>
+                <td><a href="TCIMB005230.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES HUIMANGUILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005242.html">TCIMB005242</a></td>
+                <td><a href="TCIMB005242.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TACOTALPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005254.html">TCIMB005254</a></td>
+                <td><a href="TCIMB005254.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TENOSIQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005283.html">TCIMB005283</a></td>
+                <td><a href="TCIMB005283.html">UNEME ENFERMEDADES
+                CRONICAS DE EMILIANO ZAPATA, TABASCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005295.html">TCIMB005295</a></td>
+                <td><a href="TCIMB005295.html">UNEME ENFERMEDADES
+                CRÓNICAS DE TEAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005300.html">TCIMB005300</a></td>
+                <td><a href="TCIMB005300.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES COMALCALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005312.html">TCIMB005312</a></td>
+                <td><a href="TCIMB005312.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES JONUTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005324.html">TCIMB005324</a></td>
+                <td><a href="TCIMB005324.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005336.html">TCIMB005336</a></td>
+                <td><a href="TCIMB005336.html">CENTRO DE SALUD VILLA
+                PARRILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005341.html">TCIMB005341</a></td>
+                <td><a href="TCIMB005341.html">CENTRO DE SALUD PARRILLA
+                II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005353.html">TCIMB005353</a></td>
+                <td><a href="TCIMB005353.html">CENTRO DE SALUD LA
+                LIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005365.html">TCIMB005365</a></td>
+                <td><a href="TCIMB005365.html">CENTRO DE SALUD ESTANCIA
+                VIEJA 1RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005370.html">TCIMB005370</a></td>
+                <td><a href="TCIMB005370.html">C.S. MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005382.html">TCIMB005382</a></td>
+                <td><a href="TCIMB005382.html">C.S GRACIANO
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005394.html">TCIMB005394</a></td>
+                <td><a href="TCIMB005394.html">CESSA
+                TECOLUTILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005406.html">TCIMB005406</a></td>
+                <td><a href="TCIMB005406.html">C.S. GREGORIO MÉNDEZ
+                2DA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005411.html">TCIMB005411</a></td>
+                <td><a href="TCIMB005411.html">C.S. EL
+                ALAMBRADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005423.html">TCIMB005423</a></td>
+                <td><a href="TCIMB005423.html">C.S BUENAVISTA RÍO NUEVO
+                2DA SECC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005435.html">TCIMB005435</a></td>
+                <td><a href="TCIMB005435.html">C.S. CHILTEPEC (PUERTO
+                CHILTEPEC)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005440.html">TCIMB005440</a></td>
+                <td><a href="TCIMB005440.html">UNEME ENFERMEDADES
+                CRÓNICAS DE CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005452.html">TCIMB005452</a></td>
+                <td><a href="TCIMB005452.html">UNEME- ENFERMEDADES
+                CRÓNICAS DE MACUSPANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005464.html">TCIMB005464</a></td>
+                <td><a href="TCIMB005464.html">C.S. HUAPACAL 1RA
+                SECC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005476.html">TCIMB005476</a></td>
+                <td><a href="TCIMB005476.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES MACUSPANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005481.html">TCIMB005481</a></td>
+                <td><a href="TCIMB005481.html">C.S. ARENA 3RA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB005493.html">TCIMB005493</a></td>
+                <td><a href="TCIMB005493.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES JALPA DE MÉNDEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TCIMB005510.html">TCIMB005510</a></td>
+                <td><a href="TCIMB005510.html">C.S. LAGARTERA
+                2DA.</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TCIMB003480.html">TCIMB003480</a></td>
+                <td><a href="TCIMB003480.html">C.S. I. LÓPEZ RAYON 1A
+                SECC.</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_tabasco.png"
+                id="fig:mapa-primer_nivel-tabasco"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
