@@ -1,0 +1,3781 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#chiapas">CHIAPAS</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="chiapas">CHIAPAS</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="CSIMB000011.html">CSIMB000011</a></td>
+                <td><a href="CSIMB000011.html">LAS BRISAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000035.html">CSIMB000035</a></td>
+                <td><a href="CSIMB000035.html">VILLA DE ACALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000040.html">CSIMB000040</a></td>
+                <td><a href="CSIMB000040.html">CENTRO DE SALUD
+                ACAPETAHUA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000052.html">CSIMB000052</a></td>
+                <td><a href="CSIMB000052.html">BARRA DE
+                ZACAPULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000064.html">CSIMB000064</a></td>
+                <td><a href="CSIMB000064.html">EJIDO LAS
+                MURALLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000076.html">CSIMB000076</a></td>
+                <td><a href="CSIMB000076.html">BIENES COMUNALES LA
+                LAGUNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000081.html">CSIMB000081</a></td>
+                <td><a href="CSIMB000081.html">CENTRO DE SALUD GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000093.html">CSIMB000093</a></td>
+                <td><a href="CSIMB000093.html">UNIDAD MEDICA MOVIL EL
+                LIMON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000105.html">CSIMB000105</a></td>
+                <td><a href="CSIMB000105.html">CENTRO DE SALUD REFORMA Y
+                PLANADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000110.html">CSIMB000110</a></td>
+                <td><a href="CSIMB000110.html">FRANCISCO I.
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000122.html">CSIMB000122</a></td>
+                <td><a href="CSIMB000122.html">PACAYAL FRONTERA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000134.html">CSIMB000134</a></td>
+                <td><a href="CSIMB000134.html">RÍO GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000146.html">CSIMB000146</a></td>
+                <td><a href="CSIMB000146.html">20 DE NOVIEMBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000180.html">CSIMB000180</a></td>
+                <td><a href="CSIMB000180.html">ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000192.html">CSIMB000192</a></td>
+                <td><a href="CSIMB000192.html">LA AZTECA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000204.html">CSIMB000204</a></td>
+                <td><a href="CSIMB000204.html">PESQUERÍA LA
+                GLORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000216.html">CSIMB000216</a></td>
+                <td><a href="CSIMB000216.html">LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000221.html">CSIMB000221</a></td>
+                <td><a href="CSIMB000221.html">PESQUERÍA LA
+                LÍNEA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000233.html">CSIMB000233</a></td>
+                <td><a href="CSIMB000233.html">NICOLÁS BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000245.html">CSIMB000245</a></td>
+                <td><a href="CSIMB000245.html">OJO DE AGUA
+                CENTRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000250.html">CSIMB000250</a></td>
+                <td><a href="CSIMB000250.html">BELLAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000262.html">CSIMB000262</a></td>
+                <td><a href="CSIMB000262.html">NUEVO PACAYAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000274.html">CSIMB000274</a></td>
+                <td><a href="CSIMB000274.html">SAN JOSÉ LAS
+                CHICHARRAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000286.html">CSIMB000286</a></td>
+                <td><a href="CSIMB000286.html">LAS CHICHARRAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000291.html">CSIMB000291</a></td>
+                <td><a href="CSIMB000291.html">CENTRO DE SALUD OJO DE
+                AGUA CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000303.html">CSIMB000303</a></td>
+                <td><a href="CSIMB000303.html">CENTRO DE SALUD URBANO
+                BERRIOZABAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000315.html">CSIMB000315</a></td>
+                <td><a href="CSIMB000315.html">CENTRO DE SALUD EL
+                BOSQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000320.html">CSIMB000320</a></td>
+                <td><a href="CSIMB000320.html">CENTRO DE SALUD
+                CHAVAJEVAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000332.html">CSIMB000332</a></td>
+                <td><a href="CSIMB000332.html">UNIDADE MEDICA MOVIL LAS
+                DELICIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000344.html">CSIMB000344</a></td>
+                <td><a href="CSIMB000344.html">PLAYAS DE
+                CATAZAJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000356.html">CSIMB000356</a></td>
+                <td><a href="CSIMB000356.html">BOCA DEL RÍO
+                CHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000361.html">CSIMB000361</a></td>
+                <td><a href="CSIMB000361.html">C.S. VILLA
+                FRACCIONAMIENTO EL ROSARIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000385.html">CSIMB000385</a></td>
+                <td><a href="CSIMB000385.html">FCO. I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000390.html">CSIMB000390</a></td>
+                <td><a href="CSIMB000390.html">CS. 1 NUEVA
+                TENOCHTITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000402.html">CSIMB000402</a></td>
+                <td><a href="CSIMB000402.html">POMPOSO
+                CASTELLANOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000414.html">CSIMB000414</a></td>
+                <td><a href="CSIMB000414.html">ELOY BORRAS
+                AGUILAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000426.html">CSIMB000426</a></td>
+                <td><a href="CSIMB000426.html">VISTAHERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000431.html">CSIMB000431</a></td>
+                <td><a href="CSIMB000431.html">PIMIENTA BERLÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000443.html">CSIMB000443</a></td>
+                <td><a href="CSIMB000443.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000455.html">CSIMB000455</a></td>
+                <td><a href="CSIMB000455.html">LIC. BUENAVISTA MATA
+                SANOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000472.html">CSIMB000472</a></td>
+                <td><a href="CSIMB000472.html">COMITÁN DE
+                DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000484.html">CSIMB000484</a></td>
+                <td><a href="CSIMB000484.html">PRIMERO DE MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000496.html">CSIMB000496</a></td>
+                <td><a href="CSIMB000496.html">STA. ROSALÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000501.html">CSIMB000501</a></td>
+                <td><a href="CSIMB000501.html">NUEVA CONCORDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000513.html">CSIMB000513</a></td>
+                <td><a href="CSIMB000513.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000525.html">CSIMB000525</a></td>
+                <td><a href="CSIMB000525.html">DOLORES
+                JALTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000530.html">CSIMB000530</a></td>
+                <td><a href="CSIMB000530.html">GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000542.html">CSIMB000542</a></td>
+                <td><a href="CSIMB000542.html">REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000554.html">CSIMB000554</a></td>
+                <td><a href="CSIMB000554.html">DIAMANTE DE
+                ECHEVERRÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000566.html">CSIMB000566</a></td>
+                <td><a href="CSIMB000566.html">EL ÁMBAR DE
+                ECHEVERRÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000571.html">CSIMB000571</a></td>
+                <td><a href="CSIMB000571.html">COPAINALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000583.html">CSIMB000583</a></td>
+                <td><a href="CSIMB000583.html">ICALUMTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000595.html">CSIMB000595</a></td>
+                <td><a href="CSIMB000595.html">JOMALHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000600.html">CSIMB000600</a></td>
+                <td><a href="CSIMB000600.html">RANCHO NARVÁEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000612.html">CSIMB000612</a></td>
+                <td><a href="CSIMB000612.html">ROMERILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000624.html">CSIMB000624</a></td>
+                <td><a href="CSIMB000624.html">SACLAMANTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000636.html">CSIMB000636</a></td>
+                <td><a href="CSIMB000636.html">MAJOMUT</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000641.html">CSIMB000641</a></td>
+                <td><a href="CSIMB000641.html">CHANAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000653.html">CSIMB000653</a></td>
+                <td><a href="CSIMB000653.html">CHENALHÓ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000665.html">CSIMB000665</a></td>
+                <td><a href="CSIMB000665.html">BELISARIO
+                DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000670.html">CSIMB000670</a></td>
+                <td><a href="CSIMB000670.html">CHIMIX DOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000682.html">CSIMB000682</a></td>
+                <td><a href="CSIMB000682.html">COLONIA PUEBLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000694.html">CSIMB000694</a></td>
+                <td><a href="CSIMB000694.html">YABTECLUM PUEBLO
+                NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000706.html">CSIMB000706</a></td>
+                <td><a href="CSIMB000706.html">CHIAPA DE CORZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000711.html">CSIMB000711</a></td>
+                <td><a href="CSIMB000711.html">RIBERA EL AMATAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000723.html">CSIMB000723</a></td>
+                <td><a href="CSIMB000723.html">NARCISO MENDOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000735.html">CSIMB000735</a></td>
+                <td><a href="CSIMB000735.html">PASO ACHIOTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000740.html">CSIMB000740</a></td>
+                <td><a href="CSIMB000740.html">CENTRO DE SALUD MANUEL
+                VELASCO SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000781.html">CSIMB000781</a></td>
+                <td><a href="CSIMB000781.html">AURORA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000793.html">CSIMB000793</a></td>
+                <td><a href="CSIMB000793.html">BACHAJÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000805.html">CSIMB000805</a></td>
+                <td><a href="CSIMB000805.html">JOL-SACJÚN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000810.html">CSIMB000810</a></td>
+                <td><a href="CSIMB000810.html">MEQUEJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000822.html">CSIMB000822</a></td>
+                <td><a href="CSIMB000822.html">PAMAL NAVIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000834.html">CSIMB000834</a></td>
+                <td><a href="CSIMB000834.html">PINABETAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000846.html">CSIMB000846</a></td>
+                <td><a href="CSIMB000846.html">JUNA SABINES
+                VERAPAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000851.html">CSIMB000851</a></td>
+                <td><a href="CSIMB000851.html">SACJÚN CUWITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000863.html">CSIMB000863</a></td>
+                <td><a href="CSIMB000863.html">CURVA LIQUILWITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000875.html">CSIMB000875</a></td>
+                <td><a href="CSIMB000875.html">SAN ANTONIO
+                BULUJIB</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000880.html">CSIMB000880</a></td>
+                <td><a href="CSIMB000880.html">CENTRO DE SALUD CON
+                HOSPITALIZACIÓN (ESCUINTLA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000892.html">CSIMB000892</a></td>
+                <td><a href="CSIMB000892.html">SAN FELIPE
+                TIZAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000904.html">CSIMB000904</a></td>
+                <td><a href="CSIMB000904.html">EL TRIUNFO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000916.html">CSIMB000916</a></td>
+                <td><a href="CSIMB000916.html">CENTRO DE SALUD MANACAL
+                LLANO GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000921.html">CSIMB000921</a></td>
+                <td><a href="CSIMB000921.html">SAN JOSÉ MASPAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000933.html">CSIMB000933</a></td>
+                <td><a href="CSIMB000933.html">VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000945.html">CSIMB000945</a></td>
+                <td><a href="CSIMB000945.html">FRONTERA
+                COMALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000950.html">CSIMB000950</a></td>
+                <td><a href="CSIMB000950.html">CD. CUAUHTÉMOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000962.html">CSIMB000962</a></td>
+                <td><a href="CSIMB000962.html">SANTA ROSA (BENITO
+                JUÁREZ)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000974.html">CSIMB000974</a></td>
+                <td><a href="CSIMB000974.html">VERAPAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000986.html">CSIMB000986</a></td>
+                <td><a href="CSIMB000986.html">FRONTERA HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000991.html">CSIMB000991</a></td>
+                <td><a href="CSIMB000991.html">HUEHUETÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001003.html">CSIMB001003</a></td>
+                <td><a href="CSIMB001003.html">LÁZARO CÁRDENAS
+                CHILIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001015.html">CSIMB001015</a></td>
+                <td><a href="CSIMB001015.html">SAN PEDRO
+                PEDERNAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001020.html">CSIMB001020</a></td>
+                <td><a href="CSIMB001020.html">SAN PEDRO LA
+                TEJERÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001032.html">CSIMB001032</a></td>
+                <td><a href="CSIMB001032.html">YALCUC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001044.html">CSIMB001044</a></td>
+                <td><a href="CSIMB001044.html">CENTRO DE SALUD EL
+                OCOTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001056.html">CSIMB001056</a></td>
+                <td><a href="CSIMB001056.html">UNIDAD MEDICA MOVIL LA
+                VENTANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001061.html">CSIMB001061</a></td>
+                <td><a href="CSIMB001061.html">CENTRO DE SALUD ZACATONAL
+                DE JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001085.html">CSIMB001085</a></td>
+                <td><a href="CSIMB001085.html">CENTRO DE SALUD URBANO
+                HUIXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001090.html">CSIMB001090</a></td>
+                <td><a href="CSIMB001090.html">JOSÉ MARÍA MORELOS Y
+                PAVÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001102.html">CSIMB001102</a></td>
+                <td><a href="CSIMB001102.html">ROSARIO BADENIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001114.html">CSIMB001114</a></td>
+                <td><a href="CSIMB001114.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001126.html">CSIMB001126</a></td>
+                <td><a href="CSIMB001126.html">LA PATRIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001131.html">CSIMB001131</a></td>
+                <td><a href="CSIMB001131.html">CENTRO DE SALUD
+                IXHUATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001143.html">CSIMB001143</a></td>
+                <td><a href="CSIMB001143.html">CENTRO DE SALUD
+                IXTACOMITÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001155.html">CSIMB001155</a></td>
+                <td><a href="CSIMB001155.html">IXTAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001160.html">CSIMB001160</a></td>
+                <td><a href="CSIMB001160.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS JIQUIPILAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001172.html">CSIMB001172</a></td>
+                <td><a href="CSIMB001172.html">JOSÉ MARÍA PINO
+                SUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001184.html">CSIMB001184</a></td>
+                <td><a href="CSIMB001184.html">CENTRO DE SALUD NUEVA
+                PALESTINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001196.html">CSIMB001196</a></td>
+                <td><a href="CSIMB001196.html">ANDRÉS QUINTANA
+                ROO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001201.html">CSIMB001201</a></td>
+                <td><a href="CSIMB001201.html">TILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001213.html">CSIMB001213</a></td>
+                <td><a href="CSIMB001213.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001225.html">CSIMB001225</a></td>
+                <td><a href="CSIMB001225.html">CENTRO DE SALUD
+                JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001230.html">CSIMB001230</a></td>
+                <td><a href="CSIMB001230.html">CENTRO DE SALUD EJIDO
+                IGNACIO ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001242.html">CSIMB001242</a></td>
+                <td><a href="CSIMB001242.html">SAN ANDRÉS
+                LARRAINZAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001254.html">CSIMB001254</a></td>
+                <td><a href="CSIMB001254.html">BAYALEMHO DOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001266.html">CSIMB001266</a></td>
+                <td><a href="CSIMB001266.html">STENLEJSOSTETIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001271.html">CSIMB001271</a></td>
+                <td><a href="CSIMB001271.html">LA LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001283.html">CSIMB001283</a></td>
+                <td><a href="CSIMB001283.html">MAPASTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001295.html">CSIMB001295</a></td>
+                <td><a href="CSIMB001295.html">ADOLFO RUIZ
+                CORTINES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001312.html">CSIMB001312</a></td>
+                <td><a href="CSIMB001312.html">AMPARO AGUA
+                TINTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001324.html">CSIMB001324</a></td>
+                <td><a href="CSIMB001324.html">GABRIEL LEYVA
+                VELÁZQUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001336.html">CSIMB001336</a></td>
+                <td><a href="CSIMB001336.html">IGNACIO ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001341.html">CSIMB001341</a></td>
+                <td><a href="CSIMB001341.html">JALISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001353.html">CSIMB001353</a></td>
+                <td><a href="CSIMB001353.html">JUSTO SIERRA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001365.html">CSIMB001365</a></td>
+                <td><a href="CSIMB001365.html">SAN ISIDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001370.html">CSIMB001370</a></td>
+                <td><a href="CSIMB001370.html">SANTA MARTHA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001382.html">CSIMB001382</a></td>
+                <td><a href="CSIMB001382.html">JERUSALEM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001394.html">CSIMB001394</a></td>
+                <td><a href="CSIMB001394.html">MAZAPA DE MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001406.html">CSIMB001406</a></td>
+                <td><a href="CSIMB001406.html">GRANADOS
+                TALCANAQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001411.html">CSIMB001411</a></td>
+                <td><a href="CSIMB001411.html">MITONTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001423.html">CSIMB001423</a></td>
+                <td><a href="CSIMB001423.html">CHALAM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001435.html">CSIMB001435</a></td>
+                <td><a href="CSIMB001435.html">MOTOZINTLA DE
+                MENDOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001440.html">CSIMB001440</a></td>
+                <td><a href="CSIMB001440.html">FRANCISCO I.
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001452.html">CSIMB001452</a></td>
+                <td><a href="CSIMB001452.html">SANTA ANA
+                PINABETO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001464.html">CSIMB001464</a></td>
+                <td><a href="CSIMB001464.html">RINCÓN DEL
+                BOSQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001476.html">CSIMB001476</a></td>
+                <td><a href="CSIMB001476.html">MIGUEL ALEMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001481.html">CSIMB001481</a></td>
+                <td><a href="CSIMB001481.html">OCOSINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001493.html">CSIMB001493</a></td>
+                <td><a href="CSIMB001493.html">NAZARETH</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001505.html">CSIMB001505</a></td>
+                <td><a href="CSIMB001505.html">YAXOQUIMTELA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001510.html">CSIMB001510</a></td>
+                <td><a href="CSIMB001510.html">CONGREGACION
+                VIRGINIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001522.html">CSIMB001522</a></td>
+                <td><a href="CSIMB001522.html">SANTA ELENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001534.html">CSIMB001534</a></td>
+                <td><a href="CSIMB001534.html">NUEVA PALESTINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001546.html">CSIMB001546</a></td>
+                <td><a href="CSIMB001546.html">FRONTERA COROZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001551.html">CSIMB001551</a></td>
+                <td><a href="CSIMB001551.html">RAMÓN F. BALBOA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001563.html">CSIMB001563</a></td>
+                <td><a href="CSIMB001563.html">SANTO DOMINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001575.html">CSIMB001575</a></td>
+                <td><a href="CSIMB001575.html">NUEVA MORELIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001580.html">CSIMB001580</a></td>
+                <td><a href="CSIMB001580.html">SAN JUAN RÓMULO
+                CALZADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001592.html">CSIMB001592</a></td>
+                <td><a href="CSIMB001592.html">LA TRINIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001604.html">CSIMB001604</a></td>
+                <td><a href="CSIMB001604.html">CHAVARICO LAS
+                PALMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001616.html">CSIMB001616</a></td>
+                <td><a href="CSIMB001616.html">LA SOLEDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001621.html">CSIMB001621</a></td>
+                <td><a href="CSIMB001621.html">PATIHUITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001633.html">CSIMB001633</a></td>
+                <td><a href="CSIMB001633.html">OCOZOCOAUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001645.html">CSIMB001645</a></td>
+                <td><a href="CSIMB001645.html">HERMENEGILDO
+                GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001650.html">CSIMB001650</a></td>
+                <td><a href="CSIMB001650.html">LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001662.html">CSIMB001662</a></td>
+                <td><a href="CSIMB001662.html">CENTRO DE SALUD PLAN DE
+                AYALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001674.html">CSIMB001674</a></td>
+                <td><a href="CSIMB001674.html">UNIDAD MEDICA MOVIL JUAN
+                DEL GRIJALVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001686.html">CSIMB001686</a></td>
+                <td><a href="CSIMB001686.html">OXCHUC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001691.html">CSIMB001691</a></td>
+                <td><a href="CSIMB001691.html">MESBILJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001703.html">CSIMB001703</a></td>
+                <td><a href="CSIMB001703.html">EL NIZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001715.html">CSIMB001715</a></td>
+                <td><a href="CSIMB001715.html">TZONTEALJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001720.html">CSIMB001720</a></td>
+                <td><a href="CSIMB001720.html">GUADALUPE BACJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001744.html">CSIMB001744</a></td>
+                <td><a href="CSIMB001744.html">PALENQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001756.html">CSIMB001756</a></td>
+                <td><a href="CSIMB001756.html">LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001761.html">CSIMB001761</a></td>
+                <td><a href="CSIMB001761.html">EL NARANJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001773.html">CSIMB001773</a></td>
+                <td><a href="CSIMB001773.html">NUEVA ESPERANZA 1ª
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001785.html">CSIMB001785</a></td>
+                <td><a href="CSIMB001785.html">RÍO CHANCALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001790.html">CSIMB001790</a></td>
+                <td><a href="CSIMB001790.html">SAN MARTÍN
+                CHAMIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001802.html">CSIMB001802</a></td>
+                <td><a href="CSIMB001802.html">LA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001814.html">CSIMB001814</a></td>
+                <td><a href="CSIMB001814.html">ROBERTO BARRIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001826.html">CSIMB001826</a></td>
+                <td><a href="CSIMB001826.html">MIGUEL HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001831.html">CSIMB001831</a></td>
+                <td><a href="CSIMB001831.html">SATURNINO RÍOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001843.html">CSIMB001843</a></td>
+                <td><a href="CSIMB001843.html">CHOCOLJAITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001855.html">CSIMB001855</a></td>
+                <td><a href="CSIMB001855.html">EBEN EZER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001860.html">CSIMB001860</a></td>
+                <td><a href="CSIMB001860.html">NUEVA ESPERANZA
+                PROGRESISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001872.html">CSIMB001872</a></td>
+                <td><a href="CSIMB001872.html">CENTRO DE SALUD
+                CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001896.html">CSIMB001896</a></td>
+                <td><a href="CSIMB001896.html">UNIDAD MEDICA MOVIL
+                CAMOAPITA 2A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001901.html">CSIMB001901</a></td>
+                <td><a href="CSIMB001901.html">UNIDAD MEDICA MOVIL
+                AZUFRE 2A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001913.html">CSIMB001913</a></td>
+                <td><a href="CSIMB001913.html">CENRO DE SALUD
+                TECTUAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001925.html">CSIMB001925</a></td>
+                <td><a href="CSIMB001925.html">CENTRO DE SALUD IGNACIO
+                ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001930.html">CSIMB001930</a></td>
+                <td><a href="CSIMB001930.html">CENTRO DE SALUD URBANO
+                PIJIJIAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001942.html">CSIMB001942</a></td>
+                <td><a href="CSIMB001942.html">LAS BRISAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001954.html">CSIMB001954</a></td>
+                <td><a href="CSIMB001954.html">EL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001966.html">CSIMB001966</a></td>
+                <td><a href="CSIMB001966.html">NUEVA COAPA
+                ECHEGARAY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001971.html">CSIMB001971</a></td>
+                <td><a href="CSIMB001971.html">HERMENEGILDO
+                GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB001983.html">CSIMB001983</a></td>
+                <td><a href="CSIMB001983.html">JOAQUÍN AMARO (EJIDO
+                TAMAULIPAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB001995.html">CSIMB001995</a></td>
+                <td><a href="CSIMB001995.html">SAN ISIDRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002000.html">CSIMB002000</a></td>
+                <td><a href="CSIMB002000.html">EJIDO LA ESPERANZA
+                (ZAPOTAL)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002012.html">CSIMB002012</a></td>
+                <td><a href="CSIMB002012.html">NUEVO MILENIO SANTA
+                CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002024.html">CSIMB002024</a></td>
+                <td><a href="CSIMB002024.html">ZAPOTILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002036.html">CSIMB002036</a></td>
+                <td><a href="CSIMB002036.html">VILLA
+                COLMALTITLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002041.html">CSIMB002041</a></td>
+                <td><a href="CSIMB002041.html">CENTRO DE SALUD CON
+                HOSPITALIZACION PUEBLO NUEVO SOLISTAHUACÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002053.html">CSIMB002053</a></td>
+                <td><a href="CSIMB002053.html">CENTRO DE SALUD ARROYO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002065.html">CSIMB002065</a></td>
+                <td><a href="CSIMB002065.html">CENTRO DE SALUD
+                RAYÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002070.html">CSIMB002070</a></td>
+                <td><a href="CSIMB002070.html">CENTRO DE SALUD URBANO
+                REFORMA, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002082.html">CSIMB002082</a></td>
+                <td><a href="CSIMB002082.html">CENTRO DE SALUD MACAYO
+                2A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002094.html">CSIMB002094</a></td>
+                <td><a href="CSIMB002094.html">UNIDAD MEDICA MOVIL SANTA
+                CRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002106.html">CSIMB002106</a></td>
+                <td><a href="CSIMB002106.html">LAS ROSAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002111.html">CSIMB002111</a></td>
+                <td><a href="CSIMB002111.html">CHIPILINAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002123.html">CSIMB002123</a></td>
+                <td><a href="CSIMB002123.html">LOS NARANJOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002135.html">CSIMB002135</a></td>
+                <td><a href="CSIMB002135.html">EL PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002140.html">CSIMB002140</a></td>
+                <td><a href="CSIMB002140.html">ATOYAC NAYLUM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002164.html">CSIMB002164</a></td>
+                <td><a href="CSIMB002164.html">ARROYO PALENQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002176.html">CSIMB002176</a></td>
+                <td><a href="CSIMB002176.html">IGNACIO ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002181.html">CSIMB002181</a></td>
+                <td><a href="CSIMB002181.html">NUEVO MUNDO *</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002193.html">CSIMB002193</a></td>
+                <td><a href="CSIMB002193.html">POTLOJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002205.html">CSIMB002205</a></td>
+                <td><a href="CSIMB002205.html">RÍO JORDÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002210.html">CSIMB002210</a></td>
+                <td><a href="CSIMB002210.html">VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002222.html">CSIMB002222</a></td>
+                <td><a href="CSIMB002222.html">SAN PEDRO SABANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002246.html">CSIMB002246</a></td>
+                <td><a href="CSIMB002246.html">SAN CRISTÓBAL DE LAS
+                CASAS, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002251.html">CSIMB002251</a></td>
+                <td><a href="CSIMB002251.html">MITZITÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002263.html">CSIMB002263</a></td>
+                <td><a href="CSIMB002263.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS SAN FERNANDO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002275.html">CSIMB002275</a></td>
+                <td><a href="CSIMB002275.html">MIGUEL HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002280.html">CSIMB002280</a></td>
+                <td><a href="CSIMB002280.html">SILTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002292.html">CSIMB002292</a></td>
+                <td><a href="CSIMB002292.html">SANTO DOMINGO LA
+                CASCADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002304.html">CSIMB002304</a></td>
+                <td><a href="CSIMB002304.html">EL LETRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002316.html">CSIMB002316</a></td>
+                <td><a href="CSIMB002316.html">SAN ANTONIO LA
+                PINADA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002321.html">CSIMB002321</a></td>
+                <td><a href="CSIMB002321.html">SANTA MARÍA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002333.html">CSIMB002333</a></td>
+                <td><a href="CSIMB002333.html">CENTRO DE SALUD
+                SIMOJOVEL, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002345.html">CSIMB002345</a></td>
+                <td><a href="CSIMB002345.html">UNIDAD MEDICA MOVIL
+                CARMITO BUENA VISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002350.html">CSIMB002350</a></td>
+                <td><a href="CSIMB002350.html">CENTRO DE SALUD EJIDO
+                CONSTITUCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002362.html">CSIMB002362</a></td>
+                <td><a href="CSIMB002362.html">GOLONCHÁN VIEJO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002374.html">CSIMB002374</a></td>
+                <td><a href="CSIMB002374.html">SANTA BÁRBARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002386.html">CSIMB002386</a></td>
+                <td><a href="CSIMB002386.html">PAMALÁ PICOTÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002391.html">CSIMB002391</a></td>
+                <td><a href="CSIMB002391.html">SOCOLTENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002403.html">CSIMB002403</a></td>
+                <td><a href="CSIMB002403.html">CENTRO DE SALUD CERRO DE
+                LAS CAMPANAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002415.html">CSIMB002415</a></td>
+                <td><a href="CSIMB002415.html">SUCHIAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002420.html">CSIMB002420</a></td>
+                <td><a href="CSIMB002420.html">PACÚ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002432.html">CSIMB002432</a></td>
+                <td><a href="CSIMB002432.html">CIUDAD HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002444.html">CSIMB002444</a></td>
+                <td><a href="CSIMB002444.html">TAPACHULA SANTA
+                CLARA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002456.html">CSIMB002456</a></td>
+                <td><a href="CSIMB002456.html">VILLA DE LAS FLORES
+                (TAPACHULA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002461.html">CSIMB002461</a></td>
+                <td><a href="CSIMB002461.html">TAPACHULA INDECO
+                CEBADILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002473.html">CSIMB002473</a></td>
+                <td><a href="CSIMB002473.html">TAPACHULA DE CÓRDOBA Y
+                ORDÓÑEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002485.html">CSIMB002485</a></td>
+                <td><a href="CSIMB002485.html">ÁLVARO OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002490.html">CSIMB002490</a></td>
+                <td><a href="CSIMB002490.html">CARRILLO PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002502.html">CSIMB002502</a></td>
+                <td><a href="CSIMB002502.html">CEBADILLA 2A.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002514.html">CSIMB002514</a></td>
+                <td><a href="CSIMB002514.html">EL EDÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002526.html">CSIMB002526</a></td>
+                <td><a href="CSIMB002526.html">LLANO DE LA LIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002531.html">CSIMB002531</a></td>
+                <td><a href="CSIMB002531.html">JOSÉ MARÍA
+                MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002543.html">CSIMB002543</a></td>
+                <td><a href="CSIMB002543.html">PUERTO MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002555.html">CSIMB002555</a></td>
+                <td><a href="CSIMB002555.html">RAYMUNDO
+                ENRÍQUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002572.html">CSIMB002572</a></td>
+                <td><a href="CSIMB002572.html">C.S. TINAJAS 1A.
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002584.html">CSIMB002584</a></td>
+                <td><a href="CSIMB002584.html">VIVA MÉXICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002596.html">CSIMB002596</a></td>
+                <td><a href="CSIMB002596.html">TECPATAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002601.html">CSIMB002601</a></td>
+                <td><a href="CSIMB002601.html">FRANCISCO I.
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002613.html">CSIMB002613</a></td>
+                <td><a href="CSIMB002613.html">GUSTAVO DÍAZ
+                ORDAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002625.html">CSIMB002625</a></td>
+                <td><a href="CSIMB002625.html">RAUDALES MALPASO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002642.html">CSIMB002642</a></td>
+                <td><a href="CSIMB002642.html">TENEJAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002654.html">CSIMB002654</a></td>
+                <td><a href="CSIMB002654.html">SHISHINTONIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002666.html">CSIMB002666</a></td>
+                <td><a href="CSIMB002666.html">TEOPISCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002671.html">CSIMB002671</a></td>
+                <td><a href="CSIMB002671.html">BETANIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002695.html">CSIMB002695</a></td>
+                <td><a href="CSIMB002695.html">TILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002700.html">CSIMB002700</a></td>
+                <td><a href="CSIMB002700.html">ÁLVARO OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002712.html">CSIMB002712</a></td>
+                <td><a href="CSIMB002712.html">USIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002724.html">CSIMB002724</a></td>
+                <td><a href="CSIMB002724.html">NUEVO LIMAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002736.html">CSIMB002736</a></td>
+                <td><a href="CSIMB002736.html">JOLJA TIONTIEPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002741.html">CSIMB002741</a></td>
+                <td><a href="CSIMB002741.html">WILLIS 2ª
+                SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002765.html">CSIMB002765</a></td>
+                <td><a href="CSIMB002765.html">PUERTO ARISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002770.html">CSIMB002770</a></td>
+                <td><a href="CSIMB002770.html">CABEZA DE TORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002782.html">CSIMB002782</a></td>
+                <td><a href="CSIMB002782.html">IGNACIO RAMÍREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002794.html">CSIMB002794</a></td>
+                <td><a href="CSIMB002794.html">NOYOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002806.html">CSIMB002806</a></td>
+                <td><a href="CSIMB002806.html">PUEBLO NUEVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002811.html">CSIMB002811</a></td>
+                <td><a href="CSIMB002811.html">EJIDO MORELOS (ESTACIÓN
+                MOJARRAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002823.html">CSIMB002823</a></td>
+                <td><a href="CSIMB002823.html">TOTOLAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002835.html">CSIMB002835</a></td>
+                <td><a href="CSIMB002835.html">LA TRINITARIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002840.html">CSIMB002840</a></td>
+                <td><a href="CSIMB002840.html">ÁLVARO OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002852.html">CSIMB002852</a></td>
+                <td><a href="CSIMB002852.html">CRISTÓBAL COLÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002864.html">CSIMB002864</a></td>
+                <td><a href="CSIMB002864.html">HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002876.html">CSIMB002876</a></td>
+                <td><a href="CSIMB002876.html">TZISCAO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002881.html">CSIMB002881</a></td>
+                <td><a href="CSIMB002881.html">NUEVA VENECIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002893.html">CSIMB002893</a></td>
+                <td><a href="CSIMB002893.html">LOMA BONITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002905.html">CSIMB002905</a></td>
+                <td><a href="CSIMB002905.html">LA GLORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002910.html">CSIMB002910</a></td>
+                <td><a href="CSIMB002910.html">FLOR DE MAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002922.html">CSIMB002922</a></td>
+                <td><a href="CSIMB002922.html">NUEVA LIBERTAD (EL
+                COLORADO)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002934.html">CSIMB002934</a></td>
+                <td><a href="CSIMB002934.html">NUEVO LLANO
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002946.html">CSIMB002946</a></td>
+                <td><a href="CSIMB002946.html">IGNACIO ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002951.html">CSIMB002951</a></td>
+                <td><a href="CSIMB002951.html">CACAHUATAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002963.html">CSIMB002963</a></td>
+                <td><a href="CSIMB002963.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002975.html">CSIMB002975</a></td>
+                <td><a href="CSIMB002975.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002992.html">CSIMB002992</a></td>
+                <td><a href="CSIMB002992.html">TUXTLA (COL. SANTA
+                CRUZ)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003004.html">CSIMB003004</a></td>
+                <td><a href="CSIMB003004.html">BIENESTAR SOCIAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003016.html">CSIMB003016</a></td>
+                <td><a href="CSIMB003016.html">PLAN DE AYALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003021.html">CSIMB003021</a></td>
+                <td><a href="CSIMB003021.html">ALBANIA (EL
+                VALLE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003033.html">CSIMB003033</a></td>
+                <td><a href="CSIMB003033.html">PATRIA NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003045.html">CSIMB003045</a></td>
+                <td><a href="CSIMB003045.html">TERAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003050.html">CSIMB003050</a></td>
+                <td><a href="CSIMB003050.html">COPOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003062.html">CSIMB003062</a></td>
+                <td><a href="CSIMB003062.html">EL JOBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003074.html">CSIMB003074</a></td>
+                <td><a href="CSIMB003074.html">TUXTLA CHICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003086.html">CSIMB003086</a></td>
+                <td><a href="CSIMB003086.html">C.S. PRIMERA SECCIÓN DE
+                MEDIO MONTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003091.html">CSIMB003091</a></td>
+                <td><a href="CSIMB003091.html">C.S. ISLAMAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003103.html">CSIMB003103</a></td>
+                <td><a href="CSIMB003103.html">FELIPE ÁNGELES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003115.html">CSIMB003115</a></td>
+                <td><a href="CSIMB003115.html">OCHUSJOB</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003120.html">CSIMB003120</a></td>
+                <td><a href="CSIMB003120.html">UNIÓN JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003132.html">CSIMB003132</a></td>
+                <td><a href="CSIMB003132.html">VENUSTIANO
+                CARRANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003144.html">CSIMB003144</a></td>
+                <td><a href="CSIMB003144.html">GUADALUPE
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003156.html">CSIMB003156</a></td>
+                <td><a href="CSIMB003156.html">SAN FRANCISCO
+                PUJILTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003161.html">CSIMB003161</a></td>
+                <td><a href="CSIMB003161.html">LAJA TENDIDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003173.html">CSIMB003173</a></td>
+                <td><a href="CSIMB003173.html">VILLACORZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003185.html">CSIMB003185</a></td>
+                <td><a href="CSIMB003185.html">SN. PEDRO
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003190.html">CSIMB003190</a></td>
+                <td><a href="CSIMB003190.html">EL PARRAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003202.html">CSIMB003202</a></td>
+                <td><a href="CSIMB003202.html">24 DE FEBRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003214.html">CSIMB003214</a></td>
+                <td><a href="CSIMB003214.html">VILLAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003226.html">CSIMB003226</a></td>
+                <td><a href="CSIMB003226.html">CALZADA LARGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003231.html">CSIMB003231</a></td>
+                <td><a href="CSIMB003231.html">CRISTÓBAL
+                OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003243.html">CSIMB003243</a></td>
+                <td><a href="CSIMB003243.html">DR. DOMINGO
+                CHANONA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003255.html">CSIMB003255</a></td>
+                <td><a href="CSIMB003255.html">JESÚS MA. GARZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003260.html">CSIMB003260</a></td>
+                <td><a href="CSIMB003260.html">ROBLADA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003272.html">CSIMB003272</a></td>
+                <td><a href="CSIMB003272.html">TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003284.html">CSIMB003284</a></td>
+                <td><a href="CSIMB003284.html">YAJALÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003296.html">CSIMB003296</a></td>
+                <td><a href="CSIMB003296.html">CHIQUINIVALVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003301.html">CSIMB003301</a></td>
+                <td><a href="CSIMB003301.html">NACHING</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003313.html">CSIMB003313</a></td>
+                <td><a href="CSIMB003313.html">NAVENCHAUC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003325.html">CSIMB003325</a></td>
+                <td><a href="CSIMB003325.html">CHILOLJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003330.html">CSIMB003330</a></td>
+                <td><a href="CSIMB003330.html">CHACTÉ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003342.html">CSIMB003342</a></td>
+                <td><a href="CSIMB003342.html">ONILTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003354.html">CSIMB003354</a></td>
+                <td><a href="CSIMB003354.html">ARROYO DELICIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003366.html">CSIMB003366</a></td>
+                <td><a href="CSIMB003366.html">NUEVO VERACRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003371.html">CSIMB003371</a></td>
+                <td><a href="CSIMB003371.html">QUETZALCÓALT</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003383.html">CSIMB003383</a></td>
+                <td><a href="CSIMB003383.html">SANTA MARGARITA AGUA
+                AZUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003395.html">CSIMB003395</a></td>
+                <td><a href="CSIMB003395.html">BOCA DE CHAJUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003400.html">CSIMB003400</a></td>
+                <td><a href="CSIMB003400.html">QUIRINGUICHARO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003412.html">CSIMB003412</a></td>
+                <td><a href="CSIMB003412.html">LAGUNA DEL COFRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003424.html">CSIMB003424</a></td>
+                <td><a href="CSIMB003424.html">SAN NICOLÁS PLAN DE
+                AYUTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003436.html">CSIMB003436</a></td>
+                <td><a href="CSIMB003436.html">PEDREGAL SAN
+                ÁNGEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003441.html">CSIMB003441</a></td>
+                <td><a href="CSIMB003441.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003453.html">CSIMB003453</a></td>
+                <td><a href="CSIMB003453.html">BASHEQUÉM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003465.html">CSIMB003465</a></td>
+                <td><a href="CSIMB003465.html">CHAONIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003470.html">CSIMB003470</a></td>
+                <td><a href="CSIMB003470.html">LELENCHIG</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003482.html">CSIMB003482</a></td>
+                <td><a href="CSIMB003482.html">TIEMOPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003494.html">CSIMB003494</a></td>
+                <td><a href="CSIMB003494.html">SAN QUINTÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003523.html">CSIMB003523</a></td>
+                <td><a href="CSIMB003523.html">TS´AKIBILJOK</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003535.html">CSIMB003535</a></td>
+                <td><a href="CSIMB003535.html">CALLEJÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003540.html">CSIMB003540</a></td>
+                <td><a href="CSIMB003540.html">NUEVA PALESTINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003552.html">CSIMB003552</a></td>
+                <td><a href="CSIMB003552.html">FRANCISCO
+                SARABIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003564.html">CSIMB003564</a></td>
+                <td><a href="CSIMB003564.html">UNIÓN AGRARISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003576.html">CSIMB003576</a></td>
+                <td><a href="CSIMB003576.html">CHIAPILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003581.html">CSIMB003581</a></td>
+                <td><a href="CSIMB003581.html">IGNACIO ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003593.html">CSIMB003593</a></td>
+                <td><a href="CSIMB003593.html">VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003610.html">CSIMB003610</a></td>
+                <td><a href="CSIMB003610.html">CENTRO DE SALUD URBANO DE
+                TONALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003634.html">CSIMB003634</a></td>
+                <td><a href="CSIMB003634.html">CENTRO DE SALUD
+                CINTALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003651.html">CSIMB003651</a></td>
+                <td><a href="CSIMB003651.html">CENTRO DE SALUD TUXTLA
+                GUTIERREZ, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003663.html">CSIMB003663</a></td>
+                <td><a href="CSIMB003663.html">CENTRO DE SALUD
+                JALTENANGO DE LA PAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003721.html">CSIMB003721</a></td>
+                <td><a href="CSIMB003721.html">CENTRO DE SALUD LA
+                PIMIENTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003733.html">CSIMB003733</a></td>
+                <td><a href="CSIMB003733.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DR MANUEL VELASCO SUAREZ, NICOLAS
+                RUIZ, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003745.html">CSIMB003745</a></td>
+                <td><a href="CSIMB003745.html">SABANILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003750.html">CSIMB003750</a></td>
+                <td><a href="CSIMB003750.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DR. MANUEL VELASCO SUAREZ, TUMBALA,
+                CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003762.html">CSIMB003762</a></td>
+                <td><a href="CSIMB003762.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS JITOTOL, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003774.html">CSIMB003774</a></td>
+                <td><a href="CSIMB003774.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS CACAHOATAN “DR MANUEL VELASCO
+                SUAREZ”</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003786.html">CSIMB003786</a></td>
+                <td><a href="CSIMB003786.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS CHICOMUSELO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003791.html">CSIMB003791</a></td>
+                <td><a href="CSIMB003791.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS HUITIUPAN, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003803.html">CSIMB003803</a></td>
+                <td><a href="CSIMB003803.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS OCOTEPEC DR MANUEL VELASCO
+                SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003815.html">CSIMB003815</a></td>
+                <td><a href="CSIMB003815.html">SANTA MARIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003820.html">CSIMB003820</a></td>
+                <td><a href="CSIMB003820.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS CHAPULTENANGO, CHIAPAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003832.html">CSIMB003832</a></td>
+                <td><a href="CSIMB003832.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DR MANUEL VELASCO SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003844.html">CSIMB003844</a></td>
+                <td><a href="CSIMB003844.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADO JOAQUIN MIGUEZ GUTIERREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003856.html">CSIMB003856</a></td>
+                <td><a href="CSIMB003856.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS PANTELHO DR MANUEL VELASCO
+                SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003861.html">CSIMB003861</a></td>
+                <td><a href="CSIMB003861.html">CENTRO DE SALUD RURAL
+                PAREDON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003873.html">CSIMB003873</a></td>
+                <td><a href="CSIMB003873.html">CENTRO DE SALUD
+                CRUZTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003885.html">CSIMB003885</a></td>
+                <td><a href="CSIMB003885.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACIÓN TEMPRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003914.html">CSIMB003914</a></td>
+                <td><a href="CSIMB003914.html">CENTRO DE SALUD SAN PEDRO
+                COTZILNAM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB003931.html">CSIMB003931</a></td>
+                <td><a href="CSIMB003931.html">CENTRO DE SALUD LAS
+                LIMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB003960.html">CSIMB003960</a></td>
+                <td><a href="CSIMB003960.html">C.S. NAPITE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004013.html">CSIMB004013</a></td>
+                <td><a href="CSIMB004013.html">CARAVANA TIPO 0
+                CONOILJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004025.html">CSIMB004025</a></td>
+                <td><a href="CSIMB004025.html">CARAVANA TIPO 0
+                PACANAM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004030.html">CSIMB004030</a></td>
+                <td><a href="CSIMB004030.html">CARAVANA TIPO 0 CALVARIO
+                LAS DELICIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004042.html">CSIMB004042</a></td>
+                <td><a href="CSIMB004042.html">CARAVANA TIPO 0 MIGUEL
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004054.html">CSIMB004054</a></td>
+                <td><a href="CSIMB004054.html">CARAVANA TIPO 0 NUEVO
+                SUSHILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004066.html">CSIMB004066</a></td>
+                <td><a href="CSIMB004066.html">CARAVANA TIPO 0
+                SHASHIJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004071.html">CSIMB004071</a></td>
+                <td><a href="CSIMB004071.html">CARAVANA TIPO 0 CALVARIO
+                BAHUITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004083.html">CSIMB004083</a></td>
+                <td><a href="CSIMB004083.html">CARAVANA TIPO 0 SOMBRA
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004095.html">CSIMB004095</a></td>
+                <td><a href="CSIMB004095.html">CARAVANA TIPO 0
+                TULAQUIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004100.html">CSIMB004100</a></td>
+                <td><a href="CSIMB004100.html">CARAVANA TIPO 0 JOCHOMPAT
+                CARMEN GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004112.html">CSIMB004112</a></td>
+                <td><a href="CSIMB004112.html">CARAVANA TIPO 0 LA
+                AURORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004124.html">CSIMB004124</a></td>
+                <td><a href="CSIMB004124.html">CARAVANA TIPO 0 SAN
+                FRANCISCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004136.html">CSIMB004136</a></td>
+                <td><a href="CSIMB004136.html">CARAVANA TIPO 0 EL
+                CENSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004141.html">CSIMB004141</a></td>
+                <td><a href="CSIMB004141.html">CARAVANA TIPO 0 NUEVO
+                MARISCAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004153.html">CSIMB004153</a></td>
+                <td><a href="CSIMB004153.html">CARAVANA TIPO 0
+                MACEDONIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004165.html">CSIMB004165</a></td>
+                <td><a href="CSIMB004165.html">CARAVANA TIPO 0 SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004170.html">CSIMB004170</a></td>
+                <td><a href="CSIMB004170.html">CARAVANA TIPO 0 CINCO DE
+                FEBRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004182.html">CSIMB004182</a></td>
+                <td><a href="CSIMB004182.html">CARAVANA TIPO 0 SANTA
+                LUCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004194.html">CSIMB004194</a></td>
+                <td><a href="CSIMB004194.html">CARAVANA TIPO ´0 LA
+                CUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004206.html">CSIMB004206</a></td>
+                <td><a href="CSIMB004206.html">CARAVANA TIPO 0 EL
+                LACANDON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004211.html">CSIMB004211</a></td>
+                <td><a href="CSIMB004211.html">CARAVANA TIPO 0 EL
+                EDEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004223.html">CSIMB004223</a></td>
+                <td><a href="CSIMB004223.html">CARAVANA TIPO 0
+                LICENCIADO GUSTAVO DIAZ ORDAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004235.html">CSIMB004235</a></td>
+                <td><a href="CSIMB004235.html">CARAVANA TIPO 0
+                LINDAVISTA (CHINIQUIJA)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004240.html">CSIMB004240</a></td>
+                <td><a href="CSIMB004240.html">CARAVANA TIPO 0 RICARDO
+                FLORES MAGON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004264.html">CSIMB004264</a></td>
+                <td><a href="CSIMB004264.html">CARAVANA TIPO 0 LAZARO
+                CARDENAS DEL RIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004276.html">CSIMB004276</a></td>
+                <td><a href="CSIMB004276.html">CARAVANA TIPO 0 ASUNCION
+                HUITIUPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004281.html">CSIMB004281</a></td>
+                <td><a href="CSIMB004281.html">CARAVANA TIPO 0
+                TORTUGUERO 2A. SECCION</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004293.html">CSIMB004293</a></td>
+                <td><a href="CSIMB004293.html">CARAVANA TIPO ´0 JOSE
+                MARIA PINO SUAREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004305.html">CSIMB004305</a></td>
+                <td><a href="CSIMB004305.html">CARAVANA TIPO 0
+                MANACAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004310.html">CSIMB004310</a></td>
+                <td><a href="CSIMB004310.html">CARAVANA DE SALUD 0
+                TOQUIAN CHIQUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004322.html">CSIMB004322</a></td>
+                <td><a href="CSIMB004322.html">CARAVANA TIPO 0 CERRO
+                MISOPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004334.html">CSIMB004334</a></td>
+                <td><a href="CSIMB004334.html">CARAVANA TIPO 0 ARROYO
+                CARRIZAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004346.html">CSIMB004346</a></td>
+                <td><a href="CSIMB004346.html">CARAVANA TIPO 0
+                PUYIPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004351.html">CSIMB004351</a></td>
+                <td><a href="CSIMB004351.html">CARAVANA TIPO 0 EL
+                OCOTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004363.html">CSIMB004363</a></td>
+                <td><a href="CSIMB004363.html">CARAVANA TIPO 0 SANTA
+                CANDELARIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004380.html">CSIMB004380</a></td>
+                <td><a href="CSIMB004380.html">CARAVANA TIPO 0 LA
+                ARENA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004392.html">CSIMB004392</a></td>
+                <td><a href="CSIMB004392.html">CARAVANA TIPO 0 ESPERANZA
+                SÉTZER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004404.html">CSIMB004404</a></td>
+                <td><a href="CSIMB004404.html">CENTRO DE SALUD
+                MICROREGIONAL CRISTOBAL COLON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004416.html">CSIMB004416</a></td>
+                <td><a href="CSIMB004416.html">COAPILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004421.html">CSIMB004421</a></td>
+                <td><a href="CSIMB004421.html">CENTRO DE SALUD
+                MICROREGIONAL PONCIANO ARRIAGA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004433.html">CSIMB004433</a></td>
+                <td><a href="CSIMB004433.html">CARAVANA TIPO 0 LA
+                VICTORIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004445.html">CSIMB004445</a></td>
+                <td><a href="CSIMB004445.html">CARAVANA TIPO 0 EL
+                PIG</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004450.html">CSIMB004450</a></td>
+                <td><a href="CSIMB004450.html">CARAVANA TIPO 0 PLAN
+                PAREDÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004462.html">CSIMB004462</a></td>
+                <td><a href="CSIMB004462.html">CARAVANA TIPO 0
+                YUQUÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004474.html">CSIMB004474</a></td>
+                <td><a href="CSIMB004474.html">CARAVANA TIPO 0 SAN
+                MIGUEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004486.html">CSIMB004486</a></td>
+                <td><a href="CSIMB004486.html">CARAVANA TIPO 0 LAS
+                LIMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004491.html">CSIMB004491</a></td>
+                <td><a href="CSIMB004491.html">CARAVANA TIPO 0
+                VILLAFLORES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004503.html">CSIMB004503</a></td>
+                <td><a href="CSIMB004503.html">CARAVANA TIPO 0 JOLNOPA
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004515.html">CSIMB004515</a></td>
+                <td><a href="CSIMB004515.html">CARAVANA TIPO 0 ESPERANZA
+                TAKINUKUM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004520.html">CSIMB004520</a></td>
+                <td><a href="CSIMB004520.html">CARAVANA TIPO 0 LA
+                CONCORDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004532.html">CSIMB004532</a></td>
+                <td><a href="CSIMB004532.html">CARAVANA TIPO 0 SAN JUAN
+                CHANCALAITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004544.html">CSIMB004544</a></td>
+                <td><a href="CSIMB004544.html">CARAVANA TIPO 0 EL
+                PRADO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004556.html">CSIMB004556</a></td>
+                <td><a href="CSIMB004556.html">CENTRO DE SALUD
+                POTRERILLO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004561.html">CSIMB004561</a></td>
+                <td><a href="CSIMB004561.html">CENTRO DE SALUD VILLA
+                HERMOSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004573.html">CSIMB004573</a></td>
+                <td><a href="CSIMB004573.html">CENTRO DE SALUD SAN
+                CRISTOBAL DE LAS CASAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004590.html">CSIMB004590</a></td>
+                <td><a href="CSIMB004590.html">UNIDAD MEDICA MOVIL 307
+                SAMUEL LEON BRINDIS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004602.html">CSIMB004602</a></td>
+                <td><a href="CSIMB004602.html">CENTRO DE SALUD RURAL
+                RANCHERIA EL CONGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004614.html">CSIMB004614</a></td>
+                <td><a href="CSIMB004614.html">MIGUEL ALEMÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004655.html">CSIMB004655</a></td>
+                <td><a href="CSIMB004655.html">CENTRO DE SALUD SAN
+                MIGUEL 1A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004660.html">CSIMB004660</a></td>
+                <td><a href="CSIMB004660.html">CENTRO DE SALUD LA
+                CEIBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004672.html">CSIMB004672</a></td>
+                <td><a href="CSIMB004672.html">CENTRO DE SALUD RAFAEL
+                PASCACIO GAMBOA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004684.html">CSIMB004684</a></td>
+                <td><a href="CSIMB004684.html">EL MANGUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004696.html">CSIMB004696</a></td>
+                <td><a href="CSIMB004696.html">SOYALÓ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004701.html">CSIMB004701</a></td>
+                <td><a href="CSIMB004701.html">NUEVO HUIXTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004730.html">CSIMB004730</a></td>
+                <td><a href="CSIMB004730.html">CENTRO DE SALUD
+                MICROREGIONAL BALUNACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004742.html">CSIMB004742</a></td>
+                <td><a href="CSIMB004742.html">NATILTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004754.html">CSIMB004754</a></td>
+                <td><a href="CSIMB004754.html">MAJUMPEPEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004766.html">CSIMB004766</a></td>
+                <td><a href="CSIMB004766.html">TZAJALCHÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004771.html">CSIMB004771</a></td>
+                <td><a href="CSIMB004771.html">SAN JUAN CANCUC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004783.html">CSIMB004783</a></td>
+                <td><a href="CSIMB004783.html">ZINACANTÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004795.html">CSIMB004795</a></td>
+                <td><a href="CSIMB004795.html">CARAVANA TIPO 3
+                TZAJALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004800.html">CSIMB004800</a></td>
+                <td><a href="CSIMB004800.html">CARAVANA TIPO 2 EL
+                TRIUNFO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004812.html">CSIMB004812</a></td>
+                <td><a href="CSIMB004812.html">CARAVANA TIPO 2 DOS
+                RIOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004824.html">CSIMB004824</a></td>
+                <td><a href="CSIMB004824.html">CARAVANA TIPO 1 CHEWAL
+                MUQUENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004836.html">CSIMB004836</a></td>
+                <td><a href="CSIMB004836.html">CARAVANA TIPO 1
+                YA´ALTZEMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004841.html">CSIMB004841</a></td>
+                <td><a href="CSIMB004841.html">CARAVANA TIPO 2 LA
+                FLORIDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004853.html">CSIMB004853</a></td>
+                <td><a href="CSIMB004853.html">CENTRO DE SALUD
+                IXTAPANGAJOYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004865.html">CSIMB004865</a></td>
+                <td><a href="CSIMB004865.html">CENTRO DE SALUD
+                SOLOSUCHIAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004870.html">CSIMB004870</a></td>
+                <td><a href="CSIMB004870.html">SITALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004882.html">CSIMB004882</a></td>
+                <td><a href="CSIMB004882.html">NUEVO PARAÍSO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004894.html">CSIMB004894</a></td>
+                <td><a href="CSIMB004894.html">EL TEPEYAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004906.html">CSIMB004906</a></td>
+                <td><a href="CSIMB004906.html">CARAVANA TIPO 2 SNA
+                OQUIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004911.html">CSIMB004911</a></td>
+                <td><a href="CSIMB004911.html">UNIDAD MÉDICA MÓVIL TIPO
+                2 CHIOTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004923.html">CSIMB004923</a></td>
+                <td><a href="CSIMB004923.html">LAS LAURAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004935.html">CSIMB004935</a></td>
+                <td><a href="CSIMB004935.html">MAZATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004940.html">CSIMB004940</a></td>
+                <td><a href="CSIMB004940.html">NUEVO MILENIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004952.html">CSIMB004952</a></td>
+                <td><a href="CSIMB004952.html">CENTRO DE SALUD NUEVO
+                JUAN DEL GRIJALVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004976.html">CSIMB004976</a></td>
+                <td><a href="CSIMB004976.html">CARAVANA TIPO 0 SAN
+                CARLOS CORRALITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004981.html">CSIMB004981</a></td>
+                <td><a href="CSIMB004981.html">CARAVANA TIPO 0 SAN JOSÉ
+                BUENAVISTA TERCERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004993.html">CSIMB004993</a></td>
+                <td><a href="CSIMB004993.html">CARAVANA TIPO 1 CAMOAPA
+                1A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005005.html">CSIMB005005</a></td>
+                <td><a href="CSIMB005005.html">CARAVANA TIPO 1
+                JOTOLCHÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005022.html">CSIMB005022</a></td>
+                <td><a href="CSIMB005022.html">CARAVANA TIPO 0
+                POMILTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005034.html">CSIMB005034</a></td>
+                <td><a href="CSIMB005034.html">CARAVANA TIPO 1
+                BUENAVISTA TENOJIB</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005046.html">CSIMB005046</a></td>
+                <td><a href="CSIMB005046.html">CARAVANA TIPO 3
+                XANIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005051.html">CSIMB005051</a></td>
+                <td><a href="CSIMB005051.html">CARAVANA TIPO 3
+                TEMÓ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005063.html">CSIMB005063</a></td>
+                <td><a href="CSIMB005063.html">CARAVANA TIPO 0 JOL
+                CATARRAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005075.html">CSIMB005075</a></td>
+                <td><a href="CSIMB005075.html">CARAVANA TIPO 0
+                CHUTALILJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005080.html">CSIMB005080</a></td>
+                <td><a href="CSIMB005080.html">CARAVANA TIPO 0 RIO
+                NEGRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005092.html">CSIMB005092</a></td>
+                <td><a href="CSIMB005092.html">CARAVANA TIPO 0 LOS
+                MANGOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005104.html">CSIMB005104</a></td>
+                <td><a href="CSIMB005104.html">CARAVANA TIPO 1 SAN
+                CARALAMPIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005116.html">CSIMB005116</a></td>
+                <td><a href="CSIMB005116.html">CARAVANA TIPO 0 SANTA
+                ANITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005121.html">CSIMB005121</a></td>
+                <td><a href="CSIMB005121.html">CARAVANA TIPO 0
+                CHABECLUMIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005133.html">CSIMB005133</a></td>
+                <td><a href="CSIMB005133.html">CARAVANA TIPO 3 CENTRO
+                JOLAKIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005145.html">CSIMB005145</a></td>
+                <td><a href="CSIMB005145.html">CARAVANA TIPO 0 LA PALMA
+                UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005150.html">CSIMB005150</a></td>
+                <td><a href="CSIMB005150.html">CARAVANA TIPO 0 ADOLFO
+                RUÍZ CORTÍNEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005162.html">CSIMB005162</a></td>
+                <td><a href="CSIMB005162.html">CARAVANA TIPO 0
+                POCOLTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005174.html">CSIMB005174</a></td>
+                <td><a href="CSIMB005174.html">CARAVANA TIPO 1
+                SUYTIK</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005186.html">CSIMB005186</a></td>
+                <td><a href="CSIMB005186.html">LAS MARGARITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005191.html">CSIMB005191</a></td>
+                <td><a href="CSIMB005191.html">VERACRUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005203.html">CSIMB005203</a></td>
+                <td><a href="CSIMB005203.html">CESSA SAN LUCAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005215.html">CSIMB005215</a></td>
+                <td><a href="CSIMB005215.html">CENTRO DE SALUD
+                MICROREGIONAL BELISARIO DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005220.html">CSIMB005220</a></td>
+                <td><a href="CSIMB005220.html">CENTRO DE SALUD
+                MICROREGIONAL YAXALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005232.html">CSIMB005232</a></td>
+                <td><a href="CSIMB005232.html">CENTRO DE SALUD RURAL SAN
+                MARTÍN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005244.html">CSIMB005244</a></td>
+                <td><a href="CSIMB005244.html">CENTRO DE SALUD
+                MICROREGIONAL LA REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005256.html">CSIMB005256</a></td>
+                <td><a href="CSIMB005256.html">CENTRO DE SALUD
+                MICROREGIONAL LOS QUINICHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005261.html">CSIMB005261</a></td>
+                <td><a href="CSIMB005261.html">CENTRO DE SALUD
+                MICROREGIONAL EL CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005273.html">CSIMB005273</a></td>
+                <td><a href="CSIMB005273.html">CENTRO DE SALUD
+                MICROREGIONAL PATELNÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005285.html">CSIMB005285</a></td>
+                <td><a href="CSIMB005285.html">CENTRO DE SALUD
+                MICROREGIONAL BOLONTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005290.html">CSIMB005290</a></td>
+                <td><a href="CSIMB005290.html">CENTRO DE SALUD
+                MICROREGIONAL CRUCERO CHICH</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005302.html">CSIMB005302</a></td>
+                <td><a href="CSIMB005302.html">CENTRO DE SALUD
+                MICROREGIONAL EL MANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005314.html">CSIMB005314</a></td>
+                <td><a href="CSIMB005314.html">CENTRO DE SALUD
+                MICROREGIONAL GOLOLTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005326.html">CSIMB005326</a></td>
+                <td><a href="CSIMB005326.html">CENTRO DE SALUD
+                MICROREGIONAL YULUBMAX</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005331.html">CSIMB005331</a></td>
+                <td><a href="CSIMB005331.html">CENTRO DE SALUD
+                MICROREGIONAL SAN GABRIEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005343.html">CSIMB005343</a></td>
+                <td><a href="CSIMB005343.html">BELISARIO
+                DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005355.html">CSIMB005355</a></td>
+                <td><a href="CSIMB005355.html">TAPACHULA (U.N.E.M.E.
+                SORID)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005360.html">CSIMB005360</a></td>
+                <td><a href="CSIMB005360.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TAPACHULA AKISHINO I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005372.html">CSIMB005372</a></td>
+                <td><a href="CSIMB005372.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TAPACHULA HOSPITAL II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005384.html">CSIMB005384</a></td>
+                <td><a href="CSIMB005384.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TUXTLA GUTIÉRREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005396.html">CSIMB005396</a></td>
+                <td><a href="CSIMB005396.html">VILLA DEL MAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005401.html">CSIMB005401</a></td>
+                <td><a href="CSIMB005401.html">CACHIMBO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005413.html">CSIMB005413</a></td>
+                <td><a href="CSIMB005413.html">PUENTE MARGARITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005425.html">CSIMB005425</a></td>
+                <td><a href="CSIMB005425.html">LA LAGUNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005430.html">CSIMB005430</a></td>
+                <td><a href="CSIMB005430.html">LA POLKA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005442.html">CSIMB005442</a></td>
+                <td><a href="CSIMB005442.html">SAN CRISTÓBAL (U.N.E.M.E.
+                ENFERMEDADES CRÓNICAS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005454.html">CSIMB005454</a></td>
+                <td><a href="CSIMB005454.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN CRISTOBAL DE LAS
+                CASAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005466.html">CSIMB005466</a></td>
+                <td><a href="CSIMB005466.html">TUXTLA (U.N.E.M.E.
+                CRÓNICO DEGENERATIVOS)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005471.html">CSIMB005471</a></td>
+                <td><a href="CSIMB005471.html">LAS PALMERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005541.html">CSIMB005541</a></td>
+                <td><a href="CSIMB005541.html">CENTRO DE SALUD
+                MICROREGIONAL CHABAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005553.html">CSIMB005553</a></td>
+                <td><a href="CSIMB005553.html">CENTRO DE SALUD
+                MICROREGIONAL MUQUENAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005570.html">CSIMB005570</a></td>
+                <td><a href="CSIMB005570.html">CENTRO DE SALUD
+                MICROREGIONAL EL EDEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005594.html">CSIMB005594</a></td>
+                <td><a href="CSIMB005594.html">CENTRO DE SALUD MACAYO
+                3A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005606.html">CSIMB005606</a></td>
+                <td><a href="CSIMB005606.html">CENTRO DE SALUD LAGUNA
+                GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005611.html">CSIMB005611</a></td>
+                <td><a href="CSIMB005611.html">CENTRO DE SALUD VILLA
+                LUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005623.html">CSIMB005623</a></td>
+                <td><a href="CSIMB005623.html">CENTRO DE SALUD RURAL
+                NUEVA SABANILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005640.html">CSIMB005640</a></td>
+                <td><a href="CSIMB005640.html">MACVILHO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005652.html">CSIMB005652</a></td>
+                <td><a href="CSIMB005652.html">ICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005664.html">CSIMB005664</a></td>
+                <td><a href="CSIMB005664.html">CHILIMJOVELTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005676.html">CSIMB005676</a></td>
+                <td><a href="CSIMB005676.html">TZIMOL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005681.html">CSIMB005681</a></td>
+                <td><a href="CSIMB005681.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES COMITÁN DE DOMÍNGUEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005693.html">CSIMB005693</a></td>
+                <td><a href="CSIMB005693.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES FRONTERA COMALAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005705.html">CSIMB005705</a></td>
+                <td><a href="CSIMB005705.html">CARAVANA TIPO 0
+                TZABALHÓ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005710.html">CSIMB005710</a></td>
+                <td><a href="CSIMB005710.html">CARAVANA TIPO 0 NUEVA
+                REFORMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005722.html">CSIMB005722</a></td>
+                <td><a href="CSIMB005722.html">CARAVANA TIPO 0 SAN
+                ANTONIO BALASHILNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005734.html">CSIMB005734</a></td>
+                <td><a href="CSIMB005734.html">CARAVANA TIPO 0 EL
+                DURAZNAL SANTA FE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005746.html">CSIMB005746</a></td>
+                <td><a href="CSIMB005746.html">CARAVANA TIPO 0 BAWITZ
+                TUTZILTIK</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005751.html">CSIMB005751</a></td>
+                <td><a href="CSIMB005751.html">CARAVANA TIPO 0 SEGUNDO
+                TZAJALCHÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005763.html">CSIMB005763</a></td>
+                <td><a href="CSIMB005763.html">CARAVANA TIPO 0 PARAÍSO
+                CHICOTÁNIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005775.html">CSIMB005775</a></td>
+                <td><a href="CSIMB005775.html">CARAVANA TIPO 0
+                YOCHIBJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005780.html">CSIMB005780</a></td>
+                <td><a href="CSIMB005780.html">CARAVANA TIPO 0
+                UJCAYIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005792.html">CSIMB005792</a></td>
+                <td><a href="CSIMB005792.html">CENTRO DE SALUD
+                MICROREGIONAL CERRO JAQUIMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005804.html">CSIMB005804</a></td>
+                <td><a href="CSIMB005804.html">CENTRO DE SALUD
+                MICROREGIONAL SAN MIGUEL LA SARDINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005816.html">CSIMB005816</a></td>
+                <td><a href="CSIMB005816.html">CENTRO DE SALUD
+                MICROREGIONAL SAN JOSÉ PLAN OCOTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005821.html">CSIMB005821</a></td>
+                <td><a href="CSIMB005821.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES TONALÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005833.html">CSIMB005833</a></td>
+                <td><a href="CSIMB005833.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES PALENQUE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005845.html">CSIMB005845</a></td>
+                <td><a href="CSIMB005845.html">CENTRO DE SALUD
+                MICROREGIONAL LA LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005850.html">CSIMB005850</a></td>
+                <td><a href="CSIMB005850.html">CENTRO DE SALUD
+                MICROREGIONAL YUT BASH UNO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005862.html">CSIMB005862</a></td>
+                <td><a href="CSIMB005862.html">CENTRO DE SALUD
+                MICROREGIONAL CHIMTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005874.html">CSIMB005874</a></td>
+                <td><a href="CSIMB005874.html">CENTRO DE SALUD
+                MICROREGIONAL CHIXILTÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005886.html">CSIMB005886</a></td>
+                <td><a href="CSIMB005886.html">CENTRO DE SALUD
+                MICROREGIONAL NUEVA MORELIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005903.html">CSIMB005903</a></td>
+                <td><a href="CSIMB005903.html">CENTRO DE SALUD
+                MICROREGIONAL YASHNAIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005915.html">CSIMB005915</a></td>
+                <td><a href="CSIMB005915.html">CENTRO DE SALUD
+                MICROREGIONAL BAPUZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005920.html">CSIMB005920</a></td>
+                <td><a href="CSIMB005920.html">CENTRO DE SALUD
+                MICROREGIONAL TZULUWITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005932.html">CSIMB005932</a></td>
+                <td><a href="CSIMB005932.html">CENTRO DE SALUD
+                MICROREGIONAL CHILOLJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005944.html">CSIMB005944</a></td>
+                <td><a href="CSIMB005944.html">CENTRO DE SALUD
+                MICROREGIONAL SAN ANDRES PUERTO RICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005956.html">CSIMB005956</a></td>
+                <td><a href="CSIMB005956.html">CENTRO DE SALUD
+                MICROREGIONAL SANTA ROSA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005961.html">CSIMB005961</a></td>
+                <td><a href="CSIMB005961.html">CENTRO DE SALUD
+                MICROREGIONAL YIBELJOJ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005973.html">CSIMB005973</a></td>
+                <td><a href="CSIMB005973.html">CENTRO DE SALUD
+                MICROREGIONAL CAÑADA GRANDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005985.html">CSIMB005985</a></td>
+                <td><a href="CSIMB005985.html">CENTRO DE SALUD
+                MICROREGIONAL MAJOMUT</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005990.html">CSIMB005990</a></td>
+                <td><a href="CSIMB005990.html">CENTRO DE SALUD
+                SIBERIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006002.html">CSIMB006002</a></td>
+                <td><a href="CSIMB006002.html">CENTRO DE SALUD
+                MICROREGIONAL CHULNA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006014.html">CSIMB006014</a></td>
+                <td><a href="CSIMB006014.html">CENTRO DE SALUD
+                MICROREGIONAL TZOPILJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006026.html">CSIMB006026</a></td>
+                <td><a href="CSIMB006026.html">CENTRO DE SALUD
+                MICROREGIONAL TZAJALCHÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006031.html">CSIMB006031</a></td>
+                <td><a href="CSIMB006031.html">CENTRO DE SALUD
+                MICROREGIONAL CATISHTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006043.html">CSIMB006043</a></td>
+                <td><a href="CSIMB006043.html">CENTRO DE SALUD
+                MICROREGIONAL JOLBON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006055.html">CSIMB006055</a></td>
+                <td><a href="CSIMB006055.html">CENTRO DE SALUD
+                MICROREGIONAL LAS MINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006060.html">CSIMB006060</a></td>
+                <td><a href="CSIMB006060.html">CENTRO DE SALUD
+                MICROREGIONAL PAJALTÓN ALTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006072.html">CSIMB006072</a></td>
+                <td><a href="CSIMB006072.html">CENTRO DE SALUD
+                MICROREGIONAL PINAR SALINAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006096.html">CSIMB006096</a></td>
+                <td><a href="CSIMB006096.html">CENTRO DE SALUD
+                MICROREGIONAL TOLBILJA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006130.html">CSIMB006130</a></td>
+                <td><a href="CSIMB006130.html">SANTIAGO EL
+                PINAR</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006154.html">CSIMB006154</a></td>
+                <td><a href="CSIMB006154.html">ALDAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006166.html">CSIMB006166</a></td>
+                <td><a href="CSIMB006166.html">CENTRO DE SALUD LLANOS DE
+                MORELOS 2A. SECCIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006171.html">CSIMB006171</a></td>
+                <td><a href="CSIMB006171.html">CENTRO DE SALUD NUEVO SAN
+                ANTONIO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006183.html">CSIMB006183</a></td>
+                <td><a href="CSIMB006183.html">CENTRO DE SALUD PEÑITAS
+                EL MICO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006195.html">CSIMB006195</a></td>
+                <td><a href="CSIMB006195.html">CENTRO DE SALUD RIVERA
+                GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006200.html">CSIMB006200</a></td>
+                <td><a href="CSIMB006200.html">CENTRO DE SALUD SAN
+                LORENZO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006212.html">CSIMB006212</a></td>
+                <td><a href="CSIMB006212.html">CENTRO DE SALUD FRANCISCO
+                I. MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006224.html">CSIMB006224</a></td>
+                <td><a href="CSIMB006224.html">CENTRO DE SALUD LA
+                ESPERANZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006236.html">CSIMB006236</a></td>
+                <td><a href="CSIMB006236.html">CENTRO DE SALUD
+                MICROREGIONAL RIVERA EL VIEJO CARMEN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006253.html">CSIMB006253</a></td>
+                <td><a href="CSIMB006253.html">CENTRO DE SALUD
+                MICROREGIONAL TOMAS MUNZER</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006265.html">CSIMB006265</a></td>
+                <td><a href="CSIMB006265.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS DR. MANUEL VELASCO SUAREZ,
+                CHILÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006270.html">CSIMB006270</a></td>
+                <td><a href="CSIMB006270.html">CENTRO DE SALUD
+                MICROREGIONAL SANTO DOMINGO LAS PALMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006282.html">CSIMB006282</a></td>
+                <td><a href="CSIMB006282.html">CENTRO DE SALUD
+                MICROREGIONAL TACUBA NUEVA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006294.html">CSIMB006294</a></td>
+                <td><a href="CSIMB006294.html">CENTRO DE SALUD
+                MICROREGIONAL JOL HIC´BATIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006306.html">CSIMB006306</a></td>
+                <td><a href="CSIMB006306.html">CENTRO DE SALUD
+                MICROREGIONAL CACATEEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006311.html">CSIMB006311</a></td>
+                <td><a href="CSIMB006311.html">CENTRO DE SALUD
+                MICROREGIONAL SULUPHUITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006323.html">CSIMB006323</a></td>
+                <td><a href="CSIMB006323.html">CENTRO DE SALUD
+                MICROREGIONAL TZASIBILTIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006335.html">CSIMB006335</a></td>
+                <td><a href="CSIMB006335.html">CENTRO DE SALUD
+                MICROREGIONAL FILADELFIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006340.html">CSIMB006340</a></td>
+                <td><a href="CSIMB006340.html">CENTRO DE SALUD
+                MICROREGIONAL XAXAJATIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006352.html">CSIMB006352</a></td>
+                <td><a href="CSIMB006352.html">CENTRO DE SALUD
+                MICROREGIONAL SAN ANTONIO LAS PALOMAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006364.html">CSIMB006364</a></td>
+                <td><a href="CSIMB006364.html">CENTRO DE SALUD
+                MICROREGIONAL CAMPO BOLONTINÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006376.html">CSIMB006376</a></td>
+                <td><a href="CSIMB006376.html">CENTRO DE SALUD
+                MICROREGIONAL MAPIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006381.html">CSIMB006381</a></td>
+                <td><a href="CSIMB006381.html">CENTRO DE SALUD
+                MICROREGIONAL RAMOSIL (TZAJALNABIL)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006393.html">CSIMB006393</a></td>
+                <td><a href="CSIMB006393.html">CENTRO DE SALUD
+                MICROREGIONAL SANTA ISABEL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006405.html">CSIMB006405</a></td>
+                <td><a href="CSIMB006405.html">CENTRO DE SALUD
+                MICROREGIONAL LA UNIÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006410.html">CSIMB006410</a></td>
+                <td><a href="CSIMB006410.html">CENTRO DE SALUD
+                MICROREGIONAL ARROYO AGUA AZUL (MIRAFLORES)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006422.html">CSIMB006422</a></td>
+                <td><a href="CSIMB006422.html">CENTRO DE SALUD
+                MICROREGIONAL CHUCHUCLUMIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006434.html">CSIMB006434</a></td>
+                <td><a href="CSIMB006434.html">CENTRO DE SALUD
+                MICROREGIONAL EL PROGRESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006446.html">CSIMB006446</a></td>
+                <td><a href="CSIMB006446.html">CENTRO DE SALUD
+                MICROREGIONAL TIENTIUL GRANDE 2A. SECCIÓN (AGUA
+                POTABLE)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006451.html">CSIMB006451</a></td>
+                <td><a href="CSIMB006451.html">CENTRO DE SALUD
+                MICROREGIONAL CUCTIEPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006463.html">CSIMB006463</a></td>
+                <td><a href="CSIMB006463.html">CENTRO DE SALUD
+                MICROREGIONAL ARROYO AGUA AZUL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006475.html">CSIMB006475</a></td>
+                <td><a href="CSIMB006475.html">CENTRO DE SALUD
+                MICROREGIONAL AMÉRICA LIBRE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006480.html">CSIMB006480</a></td>
+                <td><a href="CSIMB006480.html">CENTRO DE SALUD
+                MICROREGIONAL LIC. ADOLFO LÓPEZ MATEOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006492.html">CSIMB006492</a></td>
+                <td><a href="CSIMB006492.html">CENTRO DE SALUD
+                MICROREGIONAL EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006504.html">CSIMB006504</a></td>
+                <td><a href="CSIMB006504.html">CENTRO DE SALUD
+                MICROREGIONAL EL IXCÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006516.html">CSIMB006516</a></td>
+                <td><a href="CSIMB006516.html">CENTRO DE SALUD
+                MICROREGIONAL LAS MARAVILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006521.html">CSIMB006521</a></td>
+                <td><a href="CSIMB006521.html">CENTRO DE SALUD
+                MICROREGIONAL EL RETIRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006545.html">CSIMB006545</a></td>
+                <td><a href="CSIMB006545.html">CENTRO DE SALUD
+                MICROREGIONAL REVOLUCIÓN FIU</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006550.html">CSIMB006550</a></td>
+                <td><a href="CSIMB006550.html">CENTRO DE SALUD
+                MICROREGIONAL TZUNUNIL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006562.html">CSIMB006562</a></td>
+                <td><a href="CSIMB006562.html">ZAMORA PICO DE
+                ORO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006574.html">CSIMB006574</a></td>
+                <td><a href="CSIMB006574.html">CENTRO DE SALUD
+                PANTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006586.html">CSIMB006586</a></td>
+                <td><a href="CSIMB006586.html">CENTRO DE SALUD
+                MICROREGIONAL JOLJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006591.html">CSIMB006591</a></td>
+                <td><a href="CSIMB006591.html">CENTRO DE SALUD MARAVILLA
+                TENEJAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006603.html">CSIMB006603</a></td>
+                <td><a href="CSIMB006603.html">CENTRO DE SALUD
+                MICROREGIONAL YIBELJOJ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006615.html">CSIMB006615</a></td>
+                <td><a href="CSIMB006615.html">CENTRO DE SALUD
+                MICROREGIONAL CRUSILJÁ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006620.html">CSIMB006620</a></td>
+                <td><a href="CSIMB006620.html">CENTRO DE SALUD RAMOS
+                CUBILETE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006632.html">CSIMB006632</a></td>
+                <td><a href="CSIMB006632.html">CENTRO DE SALUD SAN
+                ISIDRO LAS BANDERAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006644.html">CSIMB006644</a></td>
+                <td><a href="CSIMB006644.html">CENTRO DE SALUD
+                MICROREGIONAL JOLXIC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006656.html">CSIMB006656</a></td>
+                <td><a href="CSIMB006656.html">CENTRO DE SALUD MIGUEL
+                ALDAMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006661.html">CSIMB006661</a></td>
+                <td><a href="CSIMB006661.html">SAN PEDRO EL PUY</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006673.html">CSIMB006673</a></td>
+                <td><a href="CSIMB006673.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS LA INDEPENDENCIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006685.html">CSIMB006685</a></td>
+                <td><a href="CSIMB006685.html">CENTRO DE SALUD CON
+                SERVICIOS AMPLIADOS IXHUATÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006690.html">CSIMB006690</a></td>
+                <td><a href="CSIMB006690.html">CENTRO DE SALUD
+                MICROREGIONAL MUCTAHUITZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006702.html">CSIMB006702</a></td>
+                <td><a href="CSIMB006702.html">CENTRO DE SALUD URBANO
+                CHICOASÉN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006714.html">CSIMB006714</a></td>
+                <td><a href="CSIMB006714.html">CENTRO DE SALUD URBANO
+                PICHUCALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006726.html">CSIMB006726</a></td>
+                <td><a href="CSIMB006726.html">MATZAM</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000163.html">CSIMB000163</a></td>
+                <td><a href="CSIMB000163.html">NUEVA
+                INDEPENDENCIA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000752.html">CSIMB000752</a></td>
+                <td><a href="CSIMB000752.html">LA PINTA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB000764.html">CSIMB000764</a></td>
+                <td><a href="CSIMB000764.html">MONTE SINAÍ</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB000776.html">CSIMB000776</a></td>
+                <td><a href="CSIMB000776.html">NUEVA GRECIA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB002560.html">CSIMB002560</a></td>
+                <td><a href="CSIMB002560.html">RANCHERÍA SANTA
+                RITA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB002630.html">CSIMB002630</a></td>
+                <td><a href="CSIMB002630.html">PIZTINGÉN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB004252.html">CSIMB004252</a></td>
+                <td><a href="CSIMB004252.html">CARAVANA TIPO 0 NUEVA
+                LIBERTAD</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB004964.html">CSIMB004964</a></td>
+                <td><a href="CSIMB004964.html">CARAVANA TIPO 0
+                JUCNIL</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB005565.html">CSIMB005565</a></td>
+                <td><a href="CSIMB005565.html">CENTRO DE SALUD
+                MICROREGIONAL CARMEN XAQUILA</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB005635.html">CSIMB005635</a></td>
+                <td><a href="CSIMB005635.html">LAS LIMAS</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="CSIMB006084.html">CSIMB006084</a></td>
+                <td><a href="CSIMB006084.html">CENTRO DE SALUD
+                MICROREGIONAL SAN JOAQUIN</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="CSIMB006101.html">CSIMB006101</a></td>
+                <td><a href="CSIMB006101.html">CENTRO DE SALUD
+                MICROREGIONAL ZANEMBOLOM</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="figures/mapa_entidad/primer_nivel_chiapas.png"
+                id="fig:mapa-primer_nivel-chiapas"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
