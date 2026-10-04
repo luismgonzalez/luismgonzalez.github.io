@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h2 class="uk-text-lead">5
+de octubre de 2026</p></h2>
+                                                            <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                                            <h3 class="uk-text-default uk-text-muted">5
+de octubre de 2026</h3>
+                                                            <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#tlaxcala">TLAXCALA</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="tlaxcala">TLAXCALA</h1>
+                <table>
+                <colgroup>
+                <col style="width: 16%" />
+                <col style="width: 61%" />
+                <col style="width: 22%" />
+                </colgroup>
+                <thead>
+                <tr class="header">
+                <th>CLUES</th>
+                <th>Nombre de la unidad</th>
+                <th>Estatus</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td><a href="TLIMB000012.html">TLIMB000012</a></td>
+                <td><a href="TLIMB000012.html">AMAXAC DE
+                GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000024.html">TLIMB000024</a></td>
+                <td><a href="TLIMB000024.html">SAN DAMIAN
+                TLACOCALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000036.html">TLIMB000036</a></td>
+                <td><a href="TLIMB000036.html">SAN MATIAS
+                TEPETOMATITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000041.html">TLIMB000041</a></td>
+                <td><a href="TLIMB000041.html">ATLANGATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000053.html">TLIMB000053</a></td>
+                <td><a href="TLIMB000053.html">SAN PEDRO
+                ECATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000065.html">TLIMB000065</a></td>
+                <td><a href="TLIMB000065.html">LA TRASQUILA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000070.html">TLIMB000070</a></td>
+                <td><a href="TLIMB000070.html">CONCEPCIÓN
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000082.html">TLIMB000082</a></td>
+                <td><a href="TLIMB000082.html">FELIPE CARRILLO
+                PUERTO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000094.html">TLIMB000094</a></td>
+                <td><a href="TLIMB000094.html">SANTA CRUZ
+                POCITOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000106.html">TLIMB000106</a></td>
+                <td><a href="TLIMB000106.html">XALTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000111.html">TLIMB000111</a></td>
+                <td><a href="TLIMB000111.html">COLONIA DELICIAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000123.html">TLIMB000123</a></td>
+                <td><a href="TLIMB000123.html">CENTRO DE SALUD URBANO DE
+                APIZACO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000135.html">TLIMB000135</a></td>
+                <td><a href="TLIMB000135.html">SAN LUIS
+                APIZAQUITO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000140.html">TLIMB000140</a></td>
+                <td><a href="TLIMB000140.html">SANTA MARÍA
+                TEXCALAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000152.html">TLIMB000152</a></td>
+                <td><a href="TLIMB000152.html">CENTRO DE SALUD URBANO DE
+                CALPULALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000164.html">TLIMB000164</a></td>
+                <td><a href="TLIMB000164.html">SAN ANTONIO
+                MAZAPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000176.html">TLIMB000176</a></td>
+                <td><a href="TLIMB000176.html">SANTIAGO CUAULA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000193.html">TLIMB000193</a></td>
+                <td><a href="TLIMB000193.html">COLONIA LA
+                SOLEDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000205.html">TLIMB000205</a></td>
+                <td><a href="TLIMB000205.html">CUAPIAXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000210.html">TLIMB000210</a></td>
+                <td><a href="TLIMB000210.html">COLONIA IGNACIO
+                ALLENDE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000222.html">TLIMB000222</a></td>
+                <td><a href="TLIMB000222.html">SAN FRANCISCO
+                CUEXCONTZI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000234.html">TLIMB000234</a></td>
+                <td><a href="TLIMB000234.html">SAN ANTONIO
+                CUAXOMULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000246.html">TLIMB000246</a></td>
+                <td><a href="TLIMB000246.html">SAN MIGUEL
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000251.html">TLIMB000251</a></td>
+                <td><a href="TLIMB000251.html">CHIAUTEMPAN
+                (TEPETLAPAN)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000263.html">TLIMB000263</a></td>
+                <td><a href="TLIMB000263.html">SAN PEDRO
+                MUÑOZTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000275.html">TLIMB000275</a></td>
+                <td><a href="TLIMB000275.html">SAN BARTOLOME
+                CUAHUIXMATLAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000280.html">TLIMB000280</a></td>
+                <td><a href="TLIMB000280.html">SN PEDRO TLALCUALPAN DE
+                N. BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000304.html">TLIMB000304</a></td>
+                <td><a href="TLIMB000304.html">MUÑOZ DE DOMINGO
+                ARENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000316.html">TLIMB000316</a></td>
+                <td><a href="TLIMB000316.html">SAN JOSÉ
+                CUAMANTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000321.html">TLIMB000321</a></td>
+                <td><a href="TLIMB000321.html">ESPAÑITA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000333.html">TLIMB000333</a></td>
+                <td><a href="TLIMB000333.html">ÁLVARO OBREGÓN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000345.html">TLIMB000345</a></td>
+                <td><a href="TLIMB000345.html">LA MAGDALENA
+                CUEXTOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000350.html">TLIMB000350</a></td>
+                <td><a href="TLIMB000350.html">SAN FRANCISCO
+                MITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000362.html">TLIMB000362</a></td>
+                <td><a href="TLIMB000362.html">VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000374.html">TLIMB000374</a></td>
+                <td><a href="TLIMB000374.html">CENTRO DE SALUD URBANO DE
+                HUAMANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000386.html">TLIMB000386</a></td>
+                <td><a href="TLIMB000386.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000391.html">TLIMB000391</a></td>
+                <td><a href="TLIMB000391.html">COLONIA
+                CHAPULTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000403.html">TLIMB000403</a></td>
+                <td><a href="TLIMB000403.html">COL. HERMENEGILDO
+                GALEANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000415.html">TLIMB000415</a></td>
+                <td><a href="TLIMB000415.html">IGNACIO ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000420.html">TLIMB000420</a></td>
+                <td><a href="TLIMB000420.html">RANCHERIA DE LOS
+                PILARES</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000432.html">TLIMB000432</a></td>
+                <td><a href="TLIMB000432.html">SAN JOSÉ
+                XICOHTENCATL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000444.html">TLIMB000444</a></td>
+                <td><a href="TLIMB000444.html">GENERAL FRANCISCO
+                VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000456.html">TLIMB000456</a></td>
+                <td><a href="TLIMB000456.html">SAN IDELFONSO
+                HUEYOTLIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000461.html">TLIMB000461</a></td>
+                <td><a href="TLIMB000461.html">IGNACIO ZARAGOZA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000473.html">TLIMB000473</a></td>
+                <td><a href="TLIMB000473.html">SAN DIEGO RECOBA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000485.html">TLIMB000485</a></td>
+                <td><a href="TLIMB000485.html">SAN SIMEON
+                XIPETZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000490.html">TLIMB000490</a></td>
+                <td><a href="TLIMB000490.html">SAN JUAN
+                NEPOPUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000502.html">TLIMB000502</a></td>
+                <td><a href="TLIMB000502.html">SAN ANTONIO
+                TIZOSTOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000514.html">TLIMB000514</a></td>
+                <td><a href="TLIMB000514.html">STA. JUSTINA
+                ECATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000526.html">TLIMB000526</a></td>
+                <td><a href="TLIMB000526.html">LA TRINIDAD
+                TENEXYECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000531.html">TLIMB000531</a></td>
+                <td><a href="TLIMB000531.html">IXTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000543.html">TLIMB000543</a></td>
+                <td><a href="TLIMB000543.html">MAZATECOCHCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000560.html">TLIMB000560</a></td>
+                <td><a href="TLIMB000560.html">SAN FELIPE
+                CUAHUTENCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000572.html">TLIMB000572</a></td>
+                <td><a href="TLIMB000572.html">SAN JOSÉ AZTATLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000584.html">TLIMB000584</a></td>
+                <td><a href="TLIMB000584.html">SAN MATEO
+                TEPETITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000596.html">TLIMB000596</a></td>
+                <td><a href="TLIMB000596.html">FRANCISCO VILLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000601.html">TLIMB000601</a></td>
+                <td><a href="TLIMB000601.html">FRANCISCO I.
+                MADERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000613.html">TLIMB000613</a></td>
+                <td><a href="TLIMB000613.html">SANTA MARÍA
+                NATIVITAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000625.html">TLIMB000625</a></td>
+                <td><a href="TLIMB000625.html">SAN MIGUEL DEL
+                MILAGRO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000630.html">TLIMB000630</a></td>
+                <td><a href="TLIMB000630.html">SAN MIGUEL
+                XOCHITECATITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000642.html">TLIMB000642</a></td>
+                <td><a href="TLIMB000642.html">SANTIAGO MICHAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000654.html">TLIMB000654</a></td>
+                <td><a href="TLIMB000654.html">SAN VICENTE
+                XILOXOCHITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000666.html">TLIMB000666</a></td>
+                <td><a href="TLIMB000666.html">SAN NICOLÁS
+                PANOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000671.html">TLIMB000671</a></td>
+                <td><a href="TLIMB000671.html">SAN FRANCISCO
+                TEMETZONTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000683.html">TLIMB000683</a></td>
+                <td><a href="TLIMB000683.html">SAN JORGE
+                TEZOQUIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000695.html">TLIMB000695</a></td>
+                <td><a href="TLIMB000695.html">SAN MATEO
+                HUEXOYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000700.html">TLIMB000700</a></td>
+                <td><a href="TLIMB000700.html">SAN TADEO
+                HUILOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000712.html">TLIMB000712</a></td>
+                <td><a href="TLIMB000712.html">CENTRO DE SALUD URBANO DE
+                VILLA VICENTE GUERRERO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000724.html">TLIMB000724</a></td>
+                <td><a href="TLIMB000724.html">SANTA CRUZ
+                TLAXCALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000736.html">TLIMB000736</a></td>
+                <td><a href="TLIMB000736.html">TEOLOCHOLCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000741.html">TLIMB000741</a></td>
+                <td><a href="TLIMB000741.html">NICOLÁS BRAVO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000753.html">TLIMB000753</a></td>
+                <td><a href="TLIMB000753.html">VILLARREAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000765.html">TLIMB000765</a></td>
+                <td><a href="TLIMB000765.html">CAPULAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000770.html">TLIMB000770</a></td>
+                <td><a href="TLIMB000770.html">SAN FRANCISCO
+                ATEXCATZINCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000782.html">TLIMB000782</a></td>
+                <td><a href="TLIMB000782.html">SANTA ISABEL
+                TETLATLAHUCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000806.html">TLIMB000806</a></td>
+                <td><a href="TLIMB000806.html">ACOPINALCO DEL
+                PEÑON</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000811.html">TLIMB000811</a></td>
+                <td><a href="TLIMB000811.html">CASA BLANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000823.html">TLIMB000823</a></td>
+                <td><a href="TLIMB000823.html">COLONIA PROFESOR GRACIANO
+                SÁNCHEZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000835.html">TLIMB000835</a></td>
+                <td><a href="TLIMB000835.html">SAN ANTONIO
+                HUEXOTITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000840.html">TLIMB000840</a></td>
+                <td><a href="TLIMB000840.html">JOSÉ MARÍA MORELOS
+                BUENAVISTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000852.html">TLIMB000852</a></td>
+                <td><a href="TLIMB000852.html">LAGUNILLAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000864.html">TLIMB000864</a></td>
+                <td><a href="TLIMB000864.html">MARÍANO
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000876.html">TLIMB000876</a></td>
+                <td><a href="TLIMB000876.html">LA PALMA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000881.html">TLIMB000881</a></td>
+                <td><a href="TLIMB000881.html">EL ROSARÍO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000893.html">TLIMB000893</a></td>
+                <td><a href="TLIMB000893.html">SAN LORENZO
+                SOLTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000905.html">TLIMB000905</a></td>
+                <td><a href="TLIMB000905.html">SAN JOSÉ
+                TEPEYAHUALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000910.html">TLIMB000910</a></td>
+                <td><a href="TLIMB000910.html">UNIÓN EJIDAL TIERRA Y
+                LIBERTAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000922.html">TLIMB000922</a></td>
+                <td><a href="TLIMB000922.html">LAS VIGAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000934.html">TLIMB000934</a></td>
+                <td><a href="TLIMB000934.html">TOCATLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000946.html">TLIMB000946</a></td>
+                <td><a href="TLIMB000946.html">SAN JUAN TOTOLAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000951.html">TLIMB000951</a></td>
+                <td><a href="TLIMB000951.html">ZITLALTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000963.html">TLIMB000963</a></td>
+                <td><a href="TLIMB000963.html">TZOMPANTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB000980.html">TLIMB000980</a></td>
+                <td><a href="TLIMB000980.html">SN ANDRÉS
+                AHUASHUATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000992.html">TLIMB000992</a></td>
+                <td><a href="TLIMB000992.html">XALOSTOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001004.html">TLIMB001004</a></td>
+                <td><a href="TLIMB001004.html">SAN MARTIN
+                XALTOCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001016.html">TLIMB001016</a></td>
+                <td><a href="TLIMB001016.html">LA ASCENCION
+                HUITZCOLOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001021.html">TLIMB001021</a></td>
+                <td><a href="TLIMB001021.html">SANTA BÁRBARA
+                ACUICUIXCATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001033.html">TLIMB001033</a></td>
+                <td><a href="TLIMB001033.html">PAPALOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001045.html">TLIMB001045</a></td>
+                <td><a href="TLIMB001045.html">XICOTZINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001062.html">TLIMB001062</a></td>
+                <td><a href="TLIMB001062.html">BENITO JUÁREZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001074.html">TLIMB001074</a></td>
+                <td><a href="TLIMB001074.html">EMILIANO ZAPATA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001086.html">TLIMB001086</a></td>
+                <td><a href="TLIMB001086.html">COLONIA GUSTAVO DÍAZ
+                ORDAZ</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001091.html">TLIMB001091</a></td>
+                <td><a href="TLIMB001091.html">LÁZARO CÁRDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001103.html">TLIMB001103</a></td>
+                <td><a href="TLIMB001103.html">LA MAGDALENA
+                TLALTELULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001115.html">TLIMB001115</a></td>
+                <td><a href="TLIMB001115.html">SAN JERONIMO
+                ZACUALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001120.html">TLIMB001120</a></td>
+                <td><a href="TLIMB001120.html">SAN JOSÉ
+                TEACALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001132.html">TLIMB001132</a></td>
+                <td><a href="TLIMB001132.html">SAN JUAN
+                HUACTZINCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001144.html">TLIMB001144</a></td>
+                <td><a href="TLIMB001144.html">SAN LORENZO
+                AXOCOMANITLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001156.html">TLIMB001156</a></td>
+                <td><a href="TLIMB001156.html">SAN LUCAS
+                TECOPILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001161.html">TLIMB001161</a></td>
+                <td><a href="TLIMB001161.html">SANTA ANA
+                NOPALUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001173.html">TLIMB001173</a></td>
+                <td><a href="TLIMB001173.html">SANTA APOLONIA
+                TEACALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001185.html">TLIMB001185</a></td>
+                <td><a href="TLIMB001185.html">STA CATARINA
+                AYOMETLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001190.html">TLIMB001190</a></td>
+                <td><a href="TLIMB001190.html">SANTA CRUZ
+                QUILEHTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001202.html">TLIMB001202</a></td>
+                <td><a href="TLIMB001202.html">SANTA ISABEL
+                XILOXOXTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001214.html">TLIMB001214</a></td>
+                <td><a href="TLIMB001214.html">SANTA CRUZ
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001226.html">TLIMB001226</a></td>
+                <td><a href="TLIMB001226.html">VILLA ALTA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001231.html">TLIMB001231</a></td>
+                <td><a href="TLIMB001231.html">SANTO TOMÁS LA
+                CONCORDIA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001243.html">TLIMB001243</a></td>
+                <td><a href="TLIMB001243.html">SAN MIGUEL
+                CONTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001255.html">TLIMB001255</a></td>
+                <td><a href="TLIMB001255.html">SAN BARTOLOME
+                TENANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001260.html">TLIMB001260</a></td>
+                <td><a href="TLIMB001260.html">SANTA CRUZ
+                AQUIAHUAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001272.html">TLIMB001272</a></td>
+                <td><a href="TLIMB001272.html">SAN LUCAS
+                CUAUHTELULPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001284.html">TLIMB001284</a></td>
+                <td><a href="TLIMB001284.html">MARÍANO
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001296.html">TLIMB001296</a></td>
+                <td><a href="TLIMB001296.html">SAN MARCOS
+                GUAQUILPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001301.html">TLIMB001301</a></td>
+                <td><a href="TLIMB001301.html">CENTRO INTEGRAL DE SALUD
+                MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001313.html">TLIMB001313</a></td>
+                <td><a href="TLIMB001313.html">CENTRO DE SALUD DE SAN
+                MIGUEL XALTIPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001325.html">TLIMB001325</a></td>
+                <td><a href="TLIMB001325.html">CENTRO DE SALUD SANCTORUM
+                DE LAZARO CARDENAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001330.html">TLIMB001330</a></td>
+                <td><a href="TLIMB001330.html">SAN PEDRO
+                TLACOTEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001342.html">TLIMB001342</a></td>
+                <td><a href="TLIMB001342.html">CENTRO DE SALUD DE MÁXIMO
+                ROJAS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001354.html">TLIMB001354</a></td>
+                <td><a href="TLIMB001354.html">CENTRO DE SALUD SANTA
+                MARÍA TLACATECPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001366.html">TLIMB001366</a></td>
+                <td><a href="TLIMB001366.html">COLONIA LOMA
+                FLORIDA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001371.html">TLIMB001371</a></td>
+                <td><a href="TLIMB001371.html">CENTRO DE SALUD
+                FRANCISCO. JAVIER MINA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001383.html">TLIMB001383</a></td>
+                <td><a href="TLIMB001383.html">CENTRO REGIONAL DE
+                DESARROLLO INFANTIL Y ESTIMULACION TEMPRANA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001400.html">TLIMB001400</a></td>
+                <td><a href="TLIMB001400.html">CENTRO INTEGRAL DE SALUD
+                MENTAL</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001424.html">TLIMB001424</a></td>
+                <td><a href="TLIMB001424.html">SAN PABLO
+                APETATITLAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001436.html">TLIMB001436</a></td>
+                <td><a href="TLIMB001436.html">SAN RAFAEL
+                TEPATLAXCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001441.html">TLIMB001441</a></td>
+                <td><a href="TLIMB001441.html">SAN PEDRO
+                XOCHITEOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001453.html">TLIMB001453</a></td>
+                <td><a href="TLIMB001453.html">SAN ANTONIO
+                ATOTONILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001465.html">TLIMB001465</a></td>
+                <td><a href="TLIMB001465.html">LA CARIDAD
+                CUAXONACAYO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001470.html">TLIMB001470</a></td>
+                <td><a href="TLIMB001470.html">ATLTZAYANCA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001482.html">TLIMB001482</a></td>
+                <td><a href="TLIMB001482.html">SAN FRANCISCO
+                TETLANOHCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001494.html">TLIMB001494</a></td>
+                <td><a href="TLIMB001494.html">SAN DAMIAN
+                TEXOLOC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001506.html">TLIMB001506</a></td>
+                <td><a href="TLIMB001506.html">SAN ANTONIO
+                ACUAMANALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001511.html">TLIMB001511</a></td>
+                <td><a href="TLIMB001511.html">SAN RAFAEL
+                TENANYECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001523.html">TLIMB001523</a></td>
+                <td><a href="TLIMB001523.html">SANTA CRUZ
+                TECHACHALCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001535.html">TLIMB001535</a></td>
+                <td><a href="TLIMB001535.html">SAN ISIDRO BUEN
+                SUCESO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001540.html">TLIMB001540</a></td>
+                <td><a href="TLIMB001540.html">GUADALUPE
+                TLACHCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001552.html">TLIMB001552</a></td>
+                <td><a href="TLIMB001552.html">SAN MIGUEL
+                TENANCINGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001564.html">TLIMB001564</a></td>
+                <td><a href="TLIMB001564.html">SAN FRANCISCO
+                TEPEYANCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001576.html">TLIMB001576</a></td>
+                <td><a href="TLIMB001576.html">SAN COSME
+                ATLAMAXAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001581.html">TLIMB001581</a></td>
+                <td><a href="TLIMB001581.html">SAN ANDRÉS
+                CUAMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001593.html">TLIMB001593</a></td>
+                <td><a href="TLIMB001593.html">SAN JUAN
+                QUETZALCOAPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001605.html">TLIMB001605</a></td>
+                <td><a href="TLIMB001605.html">SANTA MARÍA
+                IXCOTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001610.html">TLIMB001610</a></td>
+                <td><a href="TLIMB001610.html">SANTA ANITA
+                HUILOAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001622.html">TLIMB001622</a></td>
+                <td><a href="TLIMB001622.html">GUADALUPE
+                TEXCALAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001634.html">TLIMB001634</a></td>
+                <td><a href="TLIMB001634.html">ZUMPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001646.html">TLIMB001646</a></td>
+                <td><a href="TLIMB001646.html">SAN ANTONIO TECOPILCO (
+                PILANCON)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001651.html">TLIMB001651</a></td>
+                <td><a href="TLIMB001651.html">EL CARMEN
+                XALPATLAHUAYA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001663.html">TLIMB001663</a></td>
+                <td><a href="TLIMB001663.html">TERRENATE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001675.html">TLIMB001675</a></td>
+                <td><a href="TLIMB001675.html">TOLUCA DE
+                GUADALUPE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001680.html">TLIMB001680</a></td>
+                <td><a href="TLIMB001680.html">CIUDAD DE
+                NANACAMILPA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001692.html">TLIMB001692</a></td>
+                <td><a href="TLIMB001692.html">GUADALUPE
+                TEXMOLAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001704.html">TLIMB001704</a></td>
+                <td><a href="TLIMB001704.html">SAN DIONICIO
+                YAUHQUEMEHCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001716.html">TLIMB001716</a></td>
+                <td><a href="TLIMB001716.html">SAN SIMON
+                TLATLAHUQUITEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001721.html">TLIMB001721</a></td>
+                <td><a href="TLIMB001721.html">SAN JOSÉ
+                ATOTONILCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001733.html">TLIMB001733</a></td>
+                <td><a href="TLIMB001733.html">SAN BARTOLOME
+                MATLALOHCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001745.html">TLIMB001745</a></td>
+                <td><a href="TLIMB001745.html">TETLA DE LA
+                SOLIDARIDAD</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001750.html">TLIMB001750</a></td>
+                <td><a href="TLIMB001750.html">SAN FELIPE
+                HIDALGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001762.html">TLIMB001762</a></td>
+                <td><a href="TLIMB001762.html">VILLA MARÍANO
+                MATAMOROS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001774.html">TLIMB001774</a></td>
+                <td><a href="TLIMB001774.html">CENTRO DE SALUD URBANO DE
+                CHIAUTEMPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001786.html">TLIMB001786</a></td>
+                <td><a href="TLIMB001786.html">PANZACOLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001791.html">TLIMB001791</a></td>
+                <td><a href="TLIMB001791.html">CENTRO DE SALUD
+                AYECAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001803.html">TLIMB001803</a></td>
+                <td><a href="TLIMB001803.html">CENTRO DE SALUD
+                ZACATELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001902.html">TLIMB001902</a></td>
+                <td><a href="TLIMB001902.html">LA AURORA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001914.html">TLIMB001914</a></td>
+                <td><a href="TLIMB001914.html">UNIDAD MEDICA MOVIL
+                APIZACO I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001926.html">TLIMB001926</a></td>
+                <td><a href="TLIMB001926.html">UNIDAD MEDICA MOVIL
+                APIZACO V</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001931.html">TLIMB001931</a></td>
+                <td><a href="TLIMB001931.html">UNIDAD MEDICA MOVIL
+                HUAMANTLA I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001943.html">TLIMB001943</a></td>
+                <td><a href="TLIMB001943.html">UNIDAD MEDICA MOVIL
+                TLAXCALA I</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001955.html">TLIMB001955</a></td>
+                <td><a href="TLIMB001955.html">UNIDAD MEDICA MOVIL
+                HUAMANTLA II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001960.html">TLIMB001960</a></td>
+                <td><a href="TLIMB001960.html">SANTA INES
+                TECUEXCOMAC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001972.html">TLIMB001972</a></td>
+                <td><a href="TLIMB001972.html">UNIDAD MEDICA MOVIL
+                APIZACO VI</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB001984.html">TLIMB001984</a></td>
+                <td><a href="TLIMB001984.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES ZACATELCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB001996.html">TLIMB001996</a></td>
+                <td><a href="TLIMB001996.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES SAN PABLO DEL MONTE</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002001.html">TLIMB002001</a></td>
+                <td><a href="TLIMB002001.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES HUAMANTLA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002013.html">TLIMB002013</a></td>
+                <td><a href="TLIMB002013.html">CENTRO COMUNITARIO DE
+                SALUD MENTAL Y ADICCIONES CALPULALPAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002030.html">TLIMB002030</a></td>
+                <td><a href="TLIMB002030.html">UNIDAD MEDICA MOVIL
+                MULTIRRUTA TLAXCALA IV</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002042.html">TLIMB002042</a></td>
+                <td><a href="TLIMB002042.html">UNIDAD MEDICA MOVIL
+                APIZACO II</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002054.html">TLIMB002054</a></td>
+                <td><a href="TLIMB002054.html">TLALTEPANGO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002066.html">TLIMB002066</a></td>
+                <td><a href="TLIMB002066.html">CENTRO DE SALUD DE
+                XALTELULCO</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002071.html">TLIMB002071</a></td>
+                <td><a href="TLIMB002071.html">CENTRO DE SALUD DE SANTA
+                ÚRSULA ZIMATEPEC</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002083.html">TLIMB002083</a></td>
+                <td><a href="TLIMB002083.html">CENTRO DE SALUD DE SANTA
+                MARÍA ATLIHUETZIAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002112.html">TLIMB002112</a></td>
+                <td><a href="TLIMB002112.html">CENTRO DE SALUD
+                XOCOYUCAN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002124.html">TLIMB002124</a></td>
+                <td><a href="TLIMB002124.html">UNEME SORID
+                OCOTLÁN</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002141.html">TLIMB002141</a></td>
+                <td><a href="TLIMB002141.html">CENTRO DE SALUD URBANO DE
+                TLAXCALA</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB002153.html">TLIMB002153</a></td>
+                <td><a href="TLIMB002153.html">CENTRO DE SALUD DE JOSÉ
+                MARÍA MORELOS</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="odd">
+                <td><a href="TLIMB002182.html">TLIMB002182</a></td>
+                <td><a href="TLIMB002182.html">GUADALUPE IXCOTLA
+                (TECTEYOC)</a></td>
+                <td>EN OPERACIÓN</td>
+                </tr>
+                <tr class="even">
+                <td><a href="TLIMB000292.html">TLIMB000292</a></td>
+                <td><a href="TLIMB000292.html">GUADALUPE
+                IXCOTLA(TECTEYOC )</a></td>
+                <td>FUERA DE OPERACIÓN</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img
+                src="figures/mapa_entidad/primer_nivel_tlaxcala.png"
+                id="fig:mapa-primer_nivel-tlaxcala"
+                alt="Figura 1: Localizaciones" />
+                <figcaption aria-hidden="true">Figura 1:
+                Localizaciones</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
