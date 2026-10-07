@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html  dir="ltr">
+
+    <head>
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WVPRD56T');</script>
+        <!-- End Google Tag Manager -->
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DB99ZTHZWK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-DB99ZTHZWK', { 'cookie_domain': 'none' });
+        </script>
+        <!-- End Google Tag Manager -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+        <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"> -->
+        <!-- <link rel="apple-touch-icon-precomposed" href="images/apple-touch-icon.png"> -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/2.26.4/css/uikit.gradient.css">
+
+        <!-- <link rel="stylesheet" href="style.css"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+        <!-- <script src="uikit.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/uikit.js"></script>
+        <!-- <script src="scripts.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/scripts.js"></script>
+        <!-- <script src="jquery.sticky-kit.js "></script> -->
+        <script src="https://cdn.jsdelivr.net/gh/diversen/pandoc-uikit@master/jquery.sticky-kit.js"></script>
+
+        <meta name="generator" content="pandoc-uikit" />
+                <meta name="author" content="Luis M. González " />
+                        <title>Datos de unidades de salud del IMSS Bienestar</title>
+        <style type="text/css">code{white-space: pre;}</style>
+                                                    <script
+                                                    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+                                                    type="text/javascript"></script>
+                            
+            <meta http-equiv="Content-Security-Policy"
+                  content="
+                    default-src 'self';
+                    script-src
+                      'self'
+                      'unsafe-inline'
+                      https://code.jquery.com
+                      https://cdn.jsdelivr.net
+                      https://vjs.zencdn.net
+                      https://www.googletagmanager.com
+                      https://www.google-analytics.com;
+                    style-src
+                      'self'
+                      'unsafe-inline'
+                      https://cdnjs.cloudflare.com
+                      https://cdn.jsdelivr.net;
+                    connect-src
+                      'self'
+                      https://www.google-analytics.com
+                      https://stats.g.doubleclick.net
+                      https://analytics.google.com
+                      https://www.google.com
+                      https://www.googletagmanager.com;
+                    img-src
+                      'self'
+                      https://www.google.com
+                      https://www.google.com.mx
+                      https://www.google.co.uk
+                      https://www.googletagmanager.com
+                      data:
+                      https:;
+                    font-src
+                      'self'
+                      https:
+                      data:;
+                  ">
+
+    </head>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var el = document.getElementById("breadcrumbs");
+  if (!el) return;
+
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+
+  var SITE_ROOT = "";
+  var SITE_LABEL = "Inicio";
+
+  /* -------- Detectar entorno -------- */
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)(.*)/);
+    if (!m) return;
+
+    SITE_ROOT = m[1];
+    path = m[2];
+  } else {
+    SITE_ROOT = "/bigdata/";
+    path = path.replace("/bigdata/", "");
+  }
+
+  var parts = path.split("/").filter(Boolean);
+  var crumbs = [];
+  var acc = SITE_ROOT;
+
+  /* -------- Inicio -------- */
+  crumbs.push(
+    '<a href="' + SITE_ROOT + 'index.html">' + SITE_LABEL + '</a>'
+  );
+
+  parts.forEach(function (p) {
+    if (p === "index.html") return;
+
+    if (p === "entidades") {
+      acc += "entidades/";
+      return;
+    }
+
+    var label = p.replace(/_/g, " ").replace(/\.html$/, "");
+
+    if (p.endsWith(".html")) {
+      acc += p;
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    } else {
+      acc += p + "/";
+      crumbs.push('<a href="' + acc + '">' + label + '</a>');
+    }
+  });
+
+  if (crumbs.length > 1) {
+    el.innerHTML = crumbs.join(
+      ' <span class="uk-margin-small-left uk-margin-small-right">/</span> '
+    );
+  }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  var input = document.getElementById("search");
+  var results = document.getElementById("results");
+  if (!input || !results) {
+    console.error("No existe search o results");
+    return;
+  }
+
+  var data = null;
+  var path = window.location.pathname;
+  var host = window.location.hostname;
+  var SITE_ROOT = "";
+
+  if (host === "localhost" || host === "127.0.0.1") {
+    var m = path.match(/(.*\/bigdata\/)/);
+    if (!m) return;
+    SITE_ROOT = m[1];
+  } else {
+    SITE_ROOT = "/bigdata/";
+  }
+
+  fetch(SITE_ROOT + "search_index.json")
+    .then(r => r.json())
+    .then(json => {
+      data = json;
+      console.log("Índice cargado:", data.length);
+    })
+    .catch(e => console.error("Error cargando índice", e));
+
+  input.addEventListener("input", function () {
+    if (!data) return;
+
+    var q = input.value.toLowerCase();
+    results.innerHTML = "";
+
+    if (q.length < 2) return;
+
+    data
+      .filter(d =>
+        d.clues.toLowerCase().includes(q) ||
+        d.nombre.toLowerCase().includes(q) ||
+        d.entidad.toLowerCase().includes(q)
+      )
+      .slice(0, 20)
+      .forEach(d => {
+        var li = document.createElement("li");
+        li.innerHTML =
+          '<a href="' + SITE_ROOT + d.url + '">' +
+          '<strong>' + d.clues + '</strong><br>' +
+          '<span class="uk-text-small">' + d.nombre + '</span><br>' +
+          '<span class="uk-text-meta">' + d.entidad + '</span>' +
+          '</a>';
+        results.appendChild(li);
+      });
+  });
+
+  input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.href;
+    }
+  });
+
+});
+</script>
+
+
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WVPRD56T"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
+
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                        <h1 class="uk-text-lead uk-text-emphasis">Metas
+de cirugías y egresos hospitalarios</h1>
+                                                                                <p class="uk-text-large uk-text-bold">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+            
+            <!--
+                        <div class="uk-grid" data-uk-grid-margin>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-heading-large">Datos de unidades de
+salud del IMSS Bienestar</h1>
+                                        <h2 class="uk-text-large uk-text-muted">Metas
+de cirugías y egresos hospitalarios</h2>
+                                                                                <p class="uk-text-large">Luis
+M. González
+<a href="https://orcid.org/0000-0002-6539-4173"><img alt="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" width="16" height="16"></a></p>
+                                    </div>
+            </div>
+                        -->
+
+            <div class="uk-grid" data-uk-grid-margin >
+                <div class="uk-width-medium-1-4">
+                    <div class="uk-overflow-container" data-uk-sticky="{top:25,media: 768}">
+                        <div class="uk-panel uk-panel-box menu-begin" >
+
+
+                            <div id="breadcrumbs"
+                                class="uk-text-small uk-text-muted uk-margin-bottom">
+                            </div>
+
+                            <!-- Buscador -->
+                            <input
+                                id="search"
+                                class="uk-input uk-form-small uk-margin-small-bottom"
+                                type="search"
+                                placeholder="Buscar CLUES, unidad o entidad">
+
+                            <ul id="results"
+                                class="uk-list uk-list-small uk-margin-small-bottom">
+                            </ul>
+
+                                                        <ul>
+                                                        <li><a
+                                                        href="#metas-de-cirugías">Metas
+                                                        de
+                                                        cirugías</a></li>
+                                                        </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="uk-width-medium-3-4">
+
+                    <div id="breadcrumbs"
+                        class="uk-text-small uk-text-muted uk-margin-bottom">
+                    </div>
+
+                    
+                <h1 id="metas-de-cirugías">Metas de cirugías</h1>
+                <table>
+                <caption>Metas cirugías por entidad</caption>
+                <thead>
+                <tr class="header">
+                <th style="text-align: left;">entidad</th>
+                <th style="text-align: right;">meta_cirugias</th>
+                <th style="text-align: right;">cirugias</th>
+                <th style="text-align: right;">avance</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd">
+                <td style="text-align: left;">BAJA CALIFORNIA</td>
+                <td style="text-align: right;">35,173</td>
+                <td style="text-align: right;">16,873</td>
+                <td style="text-align: right;">47.97</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">BAJA CALIFORNIA SUR</td>
+                <td style="text-align: right;">11,800</td>
+                <td style="text-align: right;">5,014</td>
+                <td style="text-align: right;">42.49</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">CAMPECHE</td>
+                <td style="text-align: right;">17,015</td>
+                <td style="text-align: right;">8,704</td>
+                <td style="text-align: right;">51.15</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">CHIAPAS</td>
+                <td style="text-align: right;">72,754</td>
+                <td style="text-align: right;">41,640</td>
+                <td style="text-align: right;">57.23</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">CIUDAD DE MÉXICO</td>
+                <td style="text-align: right;">83,548</td>
+                <td style="text-align: right;">42,129</td>
+                <td style="text-align: right;">50.42</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">COLIMA</td>
+                <td style="text-align: right;">19,259</td>
+                <td style="text-align: right;">9,346</td>
+                <td style="text-align: right;">48.53</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">GUANAJUATO</td>
+                <td style="text-align: right;">2,985</td>
+                <td style="text-align: right;">3,035</td>
+                <td style="text-align: right;">101.68</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">GUERRERO</td>
+                <td style="text-align: right;">53,919</td>
+                <td style="text-align: right;">29,195</td>
+                <td style="text-align: right;">54.15</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">HIDALGO</td>
+                <td style="text-align: right;">40,886</td>
+                <td style="text-align: right;">16,835</td>
+                <td style="text-align: right;">41.18</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">MÉXICO</td>
+                <td style="text-align: right;">137,345</td>
+                <td style="text-align: right;">72,128</td>
+                <td style="text-align: right;">52.52</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">MICHOACÁN</td>
+                <td style="text-align: right;">54,749</td>
+                <td style="text-align: right;">26,144</td>
+                <td style="text-align: right;">47.75</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">MORELOS</td>
+                <td style="text-align: right;">21,853</td>
+                <td style="text-align: right;">14,145</td>
+                <td style="text-align: right;">64.73</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">NAYARIT</td>
+                <td style="text-align: right;">17,996</td>
+                <td style="text-align: right;">9,396</td>
+                <td style="text-align: right;">52.21</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">OAXACA</td>
+                <td style="text-align: right;">37,881</td>
+                <td style="text-align: right;">18,541</td>
+                <td style="text-align: right;">48.95</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">PUEBLA</td>
+                <td style="text-align: right;">90,133</td>
+                <td style="text-align: right;">48,494</td>
+                <td style="text-align: right;">53.80</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">QUINTANA ROO</td>
+                <td style="text-align: right;">21,205</td>
+                <td style="text-align: right;">11,059</td>
+                <td style="text-align: right;">52.15</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SAN LUIS POTOSÍ</td>
+                <td style="text-align: right;">43,535</td>
+                <td style="text-align: right;">18,932</td>
+                <td style="text-align: right;">43.49</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">SINALOA</td>
+                <td style="text-align: right;">35,505</td>
+                <td style="text-align: right;">17,910</td>
+                <td style="text-align: right;">50.44</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">SONORA</td>
+                <td style="text-align: right;">30,672</td>
+                <td style="text-align: right;">16,911</td>
+                <td style="text-align: right;">55.13</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">TABASCO</td>
+                <td style="text-align: right;">48,524</td>
+                <td style="text-align: right;">24,433</td>
+                <td style="text-align: right;">50.35</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">TAMAULIPAS</td>
+                <td style="text-align: right;">42,148</td>
+                <td style="text-align: right;">23,769</td>
+                <td style="text-align: right;">56.39</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">TLAXCALA</td>
+                <td style="text-align: right;">27,137</td>
+                <td style="text-align: right;">12,736</td>
+                <td style="text-align: right;">46.93</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">VERACRUZ</td>
+                <td style="text-align: right;">105,783</td>
+                <td style="text-align: right;">47,737</td>
+                <td style="text-align: right;">45.13</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">YUCATÁN</td>
+                <td style="text-align: right;">16,568</td>
+                <td style="text-align: right;">7,023</td>
+                <td style="text-align: right;">42.39</td>
+                </tr>
+                <tr class="odd">
+                <td style="text-align: left;">ZACATECAS</td>
+                <td style="text-align: right;">31,629</td>
+                <td style="text-align: right;">11,949</td>
+                <td style="text-align: right;">37.78</td>
+                </tr>
+                <tr class="even">
+                <td style="text-align: left;">TOTAL</td>
+                <td style="text-align: right;">1,100,002</td>
+                <td style="text-align: right;">554,078</td>
+                <td style="text-align: right;">50.37</td>
+                </tr>
+                </tbody>
+                </table>
+                <figure>
+                <img src="img/mapa_cirugias.png"
+                alt="Avance de metas de cirugías por entidad" />
+                <figcaption aria-hidden="true">Avance de metas de
+                cirugías por entidad</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
